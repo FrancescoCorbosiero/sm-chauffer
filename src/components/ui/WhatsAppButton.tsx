@@ -2,12 +2,13 @@
 import Link from 'next/link';
 import { MessageCircle } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
+import { SITE } from '@/lib/site';
 
 export default function WhatsAppButton() {
   const t = useTranslation();
   return (
     <Link
-      href="https://wa.me/390209952588"
+      href={`https://wa.me/${SITE.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t.whatsapp.aria}

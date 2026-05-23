@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 
 interface Props {
@@ -13,6 +13,9 @@ function analyse(display: string): {
   target: number;
   format: (n: number) => string;
 } | null {
+  // Skip values that look like ratios / times / dates — they aren't counters
+  if (/[\/:]/.test(display)) return null;
+
   const m = display.match(/(\d[\d.,]*)/);
   if (!m || m.index === undefined) return null;
 
@@ -61,13 +64,28 @@ function analyse(display: string): {
 export default function AnimatedCounter({ value, className = '', durationMs = 1400 }: Props) {
   const ref = useRef<HTMLSpanElement>(null!);
   const inView = useInView(ref, { once: true, margin: '-15%' });
-  const analysis = analyse(value);
-  const [display, setDisplay] = useState<string>(
-    analysis ? analysis.format(0) : value,
-  );
+  // Stabilise analysis across re-renders so locale switches / parent updates
+  // don't trigger spurious animation restarts.
+  const analysis = useMemo(() => analyse(value), [value]);
+  // SSR-friendly: render the final value initially so the prerendered HTML
+  // shows the real number (good for SEO and avoids hydration mismatch).
+  const [display, setDisplay] = useState<string>(value);
 
   useEffect(() => {
-    if (!inView || !analysis) return;
+    if (!analysis) {
+      setDisplay(value);
+      return;
+    }
+    if (!inView) return;
+
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setDisplay(value);
+      return;
+    }
+
     const start = performance.now();
     let raf = 0;
     const ease = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -79,7 +97,7 @@ export default function AnimatedCounter({ value, className = '', durationMs = 14
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, analysis, durationMs]);
+  }, [inView, analysis, durationMs, value]);
 
   return (
     <span ref={ref} className={className} aria-label={value}>

@@ -3,19 +3,17 @@ import Marquee from '@/components/ui/Marquee';
 
 const destinations = [
   'Milano',
-  'Brianza',
-  'Monza',
+  'Como',
+  'Bellagio',
+  'Tremezzo',
+  'Lago di Como',
+  'Cernobbio',
+  'Menaggio',
+  'Varenna',
+  'Lugano',
   'Malpensa',
   'Linate',
   'Orio al Serio',
-  'Lago di Como',
-  'Sankt Moritz',
-  'Cortina',
-  'Lugano',
-  'Bergamo',
-  'Verona',
-  'Torino',
-  'Portofino',
 ];
 
 export default function DestinationsStrip() {

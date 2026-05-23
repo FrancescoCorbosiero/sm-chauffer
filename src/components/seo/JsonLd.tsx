@@ -14,12 +14,10 @@ const localBusiness = {
   priceRange: '€€€',
   foundingDate: SITE.founded,
   description:
-    'Servizio NCC di lusso con autista a Milano, Monza Brianza e in tutta Italia. Mercedes, BMW e Range Rover. Transfer aeroportuali, tour privati, eventi e servizio business 24/7.',
+    'Servizio NCC di lusso con autista a Milano, Como, Bellagio e Tremezzo. Mercedes, BMW e Range Rover. Transfer aeroportuali, tour del Lago di Como, eventi e servizio business 24/7.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: SITE.address.street,
     addressLocality: SITE.address.locality,
-    postalCode: SITE.address.postalCode,
     addressRegion: SITE.address.region,
     addressCountry: SITE.address.country,
   },
@@ -39,7 +37,7 @@ const localBusiness = {
       latitude: SITE.geo.latitude,
       longitude: SITE.geo.longitude,
     },
-    geoRadius: '250000',
+    geoRadius: '120000',
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
@@ -62,6 +60,7 @@ const localBusiness = {
     bestRating: '5',
     worstRating: '1',
   },
+  sameAs: [SITE.instagram.url],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Servizi NCC',
@@ -71,7 +70,7 @@ const localBusiness = {
         itemOffered: {
           '@type': 'Service',
           name: 'Transfer Aeroporto Malpensa',
-          areaServed: 'Milano, Brianza, Lombardia',
+          areaServed: 'Milano, Como, Lombardia',
         },
       },
       {
@@ -86,23 +85,23 @@ const localBusiness = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Autista privato Brianza',
-          areaServed: 'Monza e Brianza',
+          name: 'Autista privato Como',
+          areaServed: 'Como, Lago di Como',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Tour privati Lago di Como',
-          areaServed: 'Como, Lombardia',
+          name: 'Tour privati Lago di Como — Bellagio e Tremezzo',
+          areaServed: 'Lago di Como',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Trasferimenti internazionali Sankt Moritz',
+          name: 'Trasferimenti internazionali Lugano',
           areaServed: 'Europa',
         },
       },
@@ -119,12 +118,28 @@ const organization = {
   logo: `${SITE.url}/logo.png`,
   email: SITE.email,
   telephone: SITE.phone,
+  sameAs: [SITE.instagram.url],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: SITE.phone,
+    email: SITE.email,
     contactType: 'reservations',
     availableLanguage: ['Italian', 'English', 'French', 'German', 'Spanish'],
     areaServed: ['IT', 'EU'],
+    hoursAvailable: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '00:00',
+      closes: '23:59',
+    },
   },
 };
 
