@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   ArrowUpRight,
@@ -8,15 +7,6 @@ import {
   Send,
   Youtube,
 } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'Links | SM Luxury Chauffer',
-  description: 'Pagina linktree con i canali principali del brand.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
 
 const links = [
   {
