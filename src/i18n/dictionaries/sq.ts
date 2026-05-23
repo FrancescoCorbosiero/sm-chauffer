@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const sq: Dictionary = {
   meta: {
-    siteTitle: 'Elite Royal Cars — Shofer Luksoz në Itali',
+    siteTitle: 'SM Luxury Chauffer — Shofer Luksoz në Itali',
     siteDescription: 'Qira makinash luksoze me shofer në Milano, Romë dhe në të gjithë Italinë.',
     home: {
-      title: 'Elite Royal Cars — Kreu',
+      title: 'SM Luxury Chauffer — Kreu',
       description: 'Qira makinash luksoze me shofer në Milano, Romë dhe në të gjithë Italinë.',
     },
     fleet: {
-      title: 'Flota Jonë | Elite Royal Cars',
+      title: 'Flota Jonë | SM Luxury Chauffer',
       description: 'Zbuloni flotën tonë të automjeteve luksoze: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Shërbimet | Elite Royal Cars',
+      title: 'Shërbimet | SM Luxury Chauffer',
       description: 'Transferta aeroportuale, shofer privat, tura në Itali. Shërbim 24/7.',
     },
     about: {
-      title: 'Rreth Nesh | Elite Royal Cars',
-      description: 'Elite Royal Cars — Milano. Shërbim me makinë dhe shofer.',
+      title: 'Rreth Nesh | SM Luxury Chauffer',
+      description: 'SM Luxury Chauffer — Milano. Shërbim me makinë dhe shofer.',
     },
     blog: {
-      title: 'Blog | Elite Royal Cars',
+      title: 'Blog | SM Luxury Chauffer',
       description: 'Artikuj dhe udhëzues mbi transferimet luksoze, destinacionet dhe stilin e jetesës.',
     },
     contact: {
-      title: 'Kontakt | Elite Royal Cars',
+      title: 'Kontakt | SM Luxury Chauffer',
       description: 'Na kontaktoni për rezervime dhe informacione mbi shërbimin tonë me shofer.',
     },
   },
@@ -42,7 +42,7 @@ const sq: Dictionary = {
     openMenu: 'Hap menynë',
     closeMenu: 'Mbyll menynë',
     mainNavLabel: 'Navigimi kryesor',
-    homeAria: 'Elite Royal Cars — Kreu',
+    homeAria: 'SM Luxury Chauffer — Kreu',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const sq: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Elite Royal Cars · Milano',
+    eyebrow: 'SM Luxury Chauffer · Milano',
     titlePart1: 'Shofer luksoz',
     titlePart2: 'në Itali',
     description:
@@ -120,7 +120,7 @@ const sq: Dictionary = {
   testimonialsSection: {
     label: 'Dëshmitë',
     title: 'Çfarë thonë klientët tanë',
-    description: '5.0 yje në Google — vlerësime reale nga ata që zgjodhën Elite Royal Cars.',
+    description: '5.0 yje në Google — vlerësime reale nga ata që zgjodhën SM Luxury Chauffer.',
     starsAria: '{n} nga 5 yje',
   },
   blogPreview: {
@@ -173,10 +173,10 @@ const sq: Dictionary = {
   },
   aboutPage: {
     label: 'Rreth Nesh',
-    title: 'Elite Royal Cars — Milano',
+    title: 'SM Luxury Chauffer — Milano',
     description: 'Që nga viti 2014 në shërbim të atyre që kërkojnë një transfertë në lartësinë e pritshmërive të tyre.',
     paragraphs: [
-      'Elite Royal Cars lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
+      'SM Luxury Chauffer lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
       'Çdo ditë punojmë me klientë biznesi, mysafirë të hoteleve pesë-yje, agjenci udhëtimesh luksoze dhe operatorë të modës gjatë javëve më të rëndësishme të kalendarit milanez.',
       'Flota jonë — tërësisht Mercedes, BMW dhe Range Rover — mirëmbahet nga personel i dedikuar. Shoferët, të zgjedhur me kujdes, flasin anglisht dhe njohin protokollet e shërbimit të sektorit luksoz.',
     ],
@@ -220,7 +220,7 @@ const sq: Dictionary = {
       phone: 'Telefon',
       phoneValue: '+39 02 099 52588',
       email: 'Email',
-      emailValue: 'info@eliteroyalcars.it',
+      emailValue: 'info@smluxurychauffer.it',
       availability: 'Disponueshmëri',
       availabilityValue: '24 orë në ditë, 7 ditë në javë',
     },
@@ -321,7 +321,7 @@ const sq: Dictionary = {
     },
     '2': {
       text:
-        'E përdora Elite Royal Cars gjatë Fashion Week-ut të Milanos. Shërbim i shkëlqyer, shofer diskret dhe Mercedes Klasi S i patëmetë. Do të rezervoj sërish sezonin tjetër.',
+        'E përdora SM Luxury Chauffer gjatë Fashion Week-ut të Milanos. Shërbim i shkëlqyer, shofer diskret dhe Mercedes Klasi S i patëmetë. Do të rezervoj sërish sezonin tjetër.',
     },
     '3': {
       text:
@@ -339,12 +339,12 @@ const sq: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Kërkesë për ofertë — Elite Royal Cars',
+      subject: 'Kërkesë për ofertë — SM Luxury Chauffer',
       intro: 'Kërkesë e re për ofertë',
       tripType: 'Lloji i udhëtimit',
     },
     contact: {
-      subject: 'Kërkesë kontakti — Elite Royal Cars',
+      subject: 'Kërkesë kontakti — SM Luxury Chauffer',
       intro: 'Kërkesë e re kontakti',
     },
   },

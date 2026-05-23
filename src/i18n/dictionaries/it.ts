@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const it: Dictionary = {
   meta: {
-    siteTitle: 'Elite Royal Cars — Autista di Lusso in Italia',
+    siteTitle: 'SM Luxury Chauffer — Autista di Lusso in Italia',
     siteDescription: 'Noleggio auto di lusso con autista a Milano, Roma e in tutta Italia.',
     home: {
-      title: 'Elite Royal Cars — Home',
+      title: 'SM Luxury Chauffer — Home',
       description: 'Noleggio auto di lusso con autista a Milano, Roma e in tutta Italia.',
     },
     fleet: {
-      title: 'La Nostra Flotta | Elite Royal Cars',
+      title: 'La Nostra Flotta | SM Luxury Chauffer',
       description: 'Scopri la nostra flotta di veicoli luxury: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Servizi | Elite Royal Cars',
+      title: 'Servizi | SM Luxury Chauffer',
       description: 'Transfer aeroporto, autista privato, tour in Italia. Servizio disponibile 24/7.',
     },
     about: {
-      title: 'Chi Siamo | Elite Royal Cars',
-      description: 'Elite Royal Cars — Milano. Servizio di autonoleggio con autista.',
+      title: 'Chi Siamo | SM Luxury Chauffer',
+      description: 'SM Luxury Chauffer — Milano. Servizio di autonoleggio con autista.',
     },
     blog: {
-      title: 'Blog | Elite Royal Cars',
+      title: 'Blog | SM Luxury Chauffer',
       description: 'Articoli e guide su transfer di lusso, destinazioni e lifestyle.',
     },
     contact: {
-      title: 'Contatti | Elite Royal Cars',
+      title: 'Contatti | SM Luxury Chauffer',
       description: 'Contattaci per prenotazioni e informazioni sul nostro servizio NCC.',
     },
   },
@@ -42,7 +42,7 @@ const it: Dictionary = {
     openMenu: 'Apri menu',
     closeMenu: 'Chiudi menu',
     mainNavLabel: 'Navigazione principale',
-    homeAria: 'Elite Royal Cars — Home',
+    homeAria: 'SM Luxury Chauffer — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const it: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Elite Royal Cars · Milano',
+    eyebrow: 'SM Luxury Chauffer · Milano',
     titlePart1: 'Autista di lusso',
     titlePart2: 'in Italia',
     description:
@@ -121,7 +121,7 @@ const it: Dictionary = {
   testimonialsSection: {
     label: 'Testimonianze',
     title: 'Cosa dicono i nostri clienti',
-    description: '5.0 stelle su Google — feedback reali da chi ha scelto Elite Royal Cars.',
+    description: '5.0 stelle su Google — feedback reali da chi ha scelto SM Luxury Chauffer.',
     starsAria: '{n} su 5 stelle',
   },
   blogPreview: {
@@ -174,11 +174,11 @@ const it: Dictionary = {
   },
   aboutPage: {
     label: 'Chi Siamo',
-    title: 'Elite Royal Cars — Milano',
+    title: 'SM Luxury Chauffer — Milano',
     description:
       "Dal 2014 al servizio di chi cerca un trasferimento all'altezza delle proprie aspettative.",
     paragraphs: [
-      "Elite Royal Cars nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
+      "SM Luxury Chauffer nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
       "Lavoriamo ogni giorno con clienti business, ospiti d'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.",
       'La nostra flotta — interamente Mercedes, BMW e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
     ],
@@ -222,7 +222,7 @@ const it: Dictionary = {
       phone: 'Telefono',
       phoneValue: '+39 02 099 52588',
       email: 'Email',
-      emailValue: 'info@eliteroyalcars.it',
+      emailValue: 'info@smluxurychauffer.it',
       availability: 'Disponibilità',
       availabilityValue: '24 ore su 24, 7 giorni su 7',
     },
@@ -325,7 +325,7 @@ const it: Dictionary = {
     },
     '2': {
       text:
-        "Ho usato Elite Royal Cars durante la Milano Fashion Week. Servizio eccellente, autista discreto e la Mercedes Classe S immacolata. Prenoterò di nuovo la prossima stagione.",
+        "Ho usato SM Luxury Chauffer durante la Milano Fashion Week. Servizio eccellente, autista discreto e la Mercedes Classe S immacolata. Prenoterò di nuovo la prossima stagione.",
     },
     '3': {
       text:
@@ -343,12 +343,12 @@ const it: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Richiesta di preventivo — Elite Royal Cars',
+      subject: 'Richiesta di preventivo — SM Luxury Chauffer',
       intro: 'Nuova richiesta di preventivo',
       tripType: 'Tipo di viaggio',
     },
     contact: {
-      subject: 'Richiesta di contatto — Elite Royal Cars',
+      subject: 'Richiesta di contatto — SM Luxury Chauffer',
       intro: 'Nuova richiesta di contatto',
     },
   },

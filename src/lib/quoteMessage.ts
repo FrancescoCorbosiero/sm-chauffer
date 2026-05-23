@@ -1,6 +1,6 @@
 import type { Dictionary } from '@/i18n/types';
 
-export const CONTACT_EMAIL = 'info@eliteroyalcars.it';
+export const CONTACT_EMAIL = 'info@smluxurychauffer.it';
 export const CONTACT_WHATSAPP = '390209952588';
 
 export interface BookingPayload {

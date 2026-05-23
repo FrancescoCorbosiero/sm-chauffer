@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Links | Elite Royal Cars',
+  title: 'Links | SM Luxury Chauffer',
   description: 'Pagina linktree con i canali principali del brand.',
   robots: {
     index: false,
@@ -68,7 +68,7 @@ export default function LinksPage() {
         <div className="max-w-xl mx-auto">
           <div className="mb-6 rounded-[2rem] border border-[var(--color-border)] bg-white/80 backdrop-blur-md px-6 py-5 shadow-[var(--shadow-sm)]">
             <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-text-muted)]">
-              Elite Royal Cars
+              SM Luxury Chauffer
             </p>
             <div className="mt-3 flex items-center justify-between gap-4">
               <div>
@@ -80,7 +80,7 @@ export default function LinksPage() {
                 </p>
               </div>
               <div className="h-14 w-14 rounded-full border border-[var(--color-border)] bg-[linear-gradient(135deg,#ffffff_0%,#f0e6d2_100%)] flex items-center justify-center shadow-[var(--shadow-sm)]">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink)]">ERC</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-ink)]">SM</span>
               </div>
             </div>
           </div>
