@@ -71,7 +71,7 @@ export default function Navbar() {
               letterSpacing="4"
               fill="currentColor"
             >
-              ELITE
+              SM
             </text>
             <text
               x="84"
@@ -79,11 +79,11 @@ export default function Navbar() {
               fontFamily="var(--font-body)"
               fontSize="8"
               fontWeight="400"
-              letterSpacing="5"
+              letterSpacing="3"
               fill="currentColor"
               opacity="0.6"
             >
-              ROYAL CARS
+              LUXURY CHAUFFER
             </text>
           </svg>
         </Link>

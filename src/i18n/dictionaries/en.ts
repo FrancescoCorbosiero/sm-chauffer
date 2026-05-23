@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const en: Dictionary = {
   meta: {
-    siteTitle: 'Elite Royal Cars — Luxury Chauffeur Service in Italy',
+    siteTitle: 'SM Luxury Chauffer — Luxury Chauffeur Service in Italy',
     siteDescription: 'Luxury chauffeur car hire in Milan, Rome and across Italy.',
     home: {
-      title: 'Elite Royal Cars — Home',
+      title: 'SM Luxury Chauffer — Home',
       description: 'Luxury chauffeur car hire in Milan, Rome and across Italy.',
     },
     fleet: {
-      title: 'Our Fleet | Elite Royal Cars',
+      title: 'Our Fleet | SM Luxury Chauffer',
       description: 'Discover our luxury fleet: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Services | Elite Royal Cars',
+      title: 'Services | SM Luxury Chauffer',
       description: 'Airport transfers, private chauffeur, tours in Italy. Available 24/7.',
     },
     about: {
-      title: 'About Us | Elite Royal Cars',
-      description: 'Elite Royal Cars — Milan. Luxury chauffeur service.',
+      title: 'About Us | SM Luxury Chauffer',
+      description: 'SM Luxury Chauffer — Milan. Luxury chauffeur service.',
     },
     blog: {
-      title: 'Blog | Elite Royal Cars',
+      title: 'Blog | SM Luxury Chauffer',
       description: 'Articles and guides on luxury transfers, destinations and lifestyle.',
     },
     contact: {
-      title: 'Contact | Elite Royal Cars',
+      title: 'Contact | SM Luxury Chauffer',
       description: 'Contact us for bookings and information about our chauffeur service.',
     },
   },
@@ -42,7 +42,7 @@ const en: Dictionary = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     mainNavLabel: 'Main navigation',
-    homeAria: 'Elite Royal Cars — Home',
+    homeAria: 'SM Luxury Chauffer — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const en: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Elite Royal Cars · Milan',
+    eyebrow: 'SM Luxury Chauffer · Milan',
     titlePart1: 'Luxury chauffeur',
     titlePart2: 'in Italy',
     description:
@@ -121,7 +121,7 @@ const en: Dictionary = {
   testimonialsSection: {
     label: 'Testimonials',
     title: 'What our clients say',
-    description: '5.0 stars on Google — real feedback from those who chose Elite Royal Cars.',
+    description: '5.0 stars on Google — real feedback from those who chose SM Luxury Chauffer.',
     starsAria: '{n} out of 5 stars',
   },
   blogPreview: {
@@ -174,11 +174,11 @@ const en: Dictionary = {
   },
   aboutPage: {
     label: 'About',
-    title: 'Elite Royal Cars — Milan',
+    title: 'SM Luxury Chauffer — Milan',
     description:
       'Since 2014 at the service of those who seek transfers worthy of their expectations.',
     paragraphs: [
-      'Elite Royal Cars was founded in Milan with a simple goal: to bring to private transfers the same level of care, elegance and attention that defines high-end hospitality.',
+      'SM Luxury Chauffer was founded in Milan with a simple goal: to bring to private transfers the same level of care, elegance and attention that defines high-end hospitality.',
       'We work every day with business clients, five-star hotel guests, luxury travel agencies and fashion operators during the most important weeks of the Milan calendar.',
       'Our fleet — entirely Mercedes, BMW and Range Rover — is maintained by dedicated staff. Our carefully selected chauffeurs speak English and know the service protocols of the luxury sector.',
     ],
@@ -222,7 +222,7 @@ const en: Dictionary = {
       phone: 'Phone',
       phoneValue: '+39 02 099 52588',
       email: 'Email',
-      emailValue: 'info@eliteroyalcars.it',
+      emailValue: 'info@smluxurychauffer.it',
       availability: 'Availability',
       availabilityValue: '24 hours a day, 7 days a week',
     },
@@ -323,7 +323,7 @@ const en: Dictionary = {
     },
     '2': {
       text:
-        'Used Elite Royal Cars during Milan Fashion Week. Outstanding service, discreet driver, and the Mercedes S-Class was immaculate. Will book again next season.',
+        'Used SM Luxury Chauffer during Milan Fashion Week. Outstanding service, discreet driver, and the Mercedes S-Class was immaculate. Will book again next season.',
     },
     '3': {
       text:
@@ -341,12 +341,12 @@ const en: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Quote request — Elite Royal Cars',
+      subject: 'Quote request — SM Luxury Chauffer',
       intro: 'New quote request',
       tripType: 'Trip type',
     },
     contact: {
-      subject: 'Contact request — Elite Royal Cars',
+      subject: 'Contact request — SM Luxury Chauffer',
       intro: 'New contact request',
     },
   },

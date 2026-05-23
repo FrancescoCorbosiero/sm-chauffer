@@ -115,7 +115,7 @@ export default function ContactPage() {
   const info: Array<{ icon: LucideIcon; label: string; value: string; href?: string }> = [
     { icon: MapPin, label: t.contactPage.info.address, value: t.contactPage.info.addressValue },
     { icon: Phone, label: t.contactPage.info.phone, value: t.contactPage.info.phoneValue, href: 'tel:+390209952588' },
-    { icon: Mail, label: t.contactPage.info.email, value: t.contactPage.info.emailValue, href: 'mailto:info@eliteroyalcars.it' },
+    { icon: Mail, label: t.contactPage.info.email, value: t.contactPage.info.emailValue, href: 'mailto:info@smluxurychauffer.it' },
     { icon: Clock, label: t.contactPage.info.availability, value: t.contactPage.info.availabilityValue },
   ];
 

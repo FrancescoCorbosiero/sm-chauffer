@@ -22,7 +22,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'Elite Royal Cars — Autista di Lusso in Italia',
+  title: 'SM Luxury Chauffer — Autista di Lusso in Italia',
   description: 'Noleggio auto di lusso con autista a Milano, Roma e in tutta Italia.',
 };
 
