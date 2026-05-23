@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
 import StatsSection from '@/components/sections/StatsSection';
+import DestinationsStrip from '@/components/sections/DestinationsStrip';
 import FleetPreviewSection from '@/components/sections/FleetPreviewSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import WhyUsSection from '@/components/sections/WhyUsSection';
+import CtaBanner from '@/components/sections/CtaBanner';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
 import { useTranslation } from '@/i18n/LanguageProvider';
@@ -19,7 +21,10 @@ export default function HomePage() {
   const [isLoaderFadingOut, setIsLoaderFadingOut] = useState(false);
 
   useEffect(() => {
-    const navigationType = window.performance.getEntriesByType('navigation')[0]?.type;
+    const navEntry = window.performance.getEntriesByType(
+      'navigation',
+    )[0] as PerformanceNavigationTiming | undefined;
+    const navigationType = navEntry?.type;
 
     if (navigationType !== 'reload' || hasShownHomeLoader) {
       setShowLoader(false);
@@ -59,9 +64,11 @@ export default function HomePage() {
       )}
       <HeroSection />
       <StatsSection />
+      <DestinationsStrip />
       <FleetPreviewSection />
       <ServicesSection />
       <WhyUsSection />
+      <CtaBanner />
       <TestimonialsSection />
       <BlogPreviewSection />
     </div>

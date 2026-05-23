@@ -40,7 +40,7 @@ export default function QuoteChoiceModal({ open, payload, onClose }: Props) {
 
   if (!open || !payload) return null;
 
-  const message = buildQuoteMessage(payload, t);
+  const message = buildQuoteMessage(payload);
 
   const handleEmail = () => {
     window.location.href = buildMailtoUrl(message);

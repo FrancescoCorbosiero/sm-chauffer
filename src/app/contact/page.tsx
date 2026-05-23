@@ -59,11 +59,6 @@ export default function ContactPage() {
   }, [vehicleId]);
 
   const f = t.contactPage.form;
-  const serviceLabel = {
-    'one-way': t.bookingForm.oneWay,
-    hourly: t.bookingForm.hourly,
-    'airport-transfer': f.airportTransfer,
-  }[serviceType];
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,29 +81,21 @@ export default function ContactPage() {
     }
     setError(null);
 
-    const lines = [
-      f.bookingDetails,
-      `${f.serviceType}: ${serviceLabel}`,
-      `${t.contactPage.name}: ${name.trim()}`,
-      `${t.contactPage.email}: ${email.trim()}`,
-      `${t.contactPage.phone}: ${phone.trim()}`,
-      `${t.bookingForm.from}: ${from.trim()}`,
-      `${t.bookingForm.to}: ${to.trim()}`,
-      `${t.bookingForm.date}: ${date.trim()}`,
-      `${f.pickupTime}: ${time.trim()}`,
-      `${f.selectCarLabel}: ${selectedVehicle.name}`,
-      passengers.trim() ? `${f.passengers}: ${passengers.trim()}` : null,
-      bags.trim() ? `${f.bags}: ${bags.trim()}` : null,
-      `${f.childSeat}: ${childSeat ? f.yes : f.no}`,
-      message.trim() ? `${f.additionalNotes}: ${message.trim()}` : null,
-    ].filter((line): line is string => line !== null);
-
     setModalPayload({
       kind: 'contact',
-      name,
-      phone,
-      email,
-      message: lines.join('\n'),
+      serviceType,
+      name: name.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
+      from: from.trim(),
+      to: to.trim(),
+      date: date.trim(),
+      time: time.trim(),
+      vehicle: selectedVehicle.name,
+      passengers: passengers.trim() || undefined,
+      bags: bags.trim() || undefined,
+      childSeat,
+      notes: message.trim() || undefined,
     });
   };
 
