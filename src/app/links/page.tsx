@@ -2,11 +2,12 @@ import Link from 'next/link';
 import {
   ArrowUpRight,
   Globe,
+  Instagram,
+  Mail,
   MessageCircle,
-  Music2,
-  Send,
-  Youtube,
+  Phone,
 } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 const links = [
   {
@@ -19,29 +20,29 @@ const links = [
   {
     title: 'WhatsApp',
     description: 'Scrivici subito per un contatto rapido.',
-    href: 'https://wa.me/390209952588',
+    href: `https://wa.me/${SITE.whatsapp}`,
     icon: MessageCircle,
     external: true,
   },
   {
-    title: 'Telegram',
-    description: 'Aggiorna questo link con il tuo profilo Telegram.',
-    href: 'https://t.me/yourusername',
-    icon: Send,
-    external: true,
+    title: 'Telefono',
+    description: 'Chiama direttamente, disponibili 24 ore.',
+    href: `tel:${SITE.phone}`,
+    icon: Phone,
+    external: false,
   },
   {
-    title: 'YouTube',
-    description: 'Porta gli utenti al tuo canale video.',
-    href: 'https://youtube.com/@yourchannel',
-    icon: Youtube,
-    external: true,
+    title: 'Email',
+    description: 'Scrivi a info@smchauffer.it per preventivi e info.',
+    href: `mailto:${SITE.email}`,
+    icon: Mail,
+    external: false,
   },
   {
-    title: 'TikTok',
-    description: 'Aggiungi il tuo profilo TikTok ufficiale.',
-    href: 'https://tiktok.com/@yourprofile',
-    icon: Music2,
+    title: 'Instagram',
+    description: `Seguici su @${SITE.instagram.handle} per la flotta e i dietro le quinte.`,
+    href: SITE.instagram.url,
+    icon: Instagram,
     external: true,
   },
 ] as const;
@@ -66,7 +67,7 @@ export default function LinksPage() {
                   Links
                 </h1>
                 <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-                  Selezione rapida dei canali ufficiali.
+                  Milano · Como · Bellagio · Tremezzo
                 </p>
               </div>
               <div className="h-14 w-14 rounded-full border border-[var(--color-border)] bg-[linear-gradient(135deg,#ffffff_0%,#f0e6d2_100%)] flex items-center justify-center shadow-[var(--shadow-sm)]">

@@ -123,7 +123,7 @@ export default function HeroSection() {
               transition={{ duration: 0.9, delay: 0.95 }}
               className="mt-12 flex items-center gap-6 text-[10px] uppercase tracking-[0.3em] text-white/45"
             >
-              <span>Malpensa · Linate · Orio</span>
+              <span>Milano · Como · Bellagio · Tremezzo</span>
               <span aria-hidden className="h-px w-8 bg-white/20" />
               <span>24 / 7</span>
             </motion.div>

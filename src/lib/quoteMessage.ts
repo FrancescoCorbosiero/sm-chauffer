@@ -1,5 +1,5 @@
-export const CONTACT_EMAIL = 'info@smluxurychauffer.it';
-export const CONTACT_WHATSAPP = '390209952588';
+export const CONTACT_EMAIL = 'info@smchauffer.it';
+export const CONTACT_WHATSAPP = '393286871152';
 
 export interface BookingPayload {
   kind: 'booking';

@@ -7,6 +7,7 @@ import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
 import { vehicles } from '@/lib/data';
 import type { ContactPayload } from '@/lib/quoteMessage';
+import { SITE } from '@/lib/site';
 
 const fieldShell = 'flex flex-col gap-1';
 const labelClass = 'text-sm text-[var(--color-ink)]';
@@ -101,8 +102,8 @@ export default function ContactPage() {
 
   const info: Array<{ icon: LucideIcon; label: string; value: string; href?: string }> = [
     { icon: MapPin, label: t.contactPage.info.address, value: t.contactPage.info.addressValue },
-    { icon: Phone, label: t.contactPage.info.phone, value: t.contactPage.info.phoneValue, href: 'tel:+390209952588' },
-    { icon: Mail, label: t.contactPage.info.email, value: t.contactPage.info.emailValue, href: 'mailto:info@smluxurychauffer.it' },
+    { icon: Phone, label: t.contactPage.info.phone, value: t.contactPage.info.phoneValue, href: `tel:${SITE.phone}` },
+    { icon: Mail, label: t.contactPage.info.email, value: t.contactPage.info.emailValue, href: `mailto:${SITE.email}` },
     { icon: Clock, label: t.contactPage.info.availability, value: t.contactPage.info.availabilityValue },
   ];
 

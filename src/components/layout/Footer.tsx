@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
+import { SITE } from '@/lib/site';
 
 export default function Footer() {
   const t = useTranslation();
@@ -32,6 +33,16 @@ export default function Footer() {
             <p className="text-sm sm:text-[0.98rem] text-white/72 leading-relaxed max-w-sm">
               {t.footer.tagline}
             </p>
+            <a
+              href={SITE.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Instagram @${SITE.instagram.handle}`}
+              className="mt-6 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+            >
+              <Instagram size={16} aria-hidden />
+              <span>@{SITE.instagram.handle}</span>
+            </a>
           </div>
 
           <nav aria-label={t.footer.pagesAria} className="lg:col-span-2 text-sm">
@@ -88,17 +99,20 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3.5">
                 <Phone size={16} className="shrink-0 text-white/55" />
-                <a href="tel:+390209952588" className="hover:text-white transition-colors duration-200">
-                  +39 02 099 52588
+                <a
+                  href={`tel:${SITE.phone}`}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {SITE.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-3.5">
                 <Mail size={16} className="shrink-0 text-white/55" />
                 <a
-                  href="mailto:info@smluxurychauffer.it"
+                  href={`mailto:${SITE.email}`}
                   className="hover:text-white transition-colors duration-200"
                 >
-                  info@smluxurychauffer.it
+                  {SITE.email}
                 </a>
               </li>
             </ul>
