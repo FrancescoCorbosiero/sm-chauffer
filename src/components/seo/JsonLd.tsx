@@ -70,7 +70,7 @@ const localBusiness = {
         itemOffered: {
           '@type': 'Service',
           name: 'Transfer Aeroporto Malpensa',
-          areaServed: 'Milano, Como, Lombardia',
+          areaServed: 'Milano, Brianza, Lombardia',
         },
       },
       {
@@ -85,8 +85,8 @@ const localBusiness = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Autista privato Como',
-          areaServed: 'Como, Lago di Como',
+          name: 'Autista privato Brianza',
+          areaServed: 'Monza e Brianza',
         },
       },
       {
@@ -124,7 +124,7 @@ const organization = {
     telephone: SITE.phone,
     email: SITE.email,
     contactType: 'reservations',
-    availableLanguage: ['Italian', 'English', 'French', 'German', 'Spanish'],
+    availableLanguage: ['Italian', 'English', 'French', 'German', 'Spanish', 'Russian'],
     areaServed: ['IT', 'EU'],
     hoursAvailable: {
       '@type': 'OpeningHoursSpecification',
@@ -153,18 +153,25 @@ const website = {
   publisher: { '@id': `${SITE.url}/#organization` },
 };
 
+// Each script gets a stable id so React 19 deduplicates the element across
+// re-renders (HMR, route changes) instead of warning about a "client-rendered
+// script that won't execute" — JSON-LD doesn't need to execute, it just sits
+// in the DOM for crawlers.
 export default function JsonLd() {
   return (
     <>
       <script
+        id="ld-localbusiness"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
       />
       <script
+        id="ld-organization"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
       />
       <script
+        id="ld-website"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
