@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import BookingForm from '@/components/ui/BookingForm';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { useTranslation } from '@/i18n/LanguageProvider';
+import { IMAGES } from '@/lib/images';
 
 function WordRise({ text, delay = 0 }: { text: string; delay?: number }) {
   const words = text.split(' ');
@@ -34,7 +35,7 @@ export default function HeroSection() {
     >
       <motion.div style={{ y: imageY }} className="absolute inset-0 will-change-transform">
         <Image
-          src="https://picsum.photos/seed/luxury-car-hero-night/1920/1080"
+          src={IMAGES.hero}
           alt={t.hero.imageAlt}
           fill
           priority
@@ -123,7 +124,7 @@ export default function HeroSection() {
               transition={{ duration: 0.9, delay: 0.95 }}
               className="mt-12 flex items-center gap-6 text-[10px] uppercase tracking-[0.3em] text-white/45"
             >
-              <span>Milano · Como · Bellagio · Tremezzo</span>
+              <span>Milano · Brianza · Como · Bellagio · Tremezzo</span>
               <span aria-hidden className="h-px w-8 bg-white/20" />
               <span>24 / 7</span>
             </motion.div>

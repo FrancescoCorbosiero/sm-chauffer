@@ -52,8 +52,8 @@ const en: Dictionary = {
     contacts: 'Contact',
     rightsReserved: 'All rights reserved',
     vat: 'VAT registration pending · Licensed chauffeur service',
-    addressLine1: 'Milano · Como',
-    addressLine2: 'Bellagio · Tremezzo',
+    addressLine1: 'Milano · Brianza',
+    addressLine2: 'Como · Bellagio · Tremezzo',
     pagesAria: 'Pages',
     servicesAria: 'Services',
     serviceLinks: {
@@ -218,7 +218,7 @@ const en: Dictionary = {
     infoTitle: 'Information',
     info: {
       address: 'Address',
-      addressValue: 'Milano · Como · Bellagio · Tremezzo',
+      addressValue: 'Milano · Brianza · Como · Bellagio · Tremezzo',
       phone: 'Phone',
       phoneValue: '+39 328 687 1152',
       email: 'Email',

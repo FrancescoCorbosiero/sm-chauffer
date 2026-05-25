@@ -14,7 +14,7 @@ const localBusiness = {
   priceRange: '€€€',
   foundingDate: SITE.founded,
   description:
-    'Servizio NCC di lusso con autista a Milano, Como, Bellagio e Tremezzo. Mercedes, BMW e Range Rover. Transfer aeroportuali, tour del Lago di Como, eventi e servizio business 24/7.',
+    'Servizio NCC di lusso con autista a Milano, in Brianza, sul Lago di Como, a Bellagio e Tremezzo. Mercedes, BMW e Range Rover. Transfer aeroportuali, tour del Lago di Como, eventi e servizio business 24/7.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: SITE.address.locality,

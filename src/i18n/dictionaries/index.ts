@@ -5,7 +5,7 @@ import es from './es';
 import de from './de';
 import fr from './fr';
 import sq from './sq';
-import ro from './ro';
+import ru from './ru';
 
 export const dictionaries: Record<Locale, Dictionary> = {
   it,
@@ -14,5 +14,5 @@ export const dictionaries: Record<Locale, Dictionary> = {
   de,
   fr,
   sq,
-  ro,
+  ru,
 };

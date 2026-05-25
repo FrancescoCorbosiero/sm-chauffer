@@ -28,19 +28,23 @@ const dmSans = DM_Sans({
 });
 
 const description =
-  'Noleggio Con Conducente (NCC) di lusso a Milano, Como, Bellagio e Tremezzo. Flotta Mercedes, BMW e Range Rover. Transfer Malpensa, Linate, Orio al Serio, tour del Lago di Como e servizio business 24/7.';
+  'Noleggio Con Conducente (NCC) di lusso a Milano, in Brianza, sul Lago di Como, a Bellagio e Tremezzo. Flotta Mercedes, BMW e Range Rover. Transfer Malpensa, Linate, Orio al Serio e servizio business 24/7.';
 
 const keywords = [
   'NCC Milano',
+  'NCC Brianza',
+  'NCC Monza',
   'NCC Como',
   'NCC Bellagio',
   'NCC Tremezzo',
   'autista privato Milano',
+  'autista privato Brianza',
   'autista privato Como',
   'autista Lago di Como',
   'noleggio con conducente Milano',
-  'noleggio con autista Milano',
+  'noleggio con conducente Brianza',
   'transfer Malpensa Milano',
+  'transfer Malpensa Brianza',
   'transfer Linate',
   'transfer Orio al Serio',
   'auto di lusso con autista Milano',
@@ -54,13 +58,13 @@ const keywords = [
   'transfer Lugano',
   'servizio VIP Milano',
   'auto matrimonio Como',
-  'limousine service Milan Como',
+  'limousine service Milan Brianza Como',
 ];
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'SM Luxury Chauffer — NCC e Autista di Lusso a Milano, Como e Lago di Como',
+    default: 'SM Luxury Chauffer — NCC e Autista di Lusso a Milano, Brianza e Lago di Como',
     template: '%s · SM Luxury Chauffer',
   },
   description,
@@ -86,23 +90,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'it_IT',
-    alternateLocale: ['en_US', 'fr_FR', 'de_DE', 'es_ES', 'ro_RO', 'sq_AL'],
+    alternateLocale: ['en_US', 'fr_FR', 'de_DE', 'es_ES', 'ru_RU', 'sq_AL'],
     url: SITE.url,
     siteName: SITE.name,
-    title: 'SM Luxury Chauffer — Autista di lusso a Milano e sul Lago di Como',
+    title: 'SM Luxury Chauffer — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
     images: [
       {
         url: '/og.jpg',
         width: 1200,
         height: 630,
-        alt: 'SM Luxury Chauffer — flotta luxury a Milano e sul Lago di Como',
+        alt: 'SM Luxury Chauffer — flotta luxury a Milano, in Brianza e sul Lago di Como',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SM Luxury Chauffer — Autista di lusso a Milano e sul Lago di Como',
+    title: 'SM Luxury Chauffer — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
     images: ['/og.jpg'],
   },

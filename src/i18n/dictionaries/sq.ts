@@ -52,8 +52,8 @@ const sq: Dictionary = {
     contacts: 'Kontakt',
     rightsReserved: 'Të gjitha të drejtat e rezervuara',
     vat: 'P.IVA në regjistrim · Shofer i autorizuar',
-    addressLine1: 'Milano · Como',
-    addressLine2: 'Bellagio · Tremezzo',
+    addressLine1: 'Milano · Brianza',
+    addressLine2: 'Como · Bellagio · Tremezzo',
     pagesAria: 'Faqet',
     servicesAria: 'Shërbimet',
     serviceLinks: {
@@ -216,7 +216,7 @@ const sq: Dictionary = {
     infoTitle: 'Informacione',
     info: {
       address: 'Adresa',
-      addressValue: 'Milano · Como · Bellagio · Tremezzo',
+      addressValue: 'Milano · Brianza · Como · Bellagio · Tremezzo',
       phone: 'Telefon',
       phoneValue: '+39 328 687 1152',
       email: 'Email',

@@ -52,8 +52,8 @@ const es: Dictionary = {
     contacts: 'Contacto',
     rightsReserved: 'Todos los derechos reservados',
     vat: 'NIF en proceso de registro · NCC autorizado',
-    addressLine1: 'Milano · Como',
-    addressLine2: 'Bellagio · Tremezzo',
+    addressLine1: 'Milano · Brianza',
+    addressLine2: 'Como · Bellagio · Tremezzo',
     pagesAria: 'Páginas',
     servicesAria: 'Servicios',
     serviceLinks: {
@@ -216,7 +216,7 @@ const es: Dictionary = {
     infoTitle: 'Información',
     info: {
       address: 'Dirección',
-      addressValue: 'Milano · Como · Bellagio · Tremezzo',
+      addressValue: 'Milano · Brianza · Como · Bellagio · Tremezzo',
       phone: 'Teléfono',
       phoneValue: '+39 328 687 1152',
       email: 'Email',

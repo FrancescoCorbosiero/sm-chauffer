@@ -4,6 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
+import { IMAGES } from '@/lib/images';
 
 const VALUE_ICONS: LucideIcon[] = [ShieldCheck, Clock, Globe2, Plane];
 
@@ -17,7 +18,7 @@ export default function AboutPage() {
         label={t.aboutPage.label}
         title={t.aboutPage.title}
         description={t.aboutPage.description}
-        image="https://picsum.photos/seed/about-team-cover/1920/900"
+        image={IMAGES.pageHeroes.about}
       />
 
       <section className="py-20 md:py-28 bg-white relative overflow-hidden">
