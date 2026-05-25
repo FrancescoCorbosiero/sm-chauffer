@@ -1,4 +1,4 @@
-export const LOCALES = ['it', 'en', 'es', 'de', 'fr', 'sq', 'ro'] as const;
+export const LOCALES = ['it', 'en', 'es', 'de', 'fr', 'sq', 'ru'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'it';
@@ -10,7 +10,7 @@ export const LOCALE_NAMES: Record<Locale, string> = {
   de: 'Deutsch',
   fr: 'Français',
   sq: 'Shqip',
-  ro: 'Română',
+  ru: 'Русский',
 };
 
 export const LOCALE_SHORT: Record<Locale, string> = {
@@ -20,7 +20,7 @@ export const LOCALE_SHORT: Record<Locale, string> = {
   de: 'DE',
   fr: 'FR',
   sq: 'SQ',
-  ro: 'RO',
+  ru: 'RU',
 };
 
 export interface Dictionary {

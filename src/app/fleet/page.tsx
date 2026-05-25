@@ -5,6 +5,7 @@ import PageHero from '@/components/ui/PageHero';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
+import { IMAGES } from '@/lib/images';
 
 export default function FleetPage() {
   const t = useTranslation();
@@ -16,7 +17,7 @@ export default function FleetPage() {
         label={t.fleetPage.label}
         title={t.fleetPage.title}
         description={t.fleetPage.description}
-        image="https://picsum.photos/seed/fleet-luxury-cars-cover/1920/900"
+        image={IMAGES.pageHeroes.fleet}
       />
       <section className="py-20 md:py-24 bg-white">
         <div className="container-x">

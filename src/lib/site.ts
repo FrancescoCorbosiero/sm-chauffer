@@ -25,10 +25,19 @@ export const SITE = {
   rating: { value: '5.0', count: '120' },
 } as const;
 
-export const SERVICE_ZONES = ['Milano', 'Como', 'Bellagio', 'Tremezzo'] as const;
+export const SERVICE_ZONES = [
+  'Milano',
+  'Brianza',
+  'Como',
+  'Bellagio',
+  'Tremezzo',
+] as const;
 
 export const AREAS_SERVED = [
   'Milano',
+  'Monza',
+  'Brianza',
+  'Monza e Brianza',
   'Como',
   'Bellagio',
   'Tremezzo',
@@ -36,6 +45,7 @@ export const AREAS_SERVED = [
   'Cernobbio',
   'Menaggio',
   'Varenna',
+  'Lecco',
   'Lombardia',
   'Malpensa',
   'Linate',

@@ -5,6 +5,7 @@ import PageHero from '@/components/ui/PageHero';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
+import { IMAGES } from '@/lib/images';
 
 export default function ServicesPage() {
   const t = useTranslation();
@@ -16,7 +17,7 @@ export default function ServicesPage() {
         label={t.servicesPage.label}
         title={t.servicesPage.title}
         description={t.servicesPage.description}
-        image="https://picsum.photos/seed/services-chauffeur-cover/1920/900"
+        image={IMAGES.pageHeroes.services}
       />
       <section className="py-20 md:py-24 bg-white">
         <div className="container-x">

@@ -8,6 +8,7 @@ import { usePageTitle } from '@/i18n/usePageTitle';
 import { vehicles } from '@/lib/data';
 import type { ContactPayload } from '@/lib/quoteMessage';
 import { SITE } from '@/lib/site';
+import { IMAGES } from '@/lib/images';
 
 const fieldShell = 'flex flex-col gap-1';
 const labelClass = 'text-sm text-[var(--color-ink)]';
@@ -113,7 +114,7 @@ export default function ContactPage() {
         label={t.contactPage.label}
         title={t.contactPage.title}
         description={t.contactPage.description}
-        image="https://picsum.photos/seed/contact-luxury-cover/1920/900"
+        image={IMAGES.pageHeroes.contact}
       />
       <section className="py-12 md:py-16 bg-white">
         <div className="container-x">

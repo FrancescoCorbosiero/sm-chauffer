@@ -1,4 +1,5 @@
 import { Vehicle, Service, Testimonial, BlogPost } from './types';
+import { IMAGES } from './images';
 
 export const vehicles: Vehicle[] = [
   {
@@ -9,7 +10,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 3,
     bags: 2,
-    image: 'https://picsum.photos/seed/placeholder-car-1/800/500',
+    image: IMAGES.fleet.one,
   },
   {
     id: 'placeholder-2',
@@ -19,7 +20,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 3,
     bags: 3,
-    image: 'https://picsum.photos/seed/placeholder-car-2/800/500',
+    image: IMAGES.fleet.two,
   },
   {
     id: 'placeholder-3',
@@ -29,7 +30,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 4,
     bags: 4,
-    image: 'https://picsum.photos/seed/placeholder-car-3/800/500',
+    image: IMAGES.fleet.three,
   },
   {
     id: 'placeholder-4',
@@ -39,7 +40,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 6,
     bags: 5,
-    image: 'https://picsum.photos/seed/placeholder-car-4/800/500',
+    image: IMAGES.fleet.four,
   },
   {
     id: 'placeholder-5',
@@ -49,17 +50,17 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 7,
     bags: 7,
-    image: 'https://picsum.photos/seed/placeholder-car-5/800/500',
+    image: IMAGES.fleet.five,
   },
 ];
 
 export const services: Service[] = [
-  { id: 'airport-transfer', icon: 'Plane', image: 'https://picsum.photos/seed/airport-transfer-luxury/700/500' },
-  { id: 'autista-milano', icon: 'MapPin', image: 'https://picsum.photos/seed/milan-luxury-driver/700/500' },
-  { id: 'autista-roma', icon: 'Building2', image: 'https://picsum.photos/seed/rome-luxury-car/700/500' },
-  { id: 'tour-privati', icon: 'Route', image: 'https://picsum.photos/seed/italy-tour-luxury/700/500' },
-  { id: 'trasferimenti-internazionali', icon: 'Globe', image: 'https://picsum.photos/seed/europe-transfer-luxury/700/500' },
-  { id: 'minibus-gruppi', icon: 'Users', image: 'https://picsum.photos/seed/minibus-group-transfer/700/500' },
+  { id: 'airport-transfer', icon: 'Plane', image: IMAGES.services.airportTransfer },
+  { id: 'autista-milano', icon: 'MapPin', image: IMAGES.services.autistaMilano },
+  { id: 'autista-roma', icon: 'Building2', image: IMAGES.services.autistaRoma },
+  { id: 'tour-privati', icon: 'Route', image: IMAGES.services.tourPrivati },
+  { id: 'trasferimenti-internazionali', icon: 'Globe', image: IMAGES.services.trasferimentiInternazionali },
+  { id: 'minibus-gruppi', icon: 'Users', image: IMAGES.services.minibusGruppi },
 ];
 
 export const testimonials: Testimonial[] = [
@@ -73,19 +74,19 @@ export const blogPosts: BlogPost[] = [
     id: '1',
     slug: 'guida-transfer-lusso-malpensa',
     title: 'La Guida Definitiva ai Transfer di Lusso a Malpensa',
-    excerpt: "Tutto quello che devi sapere per organizzare un transfer di lusso dall'Aeroporto di Malpensa verso Milano e le principali destinazioni lombarde.",
+    excerpt: "Tutto quello che devi sapere per organizzare un transfer di lusso dall'Aeroporto di Malpensa verso Milano, la Brianza e le destinazioni del Lago di Como.",
     category: 'Guida',
     date: '15 Aprile 2025',
-    image: 'https://picsum.photos/seed/malpensa-airport-guide/600/400',
+    image: IMAGES.blog.malpensa,
   },
   {
     id: '2',
     slug: 'milano-lago-como-autista',
-    title: 'Da Milano al Lago di Como con Autista Privato: La Gita Perfetta',
-    excerpt: "Un itinerario esclusivo per scoprire le ville liberty, i borghi pittoreschi e le acque cristalline del Lago di Como a bordo di un'auto di lusso.",
+    title: 'Da Milano al Lago di Como con Autista Privato: Bellagio e Tremezzo',
+    excerpt: "Un itinerario esclusivo per scoprire le ville liberty di Bellagio, i giardini di Tremezzo e le acque cristalline del Lago di Como a bordo di un'auto di lusso.",
     category: 'Destinazione',
     date: '28 Marzo 2025',
-    image: 'https://picsum.photos/seed/lake-como-villa/600/400',
+    image: IMAGES.blog.como,
   },
   {
     id: '3',
@@ -94,16 +95,15 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Durante la Fashion Week milanese, tempo e immagine sono tutto. Scopri perché i top buyer, gli stilisti e i giornalisti scelgono il noleggio con autista.',
     category: 'Lifestyle',
     date: '10 Febbraio 2025',
-    image: 'https://picsum.photos/seed/milan-fashion-luxury/600/400',
+    image: IMAGES.blog.fashion,
   },
   {
     id: '4',
     slug: 'malpensa-sankt-moritz',
-    title: 'Da Malpensa a Sankt Moritz con Autista Privato',
-    excerpt: 'Il trasferimento più richiesto dalle destinazioni alpine. Come organizzare il viaggio perfetto verso le nevi svizzere dalla Lombardia.',
+    title: 'Da Milano a Sankt Moritz con Autista Privato',
+    excerpt: 'Il trasferimento più richiesto dalle destinazioni alpine. Come organizzare il viaggio perfetto verso le nevi svizzere partendo da Milano o dalla Brianza.',
     category: 'Viaggio',
     date: '5 Gennaio 2025',
-    image: 'https://picsum.photos/seed/alpine-road-winter/600/400',
+    image: IMAGES.blog.moritz,
   },
-
 ];

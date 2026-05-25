@@ -3,6 +3,8 @@ import Marquee from '@/components/ui/Marquee';
 
 const destinations = [
   'Milano',
+  'Brianza',
+  'Monza',
   'Como',
   'Bellagio',
   'Tremezzo',
@@ -10,6 +12,7 @@ const destinations = [
   'Cernobbio',
   'Menaggio',
   'Varenna',
+  'Lecco',
   'Lugano',
   'Malpensa',
   'Linate',
@@ -22,7 +25,7 @@ export default function DestinationsStrip() {
       aria-label="Destinazioni servite"
       className="bg-white border-y border-[var(--color-border)] py-10 md:py-12"
     >
-      <Marquee items={destinations} speedSeconds={42} />
+      <Marquee items={destinations} speedSeconds={46} />
     </section>
   );
 }
