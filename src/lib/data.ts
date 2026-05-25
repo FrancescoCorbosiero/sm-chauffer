@@ -57,7 +57,7 @@ export const vehicles: Vehicle[] = [
 export const services: Service[] = [
   { id: 'airport-transfer', icon: 'Plane', image: IMAGES.services.airportTransfer },
   { id: 'autista-milano', icon: 'MapPin', image: IMAGES.services.autistaMilano },
-  { id: 'autista-roma', icon: 'Building2', image: IMAGES.services.autistaRoma },
+  { id: 'autista-brianza', icon: 'Building2', image: IMAGES.services.autistaBrianza },
   { id: 'tour-privati', icon: 'Route', image: IMAGES.services.tourPrivati },
   { id: 'trasferimenti-internazionali', icon: 'Globe', image: IMAGES.services.trasferimentiInternazionali },
   { id: 'minibus-gruppi', icon: 'Users', image: IMAGES.services.minibusGruppi },

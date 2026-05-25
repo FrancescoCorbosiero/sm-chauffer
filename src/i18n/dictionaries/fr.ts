@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const fr: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Chauffeur de Luxe en Italie',
-    siteDescription: 'Location de voitures de luxe avec chauffeur à Milan, Rome et dans toute l’Italie.',
+    siteDescription: 'Service de chauffeur de luxe à Milan, en Brianza et sur le lac de Côme.',
     home: {
       title: 'SM Luxury Chauffer — Accueil',
-      description: 'Location de voitures de luxe avec chauffeur à Milan, Rome et dans toute l’Italie.',
+      description: 'Service de chauffeur de luxe à Milan, en Brianza et sur le lac de Côme.',
     },
     fleet: {
       title: 'Notre Flotte | SM Luxury Chauffer',
@@ -46,12 +46,12 @@ const fr: Dictionary = {
   },
   footer: {
     tagline:
-      'Service de location avec chauffeur à Milan, Rome et dans toute l’Italie. Élégance, ponctualité et discrétion depuis 2014.',
+      'Service de chauffeur de luxe à Milan, en Brianza et sur le lac de Côme. Élégance, ponctualité et discrétion depuis 2014.',
     explore: 'Explorer',
     services: 'Services',
     contacts: 'Contact',
     rightsReserved: 'Tous droits réservés',
-    vat: 'N° TVA en cours d’attribution · Chauffeur autorisé',
+    vat: "N° TVA en cours d'attribution · Chauffeur autorisé",
     addressLine1: 'Milano · Brianza',
     addressLine2: 'Como · Bellagio · Tremezzo',
     pagesAria: 'Pages',
@@ -59,7 +59,7 @@ const fr: Dictionary = {
     serviceLinks: {
       airport: 'Transfert Aéroport',
       milan: 'Chauffeur à Milan',
-      rome: 'Chauffeur à Rome',
+      brianza: 'Chauffeur en Brianza',
       tours: 'Tours Privés',
     },
   },
@@ -68,7 +68,7 @@ const fr: Dictionary = {
     titlePart1: 'Chauffeur de luxe',
     titlePart2: 'en Italie',
     description:
-      'Transferts aéroport, tours privés et services VIP avec chauffeur dédié. Disponibles 24/7 à Milan, Rome et dans toute l’Italie.',
+      'Transferts aéroport, tours privés et services VIP avec chauffeur dédié. Disponibles 24/7 à Milan, en Brianza et sur le lac de Côme.',
     ctaBook: 'Réserver Maintenant',
     ctaFleet: 'La Flotte',
     statsLabels: { years: 'Années', transfers: 'Transferts', google: 'Google' },
@@ -85,14 +85,14 @@ const fr: Dictionary = {
     label: 'Services',
     title: 'Chaque voyage, sur mesure',
     description:
-      'Des transferts aéroport aux tours privés dans les destinations les plus exclusives d’Italie et d’Europe.',
+      "Des transferts aéroport aux tours privés dans les destinations les plus exclusives d'Italie et d'Europe.",
     cta: 'Tous les services →',
   },
   whyUs: {
     label: 'Pourquoi Nous Choisir',
-    title: 'L’excellence dans les détails',
+    title: "L'excellence dans les détails",
     description:
-      'Dix ans d’expérience au service des clients les plus exigeants, avec des standards qui ne font jamais de compromis.',
+      "Dix ans d'expérience au service des clients les plus exigeants, avec des standards qui ne font jamais de compromis.",
     items: [
       {
         icon: 'ShieldCheck',
@@ -103,7 +103,7 @@ const fr: Dictionary = {
       {
         icon: 'Clock',
         title: 'Disponibles 24/7',
-        description: 'Notre service ne dort jamais. Réservez à l’avance ou à la dernière minute.',
+        description: "Notre service ne dort jamais. Réservez à l'avance ou à la dernière minute.",
       },
       {
         icon: 'Globe2',
@@ -126,7 +126,7 @@ const fr: Dictionary = {
   blogPreview: {
     label: 'Notre Blog',
     title: 'Guides et récits de voyage',
-    description: 'Histoires, itinéraires et conseils pour vivre l’Italie avec style.',
+    description: "Histoires, itinéraires et conseils pour vivre l'Italie avec style.",
     cta: 'Tous les articles →',
   },
   fleetCard: {
@@ -146,14 +146,14 @@ const fr: Dictionary = {
     eyebrow: 'Réservation',
     title: 'Demander un devis',
     oneWay: 'Aller Simple',
-    hourly: 'À l’Heure',
+    hourly: "À l'Heure",
     vehicle: 'Véhicule',
     vehiclePlaceholder: 'Sélectionnez un véhicule',
     from: 'Départ',
     fromPlaceholder: 'Adresse ou aéroport',
     to: 'Destination',
     duration: 'Durée (heures)',
-    toPlaceholder: 'Adresse d’arrivée',
+    toPlaceholder: "Adresse d'arrivée",
     durationPlaceholder: 'ex. 4',
     date: 'Date',
     time: 'Heure',
@@ -176,14 +176,14 @@ const fr: Dictionary = {
     title: 'SM Luxury Chauffer — Milan',
     description: 'Depuis 2014 au service de ceux qui recherchent un transfert à la hauteur de leurs attentes.',
     paragraphs: [
-      'SM Luxury Chauffer est né à Milan avec un objectif simple : apporter aux transferts privés le même niveau de soin, d’élégance et d’attention qui caractérise l’hôtellerie haut de gamme.',
-      'Nous travaillons chaque jour avec des clients d’affaires, des clients d’hôtels cinq étoiles, des agences de voyages de luxe et des acteurs de la mode pendant les semaines les plus importantes du calendrier milanais.',
+      "SM Luxury Chauffer est né à Milan avec un objectif simple : apporter aux transferts privés le même niveau de soin, d'élégance et d'attention qui caractérise l'hôtellerie haut de gamme.",
+      "Nous travaillons chaque jour avec des clients d'affaires, des clients d'hôtels cinq étoiles, des agences de voyages de luxe et des acteurs de la mode pendant les semaines les plus importantes du calendrier milanais.",
       'Notre flotte — entièrement Mercedes, BMW et Range Rover — est entretenue par un personnel dédié. Les chauffeurs, soigneusement sélectionnés, parlent anglais et connaissent les protocoles du secteur du luxe.',
     ],
     values: [
       {
         title: 'Fiabilité',
-        body: 'Service de chauffeur autorisé, couverture d’assurance premium et standards de sécurité certifiés.',
+        body: "Service de chauffeur autorisé, couverture d'assurance premium et standards de sécurité certifiés.",
       },
       {
         title: 'Ponctualité',
@@ -191,7 +191,7 @@ const fr: Dictionary = {
       },
       {
         title: 'Discrétion',
-        body: 'Discrétion absolue pour les clients d’affaires, célébrités et personnalités de renom.',
+        body: "Discrétion absolue pour les clients d'affaires, célébrités et personnalités de renom.",
       },
       {
         title: 'Expérience',
@@ -202,7 +202,7 @@ const fr: Dictionary = {
   blogPage: {
     label: 'Blog',
     title: 'Histoires, guides et itinéraires',
-    description: 'Décryptages sur les voyages, les destinations et l’art du transfert de luxe en Italie.',
+    description: "Décryptages sur les voyages, les destinations et l'art du transfert de luxe en Italie.",
   },
   contactPage: {
     label: 'Contact',
@@ -247,7 +247,7 @@ const fr: Dictionary = {
     },
   },
   stats: {
-    years: 'Années d’Expérience',
+    years: "Années d'Expérience",
     transfers: 'Transferts Réalisés',
     googleStars: 'Étoiles sur Google',
     availability: 'Disponibilité',
@@ -279,27 +279,27 @@ const fr: Dictionary = {
   services: {
     'airport-transfer': {
       title: 'Transfert Aéroport',
-      description: 'Malpensa, Bergame, Linate — toujours à l’heure.',
+      description: "Malpensa, Bergame, Linate — toujours à l'heure.",
       longDescription:
-        'Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l’arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie.',
+        "Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie.",
     },
     'autista-milano': {
       title: 'Chauffeur à Milan',
       description: 'Votre chauffeur privé au cœur de la mode.',
       longDescription:
-        'Déplacements en ville, réunions d’affaires, dîners de gala, Fashion Week. Notre service de chauffeur à Milan garantit discrétion, ponctualité et confort à chaque occasion.',
+        "Déplacements en ville, réunions d'affaires, dîners de gala, Fashion Week. Notre service de chauffeur à Milan garantit discrétion, ponctualité et confort à chaque occasion.",
     },
-    'autista-roma': {
-      title: 'Chauffeur à Rome',
-      description: 'Découvrez Rome en confort et en style absolus.',
+    'autista-brianza': {
+      title: 'Chauffeur en Brianza',
+      description: 'Votre chauffeur privé entre Monza et les villas de la Brianza.',
       longDescription:
-        'De la capitale au Vatican, des Forums Impériaux aux collines romaines. Notre chauffeur privé à Rome vous emmène où vous voulez, avec la plus grande discrétion.',
+        'De Monza à Lecco, des villas historiques de la Brianza aux destinations premium : notre service de chauffeur garantit ponctualité, discrétion et confort en toute occasion.',
     },
     'tour-privati': {
       title: 'Tours Privés en Italie',
       description: 'Lac de Côme, Toscane, Amalfi — rien que pour vous.',
       longDescription:
-        'Itinéraires personnalisés vers les plus belles destinations d’Italie. Lac de Côme, Langhe, Côte Amalfitaine, Cinque Terre. Chaque tour est sur mesure, avec un chauffeur dédié et le souci du détail.',
+        "Itinéraires personnalisés vers les plus belles destinations d'Italie. Lac de Côme, Langhe, Côte Amalfitaine, Cinque Terre. Chaque tour est sur mesure, avec un chauffeur dédié et le souci du détail.",
     },
     'trasferimenti-internazionali': {
       title: 'Transferts Internationaux',
@@ -309,9 +309,9 @@ const fr: Dictionary = {
     },
     'minibus-gruppi': {
       title: 'Minibus & Groupes',
-      description: 'Jusqu’à 19 places, pour événements et délégations.',
+      description: "Jusqu'à 19 places, pour événements et délégations.",
       longDescription:
-        'Véhicules de grande capacité pour conférences, événements d’entreprise, mariages et tours de groupe. Nous coordonnons plusieurs flottes pour les grands événements avec une logistique dédiée.',
+        "Véhicules de grande capacité pour conférences, événements d'entreprise, mariages et tours de groupe. Nous coordonnons plusieurs flottes pour les grands événements avec une logistique dédiée.",
     },
   },
   testimonials: {
@@ -321,11 +321,11 @@ const fr: Dictionary = {
     },
     '2': {
       text:
-        'J’ai utilisé SM Luxury Chauffer pendant la Fashion Week de Milan. Service exceptionnel, chauffeur discret et la Mercedes Classe S immaculée. Je réserverai à nouveau la saison prochaine.',
+        "J'ai utilisé SM Luxury Chauffer pendant la Fashion Week de Milan. Service exceptionnel, chauffeur discret et la Mercedes Classe S immaculée. Je réserverai à nouveau la saison prochaine.",
     },
     '3': {
       text:
-        'J’ai utilisé le service pour un tour privé au Lac de Côme. Tout était parfait : itinéraire, chauffeur disponible et professionnel, une véritable expérience de luxe.',
+        "J'ai utilisé le service pour un tour privé au Lac de Côme. Tout était parfait : itinéraire, chauffeur disponible et professionnel, une véritable expérience de luxe.",
     },
   },
   whatsapp: { aria: 'Contactez-nous sur WhatsApp', label: 'WhatsApp' },
@@ -349,7 +349,7 @@ const fr: Dictionary = {
     },
   },
   formErrors: {
-    required: 'Veuillez remplir tous les champs obligatoires avant d’envoyer votre demande.',
+    required: "Veuillez remplir tous les champs obligatoires avant d'envoyer votre demande.",
     invalidDate: 'Date invalide. Veuillez saisir une date existante.',
   },
 };

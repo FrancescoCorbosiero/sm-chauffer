@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const es: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Chófer de Lujo en Italia',
-    siteDescription: 'Alquiler de coches de lujo con chófer en Milán, Roma y toda Italia.',
+    siteDescription: 'Servicio de chófer de lujo en Milán, Brianza y el Lago de Como.',
     home: {
       title: 'SM Luxury Chauffer — Inicio',
-      description: 'Alquiler de coches de lujo con chófer en Milán, Roma y toda Italia.',
+      description: 'Servicio de chófer de lujo en Milán, Brianza y el Lago de Como.',
     },
     fleet: {
       title: 'Nuestra Flota | SM Luxury Chauffer',
@@ -46,7 +46,7 @@ const es: Dictionary = {
   },
   footer: {
     tagline:
-      'Servicio de alquiler con chófer en Milán, Roma y toda Italia. Elegancia, puntualidad y discreción desde 2014.',
+      'Servicio de chófer de lujo en Milán, Brianza y el Lago de Como. Elegancia, puntualidad y discreción desde 2014.',
     explore: 'Explora',
     services: 'Servicios',
     contacts: 'Contacto',
@@ -59,7 +59,7 @@ const es: Dictionary = {
     serviceLinks: {
       airport: 'Traslado al Aeropuerto',
       milan: 'Chófer en Milán',
-      rome: 'Chófer en Roma',
+      brianza: 'Chófer en Brianza',
       tours: 'Tours Privados',
     },
   },
@@ -68,7 +68,7 @@ const es: Dictionary = {
     titlePart1: 'Chófer de lujo',
     titlePart2: 'en Italia',
     description:
-      'Traslados al aeropuerto, tours privados y servicios VIP con chófer dedicado. Disponibles 24/7 en Milán, Roma y toda Italia.',
+      'Traslados al aeropuerto, tours privados y servicios VIP con chófer dedicado. Disponibles 24/7 en Milán, Brianza y el Lago de Como.',
     ctaBook: 'Reservar Ahora',
     ctaFleet: 'La Flota',
     statsLabels: { years: 'Años', transfers: 'Traslados', google: 'Google' },
@@ -289,11 +289,11 @@ const es: Dictionary = {
       longDescription:
         'Desplazamientos en la ciudad, reuniones de negocios, cenas de gala, Fashion Week. Nuestro servicio de chófer en Milán garantiza discreción, puntualidad y confort en cada ocasión.',
     },
-    'autista-roma': {
-      title: 'Chófer en Roma',
-      description: 'Descubre Roma con total confort y estilo.',
+    'autista-brianza': {
+      title: 'Chófer en Brianza',
+      description: 'Tu chófer privado entre Monza y las villas de Brianza.',
       longDescription:
-        'De la capital al Vaticano, de los Foros Imperiales a las colinas romanas. Nuestro chófer privado en Roma te lleva a donde quieras, con la máxima discreción.',
+        'De Monza a Lecco, de las villas históricas de Brianza a destinos premium: nuestro servicio de chófer garantiza puntualidad, discreción y comodidad en cada ocasión.',
     },
     'tour-privati': {
       title: 'Tours Privados por Italia',

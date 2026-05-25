@@ -63,7 +63,7 @@ export interface Dictionary {
     serviceLinks: {
       airport: string;
       milan: string;
-      rome: string;
+      brianza: string;
       tours: string;
     };
   };
