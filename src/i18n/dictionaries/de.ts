@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const de: Dictionary = {
   meta: {
-    siteTitle: 'SM Luxury Chauffer — Luxus-Chauffeurservice in Italien',
+    siteTitle: 'SM Luxury Chauffeur — Luxus-Chauffeurservice in Italien',
     siteDescription: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     home: {
-      title: 'SM Luxury Chauffer — Home',
+      title: 'SM Luxury Chauffeur — Home',
       description: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     },
     fleet: {
-      title: 'Unsere Flotte | SM Luxury Chauffer',
+      title: 'Unsere Flotte | SM Luxury Chauffeur',
       description: 'Entdecken Sie unsere Luxusflotte: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Leistungen | SM Luxury Chauffer',
+      title: 'Leistungen | SM Luxury Chauffeur',
       description: 'Flughafentransfer, privater Chauffeur, Touren in Italien. Service rund um die Uhr.',
     },
     about: {
-      title: 'Über Uns | SM Luxury Chauffer',
-      description: 'SM Luxury Chauffer — Mailand. Mietwagen mit Chauffeur.',
+      title: 'Über Uns | SM Luxury Chauffeur',
+      description: 'SM Luxury Chauffeur — Mailand. Mietwagen mit Chauffeur.',
     },
     blog: {
-      title: 'Blog | SM Luxury Chauffer',
+      title: 'Blog | SM Luxury Chauffeur',
       description: 'Artikel und Reiseführer zu Luxustransfers, Reisezielen und Lifestyle.',
     },
     contact: {
-      title: 'Kontakt | SM Luxury Chauffer',
+      title: 'Kontakt | SM Luxury Chauffeur',
       description: 'Kontaktieren Sie uns für Buchungen und Informationen zu unserem Chauffeurservice.',
     },
   },
@@ -42,7 +42,7 @@ const de: Dictionary = {
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
     mainNavLabel: 'Hauptnavigation',
-    homeAria: 'SM Luxury Chauffer — Home',
+    homeAria: 'SM Luxury Chauffeur — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const de: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SM Luxury Chauffer · Mailand',
+    eyebrow: 'SM Luxury Chauffeur · Mailand',
     titlePart1: 'Luxus-Chauffeur',
     titlePart2: 'in Italien',
     description:
@@ -120,7 +120,7 @@ const de: Dictionary = {
   testimonialsSection: {
     label: 'Stimmen',
     title: 'Was unsere Kunden sagen',
-    description: '5,0 Sterne auf Google — echtes Feedback von denen, die SM Luxury Chauffer gewählt haben.',
+    description: '5,0 Sterne auf Google — echtes Feedback von denen, die SM Luxury Chauffeur gewählt haben.',
     starsAria: '{n} von 5 Sternen',
   },
   blogPreview: {
@@ -173,10 +173,10 @@ const de: Dictionary = {
   },
   aboutPage: {
     label: 'Über Uns',
-    title: 'SM Luxury Chauffer — Mailand',
+    title: 'SM Luxury Chauffeur — Mailand',
     description: 'Seit 2014 im Dienst derer, die einen Transfer auf Augenhöhe mit ihren Erwartungen suchen.',
     paragraphs: [
-      'SM Luxury Chauffer wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
+      'SM Luxury Chauffeur wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
       'Wir arbeiten täglich mit Geschäftskunden, Gästen von Fünf-Sterne-Hotels, Luxus-Reisebüros und Modeunternehmen während der wichtigsten Wochen im Mailänder Kalender.',
       'Unsere Flotte — durchgängig Mercedes, BMW und Range Rover — wird von engagiertem Personal gewartet. Die sorgfältig ausgewählten Chauffeure sprechen Englisch und kennen die Serviceprotokolle des Luxussektors.',
     ],
@@ -220,7 +220,7 @@ const de: Dictionary = {
       phone: 'Telefon',
       phoneValue: '+39 328 687 1152',
       email: 'E-Mail',
-      emailValue: 'info@smchauffer.it',
+      emailValue: 'info@smchauffeur.it',
       availability: 'Verfügbarkeit',
       availabilityValue: '24 Stunden am Tag, 7 Tage die Woche',
     },
@@ -321,7 +321,7 @@ const de: Dictionary = {
     },
     '2': {
       text:
-        'Ich habe SM Luxury Chauffer während der Mailänder Fashion Week genutzt. Hervorragender Service, diskreter Fahrer und die Mercedes S-Klasse war makellos. Ich werde nächste Saison wieder buchen.',
+        'Ich habe SM Luxury Chauffeur während der Mailänder Fashion Week genutzt. Hervorragender Service, diskreter Fahrer und die Mercedes S-Klasse war makellos. Ich werde nächste Saison wieder buchen.',
     },
     '3': {
       text:
@@ -339,12 +339,12 @@ const de: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Angebotsanfrage — SM Luxury Chauffer',
+      subject: 'Angebotsanfrage — SM Luxury Chauffeur',
       intro: 'Neue Angebotsanfrage',
       tripType: 'Fahrtart',
     },
     contact: {
-      subject: 'Kontaktanfrage — SM Luxury Chauffer',
+      subject: 'Kontaktanfrage — SM Luxury Chauffeur',
       intro: 'Neue Kontaktanfrage',
     },
   },

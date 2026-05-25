@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const it: Dictionary = {
   meta: {
-    siteTitle: 'SM Luxury Chauffer — Autista di Lusso in Italia',
+    siteTitle: 'SM Luxury Chauffeur — Autista di Lusso in Italia',
     siteDescription: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     home: {
-      title: 'SM Luxury Chauffer — Home',
+      title: 'SM Luxury Chauffeur — Home',
       description: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     },
     fleet: {
-      title: 'La Nostra Flotta | SM Luxury Chauffer',
+      title: 'La Nostra Flotta | SM Luxury Chauffeur',
       description: 'Scopri la nostra flotta di veicoli luxury: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Servizi | SM Luxury Chauffer',
+      title: 'Servizi | SM Luxury Chauffeur',
       description: 'Transfer aeroporto, autista privato, tour in Italia. Servizio disponibile 24/7.',
     },
     about: {
-      title: 'Chi Siamo | SM Luxury Chauffer',
-      description: 'SM Luxury Chauffer — Milano. Servizio di autonoleggio con autista.',
+      title: 'Chi Siamo | SM Luxury Chauffeur',
+      description: 'SM Luxury Chauffeur — Milano. Servizio di autonoleggio con autista.',
     },
     blog: {
-      title: 'Blog | SM Luxury Chauffer',
+      title: 'Blog | SM Luxury Chauffeur',
       description: 'Articoli e guide su transfer di lusso, destinazioni e lifestyle.',
     },
     contact: {
-      title: 'Contatti | SM Luxury Chauffer',
+      title: 'Contatti | SM Luxury Chauffeur',
       description: 'Contattaci per prenotazioni e informazioni sul nostro servizio NCC.',
     },
   },
@@ -42,7 +42,7 @@ const it: Dictionary = {
     openMenu: 'Apri menu',
     closeMenu: 'Chiudi menu',
     mainNavLabel: 'Navigazione principale',
-    homeAria: 'SM Luxury Chauffer — Home',
+    homeAria: 'SM Luxury Chauffeur — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const it: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SM Luxury Chauffer · Milano',
+    eyebrow: 'SM Luxury Chauffeur · Milano',
     titlePart1: 'Autista di lusso',
     titlePart2: 'in Italia',
     description:
@@ -121,7 +121,7 @@ const it: Dictionary = {
   testimonialsSection: {
     label: 'Testimonianze',
     title: 'Cosa dicono i nostri clienti',
-    description: '5.0 stelle su Google — feedback reali da chi ha scelto SM Luxury Chauffer.',
+    description: '5.0 stelle su Google — feedback reali da chi ha scelto SM Luxury Chauffeur.',
     starsAria: '{n} su 5 stelle',
   },
   blogPreview: {
@@ -174,11 +174,11 @@ const it: Dictionary = {
   },
   aboutPage: {
     label: 'Chi Siamo',
-    title: 'SM Luxury Chauffer — Milano',
+    title: 'SM Luxury Chauffeur — Milano',
     description:
       "Dal 2014 al servizio di chi cerca un trasferimento all'altezza delle proprie aspettative.",
     paragraphs: [
-      "SM Luxury Chauffer nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
+      "SM Luxury Chauffeur nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
       "Lavoriamo ogni giorno con clienti business, ospiti d'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.",
       'La nostra flotta — interamente Mercedes, BMW e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
     ],
@@ -222,7 +222,7 @@ const it: Dictionary = {
       phone: 'Telefono',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffer.it',
+      emailValue: 'info@smchauffeur.it',
       availability: 'Disponibilità',
       availabilityValue: 'Aperti 24 ore, 7 giorni su 7',
     },
@@ -325,7 +325,7 @@ const it: Dictionary = {
     },
     '2': {
       text:
-        "Ho usato SM Luxury Chauffer durante la Milano Fashion Week. Servizio eccellente, autista discreto e la Mercedes Classe S immacolata. Prenoterò di nuovo la prossima stagione.",
+        "Ho usato SM Luxury Chauffeur durante la Milano Fashion Week. Servizio eccellente, autista discreto e la Mercedes Classe S immacolata. Prenoterò di nuovo la prossima stagione.",
     },
     '3': {
       text:
@@ -343,12 +343,12 @@ const it: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Richiesta di preventivo — SM Luxury Chauffer',
+      subject: 'Richiesta di preventivo — SM Luxury Chauffeur',
       intro: 'Nuova richiesta di preventivo',
       tripType: 'Tipo di viaggio',
     },
     contact: {
-      subject: 'Richiesta di contatto — SM Luxury Chauffer',
+      subject: 'Richiesta di contatto — SM Luxury Chauffeur',
       intro: 'Nuova richiesta di contatto',
     },
   },

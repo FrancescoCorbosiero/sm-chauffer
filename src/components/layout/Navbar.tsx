@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
@@ -41,51 +42,15 @@ export default function Navbar() {
       }`}
     >
       <div className="container-x py-5 md:py-6 flex items-center justify-between gap-6">
-        <Link
-          href="/"
-          aria-label={t.nav.homeAria}
-          className={`flex items-center shrink-0 transition-colors ${isOverDarkHero ? 'text-white' : 'text-[var(--color-ink)]'}`}
-        >
-          <svg
-            viewBox="0 0 220 50"
-            width="200"
-            height="46"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden
-          >
-            <polyline
-              points="4,32 14,12 26,26 38,6 50,26 62,12 72,32"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinejoin="round"
-              fill="none"
-            />
-            <line x1="4" y1="36" x2="72" y2="36" stroke="currentColor" strokeWidth="2" />
-            <text
-              x="84"
-              y="28"
-              fontFamily="var(--font-display)"
-              fontSize="22"
-              fontWeight="500"
-              letterSpacing="4"
-              fill="currentColor"
-            >
-              SM
-            </text>
-            <text
-              x="84"
-              y="42"
-              fontFamily="var(--font-body)"
-              fontSize="8"
-              fontWeight="400"
-              letterSpacing="3"
-              fill="currentColor"
-              opacity="0.6"
-            >
-              LUXURY CHAUFFER
-            </text>
-          </svg>
+        <Link href="/" aria-label={t.nav.homeAria} className="shrink-0">
+          <Image
+            src="/logo.png"
+            alt="SM Luxury Chauffeur"
+            width={52}
+            height={52}
+            className="h-11 w-auto"
+            priority
+          />
         </Link>
 
         <nav
