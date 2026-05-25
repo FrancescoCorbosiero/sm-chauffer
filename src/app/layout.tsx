@@ -136,9 +136,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={`${cormorant.variable} ${dmSans.variable}`}>
-      <head>
-        <SpeculationRules />
-      </head>
       <body>
         <LanguageProvider>
           <SkipLink />
@@ -149,6 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <WhatsAppButton />
         </LanguageProvider>
         <JsonLd />
+        <SpeculationRules />
       </body>
     </html>
   );
