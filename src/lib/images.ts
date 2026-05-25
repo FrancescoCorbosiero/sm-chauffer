@@ -11,8 +11,8 @@ const u = (id: string, w: number) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const IMAGES = {
-  // Main homepage hero — dark/cinematic luxury Mercedes at night
-  hero: u('1503376780353-7e6692767b70', 1920),
+  // Main homepage hero — dark/cinematic luxury Mercedes S-Class at night
+  hero: u('1555215695-3004980ad54e', 1920),
 
   // Page heroes (top of internal pages)
   pageHeroes: {
@@ -36,7 +36,7 @@ export const IMAGES = {
   services: {
     airportTransfer: u('1436491865332-7a61a109cc05', 1200),
     autistaMilano: u('1518730518541-d0843268c287', 1200),
-    autistaRoma: u('1525874684015-58379d421a52', 1200),
+    autistaBrianza: u('1525874684015-58379d421a52', 1200),
     tourPrivati: u('1572799454088-1f4ad8e3eaca', 1200),
     trasferimentiInternazionali: u('1500627964684-141351970a7f', 1200),
     minibusGruppi: u('1606664890085-5ea3eed02e8b', 1200),

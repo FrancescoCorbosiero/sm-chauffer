@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const de: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Luxus-Chauffeurservice in Italien',
-    siteDescription: 'Luxus-Mietwagen mit Chauffeur in Mailand, Rom und ganz Italien.',
+    siteDescription: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     home: {
       title: 'SM Luxury Chauffer — Home',
-      description: 'Luxus-Mietwagen mit Chauffeur in Mailand, Rom und ganz Italien.',
+      description: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     },
     fleet: {
       title: 'Unsere Flotte | SM Luxury Chauffer',
@@ -46,7 +46,7 @@ const de: Dictionary = {
   },
   footer: {
     tagline:
-      'Mietwagen mit Chauffeur in Mailand, Rom und ganz Italien. Eleganz, Pünktlichkeit und Diskretion seit 2014.',
+      'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See. Eleganz, Pünktlichkeit und Diskretion seit 2014.',
     explore: 'Entdecken',
     services: 'Leistungen',
     contacts: 'Kontakt',
@@ -59,7 +59,7 @@ const de: Dictionary = {
     serviceLinks: {
       airport: 'Flughafentransfer',
       milan: 'Chauffeur in Mailand',
-      rome: 'Chauffeur in Rom',
+      brianza: 'Chauffeur in der Brianza',
       tours: 'Privattouren',
     },
   },
@@ -68,7 +68,7 @@ const de: Dictionary = {
     titlePart1: 'Luxus-Chauffeur',
     titlePart2: 'in Italien',
     description:
-      'Flughafentransfers, Privattouren und VIP-Services mit persönlichem Chauffeur. 24/7 verfügbar in Mailand, Rom und ganz Italien.',
+      'Flughafentransfers, Privattouren und VIP-Services mit persönlichem Chauffeur. 24/7 verfügbar in Mailand, Brianza und am Comer See.',
     ctaBook: 'Jetzt Buchen',
     ctaFleet: 'Unsere Flotte',
     statsLabels: { years: 'Jahre', transfers: 'Transfers', google: 'Google' },
@@ -289,11 +289,11 @@ const de: Dictionary = {
       longDescription:
         'Fahrten in der Stadt, Geschäftstermine, Gala-Dinner, Fashion Week. Unser Chauffeurservice in Mailand garantiert Diskretion, Pünktlichkeit und Komfort zu jedem Anlass.',
     },
-    'autista-roma': {
-      title: 'Chauffeur in Rom',
-      description: 'Entdecken Sie Rom in totalem Komfort und Stil.',
+    'autista-brianza': {
+      title: 'Chauffeur in der Brianza',
+      description: 'Ihr privater Chauffeur zwischen Monza und den Villen der Brianza.',
       longDescription:
-        'Von der Hauptstadt zum Vatikan, von den Kaiserforen zu den römischen Hügeln. Unser privater Chauffeur in Rom bringt Sie überall hin, mit größter Diskretion.',
+        'Von Monza bis Lecco, von den historischen Villen der Brianza zu Premium-Zielen: Unser Chauffeurservice garantiert Pünktlichkeit, Diskretion und Komfort zu jedem Anlass.',
     },
     'tour-privati': {
       title: 'Privattouren Italien',

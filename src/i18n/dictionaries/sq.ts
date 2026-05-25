@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const sq: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Shofer Luksoz në Itali',
-    siteDescription: 'Qira makinash luksoze me shofer në Milano, Romë dhe në të gjithë Italinë.',
+    siteDescription: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     home: {
       title: 'SM Luxury Chauffer — Kreu',
-      description: 'Qira makinash luksoze me shofer në Milano, Romë dhe në të gjithë Italinë.',
+      description: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     },
     fleet: {
       title: 'Flota Jonë | SM Luxury Chauffer',
@@ -46,7 +46,7 @@ const sq: Dictionary = {
   },
   footer: {
     tagline:
-      'Shërbim qiraje me shofer në Milano, Romë dhe në të gjithë Italinë. Elegancë, përpikëri dhe diskrecion që nga viti 2014.',
+      'Shërbim me shofer në Milano, Brianza dhe Liqenin e Komos. Elegancë, përpikëri dhe diskrecion që nga viti 2014.',
     explore: 'Eksploro',
     services: 'Shërbimet',
     contacts: 'Kontakt',
@@ -59,7 +59,7 @@ const sq: Dictionary = {
     serviceLinks: {
       airport: 'Transfertë Aeroporti',
       milan: 'Shofer në Milano',
-      rome: 'Shofer në Romë',
+      brianza: 'Shofer në Brianza',
       tours: 'Tura Private',
     },
   },
@@ -68,7 +68,7 @@ const sq: Dictionary = {
     titlePart1: 'Shofer luksoz',
     titlePart2: 'në Itali',
     description:
-      'Transferta aeroportuale, tura private dhe shërbime VIP me shofer të dedikuar. Të disponueshme 24/7 në Milano, Romë dhe në të gjithë Italinë.',
+      'Transferta aeroportuale, tura private dhe shërbime VIP me shofer të dedikuar. Të disponueshme 24/7 në Milano, Brianza dhe Liqenin e Komos.',
     ctaBook: 'Rezervo Tani',
     ctaFleet: 'Flota',
     statsLabels: { years: 'Vite', transfers: 'Transferta', google: 'Google' },
@@ -289,11 +289,11 @@ const sq: Dictionary = {
       longDescription:
         'Lëvizje në qytet, takime biznesi, darka gala, Fashion Week. Shërbimi ynë me shofer në Milano garanton diskrecion, përpikëri dhe komoditet për çdo rast.',
     },
-    'autista-roma': {
-      title: 'Shofer në Romë',
-      description: 'Zbuloni Romën në komoditet dhe stil të plotë.',
+    'autista-brianza': {
+      title: 'Shofer në Brianza',
+      description: 'Shoferi juaj privat midis Monzës dhe villave të Brianzës.',
       longDescription:
-        'Nga kryeqyteti tek Vatikani, nga Forumet Perandorake tek kodrat romake. Shoferi ynë privat në Romë ju shoqëron kudo që dëshironi, me diskrecion maksimal.',
+        'Nga Monza tek Lecco, nga vilat historike të Brianzës deri tek destinacionet premium: shërbimi ynë me shofer garanton përpikëri, diskrecion dhe komoditet për çdo rast.',
     },
     'tour-privati': {
       title: 'Tura Private në Itali',

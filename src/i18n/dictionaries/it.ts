@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const it: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Autista di Lusso in Italia',
-    siteDescription: 'Noleggio auto di lusso con autista a Milano, Roma e in tutta Italia.',
+    siteDescription: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     home: {
       title: 'SM Luxury Chauffer — Home',
-      description: 'Noleggio auto di lusso con autista a Milano, Roma e in tutta Italia.',
+      description: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     },
     fleet: {
       title: 'La Nostra Flotta | SM Luxury Chauffer',
@@ -46,7 +46,7 @@ const it: Dictionary = {
   },
   footer: {
     tagline:
-      'Servizio di autonoleggio con autista a Milano, Roma e in tutta Italia. Eleganza, puntualità, riservatezza dal 2014.',
+      'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como. Eleganza, puntualità, riservatezza dal 2014.',
     explore: 'Esplora',
     services: 'Servizi',
     contacts: 'Contatti',
@@ -59,7 +59,7 @@ const it: Dictionary = {
     serviceLinks: {
       airport: 'Transfer Aeroporto',
       milan: 'Autista a Milano',
-      rome: 'Autista a Roma',
+      brianza: 'Autista in Brianza',
       tours: 'Tour Privati',
     },
   },
@@ -68,7 +68,7 @@ const it: Dictionary = {
     titlePart1: 'Autista di lusso',
     titlePart2: 'in Italia',
     description:
-      'Transfer aeroportuali, tour privati e servizi VIP con autista dedicato. Disponibili 24/7 a Milano, Roma e in tutta Italia.',
+      'Transfer aeroportuali, tour privati e servizi VIP con autista dedicato. Disponibili 24/7 a Milano, in Brianza e sul Lago di Como.',
     ctaBook: 'Prenota Ora',
     ctaFleet: 'La Flotta',
     statsLabels: { years: 'Anni', transfers: 'Transfer', google: 'Google' },
@@ -293,11 +293,11 @@ const it: Dictionary = {
       longDescription:
         'Spostamenti in città, meeting aziendali, cene di gala, Fashion Week. Il nostro servizio autista a Milano garantisce discrezione, puntualità e comfort per ogni occasione.',
     },
-    'autista-roma': {
-      title: 'Autista a Roma',
-      description: 'Scopri Roma in totale comfort e stile.',
+    'autista-brianza': {
+      title: 'Autista in Brianza',
+      description: 'Il tuo autista privato tra Monza e le ville della Brianza.',
       longDescription:
-        'Dalla capitale al Vaticano, dai Fori Imperiali alle colline romane. Il nostro autista privato a Roma ti accompagna ovunque tu voglia, con la massima riservatezza.',
+        'Da Monza a Lecco, dalle ville storiche della Brianza alle destinazioni premium: il nostro servizio autista garantisce puntualità, discrezione e comfort per ogni occasione.',
     },
     'tour-privati': {
       title: 'Tour Privati Italia',

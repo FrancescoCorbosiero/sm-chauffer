@@ -3,10 +3,10 @@ import type { Dictionary } from '../types';
 const en: Dictionary = {
   meta: {
     siteTitle: 'SM Luxury Chauffer — Luxury Chauffeur Service in Italy',
-    siteDescription: 'Luxury chauffeur car hire in Milan, Rome and across Italy.',
+    siteDescription: 'Luxury chauffeur service in Milan, Brianza and Lake Como.',
     home: {
       title: 'SM Luxury Chauffer — Home',
-      description: 'Luxury chauffeur car hire in Milan, Rome and across Italy.',
+      description: 'Luxury chauffeur service in Milan, Brianza and Lake Como.',
     },
     fleet: {
       title: 'Our Fleet | SM Luxury Chauffer',
@@ -46,7 +46,7 @@ const en: Dictionary = {
   },
   footer: {
     tagline:
-      'Luxury chauffeur car hire in Milan, Rome and across Italy. Elegance, punctuality and discretion since 2014.',
+      'Luxury chauffeur service in Milan, Brianza and Lake Como. Elegance, punctuality and discretion since 2014.',
     explore: 'Explore',
     services: 'Services',
     contacts: 'Contact',
@@ -59,7 +59,7 @@ const en: Dictionary = {
     serviceLinks: {
       airport: 'Airport Transfer',
       milan: 'Chauffeur in Milan',
-      rome: 'Chauffeur in Rome',
+      brianza: 'Chauffeur in Brianza',
       tours: 'Private Tours',
     },
   },
@@ -68,7 +68,7 @@ const en: Dictionary = {
     titlePart1: 'Luxury chauffeur',
     titlePart2: 'in Italy',
     description:
-      'Airport transfers, private tours and VIP services with a dedicated chauffeur. Available 24/7 in Milan, Rome and across Italy.',
+      'Airport transfers, private tours and VIP services with a dedicated chauffeur. Available 24/7 in Milan, Brianza and Lake Como.',
     ctaBook: 'Book Now',
     ctaFleet: 'Our Fleet',
     statsLabels: { years: 'Years', transfers: 'Transfers', google: 'Google' },
@@ -291,11 +291,11 @@ const en: Dictionary = {
       longDescription:
         'City transfers, business meetings, gala dinners, Fashion Week. Our chauffeur service in Milan guarantees discretion, punctuality and comfort for every occasion.',
     },
-    'autista-roma': {
-      title: 'Chauffeur in Rome',
-      description: 'Discover Rome in total comfort and style.',
+    'autista-brianza': {
+      title: 'Chauffeur in Brianza',
+      description: 'Your private chauffeur between Monza and Brianza\'s finest villas.',
       longDescription:
-        'From the capital to the Vatican, from the Imperial Forums to the Roman hills. Our private chauffeur in Rome takes you wherever you want, with the utmost discretion.',
+        'From Monza to Lecco, from the historic villas of Brianza to premium destinations: our chauffeur service delivers punctuality, discretion and comfort for every occasion.',
     },
     'tour-privati': {
       title: 'Private Tours of Italy',

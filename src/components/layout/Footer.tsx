@@ -18,7 +18,7 @@ export default function Footer() {
   const serviceLinks = [
     { href: '/services#airport-transfer', label: t.footer.serviceLinks.airport },
     { href: '/services#autista-milano', label: t.footer.serviceLinks.milan },
-    { href: '/services#autista-roma', label: t.footer.serviceLinks.rome },
+    { href: '/services#autista-brianza', label: t.footer.serviceLinks.brianza },
     { href: '/services#tour-privati', label: t.footer.serviceLinks.tours },
   ];
 
