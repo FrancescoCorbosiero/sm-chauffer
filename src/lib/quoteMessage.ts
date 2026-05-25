@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'info@smchauffer.it';
+export const CONTACT_EMAIL = 'info@smchauffeur.it';
 export const CONTACT_WHATSAPP = '393286871152';
 
 export interface BookingPayload {
@@ -37,10 +37,10 @@ interface BuiltMessage {
 
 // Italian-only labels for outgoing messages.
 // Whatever language the user is browsing in, the message that lands
-// in SM Luxury Chauffer's inbox / WhatsApp must always be in Italian.
+// in SM Luxury Chauffeur's inbox / WhatsApp must always be in Italian.
 const IT = {
   booking: {
-    subject: 'Richiesta di preventivo — SM Luxury Chauffer',
+    subject: 'Richiesta di preventivo — SM Luxury Chauffeur',
     intro: 'Nuova richiesta di preventivo dal sito',
     tripType: 'Tipo di viaggio',
     vehicle: 'Veicolo',
@@ -51,7 +51,7 @@ const IT = {
     time: 'Ora',
   },
   contact: {
-    subject: 'Richiesta di contatto — SM Luxury Chauffer',
+    subject: 'Richiesta di contatto — SM Luxury Chauffeur',
     intro: 'Nuova richiesta dal modulo contatti',
     serviceType: 'Tipo di servizio',
     name: 'Nome e cognome',

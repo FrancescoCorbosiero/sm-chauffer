@@ -1,8 +1,8 @@
 export const SITE = {
-  name: 'SM Luxury Chauffer',
-  legalName: 'SM Luxury Chauffer',
-  url: 'https://smchauffer.it',
-  email: 'info@smchauffer.it',
+  name: 'SM Luxury Chauffeur',
+  legalName: 'SM Luxury Chauffeur',
+  url: 'https://smchauffeur.it',
+  email: 'info@smchauffeur.it',
   emailBackend: 'maksymnoleggio@gmail.com',
   phone: '+393286871152',
   phoneDisplay: '+39 328 687 1152',

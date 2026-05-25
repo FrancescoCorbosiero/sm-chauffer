@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const es: Dictionary = {
   meta: {
-    siteTitle: 'SM Luxury Chauffer — Chófer de Lujo en Italia',
+    siteTitle: 'SM Luxury Chauffeur — Chófer de Lujo en Italia',
     siteDescription: 'Servicio de chófer de lujo en Milán, Brianza y el Lago de Como.',
     home: {
-      title: 'SM Luxury Chauffer — Inicio',
+      title: 'SM Luxury Chauffeur — Inicio',
       description: 'Servicio de chófer de lujo en Milán, Brianza y el Lago de Como.',
     },
     fleet: {
-      title: 'Nuestra Flota | SM Luxury Chauffer',
+      title: 'Nuestra Flota | SM Luxury Chauffeur',
       description: 'Descubre nuestra flota de vehículos de lujo: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Servicios | SM Luxury Chauffer',
+      title: 'Servicios | SM Luxury Chauffeur',
       description: 'Traslados al aeropuerto, chófer privado, tours en Italia. Servicio 24/7.',
     },
     about: {
-      title: 'Quiénes Somos | SM Luxury Chauffer',
-      description: 'SM Luxury Chauffer — Milán. Servicio de alquiler con chófer.',
+      title: 'Quiénes Somos | SM Luxury Chauffeur',
+      description: 'SM Luxury Chauffeur — Milán. Servicio de alquiler con chófer.',
     },
     blog: {
-      title: 'Blog | SM Luxury Chauffer',
+      title: 'Blog | SM Luxury Chauffeur',
       description: 'Artículos y guías sobre traslados de lujo, destinos y lifestyle.',
     },
     contact: {
-      title: 'Contacto | SM Luxury Chauffer',
+      title: 'Contacto | SM Luxury Chauffeur',
       description: 'Contáctanos para reservas e información sobre nuestro servicio NCC.',
     },
   },
@@ -42,7 +42,7 @@ const es: Dictionary = {
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
     mainNavLabel: 'Navegación principal',
-    homeAria: 'SM Luxury Chauffer — Inicio',
+    homeAria: 'SM Luxury Chauffeur — Inicio',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const es: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SM Luxury Chauffer · Milán',
+    eyebrow: 'SM Luxury Chauffeur · Milán',
     titlePart1: 'Chófer de lujo',
     titlePart2: 'en Italia',
     description:
@@ -120,7 +120,7 @@ const es: Dictionary = {
   testimonialsSection: {
     label: 'Testimonios',
     title: 'Lo que dicen nuestros clientes',
-    description: '5,0 estrellas en Google — reseñas reales de quien eligió SM Luxury Chauffer.',
+    description: '5,0 estrellas en Google — reseñas reales de quien eligió SM Luxury Chauffeur.',
     starsAria: '{n} de 5 estrellas',
   },
   blogPreview: {
@@ -173,10 +173,10 @@ const es: Dictionary = {
   },
   aboutPage: {
     label: 'Quiénes Somos',
-    title: 'SM Luxury Chauffer — Milán',
+    title: 'SM Luxury Chauffeur — Milán',
     description: 'Desde 2014 al servicio de quien busca un traslado a la altura de sus expectativas.',
     paragraphs: [
-      'SM Luxury Chauffer nace en Milán con un objetivo sencillo: aportar a los traslados privados el mismo nivel de cuidado, elegancia y atención que define la hostelería de alto nivel.',
+      'SM Luxury Chauffeur nace en Milán con un objetivo sencillo: aportar a los traslados privados el mismo nivel de cuidado, elegancia y atención que define la hostelería de alto nivel.',
       'Trabajamos cada día con clientes corporativos, huéspedes de hoteles de cinco estrellas, agencias de viajes de lujo y operadores de moda durante las semanas más importantes del calendario milanés.',
       'Nuestra flota — íntegramente Mercedes, BMW y Range Rover — está mantenida por personal dedicado. Los chóferes, seleccionados con esmero, hablan inglés y conocen los protocolos del sector de lujo.',
     ],
@@ -220,7 +220,7 @@ const es: Dictionary = {
       phone: 'Teléfono',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffer.it',
+      emailValue: 'info@smchauffeur.it',
       availability: 'Disponibilidad',
       availabilityValue: '24 horas al día, 7 días a la semana',
     },
@@ -321,7 +321,7 @@ const es: Dictionary = {
     },
     '2': {
       text:
-        'Usé SM Luxury Chauffer durante la Milán Fashion Week. Servicio excelente, chófer discreto y la Mercedes Clase S inmaculada. Volveré a reservar la próxima temporada.',
+        'Usé SM Luxury Chauffeur durante la Milán Fashion Week. Servicio excelente, chófer discreto y la Mercedes Clase S inmaculada. Volveré a reservar la próxima temporada.',
     },
     '3': {
       text:
@@ -339,12 +339,12 @@ const es: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Solicitud de presupuesto — SM Luxury Chauffer',
+      subject: 'Solicitud de presupuesto — SM Luxury Chauffeur',
       intro: 'Nueva solicitud de presupuesto',
       tripType: 'Tipo de viaje',
     },
     contact: {
-      subject: 'Solicitud de contacto — SM Luxury Chauffer',
+      subject: 'Solicitud de contacto — SM Luxury Chauffeur',
       intro: 'Nueva solicitud de contacto',
     },
   },

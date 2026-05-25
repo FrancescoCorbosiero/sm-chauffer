@@ -33,7 +33,7 @@ const links = [
   },
   {
     title: 'Email',
-    description: 'Scrivi a info@smchauffer.it per preventivi e info.',
+    description: 'Scrivi a info@smchauffeur.it per preventivi e info.',
     href: `mailto:${SITE.email}`,
     icon: Mail,
     external: false,
@@ -59,7 +59,7 @@ export default function LinksPage() {
         <div className="max-w-xl mx-auto">
           <div className="mb-6 rounded-[2rem] border border-[var(--color-border)] bg-white/80 backdrop-blur-md px-6 py-5 shadow-[var(--shadow-sm)]">
             <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-text-muted)]">
-              SM Luxury Chauffer
+              SM Luxury Chauffeur
             </p>
             <div className="mt-3 flex items-center justify-between gap-4">
               <div>

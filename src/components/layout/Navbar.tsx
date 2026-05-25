@@ -83,7 +83,7 @@ export default function Navbar() {
               fill="currentColor"
               opacity="0.6"
             >
-              LUXURY CHAUFFER
+              LUXURY CHAUFFEUR
             </text>
           </svg>
         </Link>

@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { DEFAULT_LOCALE, LOCALES, type Dictionary, type Locale } from './types';
 import { dictionaries } from './dictionaries';
 
-const STORAGE_KEY = 'sm-luxury-chauffer.locale';
+const STORAGE_KEY = 'sm-luxury-chauffeur.locale';
 
 interface LanguageContextValue {
   locale: Locale;

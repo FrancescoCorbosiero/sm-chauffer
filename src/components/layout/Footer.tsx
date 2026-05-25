@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid gap-12 md:gap-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="text-2xl sm:text-[1.9rem] font-medium tracking-[0.08em] mb-5">
-              SM LUXURY CHAUFFER
+              SM LUXURY CHAUFFEUR
             </div>
             <p className="text-sm sm:text-[0.98rem] text-white/72 leading-relaxed max-w-sm">
               {t.footer.tagline}
@@ -122,7 +122,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 bg-white/3">
         <div className="container-x py-6 flex flex-wrap items-center justify-between gap-3 text-[11px] sm:text-xs text-white/55">
-          <div>© {new Date().getFullYear()} SM Luxury Chauffer · {t.footer.rightsReserved}</div>
+          <div>© {new Date().getFullYear()} SM Luxury Chauffeur · {t.footer.rightsReserved}</div>
           <div>{t.footer.vat}</div>
         </div>
       </div>
