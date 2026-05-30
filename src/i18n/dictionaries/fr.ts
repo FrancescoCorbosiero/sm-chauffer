@@ -350,6 +350,9 @@ const fr: Dictionary = {
     sendEmail: 'Envoyer par Email',
     sendWhatsApp: 'Envoyer sur WhatsApp',
     close: 'Fermer',
+    sending: 'Envoi en cours…',
+    sent: 'Demande envoyée',
+    sentBody: 'Nous vous répondrons sous peu.',
   },
   quoteMessage: {
     booking: {

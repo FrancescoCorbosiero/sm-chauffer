@@ -94,31 +94,38 @@ docker compose up -d --build      # rebuild + recreate, zero Caddy changes
 
 ## Email / form delivery
 
-The contact and booking forms have **no backend and use no AWS SES** — by
-design. On submit they offer the visitor two handoffs:
+On submit, the booking/contact forms open a modal with two channels:
 
-- **WhatsApp** → a `wa.me` deep link to `SITE.whatsapp`, pre-filled with the
-  booking, and
-- **Email** → a `mailto:` link to `SITE.email`, opening the visitor's own mail
-  client with the booking pre-filled (always written in Italian).
+- **WhatsApp** → a `wa.me` deep link to `SITE.whatsapp`, pre-filled, and
+- **Email** → posts the structured booking to `POST /api/quote`, which sends it
+  **server-side via AWS SES** (always written in Italian).
 
-Both targets come from a single source of truth: `SITE` in `src/lib/site.ts`.
+### AWS SES routing (the "WP Mail SMTP via SES" equivalent)
 
-**Routing bookings to an external inbox** (e.g. a Gmail not on the domain):
-the recommended setup keeps the public `mailto:` target as the branded
-`info@chauffeurskmilano.it` and adds a **forwarding rule in your domain webmail**
-(`info@ → maksymnoleggio@gmail.com`, the `emailBackend` value). This:
+`/api/quote` sends through SES when these env vars are set (see `.env.example`):
 
-- keeps the personal address out of visitors' mail clients,
-- needs no code change and no mail-sending infrastructure,
-- delivers every submission to the external inbox.
+| Var | Purpose |
+|-----|---------|
+| `AWS_REGION` | SES region, e.g. `eu-south-1` |
+| `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | IAM creds with `ses:SendEmail` (or an instance role) |
+| `SES_FROM_EMAIL` | A **verified** SES sending identity, e.g. `info@chauffeurskmilano.it` |
+| `SES_TO_EMAIL` | Where bookings land — any address (e.g. an external Gmail) |
 
-To retarget the `mailto:` directly instead, change `SITE.email` — it updates
-the forms, footer, contact page and structured data in one place.
+The customer's email is set as the message **Reply-To**, so the operator can
+reply straight from their inbox. The endpoint validates every field
+server-side and rejects bots via a hidden honeypot.
 
-> If you later want forms that send automatically server-side (and are
-> end-to-end testable), that requires adding an API route with SES or domain
-> SMTP — a deliberate step up from the current zero-infra approach.
+**SES setup:** verify `SES_FROM_EMAIL` (or its whole domain via DKIM) as an
+identity in the SES console, then **request production access** to leave the
+sandbox — in the sandbox SES only delivers to verified recipients. Once in
+production, `SES_TO_EMAIL` (and any Reply-To) can be any external address.
+
+**Graceful fallback:** if the SES vars are absent, `/api/quote` returns `503`
+and the modal falls back to a `mailto:` to `SITE.email`. So the site works with
+zero email infrastructure, and the WhatsApp channel is always available.
+`SITE` (`src/lib/site.ts`) remains the single source of truth for the public
+address; for delivery to an off-domain inbox without SES you can instead add a
+webmail forwarding rule (`info@ → maksymnoleggio@gmail.com`, the `emailBackend`).
 
 ## Notes
 

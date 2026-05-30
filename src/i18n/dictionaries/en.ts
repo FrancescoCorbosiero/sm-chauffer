@@ -352,6 +352,9 @@ const en: Dictionary = {
     sendEmail: 'Send via Email',
     sendWhatsApp: 'Send via WhatsApp',
     close: 'Close',
+    sending: 'Sending…',
+    sent: 'Request sent',
+    sentBody: 'We will get back to you shortly.',
   },
   quoteMessage: {
     booking: {
