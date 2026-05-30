@@ -13,8 +13,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: sm-luxury-chauffeur:latest
-    container_name: sm-chauffeur
+    image: chauffeur-sk-luxury-milano:latest
+    container_name: chauffeur-sk-luxury-milano
     restart: unless-stopped
     # Values come from a sibling `.env` file (see .env.example). All optional:
     # without the SES_* vars the forms fall back to WhatsApp / mailto.

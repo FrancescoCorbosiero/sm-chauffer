@@ -18,8 +18,8 @@ npm start          # serve the production build
 ## Run the production image locally
 
 ```bash
-docker build -t sm-luxury-chauffeur .
-docker run --rm -p 3000:3000 sm-luxury-chauffeur
+docker build -t chauffeur-sk-luxury-milano .
+docker run --rm -p 3000:3000 chauffeur-sk-luxury-milano
 # open http://localhost:3000
 ```
 

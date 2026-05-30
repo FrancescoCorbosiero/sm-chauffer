@@ -45,7 +45,7 @@ export default function Navbar() {
         <Link href="/" aria-label={t.nav.homeAria} className="shrink-0">
           <Image
             src="/logo.png"
-            alt="SM Luxury Chauffeur"
+            alt="Chauffeur SK Luxury Milano"
             width={52}
             height={52}
             className="h-11 w-auto"

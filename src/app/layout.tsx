@@ -64,8 +64,8 @@ const keywords = [
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'SM Luxury Chauffeur — NCC e Autista di Lusso a Milano, Brianza e Lago di Como',
-    template: '%s · SM Luxury Chauffeur',
+    default: 'Chauffeur SK Luxury Milano — NCC e Autista di Lusso a Milano, Brianza e Lago di Como',
+    template: '%s · Chauffeur SK Luxury Milano',
   },
   description,
   applicationName: SITE.name,
@@ -93,20 +93,20 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'fr_FR', 'de_DE', 'es_ES', 'ru_RU', 'sq_AL'],
     url: SITE.url,
     siteName: SITE.name,
-    title: 'SM Luxury Chauffeur — Autista di lusso a Milano, in Brianza e sul Lago di Como',
+    title: 'Chauffeur SK Luxury Milano — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'SM Luxury Chauffeur — flotta luxury a Milano, in Brianza e sul Lago di Como',
+        alt: 'Chauffeur SK Luxury Milano — flotta luxury a Milano, in Brianza e sul Lago di Como',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SM Luxury Chauffeur — Autista di lusso a Milano, in Brianza e sul Lago di Como',
+    title: 'Chauffeur SK Luxury Milano — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
     images: ['/og.png'],
   },

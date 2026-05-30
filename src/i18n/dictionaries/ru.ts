@@ -2,33 +2,33 @@ import type { Dictionary } from '../types';
 
 const ru: Dictionary = {
   meta: {
-    siteTitle: 'SM Luxury Chauffeur — Премиум-водитель в Милане, Брианце и на озере Комо',
+    siteTitle: 'Chauffeur SK Luxury Milano — Премиум-водитель в Милане, Брианце и на озере Комо',
     siteDescription:
       'Аренда автомобилей премиум-класса с водителем в Милане, Брианце, на озере Комо, в Беладжо и Тремеццо.',
     home: {
-      title: 'SM Luxury Chauffeur — Главная',
+      title: 'Chauffeur SK Luxury Milano — Главная',
       description:
         'Аренда автомобилей премиум-класса с водителем в Милане, Брианце и на озере Комо.',
     },
     fleet: {
-      title: 'Наш автопарк | SM Luxury Chauffeur',
+      title: 'Наш автопарк | Chauffeur SK Luxury Milano',
       description: 'Откройте наш премиум-флот: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Услуги | SM Luxury Chauffeur',
+      title: 'Услуги | Chauffeur SK Luxury Milano',
       description:
         'Трансфер из аэропорта, личный водитель, частные туры по Италии. Сервис 24/7.',
     },
     about: {
-      title: 'О нас | SM Luxury Chauffeur',
-      description: 'SM Luxury Chauffeur — Милан. Услуги аренды автомобиля с водителем.',
+      title: 'О нас | Chauffeur SK Luxury Milano',
+      description: 'Chauffeur SK Luxury Milano. Услуги аренды автомобиля с водителем.',
     },
     blog: {
-      title: 'Блог | SM Luxury Chauffeur',
+      title: 'Блог | Chauffeur SK Luxury Milano',
       description: 'Статьи и гиды о премиум-трансферах, направлениях и стиле жизни.',
     },
     contact: {
-      title: 'Контакты | SM Luxury Chauffeur',
+      title: 'Контакты | Chauffeur SK Luxury Milano',
       description: 'Свяжитесь с нами для бронирования и информации об услугах.',
     },
   },
@@ -45,7 +45,7 @@ const ru: Dictionary = {
     openMenu: 'Открыть меню',
     closeMenu: 'Закрыть меню',
     mainNavLabel: 'Основная навигация',
-    homeAria: 'SM Luxury Chauffeur — Главная',
+    homeAria: 'Chauffeur SK Luxury Milano — Главная',
   },
   footer: {
     tagline:
@@ -67,7 +67,7 @@ const ru: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SM Luxury Chauffeur · Милан',
+    eyebrow: 'Chauffeur SK Luxury Milano',
     titlePart1: 'Премиум-водитель',
     titlePart2: 'в Италии',
     description:
@@ -126,7 +126,7 @@ const ru: Dictionary = {
   testimonialsSection: {
     label: 'Отзывы',
     title: 'Что говорят наши клиенты',
-    description: '5,0 звёзд на Google — реальные отзывы тех, кто выбрал SM Luxury Chauffeur.',
+    description: '5,0 звёзд на Google — реальные отзывы тех, кто выбрал Chauffeur SK Luxury Milano.',
     starsAria: '{n} из 5 звёзд',
   },
   blogPreview: {
@@ -180,11 +180,11 @@ const ru: Dictionary = {
   },
   aboutPage: {
     label: 'О нас',
-    title: 'SM Luxury Chauffeur — Милан',
+    title: 'Chauffeur SK Luxury Milano',
     description:
       'С 2014 года к услугам тех, кто ищет трансфер, соответствующий их ожиданиям.',
     paragraphs: [
-      'SM Luxury Chauffeur основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
+      'Chauffeur SK Luxury Milano основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
       'Каждый день мы работаем с бизнес-клиентами, гостями пятизвёздочных отелей, люксовыми туристическими агентствами и операторами мира моды во время самых важных недель миланского календаря.',
       'Наш автопарк — полностью Mercedes, BMW и Range Rover — обслуживается специализированным персоналом. Тщательно отобранные водители говорят по-английски и знают протоколы обслуживания люксового сегмента.',
     ],
@@ -338,7 +338,7 @@ const ru: Dictionary = {
     },
     '2': {
       text:
-        'Пользовался SM Luxury Chauffeur во время Недели моды в Милане. Отличный сервис, тактичный водитель, безупречный Mercedes S-класса. Закажу снова в следующем сезоне.',
+        'Пользовался Chauffeur SK Luxury Milano во время Недели моды в Милане. Отличный сервис, тактичный водитель, безупречный Mercedes S-класса. Закажу снова в следующем сезоне.',
     },
     '3': {
       text:
@@ -367,12 +367,12 @@ const ru: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Запрос расчёта — SM Luxury Chauffeur',
+      subject: 'Запрос расчёта — Chauffeur SK Luxury Milano',
       intro: 'Новый запрос расчёта',
       tripType: 'Тип поездки',
     },
     contact: {
-      subject: 'Запрос на контакт — SM Luxury Chauffeur',
+      subject: 'Запрос на контакт — Chauffeur SK Luxury Milano',
       intro: 'Новый запрос на контакт',
     },
   },
