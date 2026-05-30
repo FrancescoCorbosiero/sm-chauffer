@@ -205,6 +205,14 @@ const fr: Dictionary = {
     title: 'Histoires, guides et itinéraires',
     description: "Décryptages sur les voyages, les destinations et l'art du transfert de luxe en Italie.",
   },
+  blogPost: {
+    back: 'Blog',
+    readMin: 'min de lecture',
+    related: 'À lire aussi',
+    ctaTitle: 'Un transfert ou un itinéraire à organiser ?',
+    ctaButton: 'Demander un devis',
+  },
+  faq: { label: 'FAQ', title: 'Questions fréquentes' },
   contactPage: {
     label: 'Contact',
     title: 'Contactez-nous',

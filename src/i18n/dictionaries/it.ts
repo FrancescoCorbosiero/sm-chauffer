@@ -207,6 +207,14 @@ const it: Dictionary = {
     title: 'Storie, guide e itinerari',
     description: "Approfondimenti su viaggi, destinazioni e l'arte del trasferimento di lusso in Italia.",
   },
+  blogPost: {
+    back: 'Blog',
+    readMin: 'min di lettura',
+    related: 'Continua a leggere',
+    ctaTitle: 'Hai un trasferimento o un itinerario da organizzare?',
+    ctaButton: 'Richiedi un preventivo',
+  },
+  faq: { label: 'FAQ', title: 'Domande frequenti' },
   contactPage: {
     label: 'Contatti',
     title: 'Mettiti in contatto',
