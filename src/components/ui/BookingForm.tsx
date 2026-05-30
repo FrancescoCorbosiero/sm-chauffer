@@ -6,11 +6,12 @@ import QuoteChoiceModal from './QuoteChoiceModal';
 import QuoteEstimate from './QuoteEstimate';
 import { vehicles } from '@/lib/data';
 import { estimate, parseHours } from '@/lib/pricing';
-import type { BookingPayload } from '@/lib/quoteMessage';
+import type { ContactPayload } from '@/lib/quoteMessage';
 
 type TripType = 'one-way' | 'hourly';
 
 const requiredMark = <span aria-hidden className="text-[var(--color-ink)] ml-0.5">*</span>;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function BookingForm() {
   const t = useTranslation();
@@ -21,28 +22,51 @@ export default function BookingForm() {
   const [hours, setHours] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [company, setCompany] = useState(''); // honeypot
-  const [modalPayload, setModalPayload] = useState<BookingPayload | null>(null);
+  const [modalPayload, setModalPayload] = useState<ContactPayload | null>(null);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (company) return; // bot caught by honeypot
     // On the hourly tab the second field is the duration, not a destination.
     const secondField = activeTab === 'one-way' ? to : hours;
-    if (!vehicle.trim() || !from.trim() || !secondField.trim() || !date.trim() || !time.trim()) {
+    if (
+      !name.trim() ||
+      !phone.trim() ||
+      !email.trim() ||
+      !vehicle.trim() ||
+      !from.trim() ||
+      !secondField.trim() ||
+      !date.trim() ||
+      !time.trim()
+    ) {
       setError(t.formErrors.required);
       return;
     }
+    if (!EMAIL_RE.test(email.trim())) {
+      setError(t.formErrors.invalidEmail);
+      return;
+    }
     setError(null);
+    // Emit a contact payload so the operator always gets the customer's
+    // details (and the customer gets the confirmation email), exactly like the
+    // full contact form. The quick form just omits the optional extras.
     setModalPayload({
-      kind: 'booking',
-      tripType: activeTab,
+      kind: 'contact',
+      serviceType: activeTab,
+      name: name.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
       vehicle,
       from,
       to: secondField,
       date,
       time,
+      childSeat: false,
     });
   };
 
@@ -211,6 +235,55 @@ export default function BookingForm() {
               />
             </label>
           </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label htmlFor="bf-name" className={cellClass}>
+              <span className={cellLabel}>
+                {t.contactPage.name}{requiredMark}
+              </span>
+              <input
+                id="bf-name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={t.contactPage.form.namePlaceholder}
+                autoComplete="name"
+                aria-required="true"
+                className={cellInput}
+              />
+            </label>
+            <label htmlFor="bf-phone" className={cellClass}>
+              <span className={cellLabel}>
+                {t.contactPage.phone}{requiredMark}
+              </span>
+              <input
+                id="bf-phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder={t.contactPage.form.phonePlaceholder}
+                autoComplete="tel"
+                aria-required="true"
+                className={cellInput}
+              />
+            </label>
+          </div>
+
+          <label htmlFor="bf-email" className={cellClass}>
+            <span className={cellLabel}>
+              {t.contactPage.email}{requiredMark}
+            </span>
+            <input
+              id="bf-email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t.contactPage.form.emailPlaceholder}
+              autoComplete="email"
+              aria-required="true"
+              className={cellInput}
+            />
+          </label>
         </div>
 
         {error && (
