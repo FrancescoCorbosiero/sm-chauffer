@@ -127,10 +127,24 @@ export default function ContactPage() {
     });
   };
 
-  const info: Array<{ icon: LucideIcon; label: string; value: string; href?: string }> = [
+  const info: Array<{
+    icon: LucideIcon;
+    label: string;
+    value: string;
+    href?: string;
+    value2?: string;
+    href2?: string;
+  }> = [
     { icon: MapPin, label: t.contactPage.info.address, value: t.contactPage.info.addressValue },
     { icon: Phone, label: t.contactPage.info.phone, value: t.contactPage.info.phoneValue, href: `tel:${SITE.phone}` },
-    { icon: Mail, label: t.contactPage.info.email, value: t.contactPage.info.emailValue, href: `mailto:${SITE.email}` },
+    {
+      icon: Mail,
+      label: t.contactPage.info.email,
+      value: SITE.email,
+      href: `mailto:${SITE.email}`,
+      value2: SITE.emailBackend,
+      href2: `mailto:${SITE.emailBackend}`,
+    },
     { icon: Clock, label: t.contactPage.info.availability, value: t.contactPage.info.availabilityValue },
   ];
 
@@ -419,7 +433,7 @@ export default function ContactPage() {
                     <div className="w-10 h-10 rounded-full bg-white border border-[var(--color-border)] flex items-center justify-center shrink-0">
                       <i.icon size={18} className="text-[var(--color-ink)]" />
                     </div>
-                    <div>
+                    <div className="flex flex-col gap-0.5">
                       <div className="text-[10px] uppercase tracking-[0.28em] text-[var(--color-text-muted)] mb-1">
                         {i.label}
                       </div>
@@ -429,6 +443,11 @@ export default function ContactPage() {
                         </a>
                       ) : (
                         <div className="text-[var(--color-ink)]">{i.value}</div>
+                      )}
+                      {i.value2 && (
+                        <a href={i.href2} className="text-[var(--color-ink)] hover:text-[var(--color-text-muted)] transition-colors">
+                          {i.value2}
+                        </a>
                       )}
                     </div>
                   </li>

@@ -2,13 +2,11 @@ export const SITE = {
   name: 'Chauffeur SK Luxury Milano',
   legalName: 'Chauffeur SK Luxury Milano',
   url: 'https://chauffeurskmilano.it',
-  // Public, branded address used everywhere (contact page, footer, JSON-LD)
-  // and as the `mailto:` target for the booking/contact forms. Bookings are
-  // routed to the external inbox below via a forwarding rule set in the domain
-  // webmail (info@ → emailBackend) — no backend/SES involved. See DEPLOYMENT.md.
+  // Primary, branded address: the `mailto:` target for the forms and the
+  // `email` used in JSON-LD. Shown publicly in the footer and contact page.
   email: 'info@chauffeurskmilano.it',
-  // Where bookings should ultimately land (external owner inbox). Configure the
-  // webmail forwarding to this address; it is intentionally not exposed publicly.
+  // Second public contact address, also shown in the footer and contact page,
+  // and the owner inbox bookings are forwarded to.
   emailBackend: 'maksymnoleggio@gmail.com',
   phone: '+393286871152',
   phoneDisplay: '+39 328 687 1152',
