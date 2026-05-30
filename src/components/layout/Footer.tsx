@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid gap-12 md:gap-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="text-2xl sm:text-[1.9rem] font-medium tracking-[0.08em] mb-5">
-              SM LUXURY CHAUFFEUR
+              CHAUFFEUR SK LUXURY MILANO
             </div>
             <p className="text-sm sm:text-[0.98rem] text-white/72 leading-relaxed max-w-sm">
               {t.footer.tagline}
@@ -106,14 +106,22 @@ export default function Footer() {
                   {SITE.phoneDisplay}
                 </a>
               </li>
-              <li className="flex items-center gap-3.5">
-                <Mail size={16} className="shrink-0 text-white/55" />
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  {SITE.email}
-                </a>
+              <li className="flex items-start gap-3.5">
+                <Mail size={16} className="mt-0.5 shrink-0 text-white/55" />
+                <span className="flex flex-col gap-1.5">
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {SITE.email}
+                  </a>
+                  <a
+                    href={`mailto:${SITE.emailBackend}`}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {SITE.emailBackend}
+                  </a>
+                </span>
               </li>
             </ul>
           </div>
