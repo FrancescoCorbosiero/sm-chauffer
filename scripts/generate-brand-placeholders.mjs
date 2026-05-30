@@ -1,6 +1,6 @@
 /**
  * Generates the placeholder brand assets in `public/` so the site never ships
- * broken images. These are intentionally plain (a gold "SM" monogram on the
+ * broken images. These are intentionally plain (a gold "SK" monogram on the
  * brand ink background) — replace the files with the real brand artwork when
  * it's ready. See `public/README.md` for the full asset checklist.
  *
@@ -21,7 +21,7 @@ const GOLD = [255, 168, 6]; // --color-accent #ffa806
 // 5x7 bitmap glyphs for the monogram letters.
 const GLYPHS = {
   S: ['01111', '10000', '10000', '01110', '00001', '00001', '11110'],
-  M: ['10001', '11011', '10101', '10101', '10001', '10001', '10001'],
+  K: ['10001', '10010', '10100', '11000', '10100', '10010', '10001'],
 };
 
 // ---- PNG encoder (8-bit RGBA) ------------------------------------------------
@@ -74,7 +74,7 @@ function encodePng(width, height, rgba) {
 }
 
 // ---- Drawing -----------------------------------------------------------------
-function render(size, { bg, fg = GOLD, text = 'SM', scale = 0.42 }) {
+function render(size, { bg, fg = GOLD, text = 'SK', scale = 0.42 }) {
   const w = size;
   const h = size;
   const rgba = Buffer.alloc(w * h * 4);
@@ -125,7 +125,7 @@ function render(size, { bg, fg = GOLD, text = 'SM', scale = 0.42 }) {
   return { w, h, rgba };
 }
 
-function renderRect(width, height, { bg, fg = GOLD, text = 'SM' }) {
+function renderRect(width, height, { bg, fg = GOLD, text = 'SK' }) {
   // Wide canvas (used for the social/OG card). Monogram centred.
   const rgba = Buffer.alloc(width * height * 4);
   for (let i = 0; i < width * height; i++) {

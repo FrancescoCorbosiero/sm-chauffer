@@ -1,6 +1,6 @@
 export const SITE = {
-  name: 'SM Luxury Chauffeur',
-  legalName: 'SM Luxury Chauffeur',
+  name: 'Chauffeur SK Luxury Milano',
+  legalName: 'Chauffeur SK Luxury Milano',
   url: 'https://chauffeurskmilano.it',
   // Public, branded address used everywhere (contact page, footer, JSON-LD)
   // and as the `mailto:` target for the booking/contact forms. Bookings are

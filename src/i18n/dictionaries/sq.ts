@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const sq: Dictionary = {
   meta: {
-    siteTitle: 'SM Luxury Chauffeur — Shofer Luksoz në Itali',
+    siteTitle: 'Chauffeur SK Luxury Milano — Shofer Luksoz në Itali',
     siteDescription: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     home: {
-      title: 'SM Luxury Chauffeur — Kreu',
+      title: 'Chauffeur SK Luxury Milano — Kreu',
       description: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     },
     fleet: {
-      title: 'Flota Jonë | SM Luxury Chauffeur',
+      title: 'Flota Jonë | Chauffeur SK Luxury Milano',
       description: 'Zbuloni flotën tonë të automjeteve luksoze: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Shërbimet | SM Luxury Chauffeur',
+      title: 'Shërbimet | Chauffeur SK Luxury Milano',
       description: 'Transferta aeroportuale, shofer privat, tura në Itali. Shërbim 24/7.',
     },
     about: {
-      title: 'Rreth Nesh | SM Luxury Chauffeur',
-      description: 'SM Luxury Chauffeur — Milano. Shërbim me makinë dhe shofer.',
+      title: 'Rreth Nesh | Chauffeur SK Luxury Milano',
+      description: 'Chauffeur SK Luxury Milano. Shërbim me makinë dhe shofer.',
     },
     blog: {
-      title: 'Blog | SM Luxury Chauffeur',
+      title: 'Blog | Chauffeur SK Luxury Milano',
       description: 'Artikuj dhe udhëzues mbi transferimet luksoze, destinacionet dhe stilin e jetesës.',
     },
     contact: {
-      title: 'Kontakt | SM Luxury Chauffeur',
+      title: 'Kontakt | Chauffeur SK Luxury Milano',
       description: 'Na kontaktoni për rezervime dhe informacione mbi shërbimin tonë me shofer.',
     },
   },
@@ -42,7 +42,7 @@ const sq: Dictionary = {
     openMenu: 'Hap menynë',
     closeMenu: 'Mbyll menynë',
     mainNavLabel: 'Navigimi kryesor',
-    homeAria: 'SM Luxury Chauffeur — Kreu',
+    homeAria: 'Chauffeur SK Luxury Milano — Kreu',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const sq: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SM Luxury Chauffeur · Milano',
+    eyebrow: 'Chauffeur SK Luxury Milano',
     titlePart1: 'Shofer luksoz',
     titlePart2: 'në Itali',
     description:
@@ -120,7 +120,7 @@ const sq: Dictionary = {
   testimonialsSection: {
     label: 'Dëshmitë',
     title: 'Çfarë thonë klientët tanë',
-    description: '5.0 yje në Google — vlerësime reale nga ata që zgjodhën SM Luxury Chauffeur.',
+    description: '5.0 yje në Google — vlerësime reale nga ata që zgjodhën Chauffeur SK Luxury Milano.',
     starsAria: '{n} nga 5 yje',
   },
   blogPreview: {
@@ -174,10 +174,10 @@ const sq: Dictionary = {
   },
   aboutPage: {
     label: 'Rreth Nesh',
-    title: 'SM Luxury Chauffeur — Milano',
+    title: 'Chauffeur SK Luxury Milano',
     description: 'Që nga viti 2014 në shërbim të atyre që kërkojnë një transfertë në lartësinë e pritshmërive të tyre.',
     paragraphs: [
-      'SM Luxury Chauffeur lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
+      'Chauffeur SK Luxury Milano lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
       'Çdo ditë punojmë me klientë biznesi, mysafirë të hoteleve pesë-yje, agjenci udhëtimesh luksoze dhe operatorë të modës gjatë javëve më të rëndësishme të kalendarit milanez.',
       'Flota jonë — tërësisht Mercedes, BMW dhe Range Rover — mirëmbahet nga personel i dedikuar. Shoferët, të zgjedhur me kujdes, flasin anglisht dhe njohin protokollet e shërbimit të sektorit luksoz.',
     ],
@@ -327,7 +327,7 @@ const sq: Dictionary = {
     },
     '2': {
       text:
-        'E përdora SM Luxury Chauffeur gjatë Fashion Week-ut të Milanos. Shërbim i shkëlqyer, shofer diskret dhe Mercedes Klasi S i patëmetë. Do të rezervoj sërish sezonin tjetër.',
+        'E përdora Chauffeur SK Luxury Milano gjatë Fashion Week-ut të Milanos. Shërbim i shkëlqyer, shofer diskret dhe Mercedes Klasi S i patëmetë. Do të rezervoj sërish sezonin tjetër.',
     },
     '3': {
       text:
@@ -344,6 +344,15 @@ const sq: Dictionary = {
     incomplete: 'Plotësoni fushat për të parë vlerësimin',
     disclaimer: 'Vlerësim tregues. Oferta përfundimtare do t’ju konfirmohet.',
   },
+  emailConfirmation: {
+    subject: 'Kemi marrë kërkesën tuaj',
+    preheader: 'Faleminderit! Ja përmbledhja e kërkesës suaj.',
+    greeting: 'Përshëndetje {name},',
+    intro: 'faleminderit që na kontaktuat. E morëm kërkesën tuaj dhe do t’ju kontaktojmë së shpejti për të konfirmuar detajet. Më poshtë gjeni përmbledhjen e të dhënave të dërguara.',
+    summaryTitle: 'Përmbledhja e kërkesës',
+    contactTitle: 'Kontakti',
+    closing: 'Shihemi së shpejti,',
+  },
   quoteModal: {
     title: 'Si dëshironi të dërgoni kërkesën?',
     description: 'Zgjidhni kanalin e preferuar: do t’ju përgjigjemi sa më shpejt të jetë e mundur.',
@@ -356,12 +365,12 @@ const sq: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Kërkesë për ofertë — SM Luxury Chauffeur',
+      subject: 'Kërkesë për ofertë — Chauffeur SK Luxury Milano',
       intro: 'Kërkesë e re për ofertë',
       tripType: 'Lloji i udhëtimit',
     },
     contact: {
-      subject: 'Kërkesë kontakti — SM Luxury Chauffeur',
+      subject: 'Kërkesë kontakti — Chauffeur SK Luxury Milano',
       intro: 'Kërkesë e re kontakti',
     },
   },

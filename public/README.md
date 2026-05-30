@@ -4,7 +4,7 @@ Everything in this `public/` folder is served from the site root. A file at
 `public/logo.png` is reachable at `https://chauffeurskmilano.it/logo.png`.
 
 **This is where you load the logo.** The files below currently contain
-auto-generated *placeholders* (a gold "SM" monogram on the brand-ink
+auto-generated *placeholders* (a gold "SK" monogram on the brand-ink
 background). Replace each file in place — keep the **same filename and
 dimensions** and everything else (the navbar, favicon, social previews and
 SEO/structured data) picks them up automatically. No code changes needed.

@@ -20,10 +20,10 @@ const GOLD = [255, 168, 6];
 
 const GLYPHS = {
   S: ['01111', '10000', '10000', '01110', '00001', '00001', '11110'],
-  M: ['10001', '11011', '10101', '10101', '10001', '10001', '10001'],
+  K: ['10001', '10010', '10100', '11000', '10100', '10010', '10001'],
 };
 
-// ---- Render an RGB buffer (ink card, gold "SM" monogram + thin frame) --------
+// ---- Render an RGB buffer (ink card, gold "SK" monogram + thin frame) --------
 function renderCard(width, height) {
   const rgb = Buffer.alloc(width * height * 3);
   for (let i = 0; i < width * height; i++) {
@@ -54,8 +54,8 @@ function renderCard(width, height) {
     }
   }
 
-  // centered "SM" monogram
-  const text = 'SM';
+  // centered "SK" monogram
+  const text = 'SK';
   const cols = text.length * 5 + (text.length - 1);
   const px = Math.round((height * 0.32) / 7);
   const offX = Math.round((width - cols * px) / 2);

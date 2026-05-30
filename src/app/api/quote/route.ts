@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import { validateQuotePayload } from '@/lib/quoteValidation';
-import { isSesConfigured, sendQuoteEmail } from '@/lib/ses';
+import { isSesConfigured, sendQuoteEmail, sendHtmlEmail } from '@/lib/ses';
+import { renderConfirmationEmail } from '@/lib/emailTemplate';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/types';
+
+function pickLocale(value: unknown): Locale {
+  return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
+    ? (value as Locale)
+    : DEFAULT_LOCALE;
+}
 
 // Sends real email — must run on the Node server, never statically cached.
 export const runtime = 'nodejs';
@@ -34,6 +42,14 @@ export async function POST(req: Request) {
   if (!result.ok) {
     const status = result.reason === 'unconfigured' ? 503 : 502;
     return NextResponse.json({ ok: false, error: result.reason }, { status });
+  }
+
+  // Best-effort customer confirmation (contact form only — it carries an email).
+  // A failure here must not fail the request: the operator already has it.
+  if (payload.kind === 'contact') {
+    const locale = pickLocale((data as { locale?: unknown }).locale);
+    const { subject, html, text } = renderConfirmationEmail(payload, locale);
+    await sendHtmlEmail(payload.email, subject, html, text);
   }
 
   return NextResponse.json({ ok: true });

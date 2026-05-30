@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Chi siamo — SM Luxury Chauffeur Milano',
+  title: 'Chi siamo — Chauffeur SK Luxury Milano',
   description:
-    'Dal 2014 SM Luxury Chauffeur è il riferimento per il noleggio con conducente di lusso a Milano e in Brianza. Flotta premium, autisti selezionati e standard del settore luxury hospitality.',
+    'Dal 2014 Chauffeur SK Luxury Milano è il riferimento per il noleggio con conducente di lusso a Milano e in Brianza. Flotta premium, autisti selezionati e standard del settore luxury hospitality.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'Chi siamo · SM Luxury Chauffeur',
+    title: 'Chi siamo · Chauffeur SK Luxury Milano',
     description:
       'Dieci anni di esperienza nei trasferimenti di lusso a Milano, Brianza e in tutta Italia.',
     url: '/about',

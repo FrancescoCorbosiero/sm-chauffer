@@ -1,7 +1,7 @@
 # Fleet photos — drop your real car photos here
 
 These files are the photos shown on the **Fleet** page and the homepage fleet
-preview. They currently contain **branded placeholders** (the gold "SM"
+preview. They currently contain **branded placeholders** (the gold "SK"
 monogram). Replace each one with a real photo of that vehicle — **keep the
 exact same filename** and the site picks it up automatically, no code change.
 

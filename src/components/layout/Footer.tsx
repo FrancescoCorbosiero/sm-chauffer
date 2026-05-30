@@ -122,7 +122,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 bg-white/3">
         <div className="container-x py-6 flex flex-wrap items-center justify-between gap-3 text-[11px] sm:text-xs text-white/55">
-          <div>© {new Date().getFullYear()} SM Luxury Chauffeur · {t.footer.rightsReserved}</div>
+          <div>© {new Date().getFullYear()} Chauffeur SK Luxury Milano · {t.footer.rightsReserved}</div>
           <div>{t.footer.vat}</div>
         </div>
       </div>
