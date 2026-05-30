@@ -2,7 +2,13 @@ export const SITE = {
   name: 'SM Luxury Chauffeur',
   legalName: 'SM Luxury Chauffeur',
   url: 'https://smchauffeur.it',
+  // Public, branded address used everywhere (contact page, footer, JSON-LD)
+  // and as the `mailto:` target for the booking/contact forms. Bookings are
+  // routed to the external inbox below via a forwarding rule set in the domain
+  // webmail (info@ → emailBackend) — no backend/SES involved. See DEPLOYMENT.md.
   email: 'info@smchauffeur.it',
+  // Where bookings should ultimately land (external owner inbox). Configure the
+  // webmail forwarding to this address; it is intentionally not exposed publicly.
   emailBackend: 'maksymnoleggio@gmail.com',
   phone: '+393286871152',
   phoneDisplay: '+39 328 687 1152',

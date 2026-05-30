@@ -92,6 +92,34 @@ git pull
 docker compose up -d --build      # rebuild + recreate, zero Caddy changes
 ```
 
+## Email / form delivery
+
+The contact and booking forms have **no backend and use no AWS SES** — by
+design. On submit they offer the visitor two handoffs:
+
+- **WhatsApp** → a `wa.me` deep link to `SITE.whatsapp`, pre-filled with the
+  booking, and
+- **Email** → a `mailto:` link to `SITE.email`, opening the visitor's own mail
+  client with the booking pre-filled (always written in Italian).
+
+Both targets come from a single source of truth: `SITE` in `src/lib/site.ts`.
+
+**Routing bookings to an external inbox** (e.g. a Gmail not on the domain):
+the recommended setup keeps the public `mailto:` target as the branded
+`info@smchauffeur.it` and adds a **forwarding rule in your domain webmail**
+(`info@ → maksymnoleggio@gmail.com`, the `emailBackend` value). This:
+
+- keeps the personal address out of visitors' mail clients,
+- needs no code change and no mail-sending infrastructure,
+- delivers every submission to the external inbox.
+
+To retarget the `mailto:` directly instead, change `SITE.email` — it updates
+the forms, footer, contact page and structured data in one place.
+
+> If you later want forms that send automatically server-side (and are
+> end-to-end testable), that requires adding an API route with SES or domain
+> SMTP — a deliberate step up from the current zero-infra approach.
+
 ## Notes
 
 - **Different domain?** Change the two `caddy_0` / `caddy_1` host labels in
