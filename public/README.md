@@ -1,7 +1,7 @@
 # Brand assets — where the logo and images live
 
 Everything in this `public/` folder is served from the site root. A file at
-`public/logo.png` is reachable at `https://smchauffeur.it/logo.png`.
+`public/logo.png` is reachable at `https://chauffeurskmilano.it/logo.png`.
 
 **This is where you load the logo.** The files below currently contain
 auto-generated *placeholders* (a gold "SM" monogram on the brand-ink

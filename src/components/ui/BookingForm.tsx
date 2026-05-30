@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import QuoteChoiceModal from './QuoteChoiceModal';
+import QuoteEstimate from './QuoteEstimate';
 import { vehicles } from '@/lib/data';
+import { estimate, parseHours } from '@/lib/pricing';
 import type { BookingPayload } from '@/lib/quoteMessage';
 
 type TripType = 'one-way' | 'hourly';
@@ -30,6 +32,16 @@ export default function BookingForm() {
     setError(null);
     setModalPayload({ kind: 'booking', tripType: activeTab, vehicle, from, to, date, time });
   };
+
+  // Live estimate. On the hourly tab the "to" field holds the duration.
+  const selectedVehicle = vehicles.find((v) => v.name === vehicle) ?? null;
+  const liveEstimate = estimate({
+    tripType: activeTab,
+    vehicle: selectedVehicle,
+    from,
+    to: activeTab === 'one-way' ? to : undefined,
+    durationHours: activeTab === 'hourly' ? parseHours(to) : undefined,
+  });
 
   const tabBase =
     'relative pb-3 text-sm font-medium transition-colors focus:outline-none';
@@ -160,6 +172,8 @@ export default function BookingForm() {
             {error}
           </p>
         )}
+
+        <QuoteEstimate estimate={liveEstimate} className="mt-5" />
 
         <button
           type="submit"

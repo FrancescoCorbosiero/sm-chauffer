@@ -223,7 +223,7 @@ const it: Dictionary = {
       phone: 'Telefono',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffeur.it',
+      emailValue: 'info@chauffeurskmilano.it',
       availability: 'Disponibilità',
       availabilityValue: 'Aperti 24 ore, 7 giorni su 7',
     },
@@ -340,6 +340,14 @@ const it: Dictionary = {
   },
   whatsapp: { aria: 'Contattaci su WhatsApp', label: 'WhatsApp' },
   languageSwitcher: { aria: 'Cambia lingua' },
+  quote: {
+    estimate: 'Stima preventivo',
+    fixedMalpensa: 'Tariffa fissa Milano–Malpensa',
+    busNote: 'Bus 18 posti: preventivo dedicato',
+    customNote: 'Preventivo su misura per questo tragitto',
+    incomplete: 'Compila i campi per vedere la stima',
+    disclaimer: 'Stima indicativa. Il preventivo finale ti verrà confermato.',
+  },
   quoteModal: {
     title: 'Come vuoi inviarci la richiesta?',
     description: 'Scegli il canale preferito: ti risponderemo nel più breve tempo possibile.',

@@ -221,7 +221,7 @@ const sq: Dictionary = {
       phone: 'Telefon',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffeur.it',
+      emailValue: 'info@chauffeurskmilano.it',
       availability: 'Disponueshmëri',
       availabilityValue: '24 orë në ditë, 7 ditë në javë',
     },
@@ -336,6 +336,14 @@ const sq: Dictionary = {
   },
   whatsapp: { aria: 'Na kontaktoni në WhatsApp', label: 'WhatsApp' },
   languageSwitcher: { aria: 'Ndrysho gjuhën' },
+  quote: {
+    estimate: 'Vlerësim oferte',
+    fixedMalpensa: 'Tarifë fikse Milano–Malpensa',
+    busNote: 'Autobus 18 vende: ofertë e dedikuar',
+    customNote: 'Ofertë e personalizuar për këtë itinerar',
+    incomplete: 'Plotësoni fushat për të parë vlerësimin',
+    disclaimer: 'Vlerësim tregues. Oferta përfundimtare do t’ju konfirmohet.',
+  },
   quoteModal: {
     title: 'Si dëshironi të dërgoni kërkesën?',
     description: 'Zgjidhni kanalin e preferuar: do t’ju përgjigjemi sa më shpejt të jetë e mundur.',

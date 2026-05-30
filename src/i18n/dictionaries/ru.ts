@@ -228,7 +228,7 @@ const ru: Dictionary = {
       phone: 'Телефон',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffeur.it',
+      emailValue: 'info@chauffeurskmilano.it',
       availability: 'Доступность',
       availabilityValue: 'Открыты 24 часа, 7 дней в неделю',
     },
@@ -347,6 +347,14 @@ const ru: Dictionary = {
   },
   whatsapp: { aria: 'Напишите нам в WhatsApp', label: 'WhatsApp' },
   languageSwitcher: { aria: 'Изменить язык' },
+  quote: {
+    estimate: 'Предварительный расчёт',
+    fixedMalpensa: 'Фиксированный тариф Милан–Мальпенса',
+    busNote: 'Автобус на 18 мест: индивидуальный расчёт',
+    customNote: 'Индивидуальный расчёт для этого маршрута',
+    incomplete: 'Заполните поля, чтобы увидеть оценку',
+    disclaimer: 'Ориентировочная оценка. Итоговый расчёт будет подтверждён.',
+  },
   quoteModal: {
     title: 'Как вы хотите отправить запрос?',
     description: 'Выберите предпочтительный канал — мы ответим максимально быстро.',
