@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
+import { blogPosts } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -24,11 +25,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
   ];
 
-  return routes.map((r) => ({
+  const staticEntries: MetadataRoute.Sitemap = routes.map((r) => ({
     url: r.path === '/' ? base : `${base}${r.path}`,
     lastModified: now,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
     alternates: { languages },
   }));
+
+  // Individual blog posts (single-language content, so no hreflang alternates).
+  const postEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: new Date(post.dateISO),
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...postEntries];
 }
