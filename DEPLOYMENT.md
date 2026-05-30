@@ -109,7 +109,7 @@ On submit, the booking/contact forms open a modal with two channels:
 | `AWS_REGION` | SES region, e.g. `eu-south-1` |
 | `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | IAM creds with `ses:SendEmail` (or an instance role) |
 | `SES_FROM_EMAIL` | A **verified** SES sending identity, e.g. `info@chauffeurskmilano.it` |
-| `SES_TO_EMAIL` | Where bookings land — any address (e.g. an external Gmail) |
+| `SES_TO_EMAIL` | Where bookings land. **One or more** recipients, comma-separated — mix the domain webmail and external inboxes, e.g. `info@chauffeurskmilano.it,maksymnoleggio@gmail.com` |
 
 The customer's email is set as the message **Reply-To**, so the operator can
 reply straight from their inbox. The endpoint validates every field

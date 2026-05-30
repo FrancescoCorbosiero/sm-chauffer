@@ -21,14 +21,21 @@ export type SesResult =
 interface SesConfig {
   region: string;
   from: string;
-  to: string;
+  to: string[];
 }
 
 function getConfig(): SesConfig | null {
   const region = process.env.AWS_REGION;
   const from = process.env.SES_FROM_EMAIL;
-  const to = process.env.SES_TO_EMAIL;
-  if (!region || !from || !to) return null;
+  const toRaw = process.env.SES_TO_EMAIL;
+  if (!region || !from || !toRaw) return null;
+  // SES_TO_EMAIL may list several recipients, comma- or semicolon-separated,
+  // e.g. "info@chauffeurskmilano.it,maksymnoleggio@gmail.com".
+  const to = toRaw
+    .split(/[,;]/)
+    .map((addr) => addr.trim())
+    .filter(Boolean);
+  if (to.length === 0) return null;
   return { region, from, to };
 }
 
@@ -56,7 +63,7 @@ export async function sendQuoteEmail(
     await client(cfg.region).send(
       new SendEmailCommand({
         FromEmailAddress: cfg.from,
-        Destination: { ToAddresses: [cfg.to] },
+        Destination: { ToAddresses: cfg.to },
         ReplyToAddresses: replyTo ? [replyTo] : undefined,
         Content: {
           Simple: {

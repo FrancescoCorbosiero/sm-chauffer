@@ -18,6 +18,7 @@ export default function BookingForm() {
   const [vehicle, setVehicle] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
+  const [hours, setHours] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -27,27 +28,37 @@ export default function BookingForm() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (company) return; // bot caught by honeypot
-    if (!vehicle.trim() || !from.trim() || !to.trim() || !date.trim() || !time.trim()) {
+    // On the hourly tab the second field is the duration, not a destination.
+    const secondField = activeTab === 'one-way' ? to : hours;
+    if (!vehicle.trim() || !from.trim() || !secondField.trim() || !date.trim() || !time.trim()) {
       setError(t.formErrors.required);
       return;
     }
     setError(null);
-    setModalPayload({ kind: 'booking', tripType: activeTab, vehicle, from, to, date, time });
+    setModalPayload({
+      kind: 'booking',
+      tripType: activeTab,
+      vehicle,
+      from,
+      to: secondField,
+      date,
+      time,
+    });
   };
 
-  // Live estimate. On the hourly tab the "to" field holds the duration.
+  // Live estimate. On the hourly tab the second field holds the duration.
   const selectedVehicle = vehicles.find((v) => v.name === vehicle) ?? null;
   const liveEstimate = estimate({
     tripType: activeTab,
     vehicle: selectedVehicle,
     from,
     to: activeTab === 'one-way' ? to : undefined,
-    durationHours: activeTab === 'hourly' ? parseHours(to) : undefined,
+    durationHours: activeTab === 'hourly' ? parseHours(hours) : undefined,
   });
 
   const tabBase =
-    'relative pb-3 text-sm font-medium transition-colors focus:outline-none';
-  const tabActive = 'text-[var(--color-ink)]';
+    'rounded-lg py-2.5 text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ink)]/30';
+  const tabActive = 'bg-white text-[var(--color-ink)] shadow-[var(--shadow-sm)]';
   const tabInactive = 'text-[var(--color-text-muted)] hover:text-[var(--color-ink)]';
 
   const cellClass =
@@ -64,26 +75,28 @@ export default function BookingForm() {
         noValidate
         className="bg-white border border-[var(--color-border)] p-6 sm:p-8 rounded-2xl shadow-[var(--shadow-lg)]"
       >
-        <div className="flex gap-7 border-b border-[var(--color-border)] mb-6">
+        <div
+          role="tablist"
+          aria-label={t.bookingForm.title}
+          className="mb-6 grid grid-cols-2 gap-1 rounded-xl bg-[var(--color-surface-2)] p-1"
+        >
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'one-way'}
             onClick={() => setActiveTab('one-way')}
             className={`${tabBase} ${activeTab === 'one-way' ? tabActive : tabInactive}`}
           >
             {t.bookingForm.oneWay}
-            {activeTab === 'one-way' && (
-              <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-[var(--color-ink)]" />
-            )}
           </button>
           <button
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'hourly'}
             onClick={() => setActiveTab('hourly')}
             className={`${tabBase} ${activeTab === 'hourly' ? tabActive : tabInactive}`}
           >
             {t.bookingForm.hourly}
-            {activeTab === 'hourly' && (
-              <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-[var(--color-ink)]" />
-            )}
           </button>
         </div>
 
@@ -134,20 +147,40 @@ export default function BookingForm() {
                 className={cellInput}
               />
             </label>
-            <label htmlFor="bf-to" className={cellClass}>
-              <span className={cellLabel}>
-                {activeTab === 'one-way' ? t.bookingForm.to : t.bookingForm.duration}{requiredMark}
-              </span>
-              <input
-                id="bf-to"
-                type="text"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-                placeholder={activeTab === 'one-way' ? t.bookingForm.toPlaceholder : t.bookingForm.durationPlaceholder}
-                aria-required="true"
-                className={cellInput}
-              />
-            </label>
+            {activeTab === 'one-way' ? (
+              <label htmlFor="bf-to" className={cellClass}>
+                <span className={cellLabel}>
+                  {t.bookingForm.to}{requiredMark}
+                </span>
+                <input
+                  id="bf-to"
+                  type="text"
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                  placeholder={t.bookingForm.toPlaceholder}
+                  aria-required="true"
+                  className={cellInput}
+                />
+              </label>
+            ) : (
+              <label htmlFor="bf-hours" className={cellClass}>
+                <span className={cellLabel}>
+                  {t.bookingForm.duration}{requiredMark}
+                </span>
+                <input
+                  id="bf-hours"
+                  type="number"
+                  min={1}
+                  step={1}
+                  inputMode="numeric"
+                  value={hours}
+                  onChange={(e) => setHours(e.target.value)}
+                  placeholder={t.bookingForm.durationPlaceholder}
+                  aria-required="true"
+                  className={cellInput}
+                />
+              </label>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

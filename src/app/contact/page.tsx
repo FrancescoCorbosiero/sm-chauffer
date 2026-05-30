@@ -7,7 +7,7 @@ import QuoteEstimate from '@/components/ui/QuoteEstimate';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
 import { vehicles } from '@/lib/data';
-import { estimate } from '@/lib/pricing';
+import { estimate, parseHours } from '@/lib/pricing';
 import type { ContactPayload } from '@/lib/quoteMessage';
 import { SITE } from '@/lib/site';
 import { IMAGES } from '@/lib/images';
@@ -37,6 +37,7 @@ export default function ContactPage() {
   const [email, setEmail] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
+  const [hours, setHours] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [vehicleId, setVehicleId] = useState('');
@@ -61,6 +62,7 @@ export default function ContactPage() {
     vehicle: selectedVehicle ?? null,
     from,
     to,
+    durationHours: serviceType === 'hourly' ? parseHours(hours) : undefined,
   });
 
   useEffect(() => {
@@ -82,12 +84,14 @@ export default function ContactPage() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (company) return; // bot caught by honeypot
+    // Hourly bookings use a duration instead of a destination.
+    const secondField = serviceType === 'hourly' ? hours : to;
     if (
       !name.trim() ||
       !email.trim() ||
       !phone.trim() ||
       !from.trim() ||
-      !to.trim() ||
+      !secondField.trim() ||
       !date.trim() ||
       !time.trim() ||
       !selectedVehicle
@@ -112,7 +116,7 @@ export default function ContactPage() {
       phone: phone.trim(),
       email: email.trim(),
       from: from.trim(),
-      to: to.trim(),
+      to: secondField.trim(),
       date: date.trim(),
       time: time.trim(),
       vehicle: selectedVehicle.name,
@@ -241,21 +245,41 @@ export default function ContactPage() {
                     />
                   </div>
                 </label>
-                <label className={fieldShell}>
-                  <span className={labelClass}>{t.bookingForm.to} {requiredMark}</span>
-                  <div className="relative w-full">
-                    <input
-                      id="to"
-                      type="text"
-                      value={to}
-                      onChange={(e) => setTo(e.target.value)}
-                      placeholder={f.addressPlaceholder}
-                      autoComplete="off"
-                      aria-required="true"
-                      className={inputClass}
-                    />
-                  </div>
-                </label>
+                {serviceType === 'hourly' ? (
+                  <label className={fieldShell}>
+                    <span className={labelClass}>{t.bookingForm.duration} {requiredMark}</span>
+                    <div className="relative w-full">
+                      <input
+                        id="hours"
+                        type="number"
+                        min={1}
+                        step={1}
+                        inputMode="numeric"
+                        value={hours}
+                        onChange={(e) => setHours(e.target.value)}
+                        placeholder={t.bookingForm.durationPlaceholder}
+                        aria-required="true"
+                        className={inputClass}
+                      />
+                    </div>
+                  </label>
+                ) : (
+                  <label className={fieldShell}>
+                    <span className={labelClass}>{t.bookingForm.to} {requiredMark}</span>
+                    <div className="relative w-full">
+                      <input
+                        id="to"
+                        type="text"
+                        value={to}
+                        onChange={(e) => setTo(e.target.value)}
+                        placeholder={f.addressPlaceholder}
+                        autoComplete="off"
+                        aria-required="true"
+                        className={inputClass}
+                      />
+                    </div>
+                  </label>
+                )}
                 <label className={fieldShell}>
                   <span className={labelClass}>{t.bookingForm.date} {requiredMark}</span>
                   <input
