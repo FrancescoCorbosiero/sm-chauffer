@@ -13,7 +13,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 3,
     bags: 3,
-    image: IMAGES.fleet.one,
+    image: IMAGES.fleet.sClass,
   },
   {
     id: 'mercedes-e-class',
@@ -23,7 +23,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 3,
     bags: 3,
-    image: IMAGES.fleet.two,
+    image: IMAGES.fleet.eClass,
   },
   {
     id: 'mercedes-v-class',
@@ -33,7 +33,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 7,
     bags: 7,
-    image: IMAGES.fleet.four,
+    image: IMAGES.fleet.vClass,
   },
   {
     id: 'range-rover',
@@ -43,7 +43,7 @@ export const vehicles: Vehicle[] = [
     pricePerKm: 0,
     passengers: 4,
     bags: 4,
-    image: IMAGES.fleet.three,
+    image: IMAGES.fleet.rangeRover,
   },
   {
     id: 'bus-18',
@@ -54,7 +54,7 @@ export const vehicles: Vehicle[] = [
     priceOnRequest: true,
     passengers: 18,
     bags: 18,
-    image: IMAGES.fleet.five,
+    image: IMAGES.fleet.bus18,
   },
 ];
 

@@ -23,13 +23,15 @@ export const IMAGES = {
     contact: u('1606664515524-ed2f786a0bd6', 1920),
   },
 
-  // Fleet vehicle photos
+  // Fleet vehicle photos — served locally from public/fleet/. Each file is a
+  // branded placeholder; replace it in place (same filename) with the real car
+  // photo and the site picks it up with no code change. See public/fleet/README.md.
   fleet: {
-    one: u('1606664515524-ed2f786a0bd6', 1200),
-    two: u('1583121274602-3e2820c69888', 1200),
-    three: u('1494976388531-d1058494cdd8', 1200),
-    four: u('1551836022-deb4988cc6c0', 1200),
-    five: u('1502877338535-766e1452684a', 1200),
+    sClass: '/fleet/mercedes-s-class.jpg',
+    eClass: '/fleet/mercedes-e-class.jpg',
+    vClass: '/fleet/mercedes-v-class.jpg',
+    rangeRover: '/fleet/range-rover.jpg',
+    bus18: '/fleet/bus-18.jpg',
   },
 
   // Service block photos
