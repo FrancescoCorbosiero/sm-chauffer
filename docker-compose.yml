@@ -1,0 +1,40 @@
+# Deploys the site behind Caddy on a VPS.
+#
+# Reverse proxying is driven entirely by the `caddy.*` labels below, read by
+# lucaslorentz/caddy-docker-proxy. Caddy auto-provisions HTTPS (Let's Encrypt)
+# for the domain in the `caddy` label — no manual Caddyfile, no cert wrangling.
+#
+# Assumes a Caddy proxy is already running and attached to a shared external
+# network named `caddy` (see the compose snippet in DEPLOYMENT.md). Bring the
+# site up with:  docker compose up -d --build
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sm-luxury-chauffeur:latest
+    container_name: sm-chauffeur
+    restart: unless-stopped
+    environment:
+      # Optional — Google Search Console verification token.
+      NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:-}
+    networks:
+      - caddy
+    expose:
+      - "3000"
+    labels:
+      # --- Caddy reverse-proxy (the "magic") ---------------------------------
+      # Caddy provisions/renews the TLS certs for each host automatically.
+      # Block 0: apex domain -> Next.js standalone server on port 3000.
+      caddy_0: "smchauffeur.it"
+      caddy_0.reverse_proxy: "{{upstreams 3000}}"
+      # Block 1: www -> apex 301 redirect (no proxy loop).
+      caddy_1: "www.smchauffeur.it"
+      caddy_1.redir: "https://smchauffeur.it{uri}"
+
+networks:
+  # Shared with the Caddy proxy container. Created once on the host:
+  #   docker network create caddy
+  caddy:
+    external: true
