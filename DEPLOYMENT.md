@@ -72,7 +72,7 @@ fetching/renewing Let's Encrypt certificates automatically.
 
 ### 2. Deploy this app
 
-Point the domain's DNS (`smchauffeur.it` and `www`) at the VPS, then:
+Point the domain's DNS (`chauffeurskmilano.it` and `www`) at the VPS, then:
 
 ```bash
 git clone <repo> sm-chauffer && cd sm-chauffer
@@ -82,8 +82,8 @@ docker compose up -d --build
 
 That's it. The labels in `docker-compose.yml` tell Caddy to:
 
-- serve `https://smchauffeur.it` → reverse-proxy to the container's port 3000,
-- 301-redirect `https://www.smchauffeur.it` → the apex.
+- serve `https://chauffeurskmilano.it` → reverse-proxy to the container's port 3000,
+- 301-redirect `https://www.chauffeurskmilano.it` → the apex.
 
 ### Updating
 
@@ -106,7 +106,7 @@ Both targets come from a single source of truth: `SITE` in `src/lib/site.ts`.
 
 **Routing bookings to an external inbox** (e.g. a Gmail not on the domain):
 the recommended setup keeps the public `mailto:` target as the branded
-`info@smchauffeur.it` and adds a **forwarding rule in your domain webmail**
+`info@chauffeurskmilano.it` and adds a **forwarding rule in your domain webmail**
 (`info@ → maksymnoleggio@gmail.com`, the `emailBackend` value). This:
 
 - keeps the personal address out of visitors' mail clients,

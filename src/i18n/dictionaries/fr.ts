@@ -221,7 +221,7 @@ const fr: Dictionary = {
       phone: 'Téléphone',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffeur.it',
+      emailValue: 'info@chauffeurskmilano.it',
       availability: 'Disponibilité',
       availabilityValue: '24 heures sur 24, 7 jours sur 7',
     },
@@ -336,6 +336,14 @@ const fr: Dictionary = {
   },
   whatsapp: { aria: 'Contactez-nous sur WhatsApp', label: 'WhatsApp' },
   languageSwitcher: { aria: 'Changer de langue' },
+  quote: {
+    estimate: 'Devis estimé',
+    fixedMalpensa: 'Tarif fixe Milan–Malpensa',
+    busNote: 'Bus 18 places : devis dédié',
+    customNote: 'Devis sur mesure pour ce trajet',
+    incomplete: 'Remplissez les champs pour voir l’estimation',
+    disclaimer: 'Estimation indicative. Votre devis final sera confirmé.',
+  },
   quoteModal: {
     title: 'Comment souhaitez-vous envoyer votre demande ?',
     description: 'Choisissez le canal préféré : nous vous répondrons dans les plus brefs délais.',

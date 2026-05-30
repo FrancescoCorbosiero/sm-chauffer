@@ -33,7 +33,7 @@ const links = [
   },
   {
     title: 'Email',
-    description: 'Scrivi a info@smchauffeur.it per preventivi e info.',
+    description: 'Scrivi a info@chauffeurskmilano.it per preventivi e info.',
     href: `mailto:${SITE.email}`,
     icon: Mail,
     external: false,

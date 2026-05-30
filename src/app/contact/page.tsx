@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, LucideIcon } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import QuoteChoiceModal from '@/components/ui/QuoteChoiceModal';
+import QuoteEstimate from '@/components/ui/QuoteEstimate';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
 import { vehicles } from '@/lib/data';
+import { estimate } from '@/lib/pricing';
 import type { ContactPayload } from '@/lib/quoteMessage';
 import { SITE } from '@/lib/site';
 import { IMAGES } from '@/lib/images';
@@ -49,6 +51,16 @@ export default function ContactPage() {
   const selectedVehicle = vehicles.find((v) => v.id === vehicleId);
   const maxPassengers = selectedVehicle?.passengers ?? 0;
   const maxBags = selectedVehicle?.bags ?? 0;
+
+  // Live estimate. The contact form has no hours field, so the hourly service
+  // shows the vehicle's hourly rate; one-way / airport transfer detects the
+  // Milano–Malpensa fixed fare from the addresses.
+  const liveEstimate = estimate({
+    tripType: serviceType === 'hourly' ? 'hourly' : 'one-way',
+    vehicle: selectedVehicle ?? null,
+    from,
+    to,
+  });
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -354,6 +366,8 @@ export default function ContactPage() {
                   {error}
                 </p>
               )}
+
+              <QuoteEstimate estimate={liveEstimate} />
 
               <button type="submit" className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[var(--color-ink)] text-white text-sm font-medium transition-colors hover:bg-[var(--color-ink-soft)] self-start disabled:opacity-60">
                 {f.confirmBooking}

@@ -27,11 +27,11 @@ services:
       # --- Caddy reverse-proxy (the "magic") ---------------------------------
       # Caddy provisions/renews the TLS certs for each host automatically.
       # Block 0: apex domain -> Next.js standalone server on port 3000.
-      caddy_0: "smchauffeur.it"
+      caddy_0: "chauffeurskmilano.it"
       caddy_0.reverse_proxy: "{{upstreams 3000}}"
       # Block 1: www -> apex 301 redirect (no proxy loop).
-      caddy_1: "www.smchauffeur.it"
-      caddy_1.redir: "https://smchauffeur.it{uri}"
+      caddy_1: "www.chauffeurskmilano.it"
+      caddy_1.redir: "https://chauffeurskmilano.it{uri}"
 
 networks:
   # Shared with the Caddy proxy container. Created once on the host:

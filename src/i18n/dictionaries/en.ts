@@ -223,7 +223,7 @@ const en: Dictionary = {
       phone: 'Phone',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@smchauffeur.it',
+      emailValue: 'info@chauffeurskmilano.it',
       availability: 'Availability',
       availabilityValue: '24 hours a day, 7 days a week',
     },
@@ -338,6 +338,14 @@ const en: Dictionary = {
   },
   whatsapp: { aria: 'Contact us on WhatsApp', label: 'WhatsApp' },
   languageSwitcher: { aria: 'Change language' },
+  quote: {
+    estimate: 'Estimated quote',
+    fixedMalpensa: 'Fixed Milan–Malpensa fare',
+    busNote: '18-seat bus: dedicated quote',
+    customNote: 'Tailored quote for this route',
+    incomplete: 'Fill in the fields to see the estimate',
+    disclaimer: 'Indicative estimate. Your final quote will be confirmed.',
+  },
   quoteModal: {
     title: 'How would you like to send your request?',
     description: 'Choose your preferred channel: we will reply as soon as possible.',

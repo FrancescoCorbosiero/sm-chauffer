@@ -201,6 +201,14 @@ export interface Dictionary {
   testimonials: Record<string, { text: string }>;
   whatsapp: { aria: string; label: string };
   languageSwitcher: { aria: string };
+  quote: {
+    estimate: string;
+    fixedMalpensa: string;
+    busNote: string;
+    customNote: string;
+    incomplete: string;
+    disclaimer: string;
+  };
   quoteModal: {
     title: string;
     description: string;
