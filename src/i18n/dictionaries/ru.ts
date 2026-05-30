@@ -361,6 +361,9 @@ const ru: Dictionary = {
     sendEmail: 'Отправить по Email',
     sendWhatsApp: 'Отправить в WhatsApp',
     close: 'Закрыть',
+    sending: 'Отправка…',
+    sent: 'Запрос отправлен',
+    sentBody: 'Мы свяжемся с вами в ближайшее время.',
   },
   quoteMessage: {
     booking: {

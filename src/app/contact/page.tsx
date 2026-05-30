@@ -46,6 +46,7 @@ export default function ContactPage() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [dateError, setDateError] = useState<string | null>(null);
+  const [company, setCompany] = useState(''); // honeypot
   const [modalPayload, setModalPayload] = useState<ContactPayload | null>(null);
 
   const selectedVehicle = vehicles.find((v) => v.id === vehicleId);
@@ -80,6 +81,7 @@ export default function ContactPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (company) return; // bot caught by honeypot
     if (
       !name.trim() ||
       !email.trim() ||
@@ -144,6 +146,17 @@ export default function ContactPage() {
               noValidate
               className="flex flex-col gap-4 max-w-4xl mx-auto w-full bg-white border border-[var(--color-border)] rounded-2xl p-5 sm:p-6 shadow-[var(--shadow-md)]"
             >
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+              />
+
               <h3 className="text-xl font-medium text-black">{f.bookingDetails}</h3>
 
               <div>
@@ -405,6 +418,7 @@ export default function ContactPage() {
       <QuoteChoiceModal
         open={modalPayload !== null}
         payload={modalPayload}
+        honeypot={company}
         onClose={() => setModalPayload(null)}
       />
     </>

@@ -16,9 +16,17 @@ services:
     image: sm-luxury-chauffeur:latest
     container_name: sm-chauffeur
     restart: unless-stopped
+    # Values come from a sibling `.env` file (see .env.example). All optional:
+    # without the SES_* vars the forms fall back to WhatsApp / mailto.
     environment:
-      # Optional — Google Search Console verification token.
+      # Google Search Console verification token.
       NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION:-}
+      # AWS SES email routing for /api/quote.
+      AWS_REGION: ${AWS_REGION:-}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      SES_FROM_EMAIL: ${SES_FROM_EMAIL:-}
+      SES_TO_EMAIL: ${SES_TO_EMAIL:-}
     networks:
       - caddy
     expose:

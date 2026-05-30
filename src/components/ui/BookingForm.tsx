@@ -21,10 +21,12 @@ export default function BookingForm() {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [company, setCompany] = useState(''); // honeypot
   const [modalPayload, setModalPayload] = useState<BookingPayload | null>(null);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (company) return; // bot caught by honeypot
     if (!vehicle.trim() || !from.trim() || !to.trim() || !date.trim() || !time.trim()) {
       setError(t.formErrors.required);
       return;
@@ -84,6 +86,17 @@ export default function BookingForm() {
             )}
           </button>
         </div>
+
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+        />
 
         <div className="space-y-3">
           <label htmlFor="bf-vehicle" className={cellClass}>
@@ -187,6 +200,7 @@ export default function BookingForm() {
       <QuoteChoiceModal
         open={modalPayload !== null}
         payload={modalPayload}
+        honeypot={company}
         onClose={() => setModalPayload(null)}
       />
     </>

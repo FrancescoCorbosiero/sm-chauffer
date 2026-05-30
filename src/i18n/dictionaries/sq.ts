@@ -350,6 +350,9 @@ const sq: Dictionary = {
     sendEmail: 'Dërgo me Email',
     sendWhatsApp: 'Dërgo në WhatsApp',
     close: 'Mbyll',
+    sending: 'Po dërgohet…',
+    sent: 'Kërkesa u dërgua',
+    sentBody: 'Do t’ju përgjigjemi së shpejti.',
   },
   quoteMessage: {
     booking: {

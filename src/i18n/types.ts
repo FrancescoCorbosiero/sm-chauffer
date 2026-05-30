@@ -215,6 +215,9 @@ export interface Dictionary {
     sendEmail: string;
     sendWhatsApp: string;
     close: string;
+    sending: string;
+    sent: string;
+    sentBody: string;
   };
   quoteMessage: {
     booking: {

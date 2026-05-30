@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.1057.0",
     "framer-motion": "^11.18.0",
     "lucide-react": "^0.460.0",
     "next": "^16.2.6",
