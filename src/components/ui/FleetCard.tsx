@@ -59,12 +59,18 @@ export default function FleetCard({ vehicle }: { vehicle: Vehicle }) {
               <div className="text-[10px] text-[var(--color-text-faint)] uppercase tracking-[0.22em]">
                 {t.fleetCard.from}
               </div>
-              <div className="text-[var(--color-ink)] text-lg font-medium">
-                €{vehicle.pricePerHour}
-                <span className="text-xs text-[var(--color-text-muted)] font-normal">
-                  {t.fleetCard.perHour}
-                </span>
-              </div>
+              {vehicle.priceOnRequest ? (
+                <div className="text-[var(--color-ink)] text-lg font-medium">
+                  {t.fleetCard.onRequest}
+                </div>
+              ) : (
+                <div className="text-[var(--color-ink)] text-lg font-medium">
+                  €{vehicle.pricePerHour}
+                  <span className="text-xs text-[var(--color-text-muted)] font-normal">
+                    {t.fleetCard.perHour}
+                  </span>
+                </div>
+              )}
             </div>
             <Link
               href={`/contact?car=${vehicle.id}`}

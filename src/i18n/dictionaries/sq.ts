@@ -135,7 +135,8 @@ const sq: Dictionary = {
     from: 'Nga',
     perHour: '/orë',
     book: 'Rezervo',
-    categories: { berlina: 'Berlinë', van: 'Van', suv: 'SUV' },
+    onRequest: 'Sipas kërkesës',
+    categories: { berlina: 'Berlinë', van: 'Van', suv: 'SUV', bus: 'Autobus' },
   },
   serviceCard: {
     requestService: 'Kërko Shërbimin',
@@ -275,13 +276,18 @@ const sq: Dictionary = {
       badge: 'SUV',
       description: 'SUV-i luksoz par excellence. I përsosur për çdo terren dhe çdo rast.',
     },
+    'bus-18': {
+      badge: '18 Vende',
+      description:
+        'Autobus me 18 vende për grupe, evente dhe transferime kolektive. I disponueshëm sipas kërkesës.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Transfertë Aeroporti',
       description: 'Malpensa, Bergamo, Linate — gjithmonë në kohë.',
       longDescription:
-        'Monitorojmë fluturimin tuaj në kohë reale. Shoferi juaj do t’ju presë në mbërritje me një tabelë me emrin tuaj, gati për t’ju ndihmuar me bagazhet. I disponueshëm 24/7, 365 ditë në vit për të gjithë aeroportet e Lombardisë.',
+        'Monitorojmë fluturimin tuaj në kohë reale. Shoferi juaj do t’ju presë në mbërritje me një tabelë me emrin tuaj, gati për t’ju ndihmuar me bagazhet. I disponueshëm 24/7, 365 ditë në vit për të gjithë aeroportet e Lombardisë. Transfer Milano–Malpensa me tarifë fikse nga 150€.',
     },
     'autista-milano': {
       title: 'Shofer në Milano',
@@ -351,6 +357,7 @@ const sq: Dictionary = {
   formErrors: {
     required: 'Ju lutemi plotësoni të gjitha fushat e detyrueshme përpara se të dërgoni kërkesën.',
     invalidDate: 'Datë e pavlefshme. Ju lutemi vendosni një datë ekzistuese.',
+    invalidEmail: 'Ju lutemi vendosni një adresë emaili të vlefshme.',
   },
 };
 

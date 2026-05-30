@@ -136,7 +136,8 @@ const en: Dictionary = {
     from: 'From',
     perHour: '/h',
     book: 'Book',
-    categories: { berlina: 'Sedan', van: 'Van', suv: 'SUV' },
+    onRequest: 'On request',
+    categories: { berlina: 'Sedan', van: 'Van', suv: 'SUV', bus: 'Bus' },
   },
   serviceCard: {
     requestService: 'Request Service',
@@ -277,13 +278,18 @@ const en: Dictionary = {
       badge: 'SUV',
       description: 'The luxury SUV par excellence. Perfect for any terrain and any occasion.',
     },
+    'bus-18': {
+      badge: '18 Seats',
+      description:
+        '18-seat bus for groups, events and shared transfers. Available on request.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Airport Transfer',
       description: 'Malpensa, Bergamo, Linate — always on time.',
       longDescription:
-        'We track your flight in real time. Your chauffeur will be waiting at arrivals with a name sign, ready to help with luggage. Available 24/7, 365 days a year for all Lombardy airports.',
+        'We track your flight in real time. Your chauffeur will be waiting at arrivals with a name sign, ready to help with luggage. Available 24/7, 365 days a year for all Lombardy airports. Fixed Milan–Malpensa transfer from €150.',
     },
     'autista-milano': {
       title: 'Chauffeur in Milan',
@@ -353,6 +359,7 @@ const en: Dictionary = {
   formErrors: {
     required: 'Please fill in all required fields before sending your request.',
     invalidDate: 'Invalid date. Please enter an existing date.',
+    invalidEmail: 'Please enter a valid email address.',
   },
 };
 

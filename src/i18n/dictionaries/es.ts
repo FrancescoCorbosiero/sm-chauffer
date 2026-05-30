@@ -135,7 +135,8 @@ const es: Dictionary = {
     from: 'Desde',
     perHour: '/h',
     book: 'Reservar',
-    categories: { berlina: 'Berlina', van: 'Van', suv: 'SUV' },
+    onRequest: 'Bajo petición',
+    categories: { berlina: 'Berlina', van: 'Van', suv: 'SUV', bus: 'Autobús' },
   },
   serviceCard: {
     requestService: 'Solicitar Servicio',
@@ -275,13 +276,18 @@ const es: Dictionary = {
       badge: 'SUV',
       description: 'El SUV de lujo por excelencia. Perfecto para cualquier terreno y ocasión.',
     },
+    'bus-18': {
+      badge: '18 Plazas',
+      description:
+        'Autobús de 18 plazas para grupos, eventos y traslados colectivos. Disponible bajo petición.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Traslado al Aeropuerto',
       description: 'Malpensa, Bérgamo, Linate — siempre puntuales.',
       longDescription:
-        'Monitorizamos tu vuelo en tiempo real. Tu chófer te esperará a la llegada con cartel nominativo, listo para ayudarte con el equipaje. Disponible 24/7, 365 días al año en todos los aeropuertos de Lombardía.',
+        'Monitorizamos tu vuelo en tiempo real. Tu chófer te esperará a la llegada con cartel nominativo, listo para ayudarte con el equipaje. Disponible 24/7, 365 días al año en todos los aeropuertos de Lombardía. Traslado Milán–Malpensa con tarifa fija desde 150€.',
     },
     'autista-milano': {
       title: 'Chófer en Milán',
@@ -351,6 +357,7 @@ const es: Dictionary = {
   formErrors: {
     required: 'Por favor, completa todos los campos obligatorios antes de enviar la solicitud.',
     invalidDate: 'Fecha no válida. Introduce una fecha existente.',
+    invalidEmail: 'Introduce una dirección de correo electrónico válida.',
   },
 };
 
