@@ -1,4 +1,6 @@
 import { SITE } from './site';
+import { vehicles } from './data';
+import { estimate, parseHours } from './pricing';
 
 export interface BookingPayload {
   kind: 'booking';
@@ -74,12 +76,37 @@ const IT = {
     hourly: 'Servizio a ore',
     'airport-transfer': 'Transfer aeroportuale',
   },
+  estimate: 'Stima indicativa',
 } as const;
 
 function line(label: string, value: string | undefined | null): string | null {
   if (value == null) return null;
   const trimmed = value.trim();
   return trimmed ? `${label}: ${trimmed}` : null;
+}
+
+// A soft, indicative figure for the operator — only when a price is actually
+// computable (hourly total or the fixed Malpensa fare). Kept low-key with "~"
+// and "(da confermare)" so it never reads as a binding quote.
+function estimateLine(payload: QuotePayload): string | null {
+  const vehicle = vehicles.find((v) => v.name === payload.vehicle) ?? null;
+  const tripType =
+    payload.kind === 'booking'
+      ? payload.tripType
+      : payload.serviceType === 'hourly'
+        ? 'hourly'
+        : 'one-way';
+  const est = estimate({
+    tripType,
+    vehicle,
+    from: payload.from,
+    to: tripType === 'one-way' ? payload.to : undefined,
+    durationHours: tripType === 'hourly' ? parseHours(payload.to) : undefined,
+  });
+  if (est.kind === 'hourly' || est.kind === 'fixed') {
+    return `${IT.estimate}: ~€${est.amount} (da confermare)`;
+  }
+  return null;
 }
 
 export function buildQuoteMessage(payload: QuotePayload): BuiltMessage {
@@ -96,6 +123,7 @@ export function buildQuoteMessage(payload: QuotePayload): BuiltMessage {
       line(toLabel, payload.to),
       line(IT.booking.date, payload.date),
       line(IT.booking.time, payload.time),
+      estimateLine(payload),
     ].filter((l): l is string => l !== null);
 
     return { subject: IT.booking.subject, body: lines.join('\n') };
@@ -120,6 +148,7 @@ export function buildQuoteMessage(payload: QuotePayload): BuiltMessage {
     line(IT.contact.bags, payload.bags),
     `${IT.contact.childSeat}: ${payload.childSeat ? IT.contact.yes : IT.contact.no}`,
     line(IT.contact.notes, payload.notes),
+    estimateLine(payload),
   ].filter((l): l is string => l !== null);
 
   return { subject: IT.contact.subject, body: lines.join('\n') };
