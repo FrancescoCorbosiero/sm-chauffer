@@ -79,3 +79,39 @@ export async function sendQuoteEmail(
     return { ok: false, reason: 'send-failed' };
   }
 }
+
+/**
+ * Sends an HTML (+ plain-text) email to a single recipient — used for the
+ * customer-facing confirmation. Best-effort: callers should not fail the
+ * request if this returns an error.
+ */
+export async function sendHtmlEmail(
+  to: string,
+  subject: string,
+  html: string,
+  text: string,
+): Promise<SesResult> {
+  const cfg = getConfig();
+  if (!cfg) return { ok: false, reason: 'unconfigured' };
+  try {
+    await client(cfg.region).send(
+      new SendEmailCommand({
+        FromEmailAddress: cfg.from,
+        Destination: { ToAddresses: [to] },
+        Content: {
+          Simple: {
+            Subject: { Data: subject, Charset: 'UTF-8' },
+            Body: {
+              Html: { Data: html, Charset: 'UTF-8' },
+              Text: { Data: text, Charset: 'UTF-8' },
+            },
+          },
+        },
+      }),
+    );
+    return { ok: true };
+  } catch (err) {
+    console.error('[ses] confirmation send failed:', err);
+    return { ok: false, reason: 'send-failed' };
+  }
+}

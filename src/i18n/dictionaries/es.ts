@@ -344,6 +344,15 @@ const es: Dictionary = {
     incomplete: 'Completa los campos para ver la estimación',
     disclaimer: 'Estimación orientativa. Tu presupuesto final será confirmado.',
   },
+  emailConfirmation: {
+    subject: 'Hemos recibido tu solicitud',
+    preheader: '¡Gracias! Aquí tienes el resumen de tu solicitud.',
+    greeting: 'Hola {name},',
+    intro: 'gracias por contactarnos. Hemos recibido tu solicitud y te responderemos lo antes posible para confirmar los detalles. A continuación encontrarás el resumen de lo enviado.',
+    summaryTitle: 'Resumen de la solicitud',
+    contactTitle: 'Contacto',
+    closing: 'Hasta pronto,',
+  },
   quoteModal: {
     title: '¿Cómo prefieres enviar tu solicitud?',
     description: 'Elige el canal preferido: te responderemos lo antes posible.',

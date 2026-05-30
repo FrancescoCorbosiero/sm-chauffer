@@ -344,6 +344,15 @@ const fr: Dictionary = {
     incomplete: 'Remplissez les champs pour voir l’estimation',
     disclaimer: 'Estimation indicative. Votre devis final sera confirmé.',
   },
+  emailConfirmation: {
+    subject: 'Nous avons bien reçu votre demande',
+    preheader: 'Merci ! Voici le récapitulatif de votre demande.',
+    greeting: 'Bonjour {name},',
+    intro: 'merci de nous avoir contactés. Nous avons bien reçu votre demande et reviendrons vers vous très vite pour confirmer les détails. Vous trouverez ci-dessous le récapitulatif de votre envoi.',
+    summaryTitle: 'Récapitulatif de la demande',
+    contactTitle: 'Contact',
+    closing: 'À bientôt,',
+  },
   quoteModal: {
     title: 'Comment souhaitez-vous envoyer votre demande ?',
     description: 'Choisissez le canal préféré : nous vous répondrons dans les plus brefs délais.',

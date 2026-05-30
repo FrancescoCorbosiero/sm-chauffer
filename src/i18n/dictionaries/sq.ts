@@ -344,6 +344,15 @@ const sq: Dictionary = {
     incomplete: 'Plotësoni fushat për të parë vlerësimin',
     disclaimer: 'Vlerësim tregues. Oferta përfundimtare do t’ju konfirmohet.',
   },
+  emailConfirmation: {
+    subject: 'Kemi marrë kërkesën tuaj',
+    preheader: 'Faleminderit! Ja përmbledhja e kërkesës suaj.',
+    greeting: 'Përshëndetje {name},',
+    intro: 'faleminderit që na kontaktuat. E morëm kërkesën tuaj dhe do t’ju kontaktojmë së shpejti për të konfirmuar detajet. Më poshtë gjeni përmbledhjen e të dhënave të dërguara.',
+    summaryTitle: 'Përmbledhja e kërkesës',
+    contactTitle: 'Kontakti',
+    closing: 'Shihemi së shpejti,',
+  },
   quoteModal: {
     title: 'Si dëshironi të dërgoni kërkesën?',
     description: 'Zgjidhni kanalin e preferuar: do t’ju përgjigjemi sa më shpejt të jetë e mundur.',

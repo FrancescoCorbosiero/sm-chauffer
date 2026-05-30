@@ -344,6 +344,15 @@ const de: Dictionary = {
     incomplete: 'Felder ausfüllen, um die Schätzung zu sehen',
     disclaimer: 'Unverbindliche Schätzung. Ihr endgültiges Angebot wird bestätigt.',
   },
+  emailConfirmation: {
+    subject: 'Wir haben Ihre Anfrage erhalten',
+    preheader: 'Danke! Hier ist die Zusammenfassung Ihrer Anfrage.',
+    greeting: 'Hallo {name},',
+    intro: 'vielen Dank für Ihre Anfrage. Wir haben sie erhalten und melden uns in Kürze, um die Details zu bestätigen. Nachstehend finden Sie eine Zusammenfassung Ihrer Angaben.',
+    summaryTitle: 'Zusammenfassung der Anfrage',
+    contactTitle: 'Kontakt',
+    closing: 'Bis bald,',
+  },
   quoteModal: {
     title: 'Wie möchten Sie Ihre Anfrage senden?',
     description: 'Wählen Sie den bevorzugten Kanal: Wir antworten so schnell wie möglich.',

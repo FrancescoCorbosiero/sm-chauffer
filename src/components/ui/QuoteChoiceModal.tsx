@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { X, Mail, MessageCircle, Check, Loader2 } from 'lucide-react';
-import { useTranslation } from '@/i18n/LanguageProvider';
+import { useLanguage } from '@/i18n/LanguageProvider';
 import {
   buildMailtoUrl,
   buildQuoteMessage,
@@ -21,7 +21,7 @@ interface Props {
 type SendStatus = 'idle' | 'sending' | 'sent';
 
 export default function QuoteChoiceModal({ open, payload, onClose, honeypot = '' }: Props) {
-  const t = useTranslation();
+  const { t, locale } = useLanguage();
   const dialogRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<SendStatus>('idle');
 
@@ -61,7 +61,7 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...payload, company: honeypot }),
+        body: JSON.stringify({ ...payload, company: honeypot, locale }),
       });
       if (res.ok) {
         setStatus('sent');

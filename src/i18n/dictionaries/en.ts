@@ -346,6 +346,15 @@ const en: Dictionary = {
     incomplete: 'Fill in the fields to see the estimate',
     disclaimer: 'Indicative estimate. Your final quote will be confirmed.',
   },
+  emailConfirmation: {
+    subject: 'We have received your request',
+    preheader: 'Thank you! Here is a summary of your request.',
+    greeting: 'Hi {name},',
+    intro: 'thank you for getting in touch. We have received your request and will get back to you shortly to confirm the details. Below is a summary of what you sent.',
+    summaryTitle: 'Request summary',
+    contactTitle: 'Contacts',
+    closing: 'Talk soon,',
+  },
   quoteModal: {
     title: 'How would you like to send your request?',
     description: 'Choose your preferred channel: we will reply as soon as possible.',

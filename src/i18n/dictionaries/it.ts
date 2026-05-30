@@ -348,6 +348,15 @@ const it: Dictionary = {
     incomplete: 'Compila i campi per vedere la stima',
     disclaimer: 'Stima indicativa. Il preventivo finale ti verrà confermato.',
   },
+  emailConfirmation: {
+    subject: 'Abbiamo ricevuto la tua richiesta',
+    preheader: 'Grazie! Ecco il riepilogo della tua richiesta.',
+    greeting: 'Ciao {name},',
+    intro: 'grazie per averci contattato. Abbiamo ricevuto la tua richiesta e ti ricontatteremo al più presto per confermare i dettagli. Di seguito trovi il riepilogo di quanto inviato.',
+    summaryTitle: 'Riepilogo della richiesta',
+    contactTitle: 'Contatti',
+    closing: 'A presto,',
+  },
   quoteModal: {
     title: 'Come vuoi inviarci la richiesta?',
     description: 'Scegli il canale preferito: ti risponderemo nel più breve tempo possibile.',

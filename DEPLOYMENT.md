@@ -115,6 +115,15 @@ The customer's email is set as the message **Reply-To**, so the operator can
 reply straight from their inbox. The endpoint validates every field
 server-side and rejects bots via a hidden honeypot.
 
+**Customer confirmation:** after the operator notification, a **contact-form**
+submission also triggers an elegant branded HTML confirmation to the customer's
+own address, recapping what they sent — in the language they were browsing in.
+It is best-effort (a failure never fails the request) and only runs for the
+contact form, which is where the customer's email is collected. Because it
+sends to a visitor-supplied address, it needs SES **production access** to work
+for arbitrary recipients; consider adding rate-limiting / a CAPTCHA before
+heavy public exposure, as the honeypot is the only abuse guard today.
+
 **SES setup:** verify `SES_FROM_EMAIL` (or its whole domain via DKIM) as an
 identity in the SES console, then **request production access** to leave the
 sandbox — in the sandbox SES only delivers to verified recipients. Once in

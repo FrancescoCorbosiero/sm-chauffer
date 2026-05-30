@@ -209,6 +209,15 @@ export interface Dictionary {
     incomplete: string;
     disclaimer: string;
   };
+  emailConfirmation: {
+    subject: string;
+    preheader: string;
+    greeting: string; // contains {name}
+    intro: string;
+    summaryTitle: string;
+    contactTitle: string;
+    closing: string;
+  };
   quoteModal: {
     title: string;
     description: string;
