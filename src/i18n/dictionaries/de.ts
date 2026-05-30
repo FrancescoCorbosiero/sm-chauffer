@@ -212,6 +212,7 @@ const de: Dictionary = {
     ctaTitle: 'Einen Transfer oder eine Route zu planen?',
     ctaButton: 'Angebot anfragen',
   },
+  faq: { label: 'FAQ', title: 'Häufige Fragen' },
   contactPage: {
     label: 'Kontakt',
     title: 'Nehmen Sie Kontakt auf',

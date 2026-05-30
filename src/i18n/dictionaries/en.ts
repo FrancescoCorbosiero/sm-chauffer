@@ -214,6 +214,7 @@ const en: Dictionary = {
     ctaTitle: 'Have a transfer or an itinerary to arrange?',
     ctaButton: 'Request a quote',
   },
+  faq: { label: 'FAQ', title: 'Frequently asked questions' },
   contactPage: {
     label: 'Contact',
     title: 'Get in touch',

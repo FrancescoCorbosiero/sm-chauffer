@@ -212,6 +212,7 @@ const fr: Dictionary = {
     ctaTitle: 'Un transfert ou un itinéraire à organiser ?',
     ctaButton: 'Demander un devis',
   },
+  faq: { label: 'FAQ', title: 'Questions fréquentes' },
   contactPage: {
     label: 'Contact',
     title: 'Contactez-nous',

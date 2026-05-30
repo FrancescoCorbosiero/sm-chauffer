@@ -219,6 +219,7 @@ const ru: Dictionary = {
     ctaTitle: 'Нужно организовать трансфер или маршрут?',
     ctaButton: 'Запросить расчёт',
   },
+  faq: { label: 'FAQ', title: 'Частые вопросы' },
   contactPage: {
     label: 'Контакты',
     title: 'Свяжитесь с нами',

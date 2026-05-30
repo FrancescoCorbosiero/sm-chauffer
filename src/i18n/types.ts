@@ -155,6 +155,7 @@ export interface Dictionary {
     ctaTitle: string;
     ctaButton: string;
   };
+  faq: { label: string; title: string };
   contactPage: {
     label: string;
     title: string;

@@ -9,6 +9,7 @@ import WhyUsSection from '@/components/sections/WhyUsSection';
 import CtaBanner from '@/components/sections/CtaBanner';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
+import FaqSection from '@/components/sections/FaqSection';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
 
@@ -70,6 +71,7 @@ export default function HomePage() {
       <WhyUsSection />
       <CtaBanner />
       <TestimonialsSection />
+      <FaqSection />
       <BlogPreviewSection />
     </div>
   );

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { validateQuotePayload } from '@/lib/quoteValidation';
 import { isSesConfigured, sendQuoteEmail, sendHtmlEmail } from '@/lib/ses';
 import { renderConfirmationEmail } from '@/lib/emailTemplate';
+import { rateLimit, clientIp } from '@/lib/rateLimit';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/types';
 
 function pickLocale(value: unknown): Locale {
@@ -15,6 +16,15 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
+  // Basic abuse guard: cap submissions per IP (the proxy sets X-Forwarded-For).
+  const limit = rateLimit(`quote:${clientIp(req)}`);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { ok: false, error: 'rate-limited' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfterSec) } },
+    );
+  }
+
   let data: unknown;
   try {
     data = await req.json();

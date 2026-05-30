@@ -212,6 +212,7 @@ const es: Dictionary = {
     ctaTitle: '¿Tienes un traslado o un itinerario que organizar?',
     ctaButton: 'Solicita un presupuesto',
   },
+  faq: { label: 'FAQ', title: 'Preguntas frecuentes' },
   contactPage: {
     label: 'Contacto',
     title: 'Ponte en contacto',

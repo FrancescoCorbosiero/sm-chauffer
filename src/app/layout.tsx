@@ -136,6 +136,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={`${cormorant.variable} ${dmSans.variable}`}>
+      <head>
+        {/* Warm up the connection to the image CDN for a faster hero LCP. */}
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body>
         <LanguageProvider>
           <SkipLink />

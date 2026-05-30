@@ -212,6 +212,7 @@ const sq: Dictionary = {
     ctaTitle: 'Ke një transfertë ose një itinerar për të organizuar?',
     ctaButton: 'Kërko një ofertë',
   },
+  faq: { label: 'FAQ', title: 'Pyetje të shpeshta' },
   contactPage: {
     label: 'Kontakt',
     title: 'Vihu në kontakt',
