@@ -8,7 +8,7 @@ const localBusiness = {
   legalName: SITE.legalName,
   url: SITE.url,
   logo: `${SITE.url}/logo.png`,
-  image: `${SITE.url}/og.jpg`,
+  image: `${SITE.url}/og.png`,
   telephone: SITE.phone,
   email: SITE.email,
   priceRange: '€€€',

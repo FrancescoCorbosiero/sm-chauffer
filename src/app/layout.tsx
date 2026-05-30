@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/og.jpg',
+        url: '/og.png',
         width: 1200,
         height: 630,
         alt: 'SM Luxury Chauffeur — flotta luxury a Milano, in Brianza e sul Lago di Como',
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SM Luxury Chauffeur — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
-    images: ['/og.jpg'],
+    images: ['/og.png'],
   },
   alternates: {
     canonical: '/',

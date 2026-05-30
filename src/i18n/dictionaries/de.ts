@@ -135,7 +135,8 @@ const de: Dictionary = {
     from: 'Ab',
     perHour: '/Std',
     book: 'Buchen',
-    categories: { berlina: 'Limousine', van: 'Van', suv: 'SUV' },
+    onRequest: 'Auf Anfrage',
+    categories: { berlina: 'Limousine', van: 'Van', suv: 'SUV', bus: 'Bus' },
   },
   serviceCard: {
     requestService: 'Service Anfragen',
@@ -275,13 +276,18 @@ const de: Dictionary = {
       badge: 'SUV',
       description: 'Der Luxus-SUV schlechthin. Perfekt für jedes Gelände und jeden Anlass.',
     },
+    'bus-18': {
+      badge: '18 Sitze',
+      description:
+        '18-Sitzer-Bus für Gruppen, Events und Sammeltransfers. Auf Anfrage verfügbar.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Flughafentransfer',
       description: 'Malpensa, Bergamo, Linate — immer pünktlich.',
       longDescription:
-        'Wir verfolgen Ihren Flug in Echtzeit. Ihr Chauffeur erwartet Sie bei der Ankunft mit Namensschild und hilft Ihnen mit dem Gepäck. Verfügbar 24/7, 365 Tage im Jahr für alle Flughäfen der Lombardei.',
+        'Wir verfolgen Ihren Flug in Echtzeit. Ihr Chauffeur erwartet Sie bei der Ankunft mit Namensschild und hilft Ihnen mit dem Gepäck. Verfügbar 24/7, 365 Tage im Jahr für alle Flughäfen der Lombardei. Festpreis-Transfer Mailand–Malpensa ab 150€.',
     },
     'autista-milano': {
       title: 'Chauffeur in Mailand',
@@ -351,6 +357,7 @@ const de: Dictionary = {
   formErrors: {
     required: 'Bitte füllen Sie alle Pflichtfelder aus, bevor Sie Ihre Anfrage senden.',
     invalidDate: 'Ungültiges Datum. Bitte geben Sie ein existierendes Datum ein.',
+    invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
   },
 };
 

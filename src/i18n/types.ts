@@ -113,7 +113,8 @@ export interface Dictionary {
     from: string;
     perHour: string;
     book: string;
-    categories: { berlina: string; van: string; suv: string };
+    onRequest: string;
+    categories: { berlina: string; van: string; suv: string; bus: string };
   };
   serviceCard: {
     requestService: string;
@@ -221,5 +222,6 @@ export interface Dictionary {
   formErrors: {
     required: string;
     invalidDate: string;
+    invalidEmail: string;
   };
 }

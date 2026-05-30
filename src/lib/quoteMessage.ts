@@ -1,5 +1,4 @@
-export const CONTACT_EMAIL = 'info@smchauffeur.it';
-export const CONTACT_WHATSAPP = '393286871152';
+import { SITE } from './site';
 
 export interface BookingPayload {
   kind: 'booking';
@@ -127,10 +126,13 @@ export function buildMailtoUrl(message: BuiltMessage): string {
     subject: message.subject,
     body: message.body,
   });
-  return `mailto:${CONTACT_EMAIL}?${params.toString()}`;
+  // Destination address — single source of truth in src/lib/site.ts.
+  // To route bookings to an external inbox, set a forwarding rule on this
+  // mailbox in your webmail (recommended), or change SITE.email here.
+  return `mailto:${SITE.email}?${params.toString()}`;
 }
 
 export function buildWhatsAppUrl(message: BuiltMessage): string {
   const text = `*${message.subject}*\n\n${message.body}`;
-  return `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
 }

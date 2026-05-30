@@ -1,4 +1,4 @@
-export type VehicleCategory = 'berlina' | 'van' | 'suv';
+export type VehicleCategory = 'berlina' | 'van' | 'suv' | 'bus';
 
 export interface Vehicle {
   id: string;
@@ -9,6 +9,8 @@ export interface Vehicle {
   passengers: number;
   bags: number;
   image: string;
+  /** When true the price is quoted on request (e.g. the 18-seat bus). */
+  priceOnRequest?: boolean;
 }
 
 export interface Service {

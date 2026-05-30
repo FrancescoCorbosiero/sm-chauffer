@@ -21,6 +21,10 @@ const chipBase =
 
 const requiredMark = <span aria-hidden className="text-[var(--color-ink)] ml-0.5">*</span>;
 
+// Pragmatic email shape check (the form sets noValidate, so the browser's
+// native type="email" validation is intentionally bypassed).
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ContactPage() {
   const t = useTranslation();
   usePageTitle(t.meta.contact.title, t.meta.contact.description);
@@ -75,6 +79,10 @@ export default function ContactPage() {
       !selectedVehicle
     ) {
       setError(t.formErrors.required);
+      return;
+    }
+    if (!EMAIL_RE.test(email.trim())) {
+      setError(t.formErrors.invalidEmail);
       return;
     }
     if (dateError) {

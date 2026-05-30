@@ -135,7 +135,8 @@ const fr: Dictionary = {
     from: 'À partir de',
     perHour: '/h',
     book: 'Réserver',
-    categories: { berlina: 'Berline', van: 'Van', suv: 'SUV' },
+    onRequest: 'Sur devis',
+    categories: { berlina: 'Berline', van: 'Van', suv: 'SUV', bus: 'Bus' },
   },
   serviceCard: {
     requestService: 'Demander le Service',
@@ -275,13 +276,18 @@ const fr: Dictionary = {
       badge: 'SUV',
       description: 'Le SUV de luxe par excellence. Parfait pour tout terrain et toute occasion.',
     },
+    'bus-18': {
+      badge: '18 Places',
+      description:
+        'Bus de 18 places pour groupes, événements et transferts collectifs. Disponible sur demande.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Transfert Aéroport',
       description: "Malpensa, Bergame, Linate — toujours à l'heure.",
       longDescription:
-        "Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie.",
+        "Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie. Transfert Milan–Malpensa à tarif fixe à partir de 150€.",
     },
     'autista-milano': {
       title: 'Chauffeur à Milan',
@@ -351,6 +357,7 @@ const fr: Dictionary = {
   formErrors: {
     required: "Veuillez remplir tous les champs obligatoires avant d'envoyer votre demande.",
     invalidDate: 'Date invalide. Veuillez saisir une date existante.',
+    invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
   },
 };
 

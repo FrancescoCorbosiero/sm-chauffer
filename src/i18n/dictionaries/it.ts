@@ -136,7 +136,8 @@ const it: Dictionary = {
     from: 'Da',
     perHour: '/h',
     book: 'Prenota',
-    categories: { berlina: 'Berlina', van: 'Van', suv: 'SUV' },
+    onRequest: 'Su preventivo',
+    categories: { berlina: 'Berlina', van: 'Van', suv: 'SUV', bus: 'Bus' },
   },
   serviceCard: {
     requestService: 'Richiedi Servizio',
@@ -279,13 +280,18 @@ const it: Dictionary = {
       description:
         "Il SUV di lusso per eccellenza. Perfetto per ogni terreno e ogni occasione.",
     },
+    'bus-18': {
+      badge: '18 Posti',
+      description:
+        'Bus 18 posti per gruppi, eventi e transfer collettivi. Disponibile su prenotazione.',
+    },
   },
   services: {
     'airport-transfer': {
       title: 'Transfer Aeroporto',
       description: 'Malpensa, Bergamo, Linate — puntuale sempre.',
       longDescription:
-        "Monitoriamo il tuo volo in tempo reale. Il tuo autista ti aspetterà all'arrivo con cartello nominativo, pronto ad assistere con i bagagli. Disponibile 24/7, 365 giorni l'anno per tutti gli aeroporti della Lombardia.",
+        "Monitoriamo il tuo volo in tempo reale. Il tuo autista ti aspetterà all'arrivo con cartello nominativo, pronto ad assistere con i bagagli. Disponibile 24/7, 365 giorni l'anno per tutti gli aeroporti della Lombardia. Transfer Milano–Malpensa a tariffa fissa da 150€.",
     },
     'autista-milano': {
       title: 'Autista a Milano',
@@ -355,6 +361,7 @@ const it: Dictionary = {
   formErrors: {
     required: 'Compila tutti i campi obbligatori prima di inviare la richiesta.',
     invalidDate: 'Data non valida. Inserisci una data esistente.',
+    invalidEmail: 'Inserisci un indirizzo email valido.',
   },
 };
 

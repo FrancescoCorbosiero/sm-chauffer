@@ -1,0 +1,31 @@
+# Build artifacts & deps (rebuilt inside the image)
+node_modules
+.next
+out
+build
+dist
+coverage
+
+# Git & CI
+.git
+.github
+.gitignore
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Editor / OS noise
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+*.swp
+
+# Docs / meta not needed at build time
+*.md
+public/README.md
+
+# Next incremental build cache (machine-specific)
+tsconfig.tsbuildinfo
