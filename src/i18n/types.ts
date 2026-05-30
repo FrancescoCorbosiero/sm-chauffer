@@ -148,6 +148,13 @@ export interface Dictionary {
     values: Array<{ title: string; body: string }>;
   };
   blogPage: { label: string; title: string; description: string };
+  blogPost: {
+    back: string;
+    readMin: string;
+    related: string;
+    ctaTitle: string;
+    ctaButton: string;
+  };
   contactPage: {
     label: string;
     title: string;

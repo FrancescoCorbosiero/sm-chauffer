@@ -1,3 +1,5 @@
+import type { Locale } from '@/i18n/types';
+
 export type VehicleCategory = 'berlina' | 'van' | 'suv' | 'bus';
 
 export interface Vehicle {
@@ -32,23 +34,29 @@ export type BlogBlock =
   | { type: 'ul'; items: string[] }
   | { type: 'quote'; text: string };
 
-export interface BlogPost {
-  id: string;
-  slug: string;
+/** The localizable part of a blog post. */
+export interface BlogContent {
   title: string;
   excerpt: string;
   /** SEO meta description (≈150–160 chars). */
   metaDescription: string;
   category: string;
-  /** Human display date, e.g. "15 Aprile 2025". */
+  /** Human display date, localized, e.g. "15 Aprile 2025". */
   date: string;
+  keywords: string[];
+  body: BlogBlock[];
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
   /** ISO date for <time> and structured data, e.g. "2025-04-15". */
   dateISO: string;
   author: string;
   readingMinutes: number;
-  keywords: string[];
   image: string;
-  body: BlogBlock[];
+  /** Per-locale content; Italian (DEFAULT_LOCALE) is the canonical version. */
+  content: Record<Locale, BlogContent>;
 }
 
 export interface LocalizedVehicle extends Vehicle {

@@ -205,6 +205,13 @@ const es: Dictionary = {
     title: 'Historias, guías e itinerarios',
     description: 'Profundizaciones sobre viajes, destinos y el arte del traslado de lujo en Italia.',
   },
+  blogPost: {
+    back: 'Blog',
+    readMin: 'min de lectura',
+    related: 'Sigue leyendo',
+    ctaTitle: '¿Tienes un traslado o un itinerario que organizar?',
+    ctaButton: 'Solicita un presupuesto',
+  },
   contactPage: {
     label: 'Contacto',
     title: 'Ponte en contacto',

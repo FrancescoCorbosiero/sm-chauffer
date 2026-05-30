@@ -205,6 +205,13 @@ const sq: Dictionary = {
     title: 'Histori, udhëzues dhe itinerare',
     description: 'Thellime mbi udhëtimet, destinacionet dhe artin e transferimit luksoz në Itali.',
   },
+  blogPost: {
+    back: 'Blog',
+    readMin: 'min lexim',
+    related: 'Vazhdo të lexosh',
+    ctaTitle: 'Ke një transfertë ose një itinerar për të organizuar?',
+    ctaButton: 'Kërko një ofertë',
+  },
   contactPage: {
     label: 'Kontakt',
     title: 'Vihu në kontakt',

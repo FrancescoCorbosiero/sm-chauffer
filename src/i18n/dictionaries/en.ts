@@ -207,6 +207,13 @@ const en: Dictionary = {
     title: 'Stories, guides and itineraries',
     description: 'Insights on travel, destinations and the art of luxury transfers in Italy.',
   },
+  blogPost: {
+    back: 'Blog',
+    readMin: 'min read',
+    related: 'Keep reading',
+    ctaTitle: 'Have a transfer or an itinerary to arrange?',
+    ctaButton: 'Request a quote',
+  },
   contactPage: {
     label: 'Contact',
     title: 'Get in touch',
