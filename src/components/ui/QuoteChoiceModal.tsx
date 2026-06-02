@@ -10,6 +10,7 @@ import {
   type QuotePayload,
 } from '@/lib/quoteMessage';
 import TurnstileWidget from '@/components/security/TurnstileWidget';
+import { hasTurnstile } from '@/lib/security';
 
 interface Props {
   open: boolean;
@@ -25,13 +26,18 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
   const { t, locale } = useLanguage();
   const dialogRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<SendStatus>('idle');
-  // Turnstile token (empty until the widget verifies; unused when not configured).
-  const [turnstileToken, setTurnstileToken] = useState('');
-  const onTurnstileVerify = useCallback((token: string) => setTurnstileToken(token), []);
+  // Turnstile token, kept in a ref so the async send handler always reads the
+  // latest value (React state wouldn't update inside its closure).
+  const tokenRef = useRef('');
+  const onTurnstileVerify = useCallback((token: string) => {
+    tokenRef.current = token;
+  }, []);
 
   useEffect(() => {
     if (!open) return;
     setStatus('idle');
+    // Fresh widget each open → reset any stale token.
+    tokenRef.current = '';
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
@@ -57,11 +63,25 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
     onClose();
   };
 
+  // Wait (briefly) for Turnstile to issue a token. The widget loads async, so a
+  // fast click can land before the token exists — without this the POST would
+  // carry an empty token, fail server verification (403), and wrongly fall back
+  // to mailto. Polls the ref up to ~8s, then gives up (degrades to mailto).
+  const waitForTurnstileToken = async (): Promise<string> => {
+    if (!hasTurnstile || tokenRef.current) return tokenRef.current;
+    const deadline = Date.now() + 8000;
+    while (!tokenRef.current && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    return tokenRef.current;
+  };
+
   // Try a real server-side send via SES. If the endpoint isn't configured
   // (503) or anything fails, fall back to the visitor's mail client (mailto).
   const handleEmail = async () => {
     setStatus('sending');
     try {
+      const turnstileToken = await waitForTurnstileToken();
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
