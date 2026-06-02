@@ -29,11 +29,20 @@ export async function verifyTurnstile(
       // Don't let a slow Cloudflare response hang the request forever.
       signal: AbortSignal.timeout(5000),
     });
-    const data = (await res.json()) as { success?: boolean };
-    return data.success === true;
-  } catch {
+    const data = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+    if (data.success !== true) {
+      // Surface Cloudflare's reason in the container logs — e.g.
+      // invalid-input-secret (wrong secret), invalid-input-response (bad/empty
+      // token), timeout-or-duplicate (token reused/expired), or a hostname
+      // mismatch configured on the widget.
+      console.error('[turnstile] verification failed:', data['error-codes'] ?? data);
+      return false;
+    }
+    return true;
+  } catch (err) {
     // On a verification outage, fail closed (reject) — Turnstile was explicitly
     // enabled, so a silent bypass would defeat the purpose.
+    console.error('[turnstile] siteverify request error:', err);
     return false;
   }
 }

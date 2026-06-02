@@ -4,7 +4,7 @@ import { isSesConfigured, sendQuoteEmail, sendHtmlEmail } from '@/lib/ses';
 import { renderConfirmationEmail } from '@/lib/emailTemplate';
 import { rateLimit, clientIp } from '@/lib/rateLimit';
 import { isBanned } from '@/lib/blackhole';
-import { verifyTurnstile } from '@/lib/turnstile';
+import { verifyTurnstile, isTurnstileEnforced } from '@/lib/turnstile';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/types';
 
 // Minimum plausible time a human spends on the page before submitting. Scripted
@@ -20,6 +20,17 @@ function pickLocale(value: unknown): Locale {
 // Sends real email — must run on the Node server, never statically cached.
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+// Diagnostics: GET /api/quote reports the container's runtime config (no
+// secrets). If sesConfigured is false, the form can never send via SES and will
+// always fall back to mailto — fix the AWS_*/SES_* env. If turnstileEnforced is
+// true, every submit must carry a valid Turnstile token.
+export async function GET() {
+  return NextResponse.json({
+    sesConfigured: isSesConfigured(),
+    turnstileEnforced: isTurnstileEnforced(),
+  });
+}
 
 export async function POST(req: Request) {
   const ip = clientIp(req);
