@@ -13,7 +13,7 @@ export default function ServiceCard({ service, index }: { service: Service; inde
   return (
     <article
       id={service.id}
-      className="group flex flex-col bg-white border border-[var(--color-border)] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
+      className="group flex h-full flex-col bg-white border border-[var(--color-border)] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
     >
       <div className="relative aspect-[5/4] w-full overflow-hidden bg-[var(--color-surface-2)]">
         <Image

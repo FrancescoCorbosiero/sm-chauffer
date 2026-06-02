@@ -37,8 +37,8 @@ export const IMAGES = {
   // Service block photos
   services: {
     airportTransfer: u('1436491865332-7a61a109cc05', 1200),
-    autistaMilano: u('1518730518541-d0843268c287', 1200),
-    autistaBrianza: u('1525874684015-58379d421a52', 1200),
+    autistaMilano: '/services/duomo-milano.jpg',
+    autistaBrianza: '/services/duomo-monza.jpg',
     tourPrivati: u('1572799454088-1f4ad8e3eaca', 1200),
     trasferimentiInternazionali: u('1500627964684-141351970a7f', 1200),
     minibusGruppi: u('1606664890085-5ea3eed02e8b', 1200),
@@ -47,8 +47,8 @@ export const IMAGES = {
   // Blog post cover images
   blog: {
     malpensa: u('1436491865332-7a61a109cc05', 1200),
-    como: u('1572799454088-1f4ad8e3eaca', 1200),
-    fashion: u('1518730518541-d0843268c287', 1200),
+    como: '/blog/lago-di-como.jpg',
+    fashion: '/blog/milano-FW.jpg',
     moritz: u('1551524559-8af4e6624178', 1200),
   },
 } as const;

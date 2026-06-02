@@ -19,8 +19,13 @@ export default function ScrollReveal({ children, delay = 0, className = '', dire
   };
 
   return (
-    <div ref={ref} className={className}>
-      <motion.div initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={variants}>
+    <div ref={ref} className={`h-full ${className}`.trim()}>
+      <motion.div
+        className="h-full"
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+        variants={variants}
+      >
         {children}
       </motion.div>
     </div>
