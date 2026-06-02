@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
+import VehiclesJsonLd from '@/components/seo/VehiclesJsonLd';
 
 export const metadata: Metadata = {
   title: 'La nostra flotta — Mercedes, BMW, Range Rover',
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
       'Mercedes, BMW e Range Rover sempre disponibili per i tuoi spostamenti a Milano e Brianza.',
     url: '/fleet',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 
@@ -19,6 +21,7 @@ export default function FleetLayout({ children }: { children: React.ReactNode })
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Flotta', path: '/fleet' }]} />
+      <VehiclesJsonLd />
       {children}
     </>
   );

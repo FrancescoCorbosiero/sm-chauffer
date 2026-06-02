@@ -7,7 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/links'],
+        // /api/* is non-content; /api/blackhole is the bot trap — well-behaved
+        // crawlers obey this and never trip it.
+        disallow: ['/links', '/api/'],
       },
     ],
     sitemap: `${SITE.url}/sitemap.xml`,

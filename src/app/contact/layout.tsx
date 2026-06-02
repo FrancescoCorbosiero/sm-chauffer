@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Richiedi un preventivo via WhatsApp o email. Servizio NCC 24/7 a Milano, Brianza e in tutta Italia.',
     url: '/contact',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 

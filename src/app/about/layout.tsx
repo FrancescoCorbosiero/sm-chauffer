@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Dieci anni di esperienza nei trasferimenti di lusso a Milano, Brianza e in tutta Italia.',
     url: '/about',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 

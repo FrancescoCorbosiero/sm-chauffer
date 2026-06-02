@@ -199,6 +199,73 @@ Put the verification token (the `content` of the
 - JSON-LD: `LocalBusiness`/`LimousineService`, `Organization`, `WebSite`,
   per-post `BlogPosting`, `FAQPage`, and `BreadcrumbList` on every internal page.
 - Security headers + LCP image `priority`/`preconnect` for Core Web Vitals.
+- Dynamic, branded social cards via `app/opengraph-image.tsx` (next/og).
+- Per-vehicle `Vehicle` JSON-LD on the fleet page; `vatID`/`taxID` on the business.
+
+## Security & anti-spam
+
+The contact API (`/api/quote`) has layered protection, strongest with Turnstile:
+
+1. **Honeypot** — a hidden `company` field; if filled, the request is silently
+   accepted and discarded.
+2. **Timing trap** — submissions faster than 2s (scripted POSTs) are silently
+   dropped.
+3. **Rate limiting** — per-IP fixed window (in-memory) returns `429` when exceeded.
+4. **Blackhole bot trap** — a hidden, `nofollow`, robots-disallowed link to
+   `/api/blackhole`. Humans and good crawlers never follow it; a bot that
+   scrapes every href trips it and its IP is banned (24h) from `/api/quote`.
+5. **Cloudflare Turnstile** (optional) — a free, privacy-friendly invisible
+   CAPTCHA, verified server-side.
+
+### Enabling Turnstile
+
+1. At <https://dash.cloudflare.com> → Turnstile, create a widget (you do **not**
+   need to proxy the site through Cloudflare). You get a **site key** + **secret key**.
+2. Put them in `.env`:
+   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (public, build arg)
+   - `TURNSTILE_SECRET_KEY` (server-side, runtime env)
+3. Rebuild: `docker compose up -d --build`.
+
+With them unset, the form still works on the honeypot + timing + rate-limit guards.
+
+### True DDoS protection
+
+App-level limits can't absorb a network-layer DDoS on a single VPS. For that,
+put the domain behind a CDN/WAF (e.g. Cloudflare's free plan: enable the proxy
+"orange cloud", Bot Fight Mode, and a rate-limiting rule) — the WordPress-grade
+"set it and forget it" layer. Caddy also gives you HTTPS + HTTP/2 out of the box.
+
+### security.txt
+
+Served at `/.well-known/security.txt` (RFC 9116). Update the `Expires` date in
+`public/.well-known/security.txt` before it lapses.
+
+### Email deliverability (SPF / DKIM / DMARC)
+
+So SES mail lands in inboxes (not spam), add these DNS records for the sending
+domain (`chauffeurskmilano.it`):
+
+- **SPF** (TXT `@`): `v=spf1 include:amazonses.com ~all`
+- **DKIM**: enable "Easy DKIM" on the SES identity and add the 3 CNAME records
+  SES generates.
+- **DMARC** (TXT `_dmarc`): `v=DMARC1; p=quarantine; rua=mailto:info@chauffeurskmilano.it`
+
+## Legal pages
+
+`/privacy-policy`, `/cookie-policy` and `/termini` are served in Italian
+(binding) with an English courtesy translation; other locales fall back to
+Italian. They're linked in the footer alongside a "Cookie preferences" link that
+re-opens the consent banner. The copy lives in `src/lib/legal.ts` and is
+populated with the real registered identity (`src/lib/site.ts`).
+
+> ⚠️ These are good-faith GDPR/Garante-aligned templates, **not** legal advice.
+> Have a professional review them before relying on them.
+
+## Reviews
+
+The fake `aggregateRating` has been removed from JSON-LD (Google penalises
+unverifiable review markup). To switch on real Google reviews later, set
+`NEXT_PUBLIC_GOOGLE_PLACE_ID` and follow the steps in `src/lib/reviews.ts`.
 
 ## Notes
 

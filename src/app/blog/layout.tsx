@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Approfondimenti su transfer di lusso, destinazioni e cultura del servizio NCC.',
     url: '/blog',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 

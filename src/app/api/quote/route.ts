@@ -3,7 +3,13 @@ import { validateQuotePayload } from '@/lib/quoteValidation';
 import { isSesConfigured, sendQuoteEmail, sendHtmlEmail } from '@/lib/ses';
 import { renderConfirmationEmail } from '@/lib/emailTemplate';
 import { rateLimit, clientIp } from '@/lib/rateLimit';
+import { isBanned } from '@/lib/blackhole';
+import { verifyTurnstile } from '@/lib/turnstile';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/types';
+
+// Minimum plausible time a human spends on the page before submitting. Scripted
+// POSTs are effectively instant, so anything faster is treated as a bot.
+const MIN_ELAPSED_MS = 2000;
 
 function pickLocale(value: unknown): Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
@@ -16,8 +22,15 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
+  const ip = clientIp(req);
+
+  // Blackhole: IPs that tripped the bot trap (/api/blackhole) are refused.
+  if (isBanned(ip)) {
+    return NextResponse.json({ ok: false, error: 'forbidden' }, { status: 403 });
+  }
+
   // Basic abuse guard: cap submissions per IP (the proxy sets X-Forwarded-For).
-  const limit = rateLimit(`quote:${clientIp(req)}`);
+  const limit = rateLimit(`quote:${ip}`);
   if (!limit.ok) {
     return NextResponse.json(
       { ok: false, error: 'rate-limited' },
@@ -32,9 +45,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'invalid-json' }, { status: 400 });
   }
 
+  const d = (data ?? {}) as Record<string, unknown>;
+
   // Honeypot: bots fill hidden fields. Pretend success, send nothing.
-  if (data && typeof data === 'object' && typeof (data as { company?: unknown }).company === 'string' && (data as { company: string }).company.trim() !== '') {
+  if (typeof d.company === 'string' && d.company.trim() !== '') {
     return NextResponse.json({ ok: true });
+  }
+
+  // Timing trap: a real visitor takes seconds to fill the form; an instant
+  // submit is a bot. Pretend success so the bot can't probe the threshold.
+  if (typeof d.elapsedMs === 'number' && d.elapsedMs < MIN_ELAPSED_MS) {
+    return NextResponse.json({ ok: true });
+  }
+
+  // Cloudflare Turnstile (only enforced when TURNSTILE_SECRET_KEY is set).
+  if (!(await verifyTurnstile(d.turnstileToken, ip))) {
+    return NextResponse.json({ ok: false, error: 'captcha-failed' }, { status: 403 });
   }
 
   const payload = validateQuotePayload(data);

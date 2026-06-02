@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Transfer aeroportuali, autista privato a Milano e Brianza, tour del Lago di Como, trasferimenti internazionali.',
     url: '/services',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 

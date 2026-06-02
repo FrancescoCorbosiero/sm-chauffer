@@ -97,20 +97,12 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: 'Chauffeur SK Luxury Milano — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Chauffeur SK Luxury Milano — flotta luxury a Milano, in Brianza e sul Lago di Como',
-      },
-    ],
+    // OG/Twitter images come from the dynamic app/opengraph-image.tsx card.
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Chauffeur SK Luxury Milano — Autista di lusso a Milano, in Brianza e sul Lago di Como',
     description,
-    images: ['/og.png'],
   },
   alternates: {
     canonical: '/',

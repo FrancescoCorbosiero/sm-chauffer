@@ -1,11 +1,26 @@
 'use client';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
-import { useTranslation } from '@/i18n/LanguageProvider';
+import { useLanguage } from '@/i18n/LanguageProvider';
+import type { Locale } from '@/i18n/types';
 import { SITE } from '@/lib/site';
+import { reopenConsent } from '@/components/analytics/ConsentBanner';
+
+// Legal/footer labels kept local (short strings, 7 langs) to avoid bloating the
+// shared dictionaries. Falls back to Italian for any unmapped locale.
+const LEGAL: Record<Locale, { privacy: string; cookie: string; terms: string; prefs: string }> = {
+  it: { privacy: 'Privacy Policy', cookie: 'Cookie Policy', terms: 'Termini e Condizioni', prefs: 'Preferenze cookie' },
+  en: { privacy: 'Privacy Policy', cookie: 'Cookie Policy', terms: 'Terms & Conditions', prefs: 'Cookie preferences' },
+  es: { privacy: 'Política de Privacidad', cookie: 'Política de Cookies', terms: 'Términos y Condiciones', prefs: 'Preferencias de cookies' },
+  de: { privacy: 'Datenschutz', cookie: 'Cookie-Richtlinie', terms: 'AGB', prefs: 'Cookie-Einstellungen' },
+  fr: { privacy: 'Confidentialité', cookie: 'Politique de cookies', terms: 'Conditions générales', prefs: 'Préférences cookies' },
+  sq: { privacy: 'Privatësia', cookie: 'Politika e Cookie-ve', terms: 'Kushtet', prefs: 'Preferencat e cookie-ve' },
+  ru: { privacy: 'Политика конфиденциальности', cookie: 'Политика cookie', terms: 'Условия', prefs: 'Настройки cookie' },
+};
 
 export default function Footer() {
-  const t = useTranslation();
+  const { t, locale } = useLanguage();
+  const legal = LEGAL[locale] ?? LEGAL.it;
 
   const navLinks = [
     { href: '/fleet', label: t.nav.fleet },
@@ -129,11 +144,33 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 bg-white/3">
-        <div className="container-x py-6 flex flex-wrap items-center justify-between gap-3 text-[11px] sm:text-xs text-white/55">
+        <div className="container-x py-6 flex flex-col gap-4 text-[11px] sm:text-xs text-white/55 lg:flex-row lg:items-center lg:justify-between">
           <div>© {new Date().getFullYear()} Chauffeur SK Luxury Milano · {t.footer.rightsReserved}</div>
-          <div>{t.footer.vat}</div>
+
+          <nav aria-label={legal.privacy} className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">{legal.privacy}</Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">{legal.cookie}</Link>
+            <Link href="/termini" className="hover:text-white transition-colors">{legal.terms}</Link>
+            <button type="button" onClick={reopenConsent} className="hover:text-white transition-colors">
+              {legal.prefs}
+            </button>
+          </nav>
+
+          <div>P.IVA {SITE.vatNumber} · {SITE.legalAddress.street}, {SITE.legalAddress.postalCode} {SITE.legalAddress.locality} ({SITE.legalAddress.province})</div>
         </div>
       </div>
+
+      {/* Bot trap: hidden, nofollow, disallowed in robots.txt. Humans and good
+          crawlers never follow it; bots that scrape every href get banned. */}
+      <a
+        href="/api/blackhole"
+        rel="nofollow"
+        aria-hidden="true"
+        tabIndex={-1}
+        style={{ display: 'none' }}
+      >
+        Do not follow this link
+      </a>
     </footer>
   );
 }
