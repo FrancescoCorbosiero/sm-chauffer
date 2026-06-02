@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'La nostra flotta — Mercedes, BMW, Range Rover',
@@ -15,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function FleetLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Flotta', path: '/fleet' }]} />
+      {children}
+    </>
+  );
 }

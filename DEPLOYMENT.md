@@ -136,6 +136,70 @@ zero email infrastructure, and the WhatsApp channel is always available.
 address; for delivery to an off-domain inbox without SES you can instead add a
 webmail forwarding rule (`info@ → maksymnoleggio@gmail.com`, the `emailBackend`).
 
+## Analytics, consent & SEO
+
+### Build-time vs runtime config
+
+`NEXT_PUBLIC_*` vars are **inlined into the bundle when the image is built**, so
+`docker-compose.yml` passes them as `build.args` (not runtime `environment`).
+The values are read from your `.env`, so the normal deploy command picks them up:
+
+```bash
+docker compose up -d --build   # re-bakes NEXT_PUBLIC_* from .env into the image
+```
+
+> Changing an analytics ID or the Search Console token therefore requires a
+> rebuild (the `--build` flag), not just a restart.
+
+This covers `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_GA_ID` and the
+two `NEXT_PUBLIC_UMAMI_*` vars. The SES/AWS vars stay runtime `environment`.
+
+### Two analytics providers (both optional)
+
+| Provider | Env | Consent banner? | Notes |
+|----------|-----|-----------------|-------|
+| **GA4** | `NEXT_PUBLIC_GA_ID` (`G-…`) | **Yes** | Boots with Consent Mode v2 *denied by default*; cookies/Ads signals only fire after the visitor accepts. The banner is localized into all 7 site languages. |
+| **Umami** | `NEXT_PUBLIC_UMAMI_SRC` + `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | No | Cookieless, GDPR-friendly baseline traffic. Runs for every visitor with no banner. |
+
+With neither set, **no tracking scripts are emitted and no banner is shown** —
+the site is clean by default.
+
+**Self-hosting Umami** (cookieless, fits this VPS — Caddy gives it HTTPS via the
+same label trick):
+
+```yaml
+# add to a compose stack on the same host (shares the `caddy` network)
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    environment:
+      DATABASE_URL: postgresql://umami:umami@umami-db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: change-me
+    networks: [caddy, default]
+    labels:
+      caddy: "analytics.chauffeurskmilano.it"
+      caddy.reverse_proxy: "{{upstreams 3000}}"
+```
+
+Then set `NEXT_PUBLIC_UMAMI_SRC=https://analytics.chauffeurskmilano.it/script.js`
+and the `WEBSITE_ID` from the Umami dashboard, and rebuild.
+
+### Google Search Console
+
+Put the verification token (the `content` of the
+`<meta name="google-site-verification">` tag, or use the DNS method instead) in
+`NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and rebuild. After it verifies, submit
+`https://chauffeurskmilano.it/sitemap.xml` in Search Console.
+
+### What's already wired for SEO
+
+- Canonical URL + per-page Open Graph/Twitter metadata on every route.
+- `robots.txt` + multilingual `sitemap.xml` (hreflang alternates, blog posts).
+- JSON-LD: `LocalBusiness`/`LimousineService`, `Organization`, `WebSite`,
+  per-post `BlogPosting`, `FAQPage`, and `BreadcrumbList` on every internal page.
+- Security headers + LCP image `priority`/`preconnect` for Core Web Vitals.
+
 ## Notes
 
 - **Different domain?** Change the two `caddy_0` / `caddy_1` host labels in

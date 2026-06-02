@@ -7,6 +7,8 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import JsonLd from '@/components/seo/JsonLd';
 import SpeculationRules from '@/components/seo/SpeculationRules';
+import Analytics from '@/components/analytics/Analytics';
+import ConsentBanner from '@/components/analytics/ConsentBanner';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import SkipLink from '@/components/layout/SkipLink';
 import { SITE } from '@/lib/site';
@@ -114,7 +116,7 @@ export const metadata: Metadata = {
     canonical: '/',
     languages: Object.fromEntries(LOCALES.map((l) => [l, '/'])),
   },
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
@@ -150,9 +152,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main-content">{children}</main>
           <Footer />
           <WhatsAppButton />
+          <ConsentBanner />
         </LanguageProvider>
         <JsonLd />
         <SpeculationRules />
+        <Analytics />
       </body>
     </html>
   );
