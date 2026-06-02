@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Contatti e prenotazioni — Telefono, WhatsApp, email',
@@ -11,9 +12,15 @@ export const metadata: Metadata = {
       'Richiedi un preventivo via WhatsApp o email. Servizio NCC 24/7 a Milano, Brianza e in tutta Italia.',
     url: '/contact',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Contatti', path: '/contact' }]} />
+      {children}
+    </>
+  );
 }

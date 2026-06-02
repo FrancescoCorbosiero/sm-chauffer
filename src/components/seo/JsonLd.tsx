@@ -11,15 +11,19 @@ const localBusiness = {
   image: `${SITE.url}/og.png`,
   telephone: SITE.phone,
   email: SITE.email,
+  vatID: SITE.vatNumber,
+  taxID: SITE.taxCode,
   priceRange: '€€€',
   foundingDate: SITE.founded,
   description:
     'Servizio NCC di lusso con autista a Milano, in Brianza, sul Lago di Como, a Bellagio e Tremezzo. Mercedes, BMW e Range Rover. Transfer aeroportuali, tour del Lago di Como, eventi e servizio business 24/7.',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: SITE.address.locality,
-    addressRegion: SITE.address.region,
-    addressCountry: SITE.address.country,
+    streetAddress: SITE.legalAddress.street,
+    postalCode: SITE.legalAddress.postalCode,
+    addressLocality: SITE.legalAddress.locality,
+    addressRegion: SITE.legalAddress.region,
+    addressCountry: SITE.legalAddress.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
@@ -53,13 +57,9 @@ const localBusiness = {
     opens: '00:00',
     closes: '23:59',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: SITE.rating.value,
-    reviewCount: SITE.rating.count,
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // NOTE: aggregateRating intentionally omitted until verified reviews exist —
+  // Google penalises self-serving / unverifiable review markup. Wire it from
+  // real Google reviews (see src/lib/reviews.ts) before re-adding.
   sameAs: [SITE.instagram.url],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

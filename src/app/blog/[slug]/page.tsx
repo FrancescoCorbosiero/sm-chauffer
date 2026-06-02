@@ -73,11 +73,30 @@ export default async function BlogPostPage({ params }: Params) {
     },
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE.url}/blog` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: c.title,
+        item: `${SITE.url}/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <ArticleView post={post} related={related} />
     </>

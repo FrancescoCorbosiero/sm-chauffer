@@ -17,6 +17,23 @@ RUN npm ci
 # ---- Build ------------------------------------------------------------------
 FROM base AS builder
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Public config is inlined into the client bundle at BUILD time, so it must be
+# passed as build args (docker-compose `build.args`), not just runtime env. All
+# default to empty — the site builds and runs fine without them.
+ARG NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=""
+ARG NEXT_PUBLIC_GA_ID=""
+ARG NEXT_PUBLIC_UMAMI_SRC=""
+ARG NEXT_PUBLIC_UMAMI_WEBSITE_ID=""
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY=""
+ARG NEXT_PUBLIC_GOOGLE_PLACE_ID=""
+ENV NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION \
+    NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID \
+    NEXT_PUBLIC_UMAMI_SRC=$NEXT_PUBLIC_UMAMI_SRC \
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID=$NEXT_PUBLIC_UMAMI_WEBSITE_ID \
+    NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY \
+    NEXT_PUBLIC_GOOGLE_PLACE_ID=$NEXT_PUBLIC_GOOGLE_PLACE_ID
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

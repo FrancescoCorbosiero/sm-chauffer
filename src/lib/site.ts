@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'Chauffeur SK Luxury Milano',
-  legalName: 'Chauffeur SK Luxury Milano',
+  // Registered sole proprietor (ditta individuale) behind the brand.
+  legalName: 'Sikora Maksym',
   url: 'https://chauffeurskmilano.it',
   // Primary, branded address: the `mailto:` target for the forms and the
   // `email` used in JSON-LD. Shown publicly in the footer and contact page.
@@ -25,7 +26,20 @@ export const SITE = {
     longitude: 9.19,
   },
   founded: '2014',
-  vatNumber: 'P.IVA in fase di registrazione',
+  // Real registered identity (Agenzia delle Entrate).
+  vatNumber: '12269970963',
+  taxCode: 'SKRMSY88R20Z138H',
+  // Codice Destinatario for electronic invoicing (SDI).
+  sdiCode: 'T9K4ZHO',
+  // Full legal/registered address — used in the legal pages and JSON-LD.
+  legalAddress: {
+    street: 'Viale Umbria 19',
+    postalCode: '20811',
+    locality: 'Cesano Maderno',
+    province: 'MB',
+    region: 'Lombardia',
+    country: 'IT',
+  },
   rating: { value: '5.0', count: '120' },
 } as const;
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Blog — Guide, destinazioni e lifestyle del trasferimento luxury',
@@ -11,9 +12,15 @@ export const metadata: Metadata = {
       'Approfondimenti su transfer di lusso, destinazioni e cultura del servizio NCC.',
     url: '/blog',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Blog', path: '/blog' }]} />
+      {children}
+    </>
+  );
 }

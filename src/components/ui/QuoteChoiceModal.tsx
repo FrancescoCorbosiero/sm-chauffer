@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { X, Mail, MessageCircle, Check, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import {
@@ -9,6 +9,7 @@ import {
   buildWhatsAppUrl,
   type QuotePayload,
 } from '@/lib/quoteMessage';
+import TurnstileWidget from '@/components/security/TurnstileWidget';
 
 interface Props {
   open: boolean;
@@ -24,6 +25,9 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
   const { t, locale } = useLanguage();
   const dialogRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<SendStatus>('idle');
+  // Turnstile token (empty until the widget verifies; unused when not configured).
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const onTurnstileVerify = useCallback((token: string) => setTurnstileToken(token), []);
 
   useEffect(() => {
     if (!open) return;
@@ -61,7 +65,15 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...payload, company: honeypot, locale }),
+        body: JSON.stringify({
+          ...payload,
+          company: honeypot,
+          locale,
+          // Anti-bot signals: ms the visitor spent on the page (real users take
+          // seconds; scripted POSTs are instant) + the Turnstile token.
+          elapsedMs: Math.round(performance.now()),
+          turnstileToken,
+        }),
       });
       if (res.ok) {
         setStatus('sent');
@@ -162,6 +174,8 @@ export default function QuoteChoiceModal({ open, payload, onClose, honeypot = ''
                   </>
                 )}
               </button>
+              {/* Invisible CAPTCHA — renders only when Turnstile is configured. */}
+              <TurnstileWidget onVerify={onTurnstileVerify} />
             </div>
           </>
         )}

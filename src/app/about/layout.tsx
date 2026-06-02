@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
   title: 'Chi siamo — Chauffeur SK Luxury Milano',
@@ -11,9 +12,15 @@ export const metadata: Metadata = {
       'Dieci anni di esperienza nei trasferimenti di lusso a Milano, Brianza e in tutta Italia.',
     url: '/about',
     type: 'website',
+    images: ['/opengraph-image'],
   },
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: 'Chi siamo', path: '/about' }]} />
+      {children}
+    </>
+  );
 }

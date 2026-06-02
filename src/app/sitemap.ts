@@ -23,6 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/privacy-policy', priority: 0.2, changeFrequency: 'yearly' },
+    { path: '/cookie-policy', priority: 0.2, changeFrequency: 'yearly' },
+    { path: '/termini', priority: 0.2, changeFrequency: 'yearly' },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((r) => ({
