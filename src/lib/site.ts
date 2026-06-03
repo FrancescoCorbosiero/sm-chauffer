@@ -11,6 +11,10 @@ export const SITE = {
   emailBackend: 'maksymnoleggio@gmail.com',
   phone: '+393286871152',
   phoneDisplay: '+39 328 687 1152',
+  // Second public phone line, shown alongside the primary number everywhere
+  // the phone is surfaced (footer, contact page, JSON-LD, email, links).
+  phone2: '+393402722059',
+  phoneDisplay2: '+39 340 272 2059',
   whatsapp: '393286871152',
   instagram: {
     handle: 'sikoramaxim',

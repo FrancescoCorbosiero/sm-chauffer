@@ -113,6 +113,7 @@ export function renderConfirmationEmail(payload: ContactPayload, locale: Locale)
     <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${GOLD};font-weight:600;margin-bottom:8px;">${esc(e.contactTitle)}</div>
     <p style="margin:0;font-size:14px;line-height:1.8;color:${INK};">
       <a href="tel:${esc(SITE.phone)}" style="color:${INK};text-decoration:none;">${esc(SITE.phoneDisplay)}</a> &nbsp;·&nbsp;
+      <a href="tel:${esc(SITE.phone2)}" style="color:${INK};text-decoration:none;">${esc(SITE.phoneDisplay2)}</a> &nbsp;·&nbsp;
       <a href="https://wa.me/${esc(SITE.whatsapp)}" style="color:${INK};text-decoration:none;">WhatsApp</a><br>
       <a href="mailto:${esc(SITE.email)}" style="color:${INK};text-decoration:none;">${esc(SITE.email)}</a>
     </p>
@@ -135,7 +136,7 @@ export function renderConfirmationEmail(payload: ContactPayload, locale: Locale)
     ...visibleRows.map(([k, v]) => `- ${k}: ${v}`),
     ...(estimateValue ? ['', t.quote.disclaimer] : []),
     '',
-    `${e.contactTitle}: ${SITE.phoneDisplay} · ${SITE.email} · wa.me/${SITE.whatsapp}`,
+    `${e.contactTitle}: ${SITE.phoneDisplay} · ${SITE.phoneDisplay2} · ${SITE.email} · wa.me/${SITE.whatsapp}`,
     '',
     e.closing,
     SITE.name,

@@ -136,7 +136,14 @@ export default function ContactPage() {
     href2?: string;
   }> = [
     { icon: MapPin, label: t.contactPage.info.address, value: t.contactPage.info.addressValue },
-    { icon: Phone, label: t.contactPage.info.phone, value: t.contactPage.info.phoneValue, href: `tel:${SITE.phone}` },
+    {
+      icon: Phone,
+      label: t.contactPage.info.phone,
+      value: t.contactPage.info.phoneValue,
+      href: `tel:${SITE.phone}`,
+      value2: SITE.phoneDisplay2,
+      href2: `tel:${SITE.phone2}`,
+    },
     {
       icon: Mail,
       label: t.contactPage.info.email,
