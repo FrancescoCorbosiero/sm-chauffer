@@ -26,8 +26,15 @@ const links = [
   },
   {
     title: 'Telefono',
-    description: 'Chiama direttamente, disponibili 24 ore.',
+    description: `Chiama direttamente, disponibili 24 ore. ${SITE.phoneDisplay}`,
     href: `tel:${SITE.phone}`,
+    icon: Phone,
+    external: false,
+  },
+  {
+    title: 'Telefono',
+    description: `Seconda linea, disponibili 24 ore. ${SITE.phoneDisplay2}`,
+    href: `tel:${SITE.phone2}`,
     icon: Phone,
     external: false,
   },
@@ -81,7 +88,7 @@ export default function LinksPage() {
               const Icon = item.icon;
               return (
                 <Link
-                  key={item.title}
+                  key={item.href}
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noreferrer noopener' : undefined}

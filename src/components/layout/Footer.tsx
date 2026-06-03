@@ -112,14 +112,22 @@ export default function Footer() {
                   {t.footer.addressLine2}
                 </span>
               </li>
-              <li className="flex items-center gap-3.5">
-                <Phone size={16} className="shrink-0 text-white/55" />
-                <a
-                  href={`tel:${SITE.phone}`}
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  {SITE.phoneDisplay}
-                </a>
+              <li className="flex items-start gap-3.5">
+                <Phone size={16} className="mt-0.5 shrink-0 text-white/55" />
+                <span className="flex flex-col gap-1.5">
+                  <a
+                    href={`tel:${SITE.phone}`}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {SITE.phoneDisplay}
+                  </a>
+                  <a
+                    href={`tel:${SITE.phone2}`}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {SITE.phoneDisplay2}
+                  </a>
+                </span>
               </li>
               <li className="flex items-start gap-3.5">
                 <Mail size={16} className="mt-0.5 shrink-0 text-white/55" />
