@@ -13,7 +13,7 @@ export default function FleetCard({ vehicle }: { vehicle: Vehicle }) {
 
   return (
     <TiltCard intensity={5} className="h-full">
-      <article className="group relative flex flex-col h-full bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.10)] hover:border-[var(--color-ink)]/15">
+      <article className="gold-edge group relative flex flex-col h-full bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.10)] hover:border-[var(--color-ink)]/15">
         <span
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_right,rgba(255,168,6,0.10),transparent_50%)]"

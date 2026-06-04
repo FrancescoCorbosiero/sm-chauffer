@@ -105,7 +105,7 @@ export default async function LocationPage({ params }: Params) {
             {loc.highlights.map((h, i) => (
               <div
                 key={h.title}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
+                className="gold-edge group relative flex flex-col overflow-hidden rounded-2xl bg-white p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
               >
                 <span className="font-display text-4xl font-light leading-none text-[var(--color-text-faint)]/40 tabular-nums">
                   {String(i + 1).padStart(2, '0')}

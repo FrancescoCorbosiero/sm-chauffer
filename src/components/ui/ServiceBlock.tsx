@@ -23,10 +23,10 @@ export default function ServiceBlock({
     <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <div className={`flex flex-col ${textOrder}`}>
         <div className="flex items-baseline gap-4 mb-5">
-          <span className="text-sm font-medium text-[var(--color-text-faint)] tabular-nums">
+          <span className="font-display text-2xl font-light text-[var(--color-text-faint)] tabular-nums leading-none">
             {number}
           </span>
-          <span className="h-px flex-1 bg-[var(--color-border)] max-w-[80px]" />
+          <span className="h-px flex-1 bg-[var(--color-accent)]/40 max-w-[80px]" />
           <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-text-muted)]">
             {t.serviceCard.serviceTag}
           </span>
