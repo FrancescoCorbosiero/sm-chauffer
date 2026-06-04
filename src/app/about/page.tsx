@@ -45,7 +45,7 @@ export default function AboutPage() {
               const number = String(i + 1).padStart(2, '0');
               return (
                 <ScrollReveal key={v.title} delay={i * 0.08}>
-                  <div className="group relative p-7 bg-white border border-[var(--color-border)] rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] hover:border-[var(--color-ink)]/20">
+                  <div className="gold-edge group relative p-7 bg-white border border-[var(--color-border)] rounded-2xl h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] hover:border-[var(--color-ink)]/20">
                     <span
                       aria-hidden
                       className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_right,rgba(255,168,6,0.10),transparent_55%)]"
@@ -54,11 +54,15 @@ export default function AboutPage() {
                       <div className="w-12 h-12 rounded-full bg-[var(--color-surface-2)] flex items-center justify-center transition-all duration-300 group-hover:bg-[var(--color-ink)] group-hover:text-white group-hover:rotate-[8deg]">
                         <Icon size={20} aria-hidden />
                       </div>
-                      <span className="text-xs text-[var(--color-text-faint)] tabular-nums">
+                      <span className="font-display text-2xl font-light text-[var(--color-text-faint)] tabular-nums leading-none">
                         {number}
                       </span>
                     </div>
-                    <h3 className="relative text-lg font-medium mb-2">{v.title}</h3>
+                    <h3 className="relative text-lg font-medium mb-3">{v.title}</h3>
+                    <span
+                      aria-hidden
+                      className="relative mb-3 block h-px w-8 bg-[var(--color-accent)]/70 transition-all duration-500 ease-out group-hover:w-14"
+                    />
                     <p className="relative text-sm text-[var(--color-text-muted)] leading-relaxed">
                       {v.body}
                     </p>

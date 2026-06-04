@@ -10,7 +10,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
   const starsAria = t.testimonialsSection.starsAria.replace('{n}', String(stars));
 
   return (
-    <article className="group relative flex flex-col h-full p-8 bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] hover:border-[var(--color-ink)]/15">
+    <article className="gold-edge group relative flex flex-col h-full p-8 bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] hover:border-[var(--color-ink)]/15">
       <Quote
         aria-hidden
         size={56}

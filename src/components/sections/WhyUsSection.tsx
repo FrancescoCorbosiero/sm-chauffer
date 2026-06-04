@@ -36,7 +36,7 @@ export default function WhyUsSection() {
             const number = String(i + 1).padStart(2, '0');
             return (
               <ScrollReveal key={w.title} delay={i * 0.08}>
-                <div className="group relative p-7 border border-[var(--color-border)] rounded-2xl bg-white hover:border-[var(--color-ink)]/30 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] transition-all duration-300 h-full overflow-hidden">
+                <div className="gold-edge group relative p-7 border border-[var(--color-border)] rounded-2xl bg-white hover:border-[var(--color-ink)]/30 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] transition-all duration-300 h-full overflow-hidden">
                   <span
                     aria-hidden
                     className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_right,rgba(255,168,6,0.12),transparent_55%)]"
@@ -45,13 +45,17 @@ export default function WhyUsSection() {
                     <div className="w-12 h-12 rounded-full bg-[var(--color-surface-2)] flex items-center justify-center transition-all duration-300 group-hover:bg-[var(--color-ink)] group-hover:text-white group-hover:rotate-[8deg]">
                       {Icon && <Icon size={20} aria-hidden />}
                     </div>
-                    <span className="text-xs text-[var(--color-text-faint)] font-medium tabular-nums">
+                    <span className="font-display text-2xl font-light text-[var(--color-text-faint)] tabular-nums leading-none">
                       {number}
                     </span>
                   </div>
-                  <h3 className="relative text-lg font-medium mb-2 leading-snug">
+                  <h3 className="relative text-lg font-medium mb-3 leading-snug">
                     {w.title}
                   </h3>
+                  <span
+                    aria-hidden
+                    className="relative mb-3 block h-px w-8 bg-[var(--color-accent)]/70 transition-all duration-500 ease-out group-hover:w-14"
+                  />
                   <p className="relative text-sm text-[var(--color-text-muted)] leading-relaxed">
                     {w.description}
                   </p>

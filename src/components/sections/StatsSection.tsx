@@ -30,7 +30,7 @@ export default function StatsSection() {
               delay={i * 0.08}
               className={`md:px-6 ${i !== 0 ? 'md:border-l md:border-white/15' : ''}`}
             >
-              <div className="text-4xl md:text-5xl font-light leading-none tabular-nums">
+              <div className="font-display text-5xl md:text-6xl font-light leading-none tabular-nums">
                 <AnimatedCounter value={s.value} />
               </div>
               <div className="mt-3 text-[11px] uppercase tracking-[0.25em] text-white/60">

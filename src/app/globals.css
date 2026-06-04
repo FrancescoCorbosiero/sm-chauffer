@@ -191,6 +191,25 @@
 }
 .link-arrow:hover { gap: 0.7rem; }
 
+/* Signature accent: a gold hairline that draws across the top edge of a card
+   on hover. Applied to every card surface (services, fleet, blog, reviews,
+   location highlights) for a coherent, editorial feel. The card must clip its
+   overflow (all our cards do) so the line follows the rounded corners. */
+.gold-edge { position: relative; }
+.gold-edge::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-accent);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 4;
+  pointer-events: none;
+}
+.gold-edge:hover::after { width: 100%; }
+
 /* === Marquee === */
 
 @keyframes marquee {

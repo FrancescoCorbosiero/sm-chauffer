@@ -9,7 +9,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
   const c = post.content[locale] ?? post.content.it;
 
   return (
-    <article className="group flex flex-col bg-white border border-[var(--color-border)] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]">
+    <article className="gold-edge group flex flex-col bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]">
       <Link
         href={`/blog/${post.slug}`}
         className="block relative aspect-[5/4] w-full overflow-hidden bg-[var(--color-surface-2)]"

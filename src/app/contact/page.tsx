@@ -432,7 +432,7 @@ export default function ContactPage() {
               </button>
             </form>
 
-            <aside className="bg-[var(--color-surface)] border border-[var(--color-border)] p-5 sm:p-6 rounded-xl">
+            <aside className="bg-[var(--color-surface)] border border-[var(--color-border)] p-5 sm:p-6 rounded-2xl">
               <h3 className="text-lg font-light mb-5">{t.contactPage.infoTitle}</h3>
               <ul className="space-y-4">
                 {info.map((i) => (

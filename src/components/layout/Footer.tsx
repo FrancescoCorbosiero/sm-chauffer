@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import type { Locale } from '@/i18n/types';
 import { SITE } from '@/lib/site';
+import { locations } from '@/lib/locations';
 import { reopenConsent } from '@/components/analytics/ConsentBanner';
 
 // Legal/footer labels kept local (short strings, 7 langs) to avoid bloating the
@@ -18,9 +19,26 @@ const LEGAL: Record<Locale, { privacy: string; cookie: string; terms: string; pr
   ru: { privacy: 'Политика конфиденциальности', cookie: 'Политика cookie', terms: 'Условия', prefs: 'Настройки cookie' },
 };
 
+// Heading for the city/area landing-page links (one per locale).
+const ZONES_LABEL: Record<Locale, string> = {
+  it: 'Zone servite',
+  en: 'Areas served',
+  es: 'Zonas de servicio',
+  de: 'Einsatzgebiete',
+  fr: 'Zones desservies',
+  sq: 'Zonat e shërbimit',
+  ru: 'Зоны обслуживания',
+};
+
 export default function Footer() {
   const { t, locale } = useLanguage();
   const legal = LEGAL[locale] ?? LEGAL.it;
+  const zonesLabel = ZONES_LABEL[locale] ?? ZONES_LABEL.it;
+
+  const zoneLinks = locations.map((l) => ({
+    href: `/ncc/${l.slug}`,
+    label: `NCC ${l.city}`,
+  }));
 
   const navLinks = [
     { href: '/fleet', label: t.nav.fleet },
@@ -41,7 +59,7 @@ export default function Footer() {
     <footer className="bg-[linear-gradient(180deg,#060606_0%,#0d0d0d_100%)] text-white border-t border-white/8">
       <div className="container-x py-16 md:py-20">
         <div className="grid gap-12 md:gap-10 md:grid-cols-2 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <div className="text-2xl sm:text-[1.9rem] font-medium tracking-[0.08em] mb-5">
               CHAUFFEUR SK LUXURY MILANO
             </div>
@@ -79,13 +97,32 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label={t.footer.servicesAria} className="lg:col-span-3 text-sm">
+          <nav aria-label={t.footer.servicesAria} className="lg:col-span-2 text-sm">
             <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
               <span className="h-px w-6 bg-white/30" />
               {t.footer.services}
             </h4>
             <ul className="space-y-3">
               {serviceLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-[0.98rem] sm:text-[1.02rem] text-white/78 hover:text-white transition-colors duration-200"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label={zonesLabel} className="lg:col-span-2 text-sm">
+            <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
+              <span className="h-px w-6 bg-white/30" />
+              {zonesLabel}
+            </h4>
+            <ul className="space-y-3">
+              {zoneLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
