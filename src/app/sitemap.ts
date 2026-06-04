@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
 import { blogPosts } from '@/lib/data';
+import { locations } from '@/lib/locations';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -36,6 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages },
   }));
 
+  // City/area landing pages (Italian-canonical, like the blog posts).
+  const locationEntries: MetadataRoute.Sitemap = locations.map((loc) => ({
+    url: `${base}/ncc/${loc.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
   // Individual blog posts (single-language content, so no hreflang alternates).
   const postEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
@@ -44,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...postEntries];
+  return [...staticEntries, ...locationEntries, ...postEntries];
 }
