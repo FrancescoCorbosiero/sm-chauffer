@@ -19,9 +19,9 @@ export default function ServicesPage() {
         description={t.servicesPage.description}
         image={IMAGES.pageHeroes.services}
       />
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-20 md:py-24 bg-[var(--color-surface)]">
         <div className="container-x">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-5 md:gap-6">
             {services.map((s, i) => (
               <ScrollReveal key={s.id} delay={(i % 3) * 0.08} className="h-full">
                 <ServiceCard service={s} index={i} />

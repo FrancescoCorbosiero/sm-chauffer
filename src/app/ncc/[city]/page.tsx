@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, ArrowUpRight, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Phone } from 'lucide-react';
 import PageHero from '@/components/ui/PageHero';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 import LocationJsonLd from '@/components/seo/LocationJsonLd';
@@ -93,18 +93,28 @@ export default async function LocationPage({ params }: Params) {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-[var(--color-surface)]">
+      <section className="py-16 md:py-24 bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="container-x">
-          <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)] mb-10 text-center">
-            Il nostro NCC a {loc.city}
-          </h2>
-          <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {loc.highlights.map((h) => (
+          <div className="mb-12 flex flex-col items-center text-center">
+            <span className="eyebrow mb-5">{loc.heroLabel}</span>
+            <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)]">
+              Il nostro servizio a {loc.city}
+            </h2>
+          </div>
+          <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {loc.highlights.map((h, i) => (
               <div
                 key={h.title}
-                className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-white p-6"
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]"
               >
-                <h3 className="text-lg font-medium text-[var(--color-ink)]">{h.title}</h3>
+                <span className="font-display text-4xl font-light leading-none text-[var(--color-text-faint)]/40 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-5 text-lg font-medium text-[var(--color-ink)]">{h.title}</h3>
+                <span
+                  aria-hidden
+                  className="my-3 block h-px w-8 bg-[var(--color-accent)]/70 transition-all duration-500 ease-out group-hover:w-14"
+                />
                 <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
                   {h.description}
                 </p>
@@ -114,32 +124,57 @@ export default async function LocationPage({ params }: Params) {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <div>
-              <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)] mb-6">
+              <span className="eyebrow mb-5">Itinerari</span>
+              <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)] mb-8">
                 Tratte richieste da {loc.city}
               </h2>
-              <ul className="flex flex-col gap-3">
-                {loc.routes.map((r) => (
-                  <li key={r} className="flex items-start gap-3 text-[var(--color-ink)]">
-                    <MapPin size={18} className="mt-0.5 shrink-0 text-[var(--color-text-muted)]" />
-                    <span>{r}</span>
+              <ol className="flex flex-col">
+                {loc.routes.map((r, i) => (
+                  <li
+                    key={r}
+                    className="group flex items-baseline gap-5 border-b border-[var(--color-divider)] py-4 first:border-t"
+                  >
+                    <span className="font-display text-base font-light text-[var(--color-text-faint)] tabular-nums">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="flex-1 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-text-muted)]">
+                      {r}
+                    </span>
+                    <ArrowUpRight
+                      size={16}
+                      aria-hidden
+                      className="shrink-0 translate-x-0 text-[var(--color-accent)] opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
+                    />
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
 
             <div>
-              <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)] mb-6">
+              <span className="eyebrow mb-5">FAQ</span>
+              <h2 className="text-2xl md:text-3xl font-light text-[var(--color-ink)] mb-8">
                 Domande frequenti
               </h2>
-              <div className="flex flex-col divide-y divide-[var(--color-divider)] border-y border-[var(--color-divider)]">
+              <div className="flex flex-col gap-3">
                 {loc.faq.map((f) => (
-                  <div key={f.q} className="py-4">
-                    <h3 className="font-medium text-[var(--color-ink)] mb-1.5">{f.q}</h3>
-                    <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{f.a}</p>
+                  <div
+                    key={f.q}
+                    className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-6"
+                  >
+                    <h3 className="flex items-start gap-3 font-medium text-[var(--color-ink)]">
+                      <span
+                        aria-hidden
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      {f.q}
+                    </h3>
+                    <p className="mt-2 pl-[1.125rem] text-sm leading-relaxed text-[var(--color-text-muted)]">
+                      {f.a}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -148,30 +183,37 @@ export default async function LocationPage({ params }: Params) {
         </div>
       </section>
 
-      <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+      <section className="py-14 md:py-16 bg-[var(--color-surface)] border-t border-[var(--color-border)]">
         <div className="container-x">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-              <span className="text-[var(--color-text-muted)]">Altre zone servite:</span>
-              {others.map((o) => (
-                <Link
-                  key={o.slug}
-                  href={`/ncc/${o.slug}`}
-                  className="inline-flex items-center gap-1 font-medium text-[var(--color-ink)] underline-offset-4 hover:underline"
-                >
-                  NCC {o.city}
-                </Link>
-              ))}
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <span className="text-[11px] uppercase tracking-[0.28em] text-[var(--color-text-faint)]">
+                Altre zone servite
+              </span>
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                {others.map((o) => (
+                  <Link
+                    key={o.slug}
+                    href={`/ncc/${o.slug}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-white px-4 py-2 text-sm font-medium text-[var(--color-ink)] transition-colors duration-300 hover:border-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-white"
+                  >
+                    NCC {o.city}
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <Link href="/fleet" className="inline-flex items-center gap-1 text-[var(--color-ink)] hover:text-[var(--color-text-muted)]">
-                La flotta <ArrowUpRight size={14} />
+            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              <Link href="/fleet" className="group inline-flex items-center gap-1.5 text-[var(--color-ink)]">
+                La flotta
+                <ArrowUpRight size={14} className="text-[var(--color-accent)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link href="/services" className="inline-flex items-center gap-1 text-[var(--color-ink)] hover:text-[var(--color-text-muted)]">
-                Tutti i servizi <ArrowUpRight size={14} />
+              <Link href="/services" className="group inline-flex items-center gap-1.5 text-[var(--color-ink)]">
+                Tutti i servizi
+                <ArrowUpRight size={14} className="text-[var(--color-accent)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link href="/contact" className="inline-flex items-center gap-1 text-[var(--color-ink)] hover:text-[var(--color-text-muted)]">
-                Contatti <ArrowUpRight size={14} />
+              <Link href="/contact" className="group inline-flex items-center gap-1.5 text-[var(--color-ink)]">
+                Contatti
+                <ArrowUpRight size={14} className="text-[var(--color-accent)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
           </div>
