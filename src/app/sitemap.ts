@@ -3,6 +3,7 @@ import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
 import { blogPosts } from '@/lib/data';
 import { locations } from '@/lib/locations';
+import { intlLandings, hreflangFor } from '@/lib/intlLandings';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -45,6 +46,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // International (English / German) landing pages, with reciprocal hreflang.
+  const intlEntries: MetadataRoute.Sitemap = intlLandings.map((entry) => ({
+    url: `${base}/${entry.lang}/${entry.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+    alternates: {
+      languages: Object.fromEntries(
+        Object.entries(hreflangFor(entry)).map(([lang, path]) => [lang, `${base}${path}`]),
+      ),
+    },
+  }));
+
   // Individual blog posts (single-language content, so no hreflang alternates).
   const postEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
@@ -53,5 +67,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...locationEntries, ...postEntries];
+  return [...staticEntries, ...locationEntries, ...intlEntries, ...postEntries];
 }

@@ -40,6 +40,8 @@ export interface Location {
   /** Popular routes / destinations served from this city. */
   routes: string[];
   faq: LocationFaq[];
+  /** Slugs of the matching English/German landing pages, for cross-linking. */
+  intl?: { en: string; de: string };
 }
 
 export const locations: Location[] = [
@@ -107,6 +109,7 @@ export const locations: Location[] = [
         a: 'Sì, siamo operativi 24 ore su 24, voli notturni e trasferimenti early morning compresi. Consigliamo di prenotare in anticipo per garantire la vettura.',
       },
     ],
+    intl: { en: 'chauffeur-service-milan', de: 'chauffeur-service-mailand' },
   },
   {
     slug: 'monza',
@@ -300,6 +303,7 @@ export const locations: Location[] = [
         a: 'Sì, i nostri autisti parlano inglese fluente, un requisito essenziale per accogliere la clientela internazionale che sceglie il Lago di Como.',
       },
     ],
+    intl: { en: 'lake-como-private-driver', de: 'chauffeur-comer-see' },
   },
 ];
 
