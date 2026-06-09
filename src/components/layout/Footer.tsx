@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import type { Locale } from '@/i18n/types';
+import { LOCALE_NAMES } from '@/i18n/types';
 import { SITE } from '@/lib/site';
 import { locations } from '@/lib/locations';
+import { intlLandingsFor } from '@/lib/intlLandings';
 import { reopenConsent } from '@/components/analytics/ConsentBanner';
 
 // Legal/footer labels kept local (short strings, 7 langs) to avoid bloating the
@@ -30,10 +32,29 @@ const ZONES_LABEL: Record<Locale, string> = {
   ru: 'Зоны обслуживания',
 };
 
+// Heading for the international (EN/DE) landing-page links (one per locale).
+const INTL_LABEL: Record<Locale, string> = {
+  it: 'Per ospiti internazionali',
+  en: 'For international guests',
+  es: 'Para huéspedes internacionales',
+  de: 'Für internationale Gäste',
+  fr: 'Pour la clientèle internationale',
+  sq: 'Për mysafirët ndërkombëtarë',
+  ru: 'Для международных гостей',
+};
+
 export default function Footer() {
   const { t, locale } = useLanguage();
   const legal = LEGAL[locale] ?? LEGAL.it;
   const zonesLabel = ZONES_LABEL[locale] ?? ZONES_LABEL.it;
+  const intlLabel = INTL_LABEL[locale] ?? INTL_LABEL.it;
+
+  // English & German SEO landing pages, grouped by language for internal links.
+  const intlGroups = (['en', 'de'] as const).map((lang) => ({
+    lang,
+    name: LOCALE_NAMES[lang],
+    pages: intlLandingsFor(lang),
+  }));
 
   const zoneLinks = locations.map((l) => ({
     href: `/ncc/${l.slug}`,
@@ -184,6 +205,35 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-7">
+            <span className="h-px w-6 bg-white/30" />
+            {intlLabel}
+          </h4>
+          <div className="grid gap-8 sm:grid-cols-2 lg:gap-12">
+            {intlGroups.map((group) => (
+              <nav key={group.lang} aria-label={group.name} className="text-sm">
+                <span className="block text-[11px] uppercase tracking-[0.28em] text-white/55 mb-4">
+                  {group.name}
+                </span>
+                <ul className="flex flex-wrap gap-x-6 gap-y-2.5">
+                  {group.pages.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/${p.lang}/${p.slug}`}
+                        hrefLang={p.lang}
+                        className="text-white/78 hover:text-white transition-colors duration-200"
+                      >
+                        {p.navLabel}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Globe, Check } from 'lucide-react';
+import { Globe, Check, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { LOCALES, LOCALE_NAMES, LOCALE_SHORT, type Locale } from '@/i18n/types';
 
@@ -35,8 +35,8 @@ export default function LanguageSwitcher({ variant = 'light' }: { variant?: 'lig
 
   const isDark = variant === 'dark';
   const buttonClass = isDark
-    ? 'text-white/70 hover:text-white'
-    : 'text-[var(--color-text-muted)] hover:text-[var(--color-ink)]';
+    ? 'border-white/40 text-white hover:bg-white/10'
+    : 'border-[var(--color-border)] text-[var(--color-ink)] hover:bg-[var(--color-surface)]';
 
   return (
     <div ref={containerRef} className="relative">
@@ -46,10 +46,16 @@ export default function LanguageSwitcher({ variant = 'light' }: { variant?: 'lig
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t.languageSwitcher.aria}
-        className={`inline-flex items-center gap-1.5 px-2 py-2 text-[13px] tracking-wide transition-colors ${buttonClass}`}
+        title={t.languageSwitcher.aria}
+        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[13px] font-medium tracking-wide transition-colors ${buttonClass}`}
       >
         <Globe size={16} aria-hidden />
-        <span className="font-medium tabular-nums">{LOCALE_SHORT[locale]}</span>
+        <span className="tabular-nums">{LOCALE_SHORT[locale]}</span>
+        <ChevronDown
+          size={14}
+          aria-hidden
+          className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+        />
       </button>
       {open && (
         <ul
