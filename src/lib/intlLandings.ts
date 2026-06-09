@@ -29,6 +29,8 @@ export interface IntlFaq {
 export interface IntlLanding {
   lang: IntlLang;
   slug: string;
+  /** Short, keyword-rich anchor text for internal links (footer, cross-links). */
+  navLabel: string;
   /** Translation group — entries sharing it are hreflang alternates. */
   group: string;
   /** Closest Italian page, shown as a visible language cross-link. */
@@ -100,6 +102,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'en',
     slug: 'lake-como-private-driver',
+    navLabel: 'Lake Como private driver',
     group: 'lake-como-driver',
     itHref: '/ncc/como',
     areaServed: ['Lake Como', 'Como', 'Bellagio', 'Cernobbio', 'Tremezzo', 'Lombardy'],
@@ -166,6 +169,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'en',
     slug: 'milan-airport-transfer',
+    navLabel: 'Milan airport transfer',
     group: 'milan-airport',
     itHref: '/ncc/milano',
     areaServed: ['Milan', 'Malpensa', 'Linate', 'Bergamo Orio al Serio', 'Lombardy'],
@@ -232,6 +236,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'en',
     slug: 'milan-to-lake-como-transfer',
+    navLabel: 'Milan to Lake Como transfer',
     group: 'milan-como',
     itHref: '/ncc/como',
     areaServed: ['Milan', 'Lake Como', 'Como', 'Bellagio', 'Cernobbio', 'Lombardy'],
@@ -297,6 +302,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'en',
     slug: 'chauffeur-service-milan',
+    navLabel: 'Chauffeur service Milan',
     group: 'chauffeur-milan',
     itHref: '/ncc/milano',
     areaServed: ['Milan', 'Monza', 'Brianza', 'Lombardy'],
@@ -363,6 +369,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'en',
     slug: 'lake-como-private-tour',
+    navLabel: 'Lake Como private tour',
     group: 'lake-como-tour',
     itHref: '/ncc/como',
     areaServed: ['Lake Como', 'Bellagio', 'Varenna', 'Cernobbio', 'Tremezzo', 'Lombardy'],
@@ -430,6 +437,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'de',
     slug: 'chauffeur-comer-see',
+    navLabel: 'Privatchauffeur Comer See',
     group: 'lake-como-driver',
     itHref: '/ncc/como',
     areaServed: ['Comer See', 'Como', 'Bellagio', 'Cernobbio', 'Tremezzo', 'Lombardei'],
@@ -495,6 +503,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'de',
     slug: 'flughafentransfer-mailand',
+    navLabel: 'Flughafentransfer Mailand',
     group: 'milan-airport',
     itHref: '/ncc/milano',
     areaServed: ['Mailand', 'Malpensa', 'Linate', 'Bergamo Orio al Serio', 'Lombardei'],
@@ -560,6 +569,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'de',
     slug: 'mailand-comer-see-transfer',
+    navLabel: 'Transfer Mailand–Comer See',
     group: 'milan-como',
     itHref: '/ncc/como',
     areaServed: ['Mailand', 'Comer See', 'Como', 'Bellagio', 'Cernobbio', 'Lombardei'],
@@ -625,6 +635,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'de',
     slug: 'chauffeur-service-mailand',
+    navLabel: 'Chauffeurservice Mailand',
     group: 'chauffeur-milan',
     itHref: '/ncc/milano',
     areaServed: ['Mailand', 'Monza', 'Brianza', 'Lombardei'],
@@ -690,6 +701,7 @@ export const intlLandings: IntlLanding[] = [
   {
     lang: 'de',
     slug: 'comer-see-privat-tour',
+    navLabel: 'Comer See Privat-Tour',
     group: 'lake-como-tour',
     itHref: '/ncc/como',
     areaServed: ['Comer See', 'Bellagio', 'Varenna', 'Cernobbio', 'Tremezzo', 'Lombardei'],
