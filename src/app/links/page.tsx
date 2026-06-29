@@ -66,7 +66,7 @@ export default function LinksPage() {
         <div className="max-w-xl mx-auto">
           <div className="mb-6 rounded-[2rem] border border-[var(--color-border)] bg-white/80 backdrop-blur-md px-6 py-5 shadow-[var(--shadow-sm)]">
             <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-text-muted)]">
-              SK Luxury Chauffeur
+              Transfer Luxury Driver
             </p>
             <div className="mt-3 flex items-center justify-between gap-4">
               <div>

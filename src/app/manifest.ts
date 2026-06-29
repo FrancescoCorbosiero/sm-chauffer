@@ -4,7 +4,7 @@ import { SITE } from '@/lib/site';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE.name,
-    short_name: 'SK Luxury',
+    short_name: 'Transfer LD',
     description:
       'NCC e autista di lusso a Milano, in Brianza e sul Lago di Como. Transfer aeroportuali e servizio business 24/7.',
     start_url: '/',

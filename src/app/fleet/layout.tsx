@@ -5,10 +5,10 @@ import VehiclesJsonLd from '@/components/seo/VehiclesJsonLd';
 export const metadata: Metadata = {
   title: 'La nostra flotta — Mercedes, BMW, Range Rover',
   description:
-    'Flotta SK Luxury Chauffeur: Mercedes Classe S, Classe E, V-Class, BMW Serie 7 e Range Rover. Veicoli premium per transfer, eventi e tour a Milano, Brianza e in tutta Italia.',
+    'Flotta Transfer Luxury Driver: Mercedes Classe S, Classe E, V-Class, BMW Serie 7 e Range Rover. Veicoli premium per transfer, eventi e tour a Milano, Brianza e in tutta Italia.',
   alternates: { canonical: '/fleet' },
   openGraph: {
-    title: 'La nostra flotta luxury · SK Luxury Chauffeur',
+    title: 'La nostra flotta luxury · Transfer Luxury Driver',
     description:
       'Mercedes, BMW e Range Rover sempre disponibili per i tuoi spostamenti a Milano e Brianza.',
     url: '/fleet',

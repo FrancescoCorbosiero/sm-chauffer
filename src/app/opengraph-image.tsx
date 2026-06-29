@@ -4,7 +4,7 @@ import { SITE } from '@/lib/site';
 // Dynamic, branded Open Graph card generated at the edge — replaces a static
 // og.png. Inherited by every route that doesn't define its own OG image.
 export const runtime = 'nodejs';
-export const alt = 'SK Luxury Chauffeur — NCC e autista di lusso';
+export const alt = 'Transfer Luxury Driver — NCC e autista di lusso';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -48,10 +48,10 @@ export default function OpengraphImage() {
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontSize: 76, lineHeight: 1.05, fontWeight: 500 }}>
-            SK Luxury
+            Transfer Luxury
           </div>
           <div style={{ fontSize: 76, lineHeight: 1.05, color: '#ffa806' }}>
-            Chauffeur
+            Driver
           </div>
           <div
             style={{

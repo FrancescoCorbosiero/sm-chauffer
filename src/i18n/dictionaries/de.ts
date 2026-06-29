@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const de: Dictionary = {
   meta: {
-    siteTitle: 'SK Luxury Chauffeur — Luxus-Chauffeurservice in Italien',
+    siteTitle: 'Transfer Luxury Driver — Luxus-Chauffeurservice in Italien',
     siteDescription: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     home: {
-      title: 'SK Luxury Chauffeur — Home',
+      title: 'Transfer Luxury Driver — Home',
       description: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     },
     fleet: {
-      title: 'Unsere Flotte | SK Luxury Chauffeur',
+      title: 'Unsere Flotte | Transfer Luxury Driver',
       description: 'Entdecken Sie unsere Luxusflotte: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Leistungen | SK Luxury Chauffeur',
+      title: 'Leistungen | Transfer Luxury Driver',
       description: 'Flughafentransfer, privater Chauffeur, Touren in Italien. Service rund um die Uhr.',
     },
     about: {
-      title: 'Über Uns | SK Luxury Chauffeur',
-      description: 'SK Luxury Chauffeur. Mietwagen mit Chauffeur.',
+      title: 'Über Uns | Transfer Luxury Driver',
+      description: 'Transfer Luxury Driver. Mietwagen mit Chauffeur.',
     },
     blog: {
-      title: 'Blog | SK Luxury Chauffeur',
+      title: 'Blog | Transfer Luxury Driver',
       description: 'Artikel und Reiseführer zu Luxustransfers, Reisezielen und Lifestyle.',
     },
     contact: {
-      title: 'Kontakt | SK Luxury Chauffeur',
+      title: 'Kontakt | Transfer Luxury Driver',
       description: 'Kontaktieren Sie uns für Buchungen und Informationen zu unserem Chauffeurservice.',
     },
   },
@@ -42,7 +42,7 @@ const de: Dictionary = {
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
     mainNavLabel: 'Hauptnavigation',
-    homeAria: 'SK Luxury Chauffeur — Home',
+    homeAria: 'Transfer Luxury Driver — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const de: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SK Luxury Chauffeur',
+    eyebrow: 'Transfer Luxury Driver',
     titlePart1: 'Luxus-Chauffeur',
     titlePart2: 'in Italien',
     description:
@@ -120,7 +120,7 @@ const de: Dictionary = {
   testimonialsSection: {
     label: 'Stimmen',
     title: 'Was unsere Kunden sagen',
-    description: '5,0 Sterne auf Google und Uber — echtes Feedback von denen, die SK Luxury Chauffeur gewählt haben.',
+    description: '5,0 Sterne auf Google und Uber — echtes Feedback von denen, die Transfer Luxury Driver gewählt haben.',
     starsAria: '{n} von 5 Sternen',
   },
   blogPreview: {
@@ -174,10 +174,10 @@ const de: Dictionary = {
   },
   aboutPage: {
     label: 'Über Uns',
-    title: 'SK Luxury Chauffeur',
+    title: 'Transfer Luxury Driver',
     description: 'Seit 2014 im Dienst derer, die einen Transfer auf Augenhöhe mit ihren Erwartungen suchen.',
     paragraphs: [
-      'SK Luxury Chauffeur wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
+      'Transfer Luxury Driver wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
       'Wir arbeiten täglich mit Geschäftskunden, Gästen von Fünf-Sterne-Hotels, Luxus-Reisebüros und Modeunternehmen während der wichtigsten Wochen im Mailänder Kalender.',
       'Unsere Flotte — durchgängig Mercedes, BMW und Range Rover — wird von engagiertem Personal gewartet. Die sorgfältig ausgewählten Chauffeure sprechen Englisch und kennen die Serviceprotokolle des Luxussektors.',
     ],
@@ -373,12 +373,12 @@ const de: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Angebotsanfrage — SK Luxury Chauffeur',
+      subject: 'Angebotsanfrage — Transfer Luxury Driver',
       intro: 'Neue Angebotsanfrage',
       tripType: 'Fahrtart',
     },
     contact: {
-      subject: 'Kontaktanfrage — SK Luxury Chauffeur',
+      subject: 'Kontaktanfrage — Transfer Luxury Driver',
       intro: 'Neue Kontaktanfrage',
     },
   },

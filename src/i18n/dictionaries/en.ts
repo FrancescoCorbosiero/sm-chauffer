@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const en: Dictionary = {
   meta: {
-    siteTitle: 'SK Luxury Chauffeur — Luxury Chauffeur Service in Italy',
+    siteTitle: 'Transfer Luxury Driver — Luxury Chauffeur Service in Italy',
     siteDescription: 'Luxury chauffeur service in Milan, Brianza and Lake Como.',
     home: {
-      title: 'SK Luxury Chauffeur — Home',
+      title: 'Transfer Luxury Driver — Home',
       description: 'Luxury chauffeur service in Milan, Brianza and Lake Como.',
     },
     fleet: {
-      title: 'Our Fleet | SK Luxury Chauffeur',
+      title: 'Our Fleet | Transfer Luxury Driver',
       description: 'Discover our luxury fleet: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Services | SK Luxury Chauffeur',
+      title: 'Services | Transfer Luxury Driver',
       description: 'Airport transfers, private chauffeur, tours in Italy. Available 24/7.',
     },
     about: {
-      title: 'About Us | SK Luxury Chauffeur',
-      description: 'SK Luxury Chauffeur. Luxury chauffeur service.',
+      title: 'About Us | Transfer Luxury Driver',
+      description: 'Transfer Luxury Driver. Luxury chauffeur service.',
     },
     blog: {
-      title: 'Blog | SK Luxury Chauffeur',
+      title: 'Blog | Transfer Luxury Driver',
       description: 'Articles and guides on luxury transfers, destinations and lifestyle.',
     },
     contact: {
-      title: 'Contact | SK Luxury Chauffeur',
+      title: 'Contact | Transfer Luxury Driver',
       description: 'Contact us for bookings and information about our chauffeur service.',
     },
   },
@@ -42,7 +42,7 @@ const en: Dictionary = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     mainNavLabel: 'Main navigation',
-    homeAria: 'SK Luxury Chauffeur — Home',
+    homeAria: 'Transfer Luxury Driver — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const en: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SK Luxury Chauffeur',
+    eyebrow: 'Transfer Luxury Driver',
     titlePart1: 'Luxury chauffeur',
     titlePart2: 'in Italy',
     description:
@@ -121,7 +121,7 @@ const en: Dictionary = {
   testimonialsSection: {
     label: 'Testimonials',
     title: 'What our clients say',
-    description: '5.0 stars on Google and Uber — real feedback from those who chose SK Luxury Chauffeur.',
+    description: '5.0 stars on Google and Uber — real feedback from those who chose Transfer Luxury Driver.',
     starsAria: '{n} out of 5 stars',
   },
   blogPreview: {
@@ -175,11 +175,11 @@ const en: Dictionary = {
   },
   aboutPage: {
     label: 'About',
-    title: 'SK Luxury Chauffeur',
+    title: 'Transfer Luxury Driver',
     description:
       'Since 2014 at the service of those who seek transfers worthy of their expectations.',
     paragraphs: [
-      'SK Luxury Chauffeur was founded in Milan with a simple goal: to bring to private transfers the same level of care, elegance and attention that defines high-end hospitality.',
+      'Transfer Luxury Driver was founded in Milan with a simple goal: to bring to private transfers the same level of care, elegance and attention that defines high-end hospitality.',
       'We work every day with business clients, five-star hotel guests, luxury travel agencies and fashion operators during the most important weeks of the Milan calendar.',
       'Our fleet — entirely Mercedes, BMW and Range Rover — is maintained by dedicated staff. Our carefully selected chauffeurs speak English and know the service protocols of the luxury sector.',
     ],
@@ -375,12 +375,12 @@ const en: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Quote request — SK Luxury Chauffeur',
+      subject: 'Quote request — Transfer Luxury Driver',
       intro: 'New quote request',
       tripType: 'Trip type',
     },
     contact: {
-      subject: 'Contact request — SK Luxury Chauffeur',
+      subject: 'Contact request — Transfer Luxury Driver',
       intro: 'New contact request',
     },
   },

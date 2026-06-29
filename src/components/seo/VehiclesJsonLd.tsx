@@ -13,7 +13,7 @@ export default function VehiclesJsonLd() {
   const json = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Flotta SK Luxury Chauffeur',
+    name: 'Flotta Transfer Luxury Driver',
     itemListElement: vehicles.map((v, i) => ({
       '@type': 'ListItem',
       position: i + 1,
