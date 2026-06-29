@@ -2,10 +2,10 @@ export const SITE = {
   name: 'Chauffeur SK Luxury Milano',
   // Registered sole proprietor (ditta individuale) behind the brand.
   legalName: 'Sikora Maksym',
-  url: 'https://chauffeurskmilano.it',
+  url: 'https://transferluxurydriverncc.it',
   // Primary, branded address: the `mailto:` target for the forms and the
   // `email` used in JSON-LD. Shown publicly in the footer and contact page.
-  email: 'info@chauffeurskmilano.it',
+  email: 'info@transferluxurydriverncc.it',
   // Second public contact address, also shown in the footer and contact page,
   // and the owner inbox bookings are forwarded to.
   emailBackend: 'maksymnoleggio@gmail.com',

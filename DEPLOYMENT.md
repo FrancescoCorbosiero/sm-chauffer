@@ -72,7 +72,7 @@ fetching/renewing Let's Encrypt certificates automatically.
 
 ### 2. Deploy this app
 
-Point the domain's DNS (`chauffeurskmilano.it` and `www`) at the VPS, then:
+Point the domain's DNS (`transferluxurydriverncc.it` and `www`) at the VPS, then:
 
 ```bash
 git clone <repo> sm-chauffer && cd sm-chauffer
@@ -82,8 +82,8 @@ docker compose up -d --build
 
 That's it. The labels in `docker-compose.yml` tell Caddy to:
 
-- serve `https://chauffeurskmilano.it` → reverse-proxy to the container's port 3000,
-- 301-redirect `https://www.chauffeurskmilano.it` → the apex.
+- serve `https://transferluxurydriverncc.it` → reverse-proxy to the container's port 3000,
+- 301-redirect `https://www.transferluxurydriverncc.it` → the apex.
 
 ### Updating
 
@@ -108,8 +108,8 @@ On submit, the booking/contact forms open a modal with two channels:
 |-----|---------|
 | `AWS_REGION` | SES region, e.g. `eu-south-1` |
 | `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | IAM creds with `ses:SendEmail` (or an instance role) |
-| `SES_FROM_EMAIL` | A **verified** SES sending identity, e.g. `info@chauffeurskmilano.it` |
-| `SES_TO_EMAIL` | Where bookings land. **One or more** recipients, comma-separated — mix the domain webmail and external inboxes, e.g. `info@chauffeurskmilano.it,maksymnoleggio@gmail.com` |
+| `SES_FROM_EMAIL` | A **verified** SES sending identity, e.g. `info@transferluxurydriverncc.it` |
+| `SES_TO_EMAIL` | Where bookings land. **One or more** recipients, comma-separated — mix the domain webmail and external inboxes, e.g. `info@transferluxurydriverncc.it,maksymnoleggio@gmail.com` |
 
 The customer's email is set as the message **Reply-To**, so the operator can
 reply straight from their inbox. The endpoint validates every field
@@ -178,11 +178,11 @@ services:
       APP_SECRET: change-me
     networks: [caddy, default]
     labels:
-      caddy: "analytics.chauffeurskmilano.it"
+      caddy: "analytics.transferluxurydriverncc.it"
       caddy.reverse_proxy: "{{upstreams 3000}}"
 ```
 
-Then set `NEXT_PUBLIC_UMAMI_SRC=https://analytics.chauffeurskmilano.it/script.js`
+Then set `NEXT_PUBLIC_UMAMI_SRC=https://analytics.transferluxurydriverncc.it/script.js`
 and the `WEBSITE_ID` from the Umami dashboard, and rebuild.
 
 ### Google Search Console
@@ -190,7 +190,7 @@ and the `WEBSITE_ID` from the Umami dashboard, and rebuild.
 Put the verification token (the `content` of the
 `<meta name="google-site-verification">` tag, or use the DNS method instead) in
 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and rebuild. After it verifies, submit
-`https://chauffeurskmilano.it/sitemap.xml` in Search Console.
+`https://transferluxurydriverncc.it/sitemap.xml` in Search Console.
 
 ### What's already wired for SEO
 
@@ -243,12 +243,12 @@ Served at `/.well-known/security.txt` (RFC 9116). Update the `Expires` date in
 ### Email deliverability (SPF / DKIM / DMARC)
 
 So SES mail lands in inboxes (not spam), add these DNS records for the sending
-domain (`chauffeurskmilano.it`):
+domain (`transferluxurydriverncc.it`):
 
 - **SPF** (TXT `@`): `v=spf1 include:amazonses.com ~all`
 - **DKIM**: enable "Easy DKIM" on the SES identity and add the 3 CNAME records
   SES generates.
-- **DMARC** (TXT `_dmarc`): `v=DMARC1; p=quarantine; rua=mailto:info@chauffeurskmilano.it`
+- **DMARC** (TXT `_dmarc`): `v=DMARC1; p=quarantine; rua=mailto:info@transferluxurydriverncc.it`
 
 ## Legal pages
 

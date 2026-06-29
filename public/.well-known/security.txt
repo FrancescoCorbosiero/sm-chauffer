@@ -1,6 +1,6 @@
 # https://securitytxt.org — RFC 9116
 # Update the Expires date before it lapses (keep it < 1 year out).
-Contact: mailto:info@chauffeurskmilano.it
+Contact: mailto:info@transferluxurydriverncc.it
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: it, en
-Canonical: https://chauffeurskmilano.it/.well-known/security.txt
+Canonical: https://transferluxurydriverncc.it/.well-known/security.txt

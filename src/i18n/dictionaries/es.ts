@@ -229,7 +229,7 @@ const es: Dictionary = {
       phone: 'Teléfono',
       phoneValue: '+39 328 687 1152',
       email: 'Email',
-      emailValue: 'info@chauffeurskmilano.it',
+      emailValue: 'info@transferluxurydriverncc.it',
       availability: 'Disponibilidad',
       availabilityValue: '24 horas al día, 7 días a la semana',
     },

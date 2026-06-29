@@ -7,7 +7,7 @@ import { buildQuoteMessage, type QuotePayload } from './quoteMessage';
  *
  * Configured entirely via environment variables (see .env.example):
  *   AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  (SDK credential chain)
- *   SES_FROM_EMAIL  — a verified SES sending identity (e.g. info@chauffeurskmilano.it)
+ *   SES_FROM_EMAIL  — a verified SES sending identity (e.g. info@transferluxurydriverncc.it)
  *   SES_TO_EMAIL    — where bookings land (any address; e.g. the owner's inbox)
  *
  * If the vars are absent the sender reports `unconfigured` and the form falls
@@ -30,7 +30,7 @@ function getConfig(): SesConfig | null {
   const toRaw = process.env.SES_TO_EMAIL;
   if (!region || !from || !toRaw) return null;
   // SES_TO_EMAIL may list several recipients, comma- or semicolon-separated,
-  // e.g. "info@chauffeurskmilano.it,maksymnoleggio@gmail.com".
+  // e.g. "info@transferluxurydriverncc.it,maksymnoleggio@gmail.com".
   const to = toRaw
     .split(/[,;]/)
     .map((addr) => addr.trim())
