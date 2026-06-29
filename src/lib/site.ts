@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'SK Luxury Chauffeur',
+  name: 'Transfer Luxury Driver',
   // Registered sole proprietor (ditta individuale) behind the brand.
   legalName: 'Sikora Maksym',
   url: 'https://transferluxurydriverncc.it',

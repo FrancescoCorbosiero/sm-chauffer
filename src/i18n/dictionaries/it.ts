@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const it: Dictionary = {
   meta: {
-    siteTitle: 'SK Luxury Chauffeur — Autista di Lusso in Italia',
+    siteTitle: 'Transfer Luxury Driver — Autista di Lusso in Italia',
     siteDescription: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     home: {
-      title: 'SK Luxury Chauffeur — Home',
+      title: 'Transfer Luxury Driver — Home',
       description: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     },
     fleet: {
-      title: 'La Nostra Flotta | SK Luxury Chauffeur',
+      title: 'La Nostra Flotta | Transfer Luxury Driver',
       description: 'Scopri la nostra flotta di veicoli luxury: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Servizi | SK Luxury Chauffeur',
+      title: 'Servizi | Transfer Luxury Driver',
       description: 'Transfer aeroporto, autista privato, tour in Italia. Servizio disponibile 24/7.',
     },
     about: {
-      title: 'Chi Siamo | SK Luxury Chauffeur',
-      description: 'SK Luxury Chauffeur. Servizio di autonoleggio con autista.',
+      title: 'Chi Siamo | Transfer Luxury Driver',
+      description: 'Transfer Luxury Driver. Servizio di autonoleggio con autista.',
     },
     blog: {
-      title: 'Blog | SK Luxury Chauffeur',
+      title: 'Blog | Transfer Luxury Driver',
       description: 'Articoli e guide su transfer di lusso, destinazioni e lifestyle.',
     },
     contact: {
-      title: 'Contatti | SK Luxury Chauffeur',
+      title: 'Contatti | Transfer Luxury Driver',
       description: 'Contattaci per prenotazioni e informazioni sul nostro servizio NCC.',
     },
   },
@@ -42,7 +42,7 @@ const it: Dictionary = {
     openMenu: 'Apri menu',
     closeMenu: 'Chiudi menu',
     mainNavLabel: 'Navigazione principale',
-    homeAria: 'SK Luxury Chauffeur — Home',
+    homeAria: 'Transfer Luxury Driver — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const it: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SK Luxury Chauffeur',
+    eyebrow: 'Transfer Luxury Driver',
     titlePart1: 'Autista di lusso',
     titlePart2: 'in Italia',
     description:
@@ -121,7 +121,7 @@ const it: Dictionary = {
   testimonialsSection: {
     label: 'Testimonianze',
     title: 'Cosa dicono i nostri clienti',
-    description: '5.0 stelle su Google e Uber — feedback reali da chi ha scelto SK Luxury Chauffeur.',
+    description: '5.0 stelle su Google e Uber — feedback reali da chi ha scelto Transfer Luxury Driver.',
     starsAria: '{n} su 5 stelle',
   },
   blogPreview: {
@@ -175,11 +175,11 @@ const it: Dictionary = {
   },
   aboutPage: {
     label: 'Chi Siamo',
-    title: 'SK Luxury Chauffeur',
+    title: 'Transfer Luxury Driver',
     description:
       "Dal 2014 al servizio di chi cerca un trasferimento all'altezza delle proprie aspettative.",
     paragraphs: [
-      "SK Luxury Chauffeur nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
+      "Transfer Luxury Driver nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
       "Lavoriamo ogni giorno con clienti business, ospiti d'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.",
       'La nostra flotta — interamente Mercedes, BMW e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
     ],
@@ -377,12 +377,12 @@ const it: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Richiesta di preventivo — SK Luxury Chauffeur',
+      subject: 'Richiesta di preventivo — Transfer Luxury Driver',
       intro: 'Nuova richiesta di preventivo',
       tripType: 'Tipo di viaggio',
     },
     contact: {
-      subject: 'Richiesta di contatto — SK Luxury Chauffeur',
+      subject: 'Richiesta di contatto — Transfer Luxury Driver',
       intro: 'Nuova richiesta di contatto',
     },
   },

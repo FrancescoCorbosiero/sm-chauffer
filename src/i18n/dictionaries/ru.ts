@@ -2,33 +2,33 @@ import type { Dictionary } from '../types';
 
 const ru: Dictionary = {
   meta: {
-    siteTitle: 'SK Luxury Chauffeur — Премиум-водитель в Милане, Брианце и на озере Комо',
+    siteTitle: 'Transfer Luxury Driver — Премиум-водитель в Милане, Брианце и на озере Комо',
     siteDescription:
       'Аренда автомобилей премиум-класса с водителем в Милане, Брианце, на озере Комо, в Беладжо и Тремеццо.',
     home: {
-      title: 'SK Luxury Chauffeur — Главная',
+      title: 'Transfer Luxury Driver — Главная',
       description:
         'Аренда автомобилей премиум-класса с водителем в Милане, Брианце и на озере Комо.',
     },
     fleet: {
-      title: 'Наш автопарк | SK Luxury Chauffeur',
+      title: 'Наш автопарк | Transfer Luxury Driver',
       description: 'Откройте наш премиум-флот: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Услуги | SK Luxury Chauffeur',
+      title: 'Услуги | Transfer Luxury Driver',
       description:
         'Трансфер из аэропорта, личный водитель, частные туры по Италии. Сервис 24/7.',
     },
     about: {
-      title: 'О нас | SK Luxury Chauffeur',
-      description: 'SK Luxury Chauffeur. Услуги аренды автомобиля с водителем.',
+      title: 'О нас | Transfer Luxury Driver',
+      description: 'Transfer Luxury Driver. Услуги аренды автомобиля с водителем.',
     },
     blog: {
-      title: 'Блог | SK Luxury Chauffeur',
+      title: 'Блог | Transfer Luxury Driver',
       description: 'Статьи и гиды о премиум-трансферах, направлениях и стиле жизни.',
     },
     contact: {
-      title: 'Контакты | SK Luxury Chauffeur',
+      title: 'Контакты | Transfer Luxury Driver',
       description: 'Свяжитесь с нами для бронирования и информации об услугах.',
     },
   },
@@ -45,7 +45,7 @@ const ru: Dictionary = {
     openMenu: 'Открыть меню',
     closeMenu: 'Закрыть меню',
     mainNavLabel: 'Основная навигация',
-    homeAria: 'SK Luxury Chauffeur — Главная',
+    homeAria: 'Transfer Luxury Driver — Главная',
   },
   footer: {
     tagline:
@@ -67,7 +67,7 @@ const ru: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SK Luxury Chauffeur',
+    eyebrow: 'Transfer Luxury Driver',
     titlePart1: 'Премиум-водитель',
     titlePart2: 'в Италии',
     description:
@@ -126,7 +126,7 @@ const ru: Dictionary = {
   testimonialsSection: {
     label: 'Отзывы',
     title: 'Что говорят наши клиенты',
-    description: '5,0 звёзд на Google и Uber — реальные отзывы тех, кто выбрал SK Luxury Chauffeur.',
+    description: '5,0 звёзд на Google и Uber — реальные отзывы тех, кто выбрал Transfer Luxury Driver.',
     starsAria: '{n} из 5 звёзд',
   },
   blogPreview: {
@@ -180,11 +180,11 @@ const ru: Dictionary = {
   },
   aboutPage: {
     label: 'О нас',
-    title: 'SK Luxury Chauffeur',
+    title: 'Transfer Luxury Driver',
     description:
       'С 2014 года к услугам тех, кто ищет трансфер, соответствующий их ожиданиям.',
     paragraphs: [
-      'SK Luxury Chauffeur основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
+      'Transfer Luxury Driver основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
       'Каждый день мы работаем с бизнес-клиентами, гостями пятизвёздочных отелей, люксовыми туристическими агентствами и операторами мира моды во время самых важных недель миланского календаря.',
       'Наш автопарк — полностью Mercedes, BMW и Range Rover — обслуживается специализированным персоналом. Тщательно отобранные водители говорят по-английски и знают протоколы обслуживания люксового сегмента.',
     ],
@@ -384,12 +384,12 @@ const ru: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Запрос расчёта — SK Luxury Chauffeur',
+      subject: 'Запрос расчёта — Transfer Luxury Driver',
       intro: 'Новый запрос расчёта',
       tripType: 'Тип поездки',
     },
     contact: {
-      subject: 'Запрос на контакт — SK Luxury Chauffeur',
+      subject: 'Запрос на контакт — Transfer Luxury Driver',
       intro: 'Новый запрос на контакт',
     },
   },

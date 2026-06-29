@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
-  title: 'Chi siamo — SK Luxury Chauffeur',
+  title: 'Chi siamo — Transfer Luxury Driver',
   description:
-    'Dal 2014 SK Luxury Chauffeur è il riferimento per il noleggio con conducente di lusso a Milano e in Brianza. Flotta premium, autisti selezionati e standard del settore luxury hospitality.',
+    'Dal 2014 Transfer Luxury Driver è il riferimento per il noleggio con conducente di lusso a Milano e in Brianza. Flotta premium, autisti selezionati e standard del settore luxury hospitality.',
   alternates: { canonical: '/about' },
   openGraph: {
-    title: 'Chi siamo · SK Luxury Chauffeur',
+    title: 'Chi siamo · Transfer Luxury Driver',
     description:
       'Dieci anni di esperienza nei trasferimenti di lusso a Milano, Brianza e in tutta Italia.',
     url: '/about',

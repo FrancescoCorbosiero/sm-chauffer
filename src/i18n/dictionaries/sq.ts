@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const sq: Dictionary = {
   meta: {
-    siteTitle: 'SK Luxury Chauffeur — Shofer Luksoz në Itali',
+    siteTitle: 'Transfer Luxury Driver — Shofer Luksoz në Itali',
     siteDescription: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     home: {
-      title: 'SK Luxury Chauffeur — Kreu',
+      title: 'Transfer Luxury Driver — Kreu',
       description: 'Shërbim luksoz me shofer në Milano, Brianza dhe Liqenin e Komos.',
     },
     fleet: {
-      title: 'Flota Jonë | SK Luxury Chauffeur',
+      title: 'Flota Jonë | Transfer Luxury Driver',
       description: 'Zbuloni flotën tonë të automjeteve luksoze: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Shërbimet | SK Luxury Chauffeur',
+      title: 'Shërbimet | Transfer Luxury Driver',
       description: 'Transferta aeroportuale, shofer privat, tura në Itali. Shërbim 24/7.',
     },
     about: {
-      title: 'Rreth Nesh | SK Luxury Chauffeur',
-      description: 'SK Luxury Chauffeur. Shërbim me makinë dhe shofer.',
+      title: 'Rreth Nesh | Transfer Luxury Driver',
+      description: 'Transfer Luxury Driver. Shërbim me makinë dhe shofer.',
     },
     blog: {
-      title: 'Blog | SK Luxury Chauffeur',
+      title: 'Blog | Transfer Luxury Driver',
       description: 'Artikuj dhe udhëzues mbi transferimet luksoze, destinacionet dhe stilin e jetesës.',
     },
     contact: {
-      title: 'Kontakt | SK Luxury Chauffeur',
+      title: 'Kontakt | Transfer Luxury Driver',
       description: 'Na kontaktoni për rezervime dhe informacione mbi shërbimin tonë me shofer.',
     },
   },
@@ -42,7 +42,7 @@ const sq: Dictionary = {
     openMenu: 'Hap menynë',
     closeMenu: 'Mbyll menynë',
     mainNavLabel: 'Navigimi kryesor',
-    homeAria: 'SK Luxury Chauffeur — Kreu',
+    homeAria: 'Transfer Luxury Driver — Kreu',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const sq: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'SK Luxury Chauffeur',
+    eyebrow: 'Transfer Luxury Driver',
     titlePart1: 'Shofer luksoz',
     titlePart2: 'në Itali',
     description:
@@ -120,7 +120,7 @@ const sq: Dictionary = {
   testimonialsSection: {
     label: 'Dëshmitë',
     title: 'Çfarë thonë klientët tanë',
-    description: '5.0 yje në Google dhe Uber — vlerësime reale nga ata që zgjodhën SK Luxury Chauffeur.',
+    description: '5.0 yje në Google dhe Uber — vlerësime reale nga ata që zgjodhën Transfer Luxury Driver.',
     starsAria: '{n} nga 5 yje',
   },
   blogPreview: {
@@ -174,10 +174,10 @@ const sq: Dictionary = {
   },
   aboutPage: {
     label: 'Rreth Nesh',
-    title: 'SK Luxury Chauffeur',
+    title: 'Transfer Luxury Driver',
     description: 'Që nga viti 2014 në shërbim të atyre që kërkojnë një transfertë në lartësinë e pritshmërive të tyre.',
     paragraphs: [
-      'SK Luxury Chauffeur lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
+      'Transfer Luxury Driver lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
       'Çdo ditë punojmë me klientë biznesi, mysafirë të hoteleve pesë-yje, agjenci udhëtimesh luksoze dhe operatorë të modës gjatë javëve më të rëndësishme të kalendarit milanez.',
       'Flota jonë — tërësisht Mercedes, BMW dhe Range Rover — mirëmbahet nga personel i dedikuar. Shoferët, të zgjedhur me kujdes, flasin anglisht dhe njohin protokollet e shërbimit të sektorit luksoz.',
     ],
@@ -373,12 +373,12 @@ const sq: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Kërkesë për ofertë — SK Luxury Chauffeur',
+      subject: 'Kërkesë për ofertë — Transfer Luxury Driver',
       intro: 'Kërkesë e re për ofertë',
       tripType: 'Lloji i udhëtimit',
     },
     contact: {
-      subject: 'Kërkesë kontakti — SK Luxury Chauffeur',
+      subject: 'Kërkesë kontakti — Transfer Luxury Driver',
       intro: 'Kërkesë e re kontakti',
     },
   },
