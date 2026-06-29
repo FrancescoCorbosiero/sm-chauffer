@@ -82,7 +82,7 @@ export default function Footer() {
         <div className="grid gap-12 md:gap-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-3">
             <div className="text-2xl sm:text-[1.9rem] font-medium tracking-[0.08em] mb-5">
-              CHAUFFEUR SK LUXURY MILANO
+              SK LUXURY CHAUFFEUR
             </div>
             <p className="text-sm sm:text-[0.98rem] text-white/72 leading-relaxed max-w-sm">
               {t.footer.tagline}
@@ -240,7 +240,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 bg-white/3">
         <div className="container-x py-6 flex flex-col gap-4 text-[11px] sm:text-xs text-white/55 lg:flex-row lg:items-center lg:justify-between">
-          <div>© {new Date().getFullYear()} Chauffeur SK Luxury Milano · {t.footer.rightsReserved}</div>
+          <div>© {new Date().getFullYear()} SK Luxury Chauffeur · {t.footer.rightsReserved}</div>
 
           <nav aria-label={legal.privacy} className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">{legal.privacy}</Link>

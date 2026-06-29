@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const it: Dictionary = {
   meta: {
-    siteTitle: 'Chauffeur SK Luxury Milano — Autista di Lusso in Italia',
+    siteTitle: 'SK Luxury Chauffeur — Autista di Lusso in Italia',
     siteDescription: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     home: {
-      title: 'Chauffeur SK Luxury Milano — Home',
+      title: 'SK Luxury Chauffeur — Home',
       description: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como.',
     },
     fleet: {
-      title: 'La Nostra Flotta | Chauffeur SK Luxury Milano',
+      title: 'La Nostra Flotta | SK Luxury Chauffeur',
       description: 'Scopri la nostra flotta di veicoli luxury: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Servizi | Chauffeur SK Luxury Milano',
+      title: 'Servizi | SK Luxury Chauffeur',
       description: 'Transfer aeroporto, autista privato, tour in Italia. Servizio disponibile 24/7.',
     },
     about: {
-      title: 'Chi Siamo | Chauffeur SK Luxury Milano',
-      description: 'Chauffeur SK Luxury Milano. Servizio di autonoleggio con autista.',
+      title: 'Chi Siamo | SK Luxury Chauffeur',
+      description: 'SK Luxury Chauffeur. Servizio di autonoleggio con autista.',
     },
     blog: {
-      title: 'Blog | Chauffeur SK Luxury Milano',
+      title: 'Blog | SK Luxury Chauffeur',
       description: 'Articoli e guide su transfer di lusso, destinazioni e lifestyle.',
     },
     contact: {
-      title: 'Contatti | Chauffeur SK Luxury Milano',
+      title: 'Contatti | SK Luxury Chauffeur',
       description: 'Contattaci per prenotazioni e informazioni sul nostro servizio NCC.',
     },
   },
@@ -42,7 +42,7 @@ const it: Dictionary = {
     openMenu: 'Apri menu',
     closeMenu: 'Chiudi menu',
     mainNavLabel: 'Navigazione principale',
-    homeAria: 'Chauffeur SK Luxury Milano — Home',
+    homeAria: 'SK Luxury Chauffeur — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const it: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Chauffeur SK Luxury Milano',
+    eyebrow: 'SK Luxury Chauffeur',
     titlePart1: 'Autista di lusso',
     titlePart2: 'in Italia',
     description:
@@ -121,7 +121,7 @@ const it: Dictionary = {
   testimonialsSection: {
     label: 'Testimonianze',
     title: 'Cosa dicono i nostri clienti',
-    description: '5.0 stelle su Google — feedback reali da chi ha scelto Chauffeur SK Luxury Milano.',
+    description: '5.0 stelle su Google e Uber — feedback reali da chi ha scelto SK Luxury Chauffeur.',
     starsAria: '{n} su 5 stelle',
   },
   blogPreview: {
@@ -175,11 +175,11 @@ const it: Dictionary = {
   },
   aboutPage: {
     label: 'Chi Siamo',
-    title: 'Chauffeur SK Luxury Milano',
+    title: 'SK Luxury Chauffeur',
     description:
       "Dal 2014 al servizio di chi cerca un trasferimento all'altezza delle proprie aspettative.",
     paragraphs: [
-      "Chauffeur SK Luxury Milano nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
+      "SK Luxury Chauffeur nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
       "Lavoriamo ogni giorno con clienti business, ospiti d'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.",
       'La nostra flotta — interamente Mercedes, BMW e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
     ],
@@ -335,15 +335,15 @@ const it: Dictionary = {
   testimonials: {
     '1': {
       text:
-        "Servizio impeccabile per il mio transfer da Malpensa. Autista professionale, auto impeccabile e puntualità assoluta. Lo consiglio a chiunque cerchi qualità.",
+        "Servizio di NCC super professionale. Ho avuto la possibilità di prenotare direttamente dal sito fino all'aeroporto di Malpensa in maniera chiara e rapida. Mi hanno subito ricontattato. Servizio a 5 stelle.",
     },
     '2': {
       text:
-        "Ho usato Chauffeur SK Luxury Milano durante la Milano Fashion Week. Servizio eccellente, autista discreto e la Mercedes Classe S immacolata. Prenoterò di nuovo la prossima stagione.",
+        "Autista puntualissimo e auto impeccabile. Prenotazione semplice e comunicazione sempre chiara: mi sono sentita seguita dall'inizio alla fine. Un'esperienza davvero di livello.",
     },
     '3': {
       text:
-        'Ho utilizzato il servizio per un tour privato al Lago di Como. Tutto perfetto: percorso, autista disponibile e professionale, esperienza di lusso vera.',
+        'Transfer per Malpensa perfetto: arrivato in anticipo, guida sicura e massima cortesia. Ottimo rapporto qualità-prezzo, lo consiglio senza riserve.',
     },
   },
   whatsapp: { aria: 'Contattaci su WhatsApp', label: 'WhatsApp' },
@@ -377,12 +377,12 @@ const it: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Richiesta di preventivo — Chauffeur SK Luxury Milano',
+      subject: 'Richiesta di preventivo — SK Luxury Chauffeur',
       intro: 'Nuova richiesta di preventivo',
       tripType: 'Tipo di viaggio',
     },
     contact: {
-      subject: 'Richiesta di contatto — Chauffeur SK Luxury Milano',
+      subject: 'Richiesta di contatto — SK Luxury Chauffeur',
       intro: 'Nuova richiesta di contatto',
     },
   },

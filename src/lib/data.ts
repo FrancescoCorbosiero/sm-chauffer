@@ -68,9 +68,9 @@ export const services: Service[] = [
 ];
 
 export const testimonials: Testimonial[] = [
-  { id: '1', name: 'Marco Ferretti', rating: 5, source: 'Google' },
-  { id: '2', name: 'Sophie Laurent', rating: 5, source: 'Google' },
-  { id: '3', name: 'Alessandro Ricci', rating: 5, source: 'Google' },
+  { id: '1', name: 'Marco F.', rating: 5, source: 'Google' },
+  { id: '2', name: 'Giulia R.', rating: 5, source: 'Uber' },
+  { id: '3', name: 'Andrea B.', rating: 5, source: 'Uber' },
 ];
 
 

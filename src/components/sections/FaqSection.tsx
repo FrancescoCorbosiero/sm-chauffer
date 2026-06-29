@@ -44,9 +44,9 @@ export default function FaqSection() {
                       type="button"
                       onClick={() => setOpen(isOpen ? -1 : i)}
                       aria-expanded={isOpen}
-                      className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                      className="flex w-full items-center justify-between gap-4 py-6 text-left"
                     >
-                      <span className="text-base font-medium text-[var(--color-ink)]">
+                      <span className="text-lg md:text-xl font-medium text-[var(--color-ink)]">
                         {item.q}
                       </span>
                       <Plus
@@ -66,7 +66,7 @@ export default function FaqSection() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-5 pr-8 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
+                      <p className="pb-6 pr-8 text-base md:text-lg leading-relaxed text-[var(--color-text-muted)]">
                         {item.a}
                       </p>
                     </div>

@@ -18,13 +18,13 @@ export default function FleetCard({ vehicle }: { vehicle: Vehicle }) {
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_right,rgba(255,168,6,0.10),transparent_50%)]"
         />
-        <div className="relative aspect-[5/4] w-full overflow-hidden bg-[var(--color-surface-2)]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
           <Image
             src={vehicle.image}
             alt={vehicle.name}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-contain p-3 transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
           />
           {v.badge && (
             <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[var(--color-ink)] text-[10px] uppercase tracking-[0.22em] px-3 py-1.5 rounded-full font-medium border border-[var(--color-border)]">
