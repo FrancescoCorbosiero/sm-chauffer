@@ -16,7 +16,9 @@ export const IMAGES = {
 
   // Page heroes (top of internal pages)
   pageHeroes: {
-    fleet: u('1492144534655-ae79c964c9d7', 1920),
+    // Reuse the cinematic luxury Mercedes S-Class hero (same as the homepage)
+    // so the fleet page leads with a brand-appropriate luxury car.
+    fleet: u('1555215695-3004980ad54e', 1920),
     services: u('1605559424843-9e4c228bf1c2', 1920),
     about: u('1494976388531-d1058494cdd8', 1920),
     blog: u('1583121274602-3e2820c69888', 1920),

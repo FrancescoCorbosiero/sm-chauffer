@@ -38,10 +38,10 @@ interface BuiltMessage {
 
 // Italian-only labels for outgoing messages.
 // Whatever language the user is browsing in, the message that lands
-// in Chauffeur SK Luxury Milano's inbox / WhatsApp must always be in Italian.
+// in SK Luxury Chauffeur's inbox / WhatsApp must always be in Italian.
 const IT = {
   booking: {
-    subject: 'Richiesta di preventivo — Chauffeur SK Luxury Milano',
+    subject: 'Richiesta di preventivo — SK Luxury Chauffeur',
     intro: 'Nuova richiesta di preventivo dal sito',
     tripType: 'Tipo di viaggio',
     vehicle: 'Veicolo',
@@ -52,7 +52,7 @@ const IT = {
     time: 'Ora',
   },
   contact: {
-    subject: 'Richiesta di contatto — Chauffeur SK Luxury Milano',
+    subject: 'Richiesta di contatto — SK Luxury Chauffeur',
     intro: 'Nuova richiesta dal modulo contatti',
     serviceType: 'Tipo di servizio',
     name: 'Nome e cognome',

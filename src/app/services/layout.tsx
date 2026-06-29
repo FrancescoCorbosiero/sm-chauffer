@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Transfer aeroportuali Malpensa, Linate e Orio al Serio, autista privato a Milano e Brianza, tour Lago di Como, trasferimenti internazionali. Servizio NCC 24/7.',
   alternates: { canonical: '/services' },
   openGraph: {
-    title: 'Servizi NCC · Chauffeur SK Luxury Milano',
+    title: 'Servizi NCC · SK Luxury Chauffeur',
     description:
       'Transfer aeroportuali, autista privato a Milano e Brianza, tour del Lago di Como, trasferimenti internazionali.',
     url: '/services',

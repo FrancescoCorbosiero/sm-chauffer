@@ -2,33 +2,33 @@ import type { Dictionary } from '../types';
 
 const ru: Dictionary = {
   meta: {
-    siteTitle: 'Chauffeur SK Luxury Milano — Премиум-водитель в Милане, Брианце и на озере Комо',
+    siteTitle: 'SK Luxury Chauffeur — Премиум-водитель в Милане, Брианце и на озере Комо',
     siteDescription:
       'Аренда автомобилей премиум-класса с водителем в Милане, Брианце, на озере Комо, в Беладжо и Тремеццо.',
     home: {
-      title: 'Chauffeur SK Luxury Milano — Главная',
+      title: 'SK Luxury Chauffeur — Главная',
       description:
         'Аренда автомобилей премиум-класса с водителем в Милане, Брианце и на озере Комо.',
     },
     fleet: {
-      title: 'Наш автопарк | Chauffeur SK Luxury Milano',
+      title: 'Наш автопарк | SK Luxury Chauffeur',
       description: 'Откройте наш премиум-флот: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Услуги | Chauffeur SK Luxury Milano',
+      title: 'Услуги | SK Luxury Chauffeur',
       description:
         'Трансфер из аэропорта, личный водитель, частные туры по Италии. Сервис 24/7.',
     },
     about: {
-      title: 'О нас | Chauffeur SK Luxury Milano',
-      description: 'Chauffeur SK Luxury Milano. Услуги аренды автомобиля с водителем.',
+      title: 'О нас | SK Luxury Chauffeur',
+      description: 'SK Luxury Chauffeur. Услуги аренды автомобиля с водителем.',
     },
     blog: {
-      title: 'Блог | Chauffeur SK Luxury Milano',
+      title: 'Блог | SK Luxury Chauffeur',
       description: 'Статьи и гиды о премиум-трансферах, направлениях и стиле жизни.',
     },
     contact: {
-      title: 'Контакты | Chauffeur SK Luxury Milano',
+      title: 'Контакты | SK Luxury Chauffeur',
       description: 'Свяжитесь с нами для бронирования и информации об услугах.',
     },
   },
@@ -45,7 +45,7 @@ const ru: Dictionary = {
     openMenu: 'Открыть меню',
     closeMenu: 'Закрыть меню',
     mainNavLabel: 'Основная навигация',
-    homeAria: 'Chauffeur SK Luxury Milano — Главная',
+    homeAria: 'SK Luxury Chauffeur — Главная',
   },
   footer: {
     tagline:
@@ -67,7 +67,7 @@ const ru: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Chauffeur SK Luxury Milano',
+    eyebrow: 'SK Luxury Chauffeur',
     titlePart1: 'Премиум-водитель',
     titlePart2: 'в Италии',
     description:
@@ -126,7 +126,7 @@ const ru: Dictionary = {
   testimonialsSection: {
     label: 'Отзывы',
     title: 'Что говорят наши клиенты',
-    description: '5,0 звёзд на Google — реальные отзывы тех, кто выбрал Chauffeur SK Luxury Milano.',
+    description: '5,0 звёзд на Google и Uber — реальные отзывы тех, кто выбрал SK Luxury Chauffeur.',
     starsAria: '{n} из 5 звёзд',
   },
   blogPreview: {
@@ -180,11 +180,11 @@ const ru: Dictionary = {
   },
   aboutPage: {
     label: 'О нас',
-    title: 'Chauffeur SK Luxury Milano',
+    title: 'SK Luxury Chauffeur',
     description:
       'С 2014 года к услугам тех, кто ищет трансфер, соответствующий их ожиданиям.',
     paragraphs: [
-      'Chauffeur SK Luxury Milano основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
+      'SK Luxury Chauffeur основан в Милане с простой целью: привнести в частные трансферы тот же уровень заботы, элегантности и внимания, который определяет гостеприимство высокого класса.',
       'Каждый день мы работаем с бизнес-клиентами, гостями пятизвёздочных отелей, люксовыми туристическими агентствами и операторами мира моды во время самых важных недель миланского календаря.',
       'Наш автопарк — полностью Mercedes, BMW и Range Rover — обслуживается специализированным персоналом. Тщательно отобранные водители говорят по-английски и знают протоколы обслуживания люксового сегмента.',
     ],
@@ -342,15 +342,15 @@ const ru: Dictionary = {
   testimonials: {
     '1': {
       text:
-        'Безупречный сервис при моём трансфере из Мальпенсы. Профессиональный водитель, идеальный автомобиль и абсолютная пунктуальность. Рекомендую всем, кто ищет качество.',
+        'Очень профессиональный сервис NCC. Я смог забронировать прямо на сайте трансфер до аэропорта Мальпенса — понятно и быстро. Со мной сразу связались. Сервис на пять звёзд.',
     },
     '2': {
       text:
-        'Пользовался Chauffeur SK Luxury Milano во время Недели моды в Милане. Отличный сервис, тактичный водитель, безупречный Mercedes S-класса. Закажу снова в следующем сезоне.',
+        'Очень пунктуальный водитель и безупречный автомобиль. Простое бронирование и всегда понятное общение: я чувствовала заботу от начала до конца. По-настоящему первоклассный сервис.',
     },
     '3': {
       text:
-        'Заказал частный тур к озеру Комо. Всё идеально: маршрут, отзывчивый и профессиональный водитель, настоящий премиум-опыт.',
+        'Идеальный трансфер в Мальпенсу: приехал заранее, безопасное вождение и максимальная вежливость. Отличное соотношение цены и качества, рекомендую без колебаний.',
     },
   },
   whatsapp: { aria: 'Напишите нам в WhatsApp', label: 'WhatsApp' },
@@ -384,12 +384,12 @@ const ru: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Запрос расчёта — Chauffeur SK Luxury Milano',
+      subject: 'Запрос расчёта — SK Luxury Chauffeur',
       intro: 'Новый запрос расчёта',
       tripType: 'Тип поездки',
     },
     contact: {
-      subject: 'Запрос на контакт — Chauffeur SK Luxury Milano',
+      subject: 'Запрос на контакт — SK Luxury Chauffeur',
       intro: 'Новый запрос на контакт',
     },
   },

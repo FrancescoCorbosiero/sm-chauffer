@@ -2,30 +2,30 @@ import type { Dictionary } from '../types';
 
 const de: Dictionary = {
   meta: {
-    siteTitle: 'Chauffeur SK Luxury Milano — Luxus-Chauffeurservice in Italien',
+    siteTitle: 'SK Luxury Chauffeur — Luxus-Chauffeurservice in Italien',
     siteDescription: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     home: {
-      title: 'Chauffeur SK Luxury Milano — Home',
+      title: 'SK Luxury Chauffeur — Home',
       description: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See.',
     },
     fleet: {
-      title: 'Unsere Flotte | Chauffeur SK Luxury Milano',
+      title: 'Unsere Flotte | SK Luxury Chauffeur',
       description: 'Entdecken Sie unsere Luxusflotte: Mercedes, BMW, Range Rover.',
     },
     services: {
-      title: 'Leistungen | Chauffeur SK Luxury Milano',
+      title: 'Leistungen | SK Luxury Chauffeur',
       description: 'Flughafentransfer, privater Chauffeur, Touren in Italien. Service rund um die Uhr.',
     },
     about: {
-      title: 'Über Uns | Chauffeur SK Luxury Milano',
-      description: 'Chauffeur SK Luxury Milano. Mietwagen mit Chauffeur.',
+      title: 'Über Uns | SK Luxury Chauffeur',
+      description: 'SK Luxury Chauffeur. Mietwagen mit Chauffeur.',
     },
     blog: {
-      title: 'Blog | Chauffeur SK Luxury Milano',
+      title: 'Blog | SK Luxury Chauffeur',
       description: 'Artikel und Reiseführer zu Luxustransfers, Reisezielen und Lifestyle.',
     },
     contact: {
-      title: 'Kontakt | Chauffeur SK Luxury Milano',
+      title: 'Kontakt | SK Luxury Chauffeur',
       description: 'Kontaktieren Sie uns für Buchungen und Informationen zu unserem Chauffeurservice.',
     },
   },
@@ -42,7 +42,7 @@ const de: Dictionary = {
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
     mainNavLabel: 'Hauptnavigation',
-    homeAria: 'Chauffeur SK Luxury Milano — Home',
+    homeAria: 'SK Luxury Chauffeur — Home',
   },
   footer: {
     tagline:
@@ -64,7 +64,7 @@ const de: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Chauffeur SK Luxury Milano',
+    eyebrow: 'SK Luxury Chauffeur',
     titlePart1: 'Luxus-Chauffeur',
     titlePart2: 'in Italien',
     description:
@@ -120,7 +120,7 @@ const de: Dictionary = {
   testimonialsSection: {
     label: 'Stimmen',
     title: 'Was unsere Kunden sagen',
-    description: '5,0 Sterne auf Google — echtes Feedback von denen, die Chauffeur SK Luxury Milano gewählt haben.',
+    description: '5,0 Sterne auf Google und Uber — echtes Feedback von denen, die SK Luxury Chauffeur gewählt haben.',
     starsAria: '{n} von 5 Sternen',
   },
   blogPreview: {
@@ -174,10 +174,10 @@ const de: Dictionary = {
   },
   aboutPage: {
     label: 'Über Uns',
-    title: 'Chauffeur SK Luxury Milano',
+    title: 'SK Luxury Chauffeur',
     description: 'Seit 2014 im Dienst derer, die einen Transfer auf Augenhöhe mit ihren Erwartungen suchen.',
     paragraphs: [
-      'Chauffeur SK Luxury Milano wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
+      'SK Luxury Chauffeur wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
       'Wir arbeiten täglich mit Geschäftskunden, Gästen von Fünf-Sterne-Hotels, Luxus-Reisebüros und Modeunternehmen während der wichtigsten Wochen im Mailänder Kalender.',
       'Unsere Flotte — durchgängig Mercedes, BMW und Range Rover — wird von engagiertem Personal gewartet. Die sorgfältig ausgewählten Chauffeure sprechen Englisch und kennen die Serviceprotokolle des Luxussektors.',
     ],
@@ -331,15 +331,15 @@ const de: Dictionary = {
   testimonials: {
     '1': {
       text:
-        'Tadelloser Service für meinen Transfer von Malpensa. Professioneller Fahrer, makelloses Auto und absolute Pünktlichkeit. Empfehle ich jedem, der Qualität sucht.',
+        'Super professioneller NCC-Service. Ich konnte direkt über die Website bis zum Flughafen Malpensa buchen – klar und schnell. Man hat sich sofort bei mir gemeldet. Fünf-Sterne-Service.',
     },
     '2': {
       text:
-        'Ich habe Chauffeur SK Luxury Milano während der Mailänder Fashion Week genutzt. Hervorragender Service, diskreter Fahrer und die Mercedes S-Klasse war makellos. Ich werde nächste Saison wieder buchen.',
+        'Äußerst pünktlicher Fahrer und ein makelloses Auto. Einfache Buchung und stets klare Kommunikation: Ich fühlte mich von Anfang bis Ende gut betreut. Ein wirklich hochwertiges Erlebnis.',
     },
     '3': {
       text:
-        'Ich habe den Service für eine Privattour am Comer See genutzt. Alles perfekt: Route, aufmerksamer und professioneller Fahrer, ein echtes Luxuserlebnis.',
+        'Perfekter Transfer nach Malpensa: kam vorzeitig an, sichere Fahrweise und größte Höflichkeit. Hervorragendes Preis-Leistungs-Verhältnis, ich empfehle es uneingeschränkt.',
     },
   },
   whatsapp: { aria: 'Kontaktieren Sie uns auf WhatsApp', label: 'WhatsApp' },
@@ -373,12 +373,12 @@ const de: Dictionary = {
   },
   quoteMessage: {
     booking: {
-      subject: 'Angebotsanfrage — Chauffeur SK Luxury Milano',
+      subject: 'Angebotsanfrage — SK Luxury Chauffeur',
       intro: 'Neue Angebotsanfrage',
       tripType: 'Fahrtart',
     },
     contact: {
-      subject: 'Kontaktanfrage — Chauffeur SK Luxury Milano',
+      subject: 'Kontaktanfrage — SK Luxury Chauffeur',
       intro: 'Neue Kontaktanfrage',
     },
   },

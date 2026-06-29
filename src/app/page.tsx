@@ -59,7 +59,7 @@ export default function HomePage() {
             isLoaderFadingOut ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          <p className="eyebrow">Chauffeur SK Luxury Milano</p>
+          <p className="eyebrow">SK Luxury Chauffeur</p>
           <div className="h-6 w-6 rounded-full border-2 border-[var(--color-ink)] border-t-transparent animate-spin" />
         </div>
       )}

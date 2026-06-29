@@ -29,7 +29,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
           />
         ))}
       </div>
-      <p className="relative text-[15px] leading-relaxed text-[var(--color-ink)] flex-1">
+      <p className="relative text-base leading-relaxed text-[var(--color-ink)] flex-1">
         &ldquo;{text}&rdquo;
       </p>
       <footer className="relative mt-6 pt-5 border-t border-[var(--color-divider)] flex items-center justify-between">
