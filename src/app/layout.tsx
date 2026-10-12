@@ -10,6 +10,7 @@ import SpeculationRules from '@/components/seo/SpeculationRules';
 import Analytics from '@/components/analytics/Analytics';
 import ConsentBanner from '@/components/analytics/ConsentBanner';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { BookingProvider } from '@/components/booking/BookingProvider';
 import SkipLink from '@/components/layout/SkipLink';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
@@ -136,13 +137,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <LanguageProvider>
-          <SkipLink />
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <MobileActionBar />
-          <FloatingActions />
-          <ConsentBanner />
+          <BookingProvider>
+            <SkipLink />
+            <SiteHeader />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <MobileActionBar />
+            <FloatingActions />
+            <ConsentBanner />
+          </BookingProvider>
         </LanguageProvider>
         <JsonLd />
         <SpeculationRules />

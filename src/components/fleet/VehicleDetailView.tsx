@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Baby, BadgeEuro, Briefcase, Clock, Phone, UserRound, Users } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
@@ -18,6 +17,7 @@ import { phoneLabel, telHref, whatsappHref } from '@/lib/contact';
 import { getVehicle, splitName, vehicleName } from '@/lib/fleet';
 import { SERVICE_PAGES } from '@/lib/servicePages';
 import ServiceIndexList from '@/components/ui/ServiceIndexList';
+import CarStage from './CarStage';
 
 export default function VehicleDetailView({ id }: { id: string }) {
   const { t } = useLanguage();
@@ -75,22 +75,19 @@ export default function VehicleDetailView({ id }: { id: string }) {
             />
           </div>
           <div className="mt-8 grid grid-cols-1 items-center gap-9 md:mt-12 lg:grid-cols-12 lg:gap-14">
-            <div className="intro min-w-0 lg:order-2 lg:col-span-7" style={{ ['--d' as string]: 60 }}>
-              <div className="relative isolate aspect-[16/11] overflow-clip rounded-[1.75rem] bg-[radial-gradient(120%_95%_at_50%_30%,#ffffff_0%,#f1f1f3_55%,#dcdce1_100%)]">
-                <Image
-                  src={vehicle.image}
-                  alt={name}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 56vw"
-                  className="object-contain p-6 mix-blend-multiply sm:p-10"
-                />
+            <div className="min-w-0 lg:order-2 lg:col-span-7">
+              <CarStage
+                vehicle={vehicle}
+                intro="load"
+                priority
+                className="aspect-[5/4] rounded-[1.75rem] [--car-w:0.78] sm:aspect-[16/11] sm:[--car-w:0.72]"
+              >
                 {copy?.badge && (
-                  <span className="absolute left-5 top-5 rounded-full bg-ink px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
+                  <span className="absolute left-5 top-5 z-[3] rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
                     {copy.badge}
                   </span>
                 )}
-              </div>
+              </CarStage>
             </div>
 
             <div className="min-w-0 lg:order-1 lg:col-span-5">

@@ -1,8 +1,11 @@
 /**
  * The booking draft shared by the quick form (home hero), the vehicle and
- * city CTAs and the full booking wizard on /contact. Entry points hand a
- * partial draft to the wizard through the query string, e.g.
+ * city CTAs and the booking app (the sheet opened by every "Book" link, and
+ * the inline flow on /contact). Entry points describe a partial draft in the
+ * query string, e.g.
  *   /contact?type=hourly&from=Como&hours=4&car=mercedes-s-class#prenota
+ * The booking provider opens the app in place from such a link; without
+ * JavaScript, or on /contact itself, the link simply lands on the inline flow.
  */
 
 export type ServiceType = 'one-way' | 'hourly' | 'airport-transfer';
@@ -18,6 +21,8 @@ export interface BookingDraft {
   bags: string;
   car: string;
   childSeat: boolean;
+  /** Flight number, airport transfers only (optional). */
+  flight: string;
   name: string;
   phone: string;
   email: string;
@@ -35,6 +40,7 @@ export const EMPTY_DRAFT: BookingDraft = {
   bags: '',
   car: '',
   childSeat: false,
+  flight: '',
   name: '',
   phone: '',
   email: '',
@@ -46,7 +52,8 @@ const SERVICE_TYPES: ServiceType[] = ['one-way', 'hourly', 'airport-transfer'];
 /** Fields that may travel in the URL (never the customer's personal details). */
 const URL_FIELDS = ['from', 'to', 'hours', 'date', 'time', 'pax', 'car'] as const;
 
-const AIRPORT_RX = /aeroport|airport|flughafen|aéroport|aeropuerto|malpensa|linate|orio|\b(mxp|lin|bgy)\b/i;
+// Whole words for the names: "Corso Vittorio Emanuele" is not Orio al Serio.
+const AIRPORT_RX = /aeroport|airport|flughafen|aéroport|aeropuerto|аэропорт|мальпенс|линате|\b(malpensa|linate|orio|mxp|lin|bgy)\b/i;
 
 export function looksLikeAirport(...places: string[]): boolean {
   return places.some((p) => AIRPORT_RX.test(p));
@@ -65,6 +72,11 @@ export function buildBookingQuery(draft: Partial<BookingDraft>): string {
 export function bookingHref(draft: Partial<BookingDraft> = {}): string {
   const qs = buildBookingQuery(draft);
   return `/contact${qs ? `?${qs}` : ''}#prenota`;
+}
+
+/** True for a same-origin link made by bookingHref(). */
+export function isBookingUrl(url: URL, origin: string): boolean {
+  return url.origin === origin && url.pathname === '/contact' && url.hash === '#prenota';
 }
 
 /** Read a partial draft back from the query string (unknown values ignored). */

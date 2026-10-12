@@ -55,13 +55,14 @@ export function validateQuotePayload(data: unknown): QuotePayload | null {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
     const passengers = optStr(d.passengers, 20);
     const bags = optStr(d.bags, 20);
+    const flight = optStr(d.flight, 20);
     const notes = optStr(d.notes);
-    if (passengers === false || bags === false || notes === false) return null;
+    if (passengers === false || bags === false || flight === false || notes === false) return null;
     const payload: ContactPayload = {
       kind: 'contact',
       serviceType: serviceType as ContactPayload['serviceType'],
       name, phone, email, from, to, date, time, vehicle,
-      passengers, bags, notes,
+      passengers, bags, flight, notes,
       childSeat: d.childSeat === true,
     };
     return payload;

@@ -26,6 +26,8 @@ export interface ContactPayload {
   passengers?: string;
   bags?: string;
   childSeat: boolean;
+  /** Flight number for an airport pickup (optional). */
+  flight?: string;
   notes?: string;
 }
 
@@ -67,6 +69,7 @@ const IT = {
     passengers: 'Passeggeri',
     bags: 'Bagagli',
     childSeat: 'Seggiolino bambini',
+    flight: 'Numero volo',
     notes: 'Note aggiuntive',
     yes: 'Sì',
     no: 'No',
@@ -143,6 +146,7 @@ export function buildQuoteMessage(payload: QuotePayload): BuiltMessage {
     ),
     line(IT.contact.date, payload.date),
     line(IT.contact.time, payload.time),
+    line(IT.contact.flight, payload.flight),
     line(IT.contact.vehicle, payload.vehicle),
     line(IT.contact.passengers, payload.passengers),
     line(IT.contact.bags, payload.bags),

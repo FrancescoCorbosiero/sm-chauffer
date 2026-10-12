@@ -22,6 +22,7 @@ export default function TurnstileWidget({
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY) return;
     let cancelled = false;
+    let poll: number | undefined;
 
     const render = () => {
       if (cancelled || !containerRef.current || !window.turnstile) return;
@@ -47,17 +48,18 @@ export default function TurnstileWidget({
       s.onload = render;
       document.head.appendChild(s);
     } else {
-      const poll = setInterval(() => {
+      poll = window.setInterval(() => {
         if (window.turnstile) {
-          clearInterval(poll);
+          window.clearInterval(poll);
           render();
         }
       }, 120);
-      return () => clearInterval(poll);
     }
 
     return () => {
       cancelled = true;
+      window.clearInterval(poll);
+      onVerify(''); // a removed widget's token is not reused
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);

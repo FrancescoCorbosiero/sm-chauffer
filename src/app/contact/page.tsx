@@ -5,7 +5,7 @@ import { usePageTitle } from '@/i18n/usePageTitle';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import LiveStatus from '@/components/ui/LiveStatus';
-import BookingWizard from '@/components/booking/BookingWizard';
+import BookingInline from '@/components/booking/BookingInline';
 import ContactChannels from '@/components/booking/ContactChannels';
 import FaqBlock from '@/components/sections/FaqBlock';
 import { SITE } from '@/lib/site';
@@ -37,59 +37,61 @@ export default function ContactPage() {
         below={<ContactChannels />}
       />
 
-      <section id="prenota" className="section-y scroll-mt-16 bg-ivory">
-        <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-14">
-          <div className="min-w-0 lg:col-span-8">
-            <SectionHeading eyebrow={w.eyebrow} title={w.title} accent={w.accent} description={w.description} />
-            <div className="mt-10">
-              <BookingWizard />
+      <section id="prenota" className="section-y scroll-mt-16 bg-white">
+        <div className="container-x">
+          <SectionHeading eyebrow={w.eyebrow} title={w.title} accent={w.accent} description={w.description} />
+          <div className="mt-10 lg:mt-12">
+            <BookingInline
+              aside={
+                <div className="rounded-3xl border border-line bg-white p-6">
+                  <LiveStatus className="text-sm text-muted" />
+                  <h2 className="mt-3 text-[1.6rem] leading-tight text-ink">{c.asideTitle}</h2>
+                  <ul className="mt-4 space-y-2.5">
+                    {c.asideItems.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-[15px] leading-snug text-muted">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+                          <Check size={12} aria-hidden />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              }
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="section-y bg-ivory">
+        <div className="container-x grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+          <div className="rounded-3xl bg-ink p-7 text-white sm:p-9">
+            <h2 className="text-[1.9rem] leading-tight">{c.callTitle}</h2>
+            <p className="mt-2 max-w-md text-[15px] leading-relaxed text-white/65">{c.callText}</p>
+            <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
+              {([1, 2] as const).map((line) => (
+                <a key={line} href={telHref(line)} className="btn btn-outline-light tabular">
+                  <Phone size={16} aria-hidden />
+                  {phoneLabel(line)}
+                </a>
+              ))}
             </div>
           </div>
 
-          <aside className="flex min-w-0 flex-col gap-4 self-start lg:sticky lg:top-24 lg:col-span-4 lg:mt-[10.5rem]">
-            <div className="rounded-3xl bg-ink p-7 text-white">
-              <LiveStatus className="text-sm text-white/70" />
-              <h2 className="mt-4 text-[1.75rem] leading-tight">{c.asideTitle}</h2>
-              <ul className="mt-5 space-y-3">
-                {c.asideItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] leading-snug text-white/80">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
-                      <Check size={12} aria-hidden />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-3xl border border-line bg-white p-7">
-              <h2 className="text-[1.6rem] leading-tight text-ink">{c.callTitle}</h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{c.callText}</p>
-              <div className="mt-5 flex flex-col gap-2.5">
-                {([1, 2] as const).map((line) => (
-                  <a key={line} href={telHref(line)} className="btn btn-outline btn-block tabular">
-                    <Phone size={16} aria-hidden />
-                    {phoneLabel(line)}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-line bg-white p-7">
-              <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-gold-deep">
-                {c.companyTitle}
-              </h2>
-              <dl className="mt-4 divide-y divide-line text-sm">
-                {company.map(([k, v]) => (
-                  <div key={k} className="flex justify-between gap-4 py-2.5">
-                    <dt className="text-muted">{k}</dt>
-                    <dd className="text-right font-medium text-ink">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-4 text-[13px] leading-relaxed text-muted">{c.invoiceNote}</p>
-            </div>
-          </aside>
+          <div className="rounded-3xl border border-line bg-white p-7 sm:p-9">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-gold-deep">
+              {c.companyTitle}
+            </h2>
+            <dl className="mt-4 divide-y divide-line text-sm">
+              {company.map(([k, v]) => (
+                <div key={k} className="flex justify-between gap-4 py-2.5">
+                  <dt className="text-muted">{k}</dt>
+                  <dd className="text-right font-medium text-ink">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-[13px] leading-relaxed text-muted">{c.invoiceNote}</p>
+          </div>
         </div>
       </section>
 

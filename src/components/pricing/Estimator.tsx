@@ -8,7 +8,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Stepper from '@/components/ui/Stepper';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { vehicles } from '@/lib/data';
-import { estimate } from '@/lib/pricing';
+import { FIXED_FARE_VEHICLE, estimate } from '@/lib/pricing';
 import { bookingHref } from '@/lib/booking';
 import { telHref, whatsappHref } from '@/lib/contact';
 import { vehicleName } from '@/lib/fleet';
@@ -19,7 +19,7 @@ type Mode = 'transfer' | 'hourly';
 const GROUPS: CoverageGroup[] = ['airport', 'lake', 'city', 'intl'];
 const ROUTES = COVERAGE_POINTS.filter((p) => p.id !== HUB_ID);
 /** The fixed route fare is quoted for the sedan. */
-const SEDAN = vehicles.find((v) => v.id === 'mercedes-e-class') ?? null;
+const SEDAN = vehicles.find((v) => v.id === FIXED_FARE_VEHICLE) ?? null;
 const FROM = 'Milano';
 const OTHER = '';
 
