@@ -5,6 +5,7 @@ import { ArrowRight, Briefcase, Users } from 'lucide-react';
 import type { Vehicle } from '@/lib/types';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { bookingHref, type BookingDraft } from '@/lib/booking';
+import { vehicleName } from '@/lib/fleet';
 
 export default function VehicleCard({
   vehicle,
@@ -20,13 +21,14 @@ export default function VehicleCard({
   const copy = t.vehicles[vehicle.id] ?? { description: '' };
   const fc = t.fleetCard;
   const href = `/fleet/${vehicle.id}`;
+  const name = vehicleName(vehicle, t);
 
   return (
     <article className="card card-hover gold-edge group relative flex h-full flex-col overflow-clip">
       <div className="relative aspect-[16/10] bg-white">
         <Image
           src={vehicle.image}
-          alt={vehicle.name}
+          alt={name}
           fill
           priority={priority}
           sizes="(max-width: 640px) 82vw, (max-width: 1024px) 50vw, 33vw"
@@ -44,7 +46,7 @@ export default function VehicleCard({
         </span>
         <h3 className="mt-1.5 text-[1.6rem] leading-tight text-ink">
           <Link href={href} className="after:absolute after:inset-0 after:content-['']">
-            {vehicle.name}
+            {name}
           </Link>
         </h3>
         <p className="mt-2 line-clamp-2 text-[15px] leading-relaxed text-muted">{copy.description}</p>
@@ -73,7 +75,7 @@ export default function VehicleCard({
           <Link
             href={bookingHref({ ...booking, car: vehicle.id })}
             className="btn btn-primary btn-sm relative z-[1]"
-            aria-label={`${t.actions.book} — ${vehicle.name}`}
+            aria-label={`${t.actions.book} — ${name}`}
           >
             {t.actions.book}
             <ArrowRight size={15} aria-hidden />

@@ -1,35 +1,29 @@
-'use client';
-import { vehicles } from '@/lib/data';
-import FleetCard from '@/components/ui/FleetCard';
-import PageHero from '@/components/ui/PageHero';
-import ScrollReveal from '@/components/ui/ScrollReveal';
-import { useTranslation } from '@/i18n/LanguageProvider';
-import { usePageTitle } from '@/i18n/usePageTitle';
-import { IMAGES } from '@/lib/images';
+import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
+import VehiclesJsonLd from '@/components/seo/VehiclesJsonLd';
+import FleetIndexView from '@/components/fleet/FleetIndexView';
+
+export const metadata: Metadata = {
+  title: 'La flotta — Mercedes Classe S, E, V, Range Rover e minibus',
+  description:
+    'Flotta Transfer Luxury Driver: Mercedes Classe S, Classe E e Classe V, Range Rover e minibus da 18 posti, sempre con autista. Capienza e tariffe orarie a confronto.',
+  alternates: { canonical: '/fleet' },
+  openGraph: {
+    title: 'La flotta · Transfer Luxury Driver',
+    description:
+      'Mercedes Classe S, E e V, Range Rover e minibus da 18 posti con autista a Milano, in Brianza e sul Lago di Como.',
+    url: '/fleet',
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+};
 
 export default function FleetPage() {
-  const t = useTranslation();
-  usePageTitle(t.meta.fleet.title, t.meta.fleet.description);
-
   return (
     <>
-      <PageHero
-        label={t.fleetPage.label}
-        title={t.fleetPage.title}
-        description={t.fleetPage.description}
-        image={IMAGES.pageHeroes.fleet}
-      />
-      <section className="py-20 md:py-24 bg-white">
-        <div className="container-x">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-            {vehicles.map((v, i) => (
-              <ScrollReveal key={v.id} delay={(i % 3) * 0.08}>
-                <FleetCard vehicle={v} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BreadcrumbJsonLd items={[{ name: 'Flotta', path: '/fleet' }]} />
+      <VehiclesJsonLd />
+      <FleetIndexView />
     </>
   );
 }

@@ -320,7 +320,48 @@ export interface Dictionary {
     time: string;
     submit: string;
   };
-  fleetPage: { label: string; title: string; description: string };
+  fleetPage: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    finderTitle: string;
+    finderText: string;
+    /** "{n} vehicles fit" */
+    matches: string;
+    matchOne: string;
+    moreThan: string;
+    tooSmall: string;
+    compareTitle: string;
+    compareAccent: string;
+    compareText: string;
+    colVehicle: string;
+    colCategory: string;
+    colSeats: string;
+    colBags: string;
+    colRate: string;
+    colIdeal: string;
+    standardsLabel: string;
+    standardsTitle: string;
+    standardsAccent: string;
+    standards: Array<{ title: string; text: string }>;
+  };
+  /** Shared copy of the /fleet/[id] pages. */
+  vehicleDetail: {
+    specsTitle: string;
+    specsAccent: string;
+    childSeats: string;
+    onRequest: string;
+    chauffeur: string;
+    chauffeurValue: string;
+    availability: string;
+    servicesTitle: string;
+    servicesAccent: string;
+    book: string;
+    compareLink: string;
+    otherTitle: string;
+    otherAccent: string;
+  };
   servicesPage: {
     label: string;
     title: string;
@@ -441,7 +482,18 @@ export interface Dictionary {
     googleStars: string;
     availability: string;
   };
-  vehicles: Record<string, { badge?: string; description: string }>;
+  vehicles: Record<
+    string,
+    {
+      /** Localized display name (the Italian data name is what bookings send). */
+      name: string;
+      badge?: string;
+      description: string;
+      long: string;
+      /** Three short "ideal for" tags. */
+      ideal: string[];
+    }
+  >;
   services: Record<
     string,
     {

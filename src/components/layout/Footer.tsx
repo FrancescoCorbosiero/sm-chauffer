@@ -9,6 +9,7 @@ import LiveStatus from '@/components/ui/LiveStatus';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { SITE } from '@/lib/site';
 import { services, vehicles } from '@/lib/data';
+import { vehicleName } from '@/lib/fleet';
 import { locations } from '@/lib/locations';
 import { intlLandingsFor } from '@/lib/intlLandings';
 import { mailHref, phoneLabel, telHref, whatsappHref } from '@/lib/contact';
@@ -171,7 +172,7 @@ export default function Footer() {
           <LinkColumn
             title={f.fleet}
             links={[
-              ...vehicles.map((v) => ({ href: `/fleet/${v.id}`, label: v.name })),
+              ...vehicles.map((v) => ({ href: `/fleet/${v.id}`, label: vehicleName(v, t) })),
               { href: '/fleet#compare', label: f.compare },
             ]}
           />

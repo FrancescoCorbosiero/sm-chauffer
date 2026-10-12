@@ -76,7 +76,7 @@ export default function Rail({
         role="region"
         aria-label={label}
         tabIndex={0}
-        className={`no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-3 pt-1 sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:scroll-px-0 lg:gap-6 lg:px-0 ${
+        className={`no-scrollbar relative -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-3 pt-1 sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:scroll-px-0 lg:gap-6 lg:px-0 ${
           gridLg ? 'lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0' : ''
         }`}
       >

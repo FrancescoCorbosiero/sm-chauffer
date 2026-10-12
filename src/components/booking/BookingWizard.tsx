@@ -16,10 +16,8 @@ import {
   Clock3,
   Flag,
   MapPin,
-  Minus,
   Pencil,
   Plane,
-  Plus,
   Route,
   Send,
   Timer,
@@ -28,8 +26,10 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import QuoteChoiceModal from '@/components/ui/QuoteChoiceModal';
+import Stepper from '@/components/ui/Stepper';
 import QuoteEstimate from '@/components/ui/QuoteEstimate';
 import { vehicles } from '@/lib/data';
+import { vehicleName } from '@/lib/fleet';
 import { estimate, parseHours } from '@/lib/pricing';
 import { POPULAR_PLACES, QUICK_DESTINATIONS } from '@/lib/places';
 import { EMPTY_DRAFT, draftFromParams, type BookingDraft, type ServiceType } from '@/lib/booking';
@@ -129,44 +129,6 @@ function Field({
           {hint}
         </p>
       ) : null}
-    </div>
-  );
-}
-
-function Stepper({
-  id,
-  value,
-  min,
-  max,
-  onChange,
-  decLabel,
-  incLabel,
-}: {
-  id: string;
-  value: number;
-  min: number;
-  max: number;
-  onChange: (n: number) => void;
-  decLabel: string;
-  incLabel: string;
-}) {
-  const btn =
-    'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-line-strong text-ink transition-colors hover:border-ink disabled:opacity-35 disabled:hover:border-line-strong';
-  return (
-    <div className="flex items-center gap-2">
-      <button type="button" className={btn} onClick={() => onChange(Math.max(min, value - 1))} disabled={value <= min} aria-label={decLabel}>
-        <Minus size={16} aria-hidden />
-      </button>
-      <output
-        id={id}
-        aria-live="polite"
-        className="flex h-12 min-w-14 flex-1 items-center justify-center rounded-xl bg-ivory font-display text-2xl text-ink tabular"
-      >
-        {value}
-      </output>
-      <button type="button" className={btn} onClick={() => onChange(Math.min(max, value + 1))} disabled={value >= max} aria-label={incLabel}>
-        <Plus size={16} aria-hidden />
-      </button>
     </div>
   );
 }
@@ -564,7 +526,7 @@ function WizardInner({ search }: { search: string | null }) {
                   <Image src={v.image} alt="" fill sizes="96px" className="object-contain p-1" />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block text-[15px] font-semibold text-ink">{v.name}</span>
+                  <span className="block text-[15px] font-semibold text-ink">{vehicleName(v, t)}</span>
                   <span className="mt-0.5 flex items-center gap-3 text-[13px] text-muted">
                     <span className="inline-flex items-center gap-1">
                       <Users size={13} aria-hidden /> {v.passengers}
@@ -737,7 +699,7 @@ function WizardInner({ search }: { search: string | null }) {
         w.steps.vehicle,
         1,
         <>
-          {summaryRow(w.vehicleLabel, vehicle?.name)}
+          {summaryRow(w.vehicleLabel, vehicle ? vehicleName(vehicle, t) : undefined)}
           {summaryRow(t.quickBook.passengers, String(pax))}
           {summaryRow(t.contactPage.form.bags, String(bags))}
           {draft.childSeat && summaryRow(w.childSeatShort, t.contactPage.form.yes)}
