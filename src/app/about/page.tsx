@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, BadgeCheck, Clock, Gem, ShieldCheck, type LucideIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { usePageTitle } from '@/i18n/usePageTitle';
 import PageHero from '@/components/ui/PageHero';
@@ -11,9 +11,8 @@ import Testimonials from '@/components/sections/Testimonials';
 import CtaBand from '@/components/sections/CtaBand';
 import { IMAGES } from '@/lib/images';
 import { SITE } from '@/lib/site';
+import RuledList from '@/components/ui/RuledList';
 
-/** Reliability, punctuality, discretion, experience (same order as t.aboutPage.values). */
-const VALUE_ICONS: LucideIcon[] = [ShieldCheck, Clock, Gem, BadgeCheck];
 
 export default function AboutPage() {
   const t = useTranslation();
@@ -93,31 +92,12 @@ export default function AboutPage() {
       <section className="section-y bg-ivory">
         <div className="container-x">
           <SectionHeading className="reveal" eyebrow={a.valuesLabel} title={a.valuesTitle} accent={a.valuesAccent} />
-          <ul className="reveal-stagger mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {a.values.map((v, i) => {
-              const Icon = VALUE_ICONS[i] ?? ShieldCheck;
-              return (
-                <li
-                  key={v.title}
-                  style={{ ['--i' as string]: i }}
-                  className="rounded-2xl border border-line bg-white p-6 lg:p-7"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-gold">
-                      <Icon size={19} aria-hidden />
-                    </span>
-                    <span
-                      aria-hidden
-                      data-n={String(i + 1).padStart(2, '0')}
-                      className="font-display text-3xl leading-none text-ink/15 tabular before:content-[attr(data-n)]"
-                    />
-                  </div>
-                  <h3 className="mt-6 text-[1.5rem] leading-tight text-ink">{v.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{v.body}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <RuledList
+            className="mt-12"
+            cols={4}
+            numbered
+            items={a.values.map((v) => ({ title: v.title, text: v.body }))}
+          />
         </div>
       </section>
 
