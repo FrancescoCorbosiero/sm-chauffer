@@ -1,28 +1,30 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import type { BlogBlock, BlogPost } from '@/lib/types';
 import { useLanguage } from '@/i18n/LanguageProvider';
+import { usePageTitle } from '@/i18n/usePageTitle';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BlogCard from '@/components/ui/BlogCard';
+import SectionHeading from '@/components/ui/SectionHeading';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
+import { SITE } from '@/lib/site';
+import { bookingHref } from '@/lib/booking';
+import { whatsappHref } from '@/lib/contact';
 
 function Block({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case 'h2':
-      return (
-        <h2 className="mt-12 mb-4 text-2xl md:text-3xl font-light leading-tight text-[var(--color-ink)]">
-          {block.text}
-        </h2>
-      );
+      return <h2 className="mb-4 mt-12 text-[2rem] leading-tight text-ink">{block.text}</h2>;
     case 'p':
-      return (
-        <p className="mb-5 text-[17px] leading-[1.75] text-[var(--color-text)]">{block.text}</p>
-      );
+      return <p className="mb-6 text-[17px] leading-[1.8] text-ink/85">{block.text}</p>;
     case 'ul':
       return (
-        <ul className="mb-6 space-y-2.5 pl-1">
+        <ul className="mb-7 space-y-3">
           {block.items.map((item, i) => (
-            <li key={i} className="flex gap-3 text-[17px] leading-[1.7] text-[var(--color-text)]">
-              <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
+            <li key={i} className="flex gap-3.5 text-[17px] leading-[1.7] text-ink/85">
+              <span aria-hidden className="mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
               <span>{item}</span>
             </li>
           ))}
@@ -30,7 +32,7 @@ function Block({ block }: { block: BlogBlock }) {
       );
     case 'quote':
       return (
-        <blockquote className="my-8 border-l-2 border-[var(--color-accent)] pl-5 text-xl font-light italic leading-relaxed text-[var(--color-ink)]">
+        <blockquote className="my-10 border-l-2 border-gold pl-6 font-display text-[1.75rem] italic leading-snug text-ink">
           {block.text}
         </blockquote>
       );
@@ -41,92 +43,101 @@ export default function ArticleView({ post, related }: { post: BlogPost; related
   const { locale, t } = useLanguage();
   const c = post.content[locale] ?? post.content.it;
   const b = t.blogPost;
+  usePageTitle(`${c.title} · ${SITE.name}`, c.metaDescription);
 
   return (
     <article>
-      {/* Hero */}
-      <header className="relative h-[58vh] min-h-[420px] w-full overflow-hidden bg-[var(--color-ink)]">
-        <Image src={post.image} alt={c.title} fill priority sizes="100vw" className="object-cover opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
-        <div className="absolute inset-x-0 bottom-0">
-          <div className="container-x pb-12 md:pb-16">
-            <Link
-              href="/blog"
-              className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-white"
-            >
-              <ArrowLeft size={14} /> {b.back}
-            </Link>
-            <span className="block text-[11px] uppercase tracking-[0.28em] text-[var(--color-accent)]">
+      <header className="ink-panel on-ink relative overflow-clip">
+        <div className="container-x pb-32 pt-7 md:pb-44 md:pt-11">
+          <div className="intro">
+            <Breadcrumbs
+              items={[
+                { label: t.nav.home, href: '/' },
+                { label: t.blogPage.label, href: '/blog' },
+                { label: c.category },
+              ]}
+            />
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl text-center md:mt-14">
+            <p className="intro eyebrow eyebrow-light justify-center" style={{ ['--d' as string]: 40 }}>
               {c.category}
-            </span>
-            <h1 className="mt-3 max-w-3xl text-3xl font-light leading-tight text-white md:text-5xl">
+            </p>
+            <h1 className="intro mt-5 text-5xl text-white" style={{ ['--d' as string]: 100 }}>
               {c.title}
             </h1>
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/75">
-              <span>{post.author}</span>
+            <p
+              className="intro mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-white/65"
+              style={{ ['--d' as string]: 160 }}
+            >
+              <span className="font-semibold text-white/85">{post.author}</span>
+              <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
               <time dateTime={post.dateISO}>{c.date}</time>
+              <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
               <span className="inline-flex items-center gap-1.5">
-                <Clock size={13} /> {post.readingMinutes} {b.readMin}
+                <Clock size={14} aria-hidden />
+                {post.readingMinutes} {b.readMin}
               </span>
-            </div>
+            </p>
           </div>
         </div>
       </header>
 
-      {/* Body */}
-      <div className="bg-white py-14 md:py-20">
+      <div className="bg-white pb-20 md:pb-28">
         <div className="container-x">
-          <div className="mx-auto max-w-2xl">
-            <p className="mb-10 text-lg leading-relaxed text-[var(--color-text-muted)]">{c.excerpt}</p>
+          <div className="intro relative mx-auto -mt-24 aspect-[16/9] max-w-5xl overflow-clip rounded-3xl bg-ink shadow-xl md:-mt-32" style={{ ['--d' as string]: 220 }}>
+            <Image src={post.image} alt={c.title} fill priority sizes="(max-width: 1100px) 100vw, 1024px" className="object-cover" />
+          </div>
+
+          <div className="mx-auto mt-12 max-w-[42rem] md:mt-16">
+            <p className="mb-10 border-b border-line pb-10 text-xl leading-relaxed text-ink">{c.excerpt}</p>
             {c.body.map((block, i) => (
               <Block key={i} block={block} />
             ))}
 
-            <div className="mt-14 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-7 text-center">
-              <p className="text-lg font-light text-[var(--color-ink)]">{b.ctaTitle}</p>
-              <Link
-                href="/contact"
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--color-ink-soft)]"
-              >
-                {b.ctaButton}
-                <ArrowRight size={16} />
-              </Link>
-            </div>
+            <aside className="mt-14 rounded-3xl bg-ink p-7 text-white sm:p-9">
+              <p className="font-display text-[1.9rem] leading-tight">{b.ctaTitle}</p>
+              <p className="mt-2 text-[15px] text-white/65">{t.status.reply}</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href={bookingHref()} className="btn btn-gold">
+                  {b.ctaButton}
+                  <ArrowRight size={16} aria-hidden />
+                </Link>
+                <a
+                  href={whatsappHref(t.actions.whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-light"
+                >
+                  <WhatsAppIcon size={16} />
+                  WhatsApp
+                </a>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
 
-      {/* Related */}
       {related.length > 0 && (
-        <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-14">
+        <section className="section-y border-t border-line bg-ivory">
           <div className="container-x">
-            <h2 className="mb-8 text-sm uppercase tracking-[0.25em] text-[var(--color-text-muted)]">
-              {b.related}
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {related.map((p) => {
-                const rc = p.content[locale] ?? p.content.it;
-                return (
-                  <Link
-                    key={p.slug}
-                    href={`/blog/${p.slug}`}
-                    className="group flex gap-4 rounded-xl border border-[var(--color-border)] bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]"
-                  >
-                    <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-lg bg-[var(--color-surface-2)]">
-                      <Image src={p.image} alt={rc.title} fill sizes="112px" className="object-cover" />
-                    </div>
-                    <div className="min-w-0">
-                      <span className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-faint)]">
-                        {rc.category}
-                      </span>
-                      <h3 className="mt-1 text-sm font-medium leading-snug text-[var(--color-ink)] group-hover:text-[var(--color-text-muted)]">
-                        {rc.title}
-                      </h3>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
+            <SectionHeading
+              className="reveal"
+              eyebrow={t.blogPage.label}
+              title={b.related}
+              action={
+                <Link href="/blog" className="link-arrow text-sm">
+                  {b.back}
+                  <ArrowRight size={15} aria-hidden />
+                </Link>
+              }
+            />
+            <ul className="reveal-stagger mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              {related.map((p, i) => (
+                <li key={p.id} style={{ ['--i' as string]: i }}>
+                  <BlogCard post={p} />
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}

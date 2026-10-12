@@ -30,7 +30,7 @@ const dmSans = DM_Sans({
 });
 
 const description =
-  'Noleggio Con Conducente (NCC) di lusso a Milano, in Brianza, sul Lago di Como, a Bellagio e Tremezzo. Flotta Mercedes, BMW e Range Rover. Transfer Malpensa, Linate, Orio al Serio e servizio business 24/7.';
+  'Noleggio Con Conducente (NCC) di lusso a Milano, in Brianza, sul Lago di Como, a Bellagio e Tremezzo. Flotta Mercedes e Range Rover. Transfer Malpensa, Linate, Orio al Serio e servizio business 24/7.';
 
 const keywords = [
   'NCC Milano',

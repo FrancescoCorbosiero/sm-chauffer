@@ -418,11 +418,41 @@ export interface Dictionary {
   aboutPage: {
     label: string;
     title: string;
+    accent: string;
     description: string;
+    storyLabel: string;
+    storyTitle: string;
+    storyAccent: string;
+    /** "Since {year}" */
+    since: string;
+    valuesLabel: string;
+    valuesTitle: string;
+    valuesAccent: string;
+    identityLabel: string;
+    identityTitle: string;
+    identityAccent: string;
+    /** Contains {owner}. */
+    identityText: string;
     paragraphs: string[];
     values: Array<{ title: string; body: string }>;
   };
-  blogPage: { label: string; title: string; description: string };
+  blogPage: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    featured: string;
+    readArticle: string;
+  };
+  /** Branded 404 page. */
+  notFound: {
+    label: string;
+    title: string;
+    accent: string;
+    text: string;
+    home: string;
+    popular: string;
+  };
   blogPost: {
     back: string;
     readMin: string;

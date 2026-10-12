@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: Params) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const c = post.content.it;
 
   const jsonLd = {
