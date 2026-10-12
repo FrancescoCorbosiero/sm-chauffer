@@ -45,7 +45,6 @@ export interface Dictionary {
     blog: string;
     contact: string;
     bookNow: string;
-    bookNowLong: string;
     openMenu: string;
     closeMenu: string;
     mainNavLabel: string;
@@ -103,19 +102,7 @@ export interface Dictionary {
     tagline: string;
     explore: string;
     services: string;
-    contacts: string;
     rightsReserved: string;
-    vat: string;
-    addressLine1: string;
-    addressLine2: string;
-    pagesAria: string;
-    servicesAria: string;
-    serviceLinks: {
-      airport: string;
-      milan: string;
-      brianza: string;
-      tours: string;
-    };
   };
   hero: {
     titlePart1: string;
@@ -305,8 +292,6 @@ export interface Dictionary {
     cta: string;
   };
   fleetCard: {
-    pax: string;
-    bag: string;
     from: string;
     perHour: string;
     /** "{n} seats" */
@@ -317,18 +302,12 @@ export interface Dictionary {
     onRequest: string;
     categories: { berlina: string; van: string; suv: string; bus: string };
   };
-  serviceCard: {
-    requestService: string;
-    moreDetails: string;
-    serviceTag: string;
-  };
   bookingForm: {
     eyebrow: string;
     title: string;
     oneWay: string;
     hourly: string;
     vehicle: string;
-    vehiclePlaceholder: string;
     from: string;
     fromPlaceholder: string;
     to: string;
@@ -491,17 +470,6 @@ export interface Dictionary {
     email: string;
     message: string;
     submit: string;
-    infoTitle: string;
-    info: {
-      address: string;
-      addressValue: string;
-      phone: string;
-      phoneValue: string;
-      email: string;
-      emailValue: string;
-      availability: string;
-      availabilityValue: string;
-    };
     form: {
       bookingDetails: string;
       serviceType: string;
@@ -583,20 +551,7 @@ export interface Dictionary {
     sent: string;
     sentBody: string;
   };
-  quoteMessage: {
-    booking: {
-      subject: string;
-      intro: string;
-      tripType: string;
-    };
-    contact: {
-      subject: string;
-      intro: string;
-    };
-  };
   formErrors: {
-    required: string;
-    invalidDate: string;
     invalidEmail: string;
   };
 }

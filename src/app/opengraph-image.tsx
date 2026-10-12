@@ -31,7 +31,7 @@ export default function OpengraphImage() {
               width: 18,
               height: 18,
               borderRadius: 9999,
-              background: '#ffa806',
+              background: '#c5a059',
             }}
           />
           <div
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 76, lineHeight: 1.05, fontWeight: 500 }}>
             Transfer Luxury
           </div>
-          <div style={{ fontSize: 76, lineHeight: 1.05, color: '#ffa806' }}>
+          <div style={{ fontSize: 76, lineHeight: 1.05, color: '#dcc28f' }}>
             Driver
           </div>
           <div

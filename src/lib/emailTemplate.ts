@@ -12,8 +12,9 @@ import { estimate, parseHours } from './pricing';
  * email prose lives in the `emailConfirmation` section.
  */
 
-const INK = '#0a0a0a';
-const GOLD = '#ffa806';
+const INK = '#0c0c0e';
+// Gold-deep: the site's accent for small text on light backgrounds.
+const GOLD = '#8a6a2f';
 const MUTED = '#525252';
 const FAINT = '#8a8a8a';
 const BORDER = '#ececec';

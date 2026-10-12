@@ -47,7 +47,7 @@ export default function NotFoundView() {
             </Link>
           </div>
           <nav aria-label={n.popular} className="intro mt-12" style={{ ['--d' as string]: 260 }}>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45">{n.popular}</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">{n.popular}</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {pages.map((p) => (
                 <li key={p.href}>

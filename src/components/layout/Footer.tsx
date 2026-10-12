@@ -64,7 +64,7 @@ function LinkColumn({
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-1">
           {groups.map((g) => (
             <div key={g.title}>
-              <h3 className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45">
+              <h3 className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
                 {g.title}
               </h3>
               {list(g.links)}
@@ -221,7 +221,7 @@ export default function Footer() {
             </button>
           </nav>
         </div>
-        <p className="border-t border-white/10 py-6 text-[12px] leading-relaxed text-white/40">
+        <p className="border-t border-white/10 py-6 text-[12px] leading-relaxed text-white/55">
           {SITE.legalName} · {f.vatLabel} {SITE.vatNumber} · {f.registeredOffice}: {SITE.legalAddress.street},{' '}
           {SITE.legalAddress.postalCode} {SITE.legalAddress.locality} ({SITE.legalAddress.province}) · {f.sdiLabel}{' '}
           {SITE.sdiCode}

@@ -106,9 +106,11 @@ export default function AboutPage() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-gold">
                       <Icon size={19} aria-hidden />
                     </span>
-                    <span aria-hidden className="font-display text-3xl leading-none text-ink/15 tabular">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                    <span
+                      aria-hidden
+                      data-n={String(i + 1).padStart(2, '0')}
+                      className="font-display text-3xl leading-none text-ink/15 tabular before:content-[attr(data-n)]"
+                    />
                   </div>
                   <h3 className="mt-6 text-[1.5rem] leading-tight text-ink">{v.title}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-muted">{v.body}</p>

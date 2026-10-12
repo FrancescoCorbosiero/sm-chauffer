@@ -302,11 +302,11 @@ export default function CoverageMap({
       {/* Scale bar + north */}
       <div aria-hidden className="pointer-events-none absolute bottom-3 left-3 md:bottom-4 md:left-4" style={{ width: pct(SCALE_UNITS, W) }}>
         <div className="h-1.5 border-x border-b border-white/40" />
-        <span className="mt-1 block text-[10px] font-semibold tracking-wide text-white/45">{SCALE_KM} km</span>
+        <span className="mt-1 block text-[10px] font-semibold tracking-wide text-white/55">{SCALE_KM} km</span>
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute right-3 top-3 flex flex-col items-center text-[10px] font-semibold text-white/40 md:right-4 md:top-4"
+        className="pointer-events-none absolute right-3 top-3 flex flex-col items-center text-[10px] font-semibold text-white/55 md:right-4 md:top-4"
       >
         <ArrowUp size={13} />N
       </div>
@@ -337,7 +337,7 @@ export default function CoverageMap({
               <dd className="mt-1 font-display text-2xl text-white tabular">≈ {dur(selected.minutes)}</dd>
             </div>
           </dl>
-          <p className="mt-2.5 text-xs text-white/45">
+          <p className="mt-2.5 text-xs text-white/55">
             {c.fromMilan} · {c.indicative}
           </p>
         </>
@@ -360,7 +360,7 @@ export default function CoverageMap({
   // smaller lakeside villages (hidden as pins) are reached.
   const list = (
     <div>
-      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">{c.listTitle}</p>
+      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">{c.listTitle}</p>
       <ul className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
         {visible
           .filter((p) => p.id !== HUB_ID)

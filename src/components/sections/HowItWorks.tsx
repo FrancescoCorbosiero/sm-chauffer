@@ -43,12 +43,11 @@ export default function HowItWorks({ tone = 'dark' }: { tone?: 'dark' | 'light' 
                   </span>
                   <span
                     aria-hidden
-                    className={`hidden font-display text-4xl leading-none tabular sm:block ${
+                    data-n={String(i + 1).padStart(2, '0')}
+                    className={`hidden font-display text-4xl leading-none tabular before:content-[attr(data-n)] sm:block ${
                       dark ? 'text-white/15' : 'text-ink/15'
                     }`}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
+                  />
                 </div>
                 <div>
                   <h3 className={`text-[1.45rem] leading-tight sm:mt-6 sm:text-[1.6rem] ${dark ? 'text-white' : 'text-ink'}`}>

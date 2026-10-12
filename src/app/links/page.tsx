@@ -112,7 +112,7 @@ export default function LinksPage() {
           ))}
         </ul>
 
-        <p className="mt-10 text-xs leading-relaxed text-white/40">
+        <p className="mt-10 text-xs leading-relaxed text-white/55">
           {SITE.legalName} · {t.contactPage.companyVat} {SITE.vatNumber}
         </p>
       </div>
