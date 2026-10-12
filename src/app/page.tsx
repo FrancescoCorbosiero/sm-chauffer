@@ -4,6 +4,7 @@ import StatsBand from '@/components/sections/StatsBand';
 import ServicesShowcase from '@/components/sections/ServicesShowcase';
 import HowItWorks from '@/components/sections/HowItWorks';
 import FleetShowcase from '@/components/sections/FleetShowcase';
+import CoverageTeaser from '@/components/sections/CoverageTeaser';
 import PricingTeaser from '@/components/sections/PricingTeaser';
 import Testimonials from '@/components/sections/Testimonials';
 import FaqBlock from '@/components/sections/FaqBlock';
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ServicesShowcase />
       <HowItWorks />
       <FleetShowcase />
+      <CoverageTeaser />
       <PricingTeaser />
       <Testimonials />
       <FaqBlock />

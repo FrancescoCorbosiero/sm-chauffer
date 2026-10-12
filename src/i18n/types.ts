@@ -33,6 +33,7 @@ export interface Dictionary {
     about: { title: string; description: string };
     blog: { title: string; description: string };
     contact: { title: string; description: string };
+    areas: { title: string; description: string };
   };
   skipToContent: string;
   nav: {
@@ -171,6 +172,46 @@ export interface Dictionary {
     title: string;
     accent: string;
     description: string;
+  };
+  /** Coverage map widget (home teaser + /areas). */
+  coverage: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    filterLabel: string;
+    filters: { all: string; city: string; lake: string; airport: string; intl: string };
+    groups: { city: string; lake: string; airport: string; intl: string; hub: string };
+    fromMilan: string;
+    distance: string;
+    time: string;
+    indicative: string;
+    book: string;
+    discover: string;
+    mapLabel: string;
+    switzerland: string;
+    lakeComo: string;
+    lakeMaggiore: string;
+    lakeLugano: string;
+    listTitle: string;
+    onRequest: string;
+    openMap: string;
+    offMap: string;
+    unitMin: string;
+    unitHour: string;
+  };
+  areasPage: {
+    title: string;
+    accent: string;
+    description: string;
+    citiesTitle: string;
+    citiesAccent: string;
+    citiesDescription: string;
+    cityCta: string;
+    tableTitle: string;
+    tableAccent: string;
+    tableDescription: string;
+    colDestination: string;
   };
   fleetPreview: {
     label: string;
