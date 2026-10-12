@@ -17,6 +17,7 @@ import FaqBlock from '@/components/sections/FaqBlock';
 import CtaBand from '@/components/sections/CtaBand';
 import Estimator from './Estimator';
 import { FAQ } from '@/lib/faq';
+import RuledList from '@/components/ui/RuledList';
 
 const INCLUDED_ICONS = [BadgeEuro, PlaneLanding, UserRound, ShieldCheck, ReceiptText, Headset];
 /** General FAQ entries about prices: Malpensa fare, route vs hourly, delays, child seats. */
@@ -70,26 +71,7 @@ export default function PricingView() {
             title={p.includedTitle}
             accent={p.includedAccent}
           />
-          <ul className="reveal-stagger mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-            {p.included.map((item, i) => {
-              const Icon = INCLUDED_ICONS[i] ?? BadgeEuro;
-              return (
-                <li
-                  key={item.title}
-                  style={{ ['--i' as string]: i }}
-                  className="flex gap-4 rounded-2xl border border-line bg-ivory p-6"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-gold">
-                    <Icon size={19} aria-hidden />
-                  </span>
-                  <div>
-                    <h3 className="text-[1.4rem] leading-tight text-ink">{item.title}</h3>
-                    <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{item.text}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <RuledList className="mt-12" cols={3} items={p.included} icons={INCLUDED_ICONS} />
         </div>
       </section>
 

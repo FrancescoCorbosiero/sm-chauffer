@@ -6,7 +6,6 @@ import {
   Briefcase,
   Building2,
   Bus,
-  Check,
   Clock,
   Flag,
   Globe,
@@ -37,7 +36,6 @@ import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Rail from '@/components/ui/Rail';
 import VehicleCard from '@/components/ui/VehicleCard';
-import ServiceCard from '@/components/ui/ServiceCard';
 import LiveStatus from '@/components/ui/LiveStatus';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import HowItWorks from '@/components/sections/HowItWorks';
@@ -50,6 +48,8 @@ import { SITE } from '@/lib/site';
 import { bookingHref } from '@/lib/booking';
 import { phoneLabel, telHref, whatsappHref } from '@/lib/contact';
 import { COVERAGE_POINTS, formatDuration, pointName, type CoverageGroup } from '@/lib/coverage';
+import RuledList from '@/components/ui/RuledList';
+import ServiceIndexList from '@/components/ui/ServiceIndexList';
 import {
   getService,
   getServicePage,
@@ -94,7 +94,6 @@ export default function ServiceDetailView({ id }: { id: string }) {
   const zones = page.zones
     .map((z) => COVERAGE_POINTS.find((p) => p.id === z))
     .filter((p): p is (typeof COVERAGE_POINTS)[number] => Boolean(p));
-  const others = services.filter((o) => o.id !== id);
   const faqItems = page.faq.map((i) => (FAQ[locale] ?? FAQ.it)[i]).filter(Boolean);
   const dur = (m: number) => formatDuration(m, t.coverage.unitMin, t.coverage.unitHour);
 
@@ -157,24 +156,7 @@ export default function ServiceDetailView({ id }: { id: string }) {
         <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
           <div className="min-w-0 lg:col-span-7 xl:col-span-8">
             <SectionHeading className="reveal" eyebrow={d.featuresLabel} title={d.featuresTitle} accent={d.featuresAccent} />
-            <ul className="reveal-stagger mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
-              {s.features.map((f, i) => {
-                const Icon = icons[i] ?? Check;
-                return (
-                  <li
-                    key={f.title}
-                    style={{ ['--i' as string]: i }}
-                    className="rounded-2xl border border-line bg-ivory p-6 lg:p-7"
-                  >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-gold">
-                      <Icon size={19} aria-hidden />
-                    </span>
-                    <h3 className="mt-5 text-[1.5rem] leading-tight text-ink">{f.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted">{f.text}</p>
-                  </li>
-                );
-              })}
-            </ul>
+            <RuledList className="mt-10" items={s.features} icons={icons} />
           </div>
 
           <aside className="min-w-0 self-start lg:sticky lg:top-24 lg:col-span-5 xl:col-span-4">
@@ -307,11 +289,7 @@ export default function ServiceDetailView({ id }: { id: string }) {
             }
           />
           <div className="reveal mt-12">
-            <Rail label={`${d.otherTitle} ${d.otherAccent}`}>
-              {others.map((o) => (
-                <ServiceCard key={o.id} service={o} />
-              ))}
-            </Rail>
+            <ServiceIndexList exclude={id} />
           </div>
         </div>
       </section>

@@ -17,6 +17,7 @@ import { bookingHref } from '@/lib/booking';
 import { whatsappHref } from '@/lib/contact';
 import { getServicePage, servicePrice, splitTitle } from '@/lib/servicePages';
 import type { Service } from '@/lib/types';
+import RuledList from '@/components/ui/RuledList';
 
 const WHY_ICONS: Record<string, LucideIcon> = { ShieldCheck, Clock, Globe2, Plane };
 
@@ -81,24 +82,12 @@ export default function ServicesIndexView() {
       <section className="section-y bg-ivory">
         <div className="container-x">
           <SectionHeading className="reveal" eyebrow={why.label} title={whyHead} accent={whyAccent} description={why.description} />
-          <ul className="reveal-stagger mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {why.items.map((item, i) => {
-              const Icon = WHY_ICONS[item.icon] ?? ShieldCheck;
-              return (
-                <li
-                  key={item.title}
-                  style={{ ['--i' as string]: i }}
-                  className="rounded-2xl border border-line bg-white p-6 lg:p-7"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-gold">
-                    <Icon size={19} aria-hidden />
-                  </span>
-                  <h3 className="mt-5 text-[1.5rem] leading-tight text-ink">{item.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{item.description}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <RuledList
+            className="mt-12"
+            cols={4}
+            items={why.items.map((x) => ({ title: x.title, text: x.description }))}
+            icons={why.items.map((x) => WHY_ICONS[x.icon] ?? ShieldCheck)}
+          />
         </div>
       </section>
 

@@ -8,7 +8,6 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Rail from '@/components/ui/Rail';
 import VehicleCard from '@/components/ui/VehicleCard';
-import ServiceCard from '@/components/ui/ServiceCard';
 import LiveStatus from '@/components/ui/LiveStatus';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import CtaBand from '@/components/sections/CtaBand';
@@ -18,6 +17,7 @@ import { bookingHref } from '@/lib/booking';
 import { phoneLabel, telHref, whatsappHref } from '@/lib/contact';
 import { getVehicle, splitName, vehicleName } from '@/lib/fleet';
 import { SERVICE_PAGES } from '@/lib/servicePages';
+import ServiceIndexList from '@/components/ui/ServiceIndexList';
 
 export default function VehicleDetailView({ id }: { id: string }) {
   const { t } = useLanguage();
@@ -159,18 +159,11 @@ export default function VehicleDetailView({ id }: { id: string }) {
         <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
           <div className="min-w-0 lg:col-span-7 xl:col-span-8">
             <SectionHeading className="reveal" eyebrow={name} title={d.specsTitle} accent={d.specsAccent} />
-            <dl className="reveal-stagger mt-10 grid grid-cols-2 gap-3 xl:grid-cols-3">
-              {specs.map((s, i) => (
-                <div
-                  key={s.label}
-                  style={{ ['--i' as string]: i }}
-                  className="min-w-0 rounded-2xl border border-line bg-ivory p-4 sm:p-5"
-                >
-                  <dt className="flex flex-col gap-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted sm:flex-row sm:items-center sm:tracking-[0.14em]">
-                    <s.icon size={15} aria-hidden className="text-gold-deep" />
-                    {s.label}
-                  </dt>
-                  <dd className="mt-2.5 text-base font-semibold leading-snug text-ink sm:text-lg">{s.value}</dd>
+            <dl className="reveal mt-10 grid grid-cols-1 gap-x-10 border-t-2 border-ink sm:grid-cols-2">
+              {specs.map((s) => (
+                <div key={s.label} className="flex items-baseline justify-between gap-6 border-b border-line-strong py-4">
+                  <dt className="text-[15px] text-muted">{s.label}</dt>
+                  <dd className="text-right text-[1.0625rem] font-semibold text-ink">{s.value}</dd>
                 </div>
               ))}
             </dl>
@@ -229,11 +222,7 @@ export default function VehicleDetailView({ id }: { id: string }) {
               }
             />
             <div className="reveal mt-12">
-              <Rail label={`${d.servicesTitle} ${d.servicesAccent}`}>
-                {related.map((s) => (
-                  <ServiceCard key={s.id} service={s} />
-                ))}
-              </Rail>
+              <ServiceIndexList only={related.map((s) => s.id)} />
             </div>
           </div>
         </section>

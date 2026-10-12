@@ -7,6 +7,7 @@ import Accordion from '@/components/ui/Accordion';
 import CtaBand from '@/components/sections/CtaBand';
 import type { Crumb } from '@/components/ui/Breadcrumbs';
 import { SITE } from '@/lib/site';
+import RuledList from '@/components/ui/RuledList';
 
 export interface LandingCopy {
   quoteCta: string;
@@ -81,23 +82,12 @@ export default function LandingLayout({
               ))}
             </div>
           </div>
-          <ol className="reveal-stagger grid min-w-0 grid-cols-1 gap-4 self-start lg:col-span-5">
-            {highlights.map((h, i) => (
-              <li
-                key={h.title}
-                style={{ ['--i' as string]: i }}
-                className="flex gap-5 rounded-2xl border border-line bg-ivory p-6"
-              >
-                <span aria-hidden className="font-display text-4xl leading-none text-gold-deep tabular">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="text-[1.4rem] leading-tight text-ink">{h.title}</h3>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{h.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <RuledList
+            className="min-w-0 self-start lg:col-span-5"
+            cols={1}
+            numbered
+            items={highlights.map((h) => ({ title: h.title, text: h.description }))}
+          />
         </div>
       </section>
 

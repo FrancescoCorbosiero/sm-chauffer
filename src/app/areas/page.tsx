@@ -41,7 +41,7 @@ export default function AreasPage() {
             accent={a.citiesAccent}
             description={a.citiesDescription}
           />
-          <div className="reveal-stagger mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="reveal-stagger mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {locations.map((l, i) => {
               const point = COVERAGE_POINTS.find((p) => p.id === l.slug);
               return (
@@ -49,27 +49,26 @@ export default function AreasPage() {
                   key={l.slug}
                   href={`/ncc/${l.slug}`}
                   style={{ ['--i' as string]: i }}
-                  className="card card-hover gold-edge group relative flex flex-col overflow-clip"
+                  className="group relative block aspect-[3/4] overflow-clip rounded-xl bg-ink"
                 >
-                  <div className="relative aspect-[4/3] overflow-clip bg-ink">
-                    <Image
-                      src={l.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-[1200ms] ease-smooth group-hover:scale-[1.05]"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-[1.6rem] leading-tight text-ink">NCC {l.city}</h3>
+                  <Image
+                    src={l.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover opacity-80 grayscale transition duration-700 ease-smooth group-hover:scale-[1.04] group-hover:opacity-100 group-hover:grayscale-0"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+                  <span className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <span className="block font-display text-[2rem] leading-none">{l.city}</span>
                     {point && (
-                      <p className="mt-2 text-[15px] leading-relaxed text-muted">{point.desc[locale] ?? point.desc.it}</p>
+                      <span className="mt-2.5 block text-sm leading-snug text-white/75">{point.desc[locale] ?? point.desc.it}</span>
                     )}
-                    <span className="link-arrow mt-auto self-start pt-5 text-sm">
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
                       {a.cityCta}
-                      <ArrowRight size={15} aria-hidden />
+                      <ArrowRight size={15} aria-hidden className="transition-transform group-hover:translate-x-1" />
                     </span>
-                  </div>
+                  </span>
                 </Link>
               );
             })}

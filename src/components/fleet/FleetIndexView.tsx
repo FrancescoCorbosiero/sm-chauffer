@@ -16,6 +16,7 @@ import { FAQ } from '@/lib/faq';
 import { bookingHref } from '@/lib/booking';
 import { fits } from '@/lib/fleet';
 import { IMAGES } from '@/lib/images';
+import RuledList from '@/components/ui/RuledList';
 
 const STANDARD_ICONS = [Sparkles, UserRound, ShieldCheck, Baby];
 /** General FAQ entries relevant to the fleet: vehicles, child seats, fares. */
@@ -154,26 +155,7 @@ export default function FleetIndexView() {
             title={f.standardsTitle}
             accent={f.standardsAccent}
           />
-          <ul className="reveal-stagger grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-8 lg:gap-5">
-            {f.standards.map((s, i) => {
-              const Icon = STANDARD_ICONS[i] ?? Sparkles;
-              return (
-                <li
-                  key={s.title}
-                  style={{ ['--i' as string]: i }}
-                  className="flex gap-4 rounded-2xl border border-line bg-ivory p-6"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-gold">
-                    <Icon size={19} aria-hidden />
-                  </span>
-                  <div>
-                    <h3 className="text-[1.4rem] leading-tight text-ink">{s.title}</h3>
-                    <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{s.text}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <RuledList className="min-w-0 lg:col-span-8" items={f.standards} icons={STANDARD_ICONS} />
         </div>
       </section>
 
