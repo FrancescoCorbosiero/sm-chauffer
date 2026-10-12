@@ -135,8 +135,8 @@ export default function CoverageMap({
             <line x1="0" y1="0" x2="0" y2="9" stroke="rgba(255,255,255,0.05)" strokeWidth="3" />
           </pattern>
           <radialGradient id={`${uid}-glow`}>
-            <stop offset="0%" stopColor="rgba(197,160,89,0.32)" />
-            <stop offset="100%" stopColor="rgba(197,160,89,0)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.32)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
           </radialGradient>
         </defs>
         <path d={GEO_SWITZERLAND} fill={`url(#${uid}-hatch)`} />
@@ -144,8 +144,8 @@ export default function CoverageMap({
           <path
             key={p.name}
             d={p.d}
-            fill={p.served ? '#1d1a14' : '#151518'}
-            stroke={p.served ? 'rgba(197,160,89,0.30)' : 'rgba(255,255,255,0.07)'}
+            fill={p.served ? '#1e1e22' : '#151518'}
+            stroke={p.served ? 'rgba(255,255,255,0.30)' : 'rgba(255,255,255,0.07)'}
             strokeWidth="1"
             vectorEffect="non-scaling-stroke"
           />
@@ -176,7 +176,7 @@ export default function CoverageMap({
               key={p.id}
               d={arc(POSITIONS[p.id])}
               fill="none"
-              stroke="rgba(197,160,89,0.22)"
+              stroke="rgba(255,255,255,0.22)"
               strokeWidth="1"
               strokeDasharray={POSITIONS[p.id].off ? '3 5' : undefined}
               vectorEffect="non-scaling-stroke"
@@ -187,7 +187,7 @@ export default function CoverageMap({
             key={selected.id}
             d={arc(selPos)}
             fill="none"
-            stroke="#c5a059"
+            stroke="#ffffff"
             strokeLinecap="round"
             pathLength={1}
             className="[stroke-width:5] md:[stroke-width:3]"
@@ -239,7 +239,7 @@ export default function CoverageMap({
               aria-label={`${label} (${c.offMap})`}
               className={`absolute z-10 inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] font-semibold shadow-lg transition-colors md:gap-1.5 md:px-2.5 md:py-1 md:text-xs ${
                 isSel
-                  ? 'border-gold bg-gold text-ink'
+                  ? 'border-gold bg-gold text-on-gold'
                   : 'border-white/20 bg-ink/90 text-white/80 hover:border-gold hover:text-white'
               }`}
               style={chipAnchor(pos.x, pos.y)}
@@ -270,11 +270,11 @@ export default function CoverageMap({
               />
             )}
             {isHub ? (
-              <span className="relative h-4 w-4 rounded-full border-2 border-gold bg-ink shadow-[0_0_0_6px_rgba(197,160,89,0.18)]" />
+              <span className="relative h-4 w-4 rounded-full border-2 border-gold bg-ink shadow-[0_0_0_6px_rgba(255,255,255,0.18)]" />
             ) : p.group === 'airport' ? (
               <span
                 className={`relative flex h-6 w-6 items-center justify-center rounded-full border transition-colors ${
-                  isSel ? 'border-gold bg-gold text-ink' : 'border-white/30 bg-ink text-gold group-hover:border-gold'
+                  isSel ? 'border-gold bg-gold text-on-gold' : 'border-white/30 bg-ink text-gold group-hover:border-gold'
                 }`}
               >
                 <Plane size={12} aria-hidden />

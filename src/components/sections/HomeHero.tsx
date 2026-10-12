@@ -33,7 +33,7 @@ export default function HomeHero() {
           className="object-cover object-center opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/85 lg:to-ink/30" />
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_90%_0%,rgba(197,160,89,0.18),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_90%_0%,rgba(255,255,255,0.07),transparent_60%)]" />
       </div>
 
       <div className="container-x grid grid-cols-1 items-center gap-10 pb-14 pt-10 sm:pt-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-14 lg:pb-24 lg:pt-20 xl:gap-20">

@@ -19,7 +19,7 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           background:
-            'linear-gradient(135deg, #060606 0%, #131313 55%, #1d1606 100%)',
+            'linear-gradient(135deg, #060606 0%, #131313 55%, #1c1c20 100%)',
           padding: '72px 80px',
           color: '#ffffff',
           fontFamily: 'serif',
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
               width: 18,
               height: 18,
               borderRadius: 9999,
-              background: '#c5a059',
+              background: '#ffffff',
             }}
           />
           <div
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 76, lineHeight: 1.05, fontWeight: 500 }}>
             Transfer Luxury
           </div>
-          <div style={{ fontSize: 76, lineHeight: 1.05, color: '#dcc28f' }}>
+          <div style={{ fontSize: 76, lineHeight: 1.05, color: '#ffffff' }}>
             Driver
           </div>
           <div

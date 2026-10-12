@@ -146,7 +146,7 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
           {String(index + 1).padStart(2, '0')}
         </span>
         {Icon && (
-          <span className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-gold-deep shadow-sm md:right-7 md:top-7">
+          <span className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-ink shadow-sm md:right-7 md:top-7">
             <Icon size={20} aria-hidden />
           </span>
         )}

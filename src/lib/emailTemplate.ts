@@ -13,8 +13,8 @@ import { estimate, parseHours } from './pricing';
  */
 
 const INK = '#0c0c0e';
-// Gold-deep: the site's accent for small text on light backgrounds.
-const GOLD = '#8a6a2f';
+// Accent for small headings: the site's monochrome ink.
+const GOLD = '#0c0c0e';
 const MUTED = '#525252';
 const FAINT = '#8a8a8a';
 const BORDER = '#ececec';

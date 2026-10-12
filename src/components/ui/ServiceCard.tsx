@@ -24,7 +24,7 @@ export default function ServiceCard({ service, long = false }: { service: Servic
         />
         <span className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
         {Icon && (
-          <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gold-deep shadow-sm backdrop-blur">
+          <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-ink shadow-sm backdrop-blur">
             <Icon size={19} aria-hidden />
           </span>
         )}

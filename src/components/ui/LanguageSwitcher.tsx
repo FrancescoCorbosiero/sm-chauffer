@@ -61,7 +61,7 @@ export default function LanguageSwitcher({
               title={LOCALE_NAMES[l]}
               className={`flex h-11 items-center justify-center rounded-full border text-sm font-semibold tracking-wide transition-colors ${
                 active
-                  ? 'border-gold bg-gold text-ink'
+                  ? 'border-gold bg-gold text-on-gold'
                   : 'border-white/15 text-white/80 hover:border-white/50 hover:text-white'
               }`}
             >
