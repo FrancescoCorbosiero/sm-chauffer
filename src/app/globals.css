@@ -13,23 +13,27 @@
   --color-ink-2: #141417;
   --color-ink-3: #1e1e22;
   --color-paper: #ffffff;
-  --color-ivory: #f7f5f0;
-  --color-ivory-2: #efebe2;
+  --color-ivory: #f4f4f5;
+  --color-ivory-2: #e9e9ec;
   --color-line: rgba(12, 12, 14, 0.09);
   --color-line-strong: rgba(12, 12, 14, 0.18);
   --color-muted: #55555d;
   --color-faint: #6b6b73;
-  --color-gold: #c5a059;
-  --color-gold-light: #dcc28f;
-  --color-gold-deep: #8a6a2f;
-  --color-gold-soft: rgba(197, 160, 89, 0.14);
+  /* The accent is monochrome and follows the surface: ink on light, white on
+     dark (flipped below for ink surfaces). Token names are kept from the
+     earlier gold palette so components did not need renaming. */
+  --color-gold: #0c0c0e;
+  --color-gold-light: #0c0c0e;
+  --color-gold-deep: #0c0c0e;
+  --color-gold-soft: rgba(12, 12, 14, 0.06);
+  --color-on-gold: #ffffff;
   --color-live: #34c27a;
 
   /* Legacy aliases — older components reference these names. */
   --color-bg: #ffffff;
-  --color-surface: #f7f5f0;
-  --color-surface-2: #f1eee7;
-  --color-surface-3: #e7e2d7;
+  --color-surface: #f4f4f5;
+  --color-surface-2: #ececef;
+  --color-surface-3: #e2e2e6;
   --color-border: rgba(12, 12, 14, 0.09);
   --color-divider: rgba(12, 12, 14, 0.07);
   --color-ink-soft: #1e1e22;
@@ -37,11 +41,11 @@
   --color-text-muted: #55555d;
   --color-text-faint: #8b8b93;
   --color-text-inverse: #ffffff;
-  --color-accent: #c5a059;
-  --color-accent-hover: #8a6a2f;
-  --color-accent-soft: rgba(197, 160, 89, 0.14);
+  --color-accent: #0c0c0e;
+  --color-accent-hover: #2a2a30;
+  --color-accent-soft: rgba(12, 12, 14, 0.06);
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-display: var(--font-inter-tight), "Inter Tight", system-ui, sans-serif;
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: var(--font-sans);
 
@@ -113,9 +117,9 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.012em;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
 
@@ -207,44 +211,24 @@
     }
   }
 
-  /* Eyebrow — the short tracked line above a title, led by a gold rule. */
+  /* Eyebrow — a small, quiet label above a title. */
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     line-height: 1.2;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-gold-deep);
-  }
-
-  .eyebrow::before {
-    content: "";
-    display: block;
-    flex: none;
-    width: 1.75rem;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.7;
+    color: var(--color-muted);
   }
 
   .eyebrow-light {
-    color: var(--color-gold);
+    color: rgba(255, 255, 255, 0.62);
   }
 
-  /* Headline accent: the italic, gold-tinted half of a split title. */
+  /* Second half of a title: same weight and colour, kept as a hook. */
   .title-accent {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--color-gold-deep);
-  }
-
-  .on-ink .title-accent,
-  .title-accent-light {
-    color: var(--color-gold-light);
+    color: inherit;
   }
 
   /* ---------- Buttons ---------- */
@@ -257,7 +241,7 @@
     min-height: 3rem;
     padding: 0.75rem 1.4rem;
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: 0.625rem;
     font-family: var(--font-sans);
     font-size: 0.9375rem;
     font-weight: 600;
@@ -320,8 +304,8 @@
   }
 
   .btn-gold:hover {
-    background: var(--color-gold-light);
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.28);
+    background: color-mix(in srgb, var(--color-gold) 86%, var(--color-on-gold));
+    box-shadow: none;
   }
 
   .btn-light {
@@ -493,7 +477,6 @@
   .ink-panel {
     position: relative;
     background:
-      radial-gradient(120% 80% at 85% -10%, rgba(197, 160, 89, 0.14), transparent 55%),
       radial-gradient(90% 70% at -10% 110%, rgba(255, 255, 255, 0.05), transparent 60%),
       var(--color-ink);
     color: #fff;
@@ -796,5 +779,36 @@
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+}
+
+/* Dark surfaces flip the monochrome accent to white. */
+@layer base {
+  .bg-ink,
+  .bg-ink-2,
+  .bg-ink-3,
+  [class*="bg-ink/"],
+  .ink-panel,
+  .on-ink {
+    --color-gold: #ffffff;
+    --color-gold-light: #ffffff;
+    --color-gold-deep: #ffffff;
+    --color-gold-soft: rgba(255, 255, 255, 0.1);
+    --color-on-gold: #0c0c0e;
+  }
+}
+
+/* …and light surfaces nested in a dark one switch it back to ink. */
+@layer base {
+  .bg-white,
+  .bg-paper,
+  .bg-ivory,
+  .bg-ivory-2,
+  .card {
+    --color-gold: #0c0c0e;
+    --color-gold-light: #0c0c0e;
+    --color-gold-deep: #0c0c0e;
+    --color-gold-soft: rgba(12, 12, 14, 0.06);
+    --color-on-gold: #ffffff;
   }
 }

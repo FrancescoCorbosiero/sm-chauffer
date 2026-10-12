@@ -11,7 +11,7 @@ export default function ContactChannels() {
   const c = t.contactPage;
   const card =
     'group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.035] p-6 transition-colors duration-300 hover:border-gold/45';
-  const icon = 'flex h-11 w-11 items-center justify-center rounded-full bg-gold text-ink';
+  const icon = 'flex h-11 w-11 items-center justify-center rounded-full bg-gold text-on-gold';
   const kicker = 'mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold';
   const desc = 'mt-2 text-sm leading-relaxed text-white/60';
   const more = 'mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-white';

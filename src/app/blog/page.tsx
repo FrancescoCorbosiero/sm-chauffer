@@ -42,7 +42,7 @@ export default function BlogPage() {
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   className="object-cover transition-transform duration-[1400ms] ease-smooth group-hover:scale-[1.04]"
                 />
-                <span className="absolute left-5 top-5 rounded-full bg-gold px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
+                <span className="absolute left-5 top-5 rounded-full bg-gold px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-on-gold">
                   {b.featured}
                 </span>
               </div>

@@ -70,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           <div className="reveal relative min-w-0 lg:col-span-6">
-            <div className="relative isolate aspect-[4/3] overflow-clip rounded-[1.75rem] bg-[radial-gradient(120%_95%_at_50%_30%,#ffffff_0%,#f5f2ea_55%,#e3dccb_100%)]">
+            <div className="relative isolate aspect-[4/3] overflow-clip rounded-[1.75rem] bg-[radial-gradient(120%_95%_at_50%_30%,#ffffff_0%,#f1f1f3_55%,#dcdce1_100%)]">
               <Image
                 src={IMAGES.fleet.sClass}
                 alt=""

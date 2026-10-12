@@ -41,7 +41,7 @@ function sectionOf(pathname: string): string {
 function TopBar() {
   const { t } = useLanguage();
   return (
-    <div className="hidden bg-black text-[13px] text-white/70 lg:block">
+    <div className="on-ink hidden bg-black text-[13px] text-white/70 lg:block">
       <div className="container-x flex h-10 items-center justify-between gap-6">
         <div className="flex min-w-0 items-center gap-3">
           <LiveStatus className="text-white/85" />

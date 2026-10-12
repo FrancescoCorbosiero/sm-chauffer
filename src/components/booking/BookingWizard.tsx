@@ -325,7 +325,7 @@ function WizardInner({ search }: { search: string | null }) {
                 />
                 <span
                   className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-                    checked ? 'bg-gold text-ink' : 'bg-ivory text-gold-deep'
+                    checked ? 'bg-gold text-on-gold' : 'bg-ivory text-gold-deep'
                   }`}
                 >
                   {o.icon}
@@ -774,7 +774,7 @@ function WizardInner({ search }: { search: string | null }) {
                         state === 'done'
                           ? 'bg-ink text-gold'
                           : state === 'current'
-                            ? 'bg-gold text-ink'
+                            ? 'bg-gold text-on-gold'
                             : 'bg-ivory text-muted'
                       }`}
                     >

@@ -76,7 +76,7 @@ export default function VehicleDetailView({ id }: { id: string }) {
           </div>
           <div className="mt-8 grid grid-cols-1 items-center gap-9 md:mt-12 lg:grid-cols-12 lg:gap-14">
             <div className="intro min-w-0 lg:order-2 lg:col-span-7" style={{ ['--d' as string]: 60 }}>
-              <div className="relative isolate aspect-[16/11] overflow-clip rounded-[1.75rem] bg-[radial-gradient(120%_95%_at_50%_30%,#ffffff_0%,#f5f2ea_55%,#e3dccb_100%)]">
+              <div className="relative isolate aspect-[16/11] overflow-clip rounded-[1.75rem] bg-[radial-gradient(120%_95%_at_50%_30%,#ffffff_0%,#f1f1f3_55%,#dcdce1_100%)]">
                 <Image
                   src={vehicle.image}
                   alt={name}

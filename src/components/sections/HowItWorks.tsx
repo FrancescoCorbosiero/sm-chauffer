@@ -36,7 +36,7 @@ export default function HowItWorks({ tone = 'dark' }: { tone?: 'dark' | 'light' 
                 <div className="flex shrink-0 items-start justify-between sm:items-center">
                   <span
                     className={`flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12 ${
-                      dark ? 'bg-gold text-ink' : 'bg-ink text-gold'
+                      dark ? 'bg-gold text-on-gold' : 'bg-ink text-gold'
                     }`}
                   >
                     <Icon size={20} aria-hidden />
