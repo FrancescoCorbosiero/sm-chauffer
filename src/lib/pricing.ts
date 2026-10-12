@@ -5,19 +5,22 @@ import type { Vehicle } from './types';
  *
  * Only what the operator actually quoted is computed here:
  *  - hourly service  → vehicle hourly rate × hours
- *  - Milano–Malpensa → fixed fare
+ *  - Milano–Malpensa → fixed fare, in the sedan the fare is quoted for
  *  - the 18-seat bus → always on request
- *  - any other route → on request (no per-km rate has been provided)
+ *  - any other route or vehicle → on request (no per-km rate has been provided)
  *
  * Extend FIXED_FARES / the matchers below as more routes are confirmed.
  */
 
 export type TripType = 'one-way' | 'hourly';
 
-/** Fixed point-to-point fares in EUR. */
+/** Fixed point-to-point fares in EUR ("from €150 in the sedan"). */
 export const FIXED_FARES = {
   milanoMalpensa: 150,
 } as const;
+
+/** The vehicle the fixed fares are quoted for; the others are quoted on request. */
+export const FIXED_FARE_VEHICLE = 'mercedes-e-class';
 
 export type Estimate =
   | { kind: 'incomplete' }
@@ -29,9 +32,16 @@ export type Estimate =
 const norm = (s: string) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
 
+const isMalpensa = (s: string) => /malpensa|\bmxp\b/.test(s);
+// Milan itself, not one of its other airports ("Aeroporto di Milano Linate").
+const isMilan = (s: string) =>
+  /\bmilan|mailand|милан/.test(s) && !isMalpensa(s) && !/linate|orio|bergamo|\b(lin|bgy)\b/.test(s);
+
 /** Recognise the Milano–Malpensa fixed-fare route from free-text fields. */
 export function isMilanoMalpensa(from = '', to = ''): boolean {
-  return norm(from).includes('malpensa') || norm(to).includes('malpensa');
+  const a = norm(from);
+  const b = norm(to);
+  return (isMalpensa(a) && isMilan(b)) || (isMalpensa(b) && isMilan(a));
 }
 
 /** Parse an hours value from a free-text field ("4", "4,5", "es. 4"). */
@@ -67,7 +77,7 @@ export function estimate(input: {
 
   // one-way / transfer
   if (!input.from?.trim() || !input.to?.trim()) return { kind: 'incomplete' };
-  if (isMilanoMalpensa(input.from, input.to)) {
+  if (isMilanoMalpensa(input.from, input.to) && vehicle.id === FIXED_FARE_VEHICLE) {
     return { kind: 'fixed', amount: FIXED_FARES.milanoMalpensa, route: 'milano-malpensa' };
   }
   return { kind: 'on-request', reason: 'custom-route' };

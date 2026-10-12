@@ -5,8 +5,9 @@ import { useRouter } from 'next/navigation';
 import { ArrowRight, CalendarDays, Check, Clock3, Flag, MapPin, Timer, Users } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import { POPULAR_PLACES } from '@/lib/places';
-import { bookingHref, looksLikeAirport } from '@/lib/booking';
+import { bookingHref, looksLikeAirport, type BookingDraft } from '@/lib/booking';
 import { useToday } from '@/lib/hooks';
+import { useOpenBooking } from './BookingProvider';
 
 const HOURS = Array.from({ length: 12 }, (_, i) => i + 1);
 const PAX = Array.from({ length: 18 }, (_, i) => i + 1);
@@ -41,13 +42,14 @@ const inputClass =
 
 /**
  * Hero quick-booking card: trip type, route, date and time. It never
- * blocks — whatever is filled in travels to the full wizard on /contact,
- * which picks up from the first missing step.
+ * blocks — whatever is filled in is handed to the booking app, which opens
+ * in place and picks up from the first missing step.
  */
 export default function QuickBook() {
   const t = useTranslation();
   const q = t.quickBook;
   const router = useRouter();
+  const openBooking = useOpenBooking();
   const today = useToday();
   const uid = useId();
   const [type, setType] = useState<'one-way' | 'hourly'>('one-way');
@@ -61,17 +63,17 @@ export default function QuickBook() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const isHourly = type === 'hourly';
-    router.push(
-      bookingHref({
-        type: isHourly ? 'hourly' : looksLikeAirport(from, to) ? 'airport-transfer' : 'one-way',
-        from,
-        to: isHourly ? '' : to,
-        hours: isHourly ? hours : '',
-        date,
-        time,
-        pax,
-      }),
-    );
+    const handoff: Partial<BookingDraft> = {
+      type: isHourly ? 'hourly' : looksLikeAirport(from, to) ? 'airport-transfer' : 'one-way',
+    };
+    // Only what was filled in, so the saved draft keeps the rest.
+    const fields = { from, to: isHourly ? '' : to, hours: isHourly ? hours : '', date, time, pax };
+    for (const key of Object.keys(fields) as Array<keyof typeof fields>) {
+      const value = fields[key].trim();
+      if (value) handoff[key] = value;
+    }
+    if (openBooking) openBooking(handoff);
+    else router.push(bookingHref(handoff));
   };
 
   const tab = (value: 'one-way' | 'hourly', label: string) => (

@@ -21,12 +21,12 @@ npm start          # serve the production build
 
 | Route | Content |
 |-------|---------|
-| `/` | Hero with quick booking form, key figures, services, booking steps, fleet, coverage map teaser, prices, reviews, FAQ, blog |
+| `/` | Hero with quick booking form, key figures, services, fleet showroom, booking steps, coverage map teaser, prices, reviews, FAQ, blog |
 | `/services`, `/services/[slug]` | Services index and one page per service (6) |
-| `/fleet`, `/fleet/[id]` | Fleet with capacity finder and comparison table (`#compare`), one page per vehicle (5) |
+| `/fleet`, `/fleet/[id]` | Fleet showroom (one car at a time on a lit stage, with the capacity finder) and comparison table (`#compare`), one page per vehicle (5) |
 | `/pricing` | Price tiles, live estimator, hourly rates, what every fare includes |
 | `/areas` | Interactive coverage map with indicative distances and drive times |
-| `/contact` | Contact channels and the 4-step booking wizard (`#prenota`) |
+| `/contact` | Contact channels and the booking app inline (`#prenota`), with the live trip map beside it on desktop |
 | `/about`, `/blog`, `/blog/[slug]` | Company story and verifiable details, articles |
 | `/ncc/[city]`, `/en/[slug]`, `/de/[slug]` | SEO landing pages in Italian, English and German |
 | `/links` | Instagram link-in-bio (`noindex`) |
@@ -36,23 +36,64 @@ npm start          # serve the production build
 | What | File |
 |------|------|
 | Business identity, phones, emails, VAT, address | `src/lib/site.ts` |
-| Vehicles (seats, luggage, hourly rate, photo) | `src/lib/data.ts`; photos in `public/fleet/` (see the README there) |
+| Vehicles (seats, luggage, hourly rate, photo) | `src/lib/data.ts`; photos in `public/fleet/` (see the README there: after replacing a photo run `npm run fleet:prepare`) |
 | Fixed fares and estimate rules | `src/lib/pricing.ts` — shared by the estimator, the booking wizard and the service pages |
 | Per-service setup (booking type, recommended vehicles, routes, FAQ, Italian SEO) | `src/lib/servicePages.ts` |
 | Per-vehicle Italian SEO | `src/lib/fleetSeo.ts` |
 | Map destinations, distances and times (indicative estimates) | `src/lib/coverage.ts` (`coverageGeo.ts` is generated geometry — don't edit by hand) |
+| Places the booking app recognises (names in 7 languages, hotels, stations) | `src/lib/places.ts` |
 | Interface copy, in 7 languages | `src/i18n/dictionaries/*.ts`, typed by `src/i18n/types.ts` (TypeScript flags a missing key) |
 | FAQ, blog, city and international landings, legal pages | `src/lib/faq.ts`, `src/lib/blog/`, `src/lib/locations.ts`, `src/lib/intlLandings.ts`, `src/lib/legal.ts` |
 | Remote photos (heroes, services, blog) | `src/lib/images.ts` — Unsplash for now; swap in your own photos when available |
 
-### Booking flow
+### Booking app
 
-Every "Book" entry point (home quick form, service and vehicle pages, map
-routes, pricing estimator, fleet finder) opens the wizard at `/contact#prenota`
-pre-filled through the query string (`type`, `from`, `to`, `hours`, `date`,
-`time`, `pax`, `car`). The wizard keeps a draft in `sessionStorage` and submits
-to `/api/quote` with the same payload as before, so the email template and the
-SES/WhatsApp/mailto delivery are unchanged.
+Booking is a small app built with [Konsta UI](https://konstaui.com) (iOS
+look, themed in the site's ink and DM Sans), the same stack as the woo-hub
+Vetrina: Konsta for lists, segmented controls and toggles,
+`react-modal-sheet` for the swipeable sheet, Motion for its animations and
+Sonner for the toasts.
+
+- **Where it opens.** Every "Book" link on the site (header, mobile bar,
+  hero form, service and vehicle pages, map routes, pricing estimator,
+  showroom) still points at `/contact#prenota` with the trip in the query
+  string (`type`, `from`, `to`, `hours`, `date`, `time`, `pax`, `car`).
+  `src/components/booking/BookingProvider.tsx` intercepts the click and opens
+  the app in place instead: a full-height bottom sheet on phones (swipe down
+  to close, keyboard-aware), a floating drawer on desktop. The phone's back
+  button closes it. Without JavaScript, in a new tab or on `/contact` itself
+  the link simply lands on the inline app.
+- **Steps.** Trip (type, pickup and destination with place suggestions, live
+  map, date, time, flight number for airport transfers) → vehicle (Uber-style
+  list with the price for this trip) → contact details (with the meet & greet
+  name sign for airport pickups) → review as a boarding pass → WhatsApp or
+  email. The draft is kept in `sessionStorage` for the tab.
+- **Delivery is unchanged.** It posts the same payload to `/api/quote`, plus
+  an optional `flight` field that the operator email and the customer
+  confirmation now show.
+- **The trip map** (`app/TripMap.tsx`) reuses the coverage map geometry: no
+  map tiles, no API keys, nothing leaves the site. Places are recognised from
+  free text by `src/lib/places.ts`; distances and times are the curated ones
+  from central Milan, otherwise an estimate, always shown as indicative.
+- **Prices.** Hourly service: rate × hours. The fixed Milan–Malpensa fare
+  (`FIXED_FARES` in `src/lib/pricing.ts`) applies between Milan and Malpensa
+  in the sedan it is quoted for (`FIXED_FARE_VEHICLE`, the Classe E); other
+  routes and vehicles show the hourly rate and are quoted by the operator.
+
+### Fleet showroom
+
+`src/components/fleet/Showroom.tsx` (on `/fleet` and the home page) and
+`CarStage.tsx` (also the vehicle pages): the car stands in a pool of light on
+the ink floor, with its reflection and the model name behind it. Changing car
+drives the old one off and the new one in; it brakes and settles, its figures
+count up and a light sweep runs over the paint. Everything is CSS (no 3D, no
+extra script on the page) and `prefers-reduced-motion` turns it into a plain
+swap.
+
+The stage needs to know where the car sits in each photo:
+`scripts/prepare-fleet-photos.mjs` (`npm run fleet:prepare`) measures it into
+`src/lib/fleetPhotos.ts` and cuts the silhouettes used by the light sweep
+(`public/fleet/silhouettes/`). Run it after replacing a photo.
 
 ### Design system
 
@@ -60,7 +101,10 @@ Tokens live in the `@theme` block of `src/app/globals.css`: the ink / ivory /
 champagne-gold palette, Cormorant Garamond for display type and DM Sans for
 text, plus shared classes (`.btn`, `.card`, `.chip`, `.field`, `.input`,
 `.eyebrow`, `.reveal`). Scroll reveals are CSS-only and respect
-`prefers-reduced-motion`.
+`prefers-reduced-motion`. Konsta's theme is imported there too: its iOS
+font and primary colour are mapped to DM Sans and ink (`--font-ios`,
+`--color-brand-primary`), and the booking/showroom classes sit in the
+components layer so utilities can override them.
 
 ### Languages
 
@@ -148,7 +192,7 @@ docker compose up -d --build      # rebuild + recreate, zero Caddy changes
 
 ## Email / form delivery
 
-On submit, the booking/contact forms open a modal with two channels:
+The last step of the booking app offers two channels:
 
 - **WhatsApp** → a `wa.me` deep link to `SITE.whatsapp`, pre-filled, and
 - **Email** → posts the structured booking to `POST /api/quote`, which sends it
@@ -184,7 +228,7 @@ sandbox — in the sandbox SES only delivers to verified recipients. Once in
 production, `SES_TO_EMAIL` (and any Reply-To) can be any external address.
 
 **Graceful fallback:** if the SES vars are absent, `/api/quote` returns `503`
-and the modal falls back to a `mailto:` to `SITE.email`. So the site works with
+and the app falls back to a `mailto:` to `SITE.email`. So the site works with
 zero email infrastructure, and the WhatsApp channel is always available.
 `SITE` (`src/lib/site.ts`) remains the single source of truth for the public
 address; for delivery to an off-domain inbox without SES you can instead add a

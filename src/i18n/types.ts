@@ -232,24 +232,17 @@ export interface Dictionary {
     next: string;
     back: string;
     edit: string;
-    send: string;
     swap: string;
-    quickTo: string;
     typeTransfer: string;
-    typeTransferDesc: string;
     typeAirport: string;
-    typeAirportDesc: string;
     typeHourly: string;
-    typeHourlyDesc: string;
     vehiclePick: string;
-    vehicleLabel: string;
     /** "Up to {n} passengers" */
     capacityMax: string;
     childSeatHint: string;
     childSeatShort: string;
     phoneHint: string;
     notesHint: string;
-    notesPlaceholder: string;
     privacyBefore: string;
     privacyLink: string;
     privacyAfter: string;
@@ -324,7 +317,6 @@ export interface Dictionary {
     accent: string;
     description: string;
     finderTitle: string;
-    finderText: string;
     /** "{n} vehicles fit" */
     matches: string;
     matchOne: string;
@@ -529,7 +521,6 @@ export interface Dictionary {
     fixedMalpensa: string;
     busNote: string;
     customNote: string;
-    incomplete: string;
     disclaimer: string;
   };
   emailConfirmation: {
@@ -543,13 +534,53 @@ export interface Dictionary {
   };
   quoteModal: {
     title: string;
-    description: string;
-    sendEmail: string;
-    sendWhatsApp: string;
     close: string;
-    sending: string;
     sent: string;
     sentBody: string;
+  };
+  /** The booking app (sheet, drawer and the inline flow on /contact). */
+  booking: {
+    clear: string;
+    suggestions: string;
+    kinds: { airport: string; station: string; venue: string; city: string; lake: string; intl: string };
+    /** Names of the recognised places that are not on the coverage map. */
+    places: { centrale: string; fiera: string };
+    mapEmpty: string;
+    mapAddTo: string;
+    mapCustom: string;
+    /** "At your disposal · {h} h" */
+    mapHourly: string;
+    mapHourlyNoHours: string;
+    today: string;
+    tomorrow: string;
+    flight: string;
+    flightPlaceholder: string;
+    flightInfo: string;
+    notesPlaceholder: string;
+    priceFixed: string;
+    priceQuote: string;
+    yourTrip: string;
+    estimateShort: string;
+    atDisposal: string;
+    signPlaceholder: string;
+    signWelcome: string;
+    signCaption: string;
+    sentEmailBody: string;
+    sentWhatsAppTitle: string;
+    sentWhatsAppBody: string;
+    sentMailtoTitle: string;
+    sentMailtoBody: string;
+    reopenWhatsApp: string;
+    newRequest: string;
+  };
+  /** Fleet showroom (/fleet, home page). */
+  showroom: {
+    prev: string;
+    next: string;
+    /** Label of the model selector. */
+    pick: string;
+    details: string;
+    swipe: string;
   };
   formErrors: {
     invalidEmail: string;

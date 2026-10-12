@@ -7,14 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "fleet:prepare": "node scripts/prepare-fleet-photos.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1057.0",
+    "konsta": "5.5.0",
     "lucide-react": "^0.460.0",
+    "motion": "13.4.6",
     "next": "^16.2.6",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-modal-sheet": "5.6.0",
+    "sonner": "2.0.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",

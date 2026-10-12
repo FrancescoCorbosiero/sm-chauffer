@@ -22,8 +22,8 @@ export default function HomePage() {
       <HomeHero />
       <StatsBand />
       <ServicesShowcase />
-      <HowItWorks />
       <FleetShowcase />
+      <HowItWorks tone="light" />
       <CoverageTeaser />
       <PricingTeaser />
       <Testimonials />

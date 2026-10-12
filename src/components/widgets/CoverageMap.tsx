@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ArrowUp, Building2, Clock3, Globe2, MapPin, Plane, Route, Waves } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
@@ -16,6 +16,7 @@ import {
   type CoveragePoint,
 } from '@/lib/coverage';
 import { bookingHref } from '@/lib/booking';
+import { useMotionAllowed } from '@/lib/hooks';
 
 type Filter = 'all' | CoverageGroup;
 
@@ -42,6 +43,9 @@ const LABEL_POS: Record<NonNullable<CoveragePoint['label']>, string> = {
   top: 'bottom-full left-1/2 -translate-x-1/2 -mb-1',
   bottom: 'top-full left-1/2 -translate-x-1/2 -mt-1',
 };
+
+/** SMIL starts at document time; restart the route car when it appears. */
+const startMotion = (el: SVGAnimateMotionElement | null) => el?.beginElement();
 
 /** Quadratic arc from the hub to a point, bowed to the left of travel. */
 function arc(to: { x: number; y: number }): string {
@@ -73,6 +77,20 @@ export default function CoverageMap({
   const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const [filter, setFilter] = useState<Filter>('all');
   const [selectedId, setSelectedId] = useState(defaultId);
+  // The route car is client-only: before hydration its SMIL clock is not running.
+  const moving = useMotionAllowed();
+  // Map units per CSS pixel, so the car on the route keeps its size on screen.
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [upp, setUpp] = useState(1.25);
+  useEffect(() => {
+    const el = mapRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width > 0) setUpp(W / entry.contentRect.width);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const inFilter = (p: CoveragePoint, f: Filter) => p.id === HUB_ID || f === 'all' || p.group === f;
   const visible = COVERAGE_POINTS.filter((p) => inFilter(p, filter));
@@ -124,6 +142,7 @@ export default function CoverageMap({
 
   const map = (
     <div
+      ref={mapRef}
       role="group"
       aria-label={c.mapLabel}
       className="relative isolate w-full overflow-clip rounded-2xl border border-white/10 bg-[#0d0d10]"
@@ -183,21 +202,43 @@ export default function CoverageMap({
             />
           ))}
         {!isHubSelected && (
-          <path
-            key={selected.id}
-            d={arc(selPos)}
-            fill="none"
-            stroke="#ffffff"
-            strokeLinecap="round"
-            pathLength={1}
-            className="[stroke-width:5] md:[stroke-width:3]"
-            style={{
-              strokeDasharray: 1,
-              strokeDashoffset: 0,
-              animation: 'draw-line 0.9s cubic-bezier(0.22,1,0.36,1) both',
-              ['--len' as string]: 1,
-            }}
-          />
+          <g key={selected.id}>
+            <path
+              id={`${uid}-route`}
+              d={arc(selPos)}
+              fill="none"
+              stroke="#ffffff"
+              strokeLinecap="round"
+              pathLength={1}
+              className="[stroke-width:5] md:[stroke-width:3]"
+              style={{
+                strokeDasharray: 1,
+                strokeDashoffset: 0,
+                animation: 'draw-line 0.9s cubic-bezier(0.22,1,0.36,1) both',
+                ['--len' as string]: 1,
+              }}
+            />
+            {/* A car travels the route, from Milan to the destination. */}
+            {moving && (
+              <g>
+                <circle r={10 * upp} fill="rgba(255,255,255,0.22)" />
+                <rect x={-7 * upp} y={-3.6 * upp} width={14 * upp} height={7.2 * upp} rx={3 * upp} fill="#fff" />
+                <rect x={3.2 * upp} y={-2.6 * upp} width={2.2 * upp} height={5.2 * upp} rx={upp} fill="#0d0d10" opacity="0.55" />
+                <animateMotion
+                  ref={startMotion}
+                  begin="indefinite"
+                  dur="4.6s"
+                  repeatCount="indefinite"
+                  rotate="auto"
+                  keyPoints="0;0;1;1"
+                  keyTimes="0;0.18;0.82;1"
+                  calcMode="linear"
+                >
+                  <mpath href={`#${uid}-route`} />
+                </animateMotion>
+              </g>
+            )}
+          </g>
         )}
       </svg>
 

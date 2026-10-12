@@ -25,9 +25,9 @@ export const IMAGES = {
     contact: u('1606664515524-ed2f786a0bd6', 1920),
   },
 
-  // Fleet vehicle photos — served locally from public/fleet/. Each file is a
-  // branded placeholder; replace it in place (same filename) with the real car
-  // photo and the site picks it up with no code change. See public/fleet/README.md.
+  // Fleet vehicle photos — served locally from public/fleet/. To change one,
+  // replace the file in place (same filename) and run `npm run fleet:prepare`
+  // so the showroom frames it. See public/fleet/README.md.
   fleet: {
     sClass: '/fleet/mercedes-s-class.jpg',
     eClass: '/fleet/mercedes-e-class.jpg',

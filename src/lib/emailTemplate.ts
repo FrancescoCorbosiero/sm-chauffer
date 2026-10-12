@@ -66,6 +66,7 @@ export function renderConfirmationEmail(payload: ContactPayload, locale: Locale)
     [secondLabel, payload.to],
     [bf.date, payload.date],
     [f.pickupTime, payload.time],
+    [t.booking.flight, payload.flight],
     [f.passengers, payload.passengers],
     [f.bags, payload.bags],
     [f.childSeat, payload.childSeat ? f.yes : f.no],
