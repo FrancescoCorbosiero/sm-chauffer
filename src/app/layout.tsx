@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { DM_Sans, Inter_Tight } from 'next/font/google';
+import { Cormorant_Garamond, DM_Sans } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
 import Footer from '@/components/layout/Footer';
 import MobileActionBar from '@/components/layout/MobileActionBar';
@@ -14,10 +14,11 @@ import SkipLink from '@/components/layout/SkipLink';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
 
-const interTight = Inter_Tight({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin', 'cyrillic'],
-  weight: ['500', '600', '700'],
-  variable: '--font-inter-tight',
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
   display: 'swap',
 });
 
@@ -127,7 +128,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${interTight.variable} ${dmSans.variable}`}>
+    <html lang="it" className={`${cormorant.variable} ${dmSans.variable}`}>
       <head>
         {/* Warm up the connection to the image CDN for a faster hero LCP. */}
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />

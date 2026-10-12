@@ -45,7 +45,7 @@
   --color-accent-hover: #2a2a30;
   --color-accent-soft: rgba(12, 12, 14, 0.06);
 
-  --font-display: var(--font-inter-tight), "Inter Tight", system-ui, sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: var(--font-sans);
 
@@ -117,9 +117,9 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.012em;
     text-wrap: balance;
   }
 
