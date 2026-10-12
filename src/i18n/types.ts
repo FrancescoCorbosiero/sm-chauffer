@@ -213,6 +213,43 @@ export interface Dictionary {
     tableDescription: string;
     colDestination: string;
   };
+  /** Four-step booking wizard on /contact. */
+  wizard: {
+    eyebrow: string;
+    title: string;
+    accent: string;
+    description: string;
+    steps: { trip: string; vehicle: string; details: string; review: string };
+    titles: { trip: string; vehicle: string; details: string; review: string };
+    /** "Step {n} of {total}" */
+    stepOf: string;
+    next: string;
+    back: string;
+    edit: string;
+    send: string;
+    swap: string;
+    quickTo: string;
+    typeTransfer: string;
+    typeTransferDesc: string;
+    typeAirport: string;
+    typeAirportDesc: string;
+    typeHourly: string;
+    typeHourlyDesc: string;
+    vehiclePick: string;
+    vehicleLabel: string;
+    /** "Up to {n} passengers" */
+    capacityMax: string;
+    childSeatHint: string;
+    childSeatShort: string;
+    phoneHint: string;
+    notesHint: string;
+    notesPlaceholder: string;
+    privacyBefore: string;
+    privacyLink: string;
+    privacyAfter: string;
+    reviewNote: string;
+    errors: { required: string; pastDate: string; phone: string; vehicle: string; capacity: string };
+  };
   fleetPreview: {
     label: string;
     title: string;
@@ -311,7 +348,21 @@ export interface Dictionary {
   contactPage: {
     label: string;
     title: string;
+    accent: string;
     description: string;
+    phoneDesc: string;
+    openChat: string;
+    emailDesc: string;
+    instagramDesc: string;
+    asideTitle: string;
+    asideItems: string[];
+    callTitle: string;
+    callText: string;
+    companyTitle: string;
+    companyOwner: string;
+    companyVat: string;
+    companyTax: string;
+    invoiceNote: string;
     name: string;
     phone: string;
     email: string;
