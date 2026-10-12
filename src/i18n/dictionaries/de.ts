@@ -32,6 +32,10 @@ const de: Dictionary = {
       title: 'Einsatzgebiete | Transfer Luxury Driver',
       description: 'Mailand, Brianza, Comer See, Flughäfen und Schweiz: Karte der Einsatzgebiete mit Richtwerten.',
     },
+    pricing: {
+      title: 'Preise | Transfer Luxury Driver',
+      description: 'Festpreis Mailand–Malpensa, Stundenpreise je Fahrzeug und individuelle Angebote: klare Preise, vor der Fahrt vereinbart.',
+    },
   },
   skipToContent: 'Zum Inhalt springen',
   nav: {
@@ -176,6 +180,48 @@ const de: Dictionary = {
     groupsValue: 'Individuell',
     groupsNote: 'V-Klasse für bis zu 7 Fahrgäste, Kleinbus mit 18 Sitzen auf Anfrage.',
     cta: 'Alle Preise ansehen',
+  },
+  pricingPage: {
+    description: 'Festpreis auf der Strecke Mailand–Malpensa, Stundenservice mit eigenem Chauffeur und individuelle Angebote für Gruppen und Auslandsfahrten. Kein Taxameter, keine Überraschungen.',
+    estimatorLabel: 'Preisrechner',
+    estimatorTitle: 'Preis schätzen',
+    estimatorAccent: 'in Sekunden.',
+    estimatorText: 'Festpreis für Mailand–Malpensa und Stundenpreise je Fahrzeug: Für jede andere Strecke erhalten Sie ein individuelles Angebot.',
+    routeLabel: 'Von Mailand nach',
+    otherRoute: 'Anderes Ziel',
+    bookWith: 'Mit diesen Angaben buchen',
+    ratesTitle: 'Stundenpreise',
+    ratesAccent: 'je Fahrzeug.',
+    ratesText: 'Ein eigener Chauffeur, der Ihnen während der gesamten gebuchten Zeit zur Verfügung steht.',
+    includedLabel: 'Immer inklusive',
+    includedTitle: 'Im Preis enthalten –',
+    includedAccent: 'ohne Überraschungen.',
+    included: [
+      {
+        title: 'Vereinbarter Preis',
+        text: 'Kein Taxameter: Der Preis wird bei der Buchung festgelegt.',
+      },
+      {
+        title: 'Wartezeit bei Flugverspätung',
+        text: 'Wir verfolgen Ihren Flug: Eine Wartezeit ist immer inklusive, ohne Aufpreis.',
+      },
+      {
+        title: 'Professioneller Chauffeur',
+        text: 'Diskret, pünktlich und englischsprachig.',
+      },
+      {
+        title: 'Premium-Versicherung',
+        text: 'Lizenzierter Chauffeur-Service mit Premium-Versicherungsschutz auf jeder Fahrt.',
+      },
+      {
+        title: 'Elektronische Rechnung',
+        text: 'Für Unternehmen und Selbstständige, mit allen Steuerdaten.',
+      },
+      {
+        title: 'Erreichbar rund um die Uhr',
+        text: 'Wir antworten zu jeder Uhrzeit per WhatsApp, Telefon oder E-Mail.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Ihre nächste Fahrt,',

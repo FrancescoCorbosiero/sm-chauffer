@@ -34,6 +34,7 @@ export interface Dictionary {
     blog: { title: string; description: string };
     contact: { title: string; description: string };
     areas: { title: string; description: string };
+    pricing: { title: string; description: string };
   };
   skipToContent: string;
   nav: {
@@ -174,6 +175,24 @@ export interface Dictionary {
     description: string;
   };
   /** Coverage map widget (home teaser + /areas). */
+  /** /pricing page (title and accent come from pricingTeaser). */
+  pricingPage: {
+    description: string;
+    estimatorLabel: string;
+    estimatorTitle: string;
+    estimatorAccent: string;
+    estimatorText: string;
+    routeLabel: string;
+    otherRoute: string;
+    bookWith: string;
+    ratesTitle: string;
+    ratesAccent: string;
+    ratesText: string;
+    includedLabel: string;
+    includedTitle: string;
+    includedAccent: string;
+    included: Array<{ title: string; text: string }>;
+  };
   coverage: {
     label: string;
     title: string;

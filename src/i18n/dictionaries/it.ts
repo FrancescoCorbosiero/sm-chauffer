@@ -32,6 +32,10 @@ const it: Dictionary = {
       title: 'Zone servite | Transfer Luxury Driver',
       description: 'Milano, Brianza, Lago di Como, aeroporti e Svizzera: mappa delle zone servite con distanze e tempi indicativi.',
     },
+    pricing: {
+      title: 'Tariffe | Transfer Luxury Driver',
+      description: 'Tariffa fissa Milano–Malpensa, tariffe orarie per vettura e preventivi su misura: prezzi chiari, concordati prima di partire.',
+    },
   },
   skipToContent: 'Salta al contenuto',
   nav: {
@@ -176,6 +180,48 @@ const it: Dictionary = {
     groupsValue: 'Su misura',
     groupsNote: 'Classe V fino a 7 passeggeri, minibus da 18 posti su preventivo.',
     cta: 'Tutte le tariffe',
+  },
+  pricingPage: {
+    description: 'Tariffa fissa sulla tratta Milano–Malpensa, servizio a ore con autista dedicato e preventivi su misura per gruppi e viaggi all’estero. Nessun tassametro, nessuna sorpresa.',
+    estimatorLabel: 'Simulatore',
+    estimatorTitle: 'Calcola una stima',
+    estimatorAccent: 'in pochi secondi.',
+    estimatorText: 'Tariffa fissa per Milano–Malpensa e tariffe orarie per vettura: per ogni altra tratta ti inviamo un preventivo su misura.',
+    routeLabel: 'Da Milano a',
+    otherRoute: 'Altra destinazione',
+    bookWith: 'Prenota con questi dati',
+    ratesTitle: 'Tariffe orarie',
+    ratesAccent: 'per vettura.',
+    ratesText: 'Autista dedicato e a disposizione per tutto il tempo prenotato.',
+    includedLabel: 'Sempre incluso',
+    includedTitle: 'Nel prezzo,',
+    includedAccent: 'senza sorprese.',
+    included: [
+      {
+        title: 'Prezzo concordato',
+        text: 'Nessun tassametro: la tariffa è fissata al momento della prenotazione.',
+      },
+      {
+        title: 'Attesa per i ritardi del volo',
+        text: 'Monitoriamo il volo: un margine di attesa è sempre incluso, senza costi extra.',
+      },
+      {
+        title: 'Autista professionista',
+        text: 'Discreto, puntuale e in grado di parlare inglese.',
+      },
+      {
+        title: 'Assicurazione premium',
+        text: 'NCC autorizzato con copertura assicurativa premium per ogni viaggio.',
+      },
+      {
+        title: 'Fattura elettronica',
+        text: 'Per aziende e professionisti, con tutti i dati fiscali.',
+      },
+      {
+        title: 'Assistenza 24/7',
+        text: 'Rispondiamo a qualsiasi ora via WhatsApp, telefono o email.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Il tuo prossimo viaggio,',

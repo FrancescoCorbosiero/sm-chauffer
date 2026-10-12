@@ -32,6 +32,10 @@ const es: Dictionary = {
       title: 'Zonas de servicio | Transfer Luxury Driver',
       description: 'Milán, Brianza, Lago de Como, aeropuertos y Suiza: mapa de zonas con distancias y tiempos orientativos.',
     },
+    pricing: {
+      title: 'Tarifas | Transfer Luxury Driver',
+      description: 'Tarifa fija Milán–Malpensa, tarifas por hora por vehículo y presupuestos a medida: precios claros, acordados antes de salir.',
+    },
   },
   skipToContent: 'Saltar al contenido',
   nav: {
@@ -176,6 +180,48 @@ const es: Dictionary = {
     groupsValue: 'A medida',
     groupsNote: 'Clase V hasta 7 pasajeros, minibús de 18 plazas bajo presupuesto.',
     cta: 'Ver todas las tarifas',
+  },
+  pricingPage: {
+    description: 'Tarifa fija en el trayecto Milán–Malpensa, servicio por horas con conductor dedicado y presupuestos a medida para grupos y viajes al extranjero. Sin taxímetro ni sorpresas.',
+    estimatorLabel: 'Simulador',
+    estimatorTitle: 'Calcula una estimación',
+    estimatorAccent: 'en pocos segundos.',
+    estimatorText: 'Tarifa fija para Milán–Malpensa y tarifas por hora según el vehículo: para cualquier otro trayecto te enviamos un presupuesto a medida.',
+    routeLabel: 'De Milán a',
+    otherRoute: 'Otro destino',
+    bookWith: 'Reservar con estos datos',
+    ratesTitle: 'Tarifas por hora',
+    ratesAccent: 'por vehículo.',
+    ratesText: 'Conductor dedicado a tu disposición durante todo el tiempo reservado.',
+    includedLabel: 'Siempre incluido',
+    includedTitle: 'En el precio,',
+    includedAccent: 'sin sorpresas.',
+    included: [
+      {
+        title: 'Precio acordado',
+        text: 'Sin taxímetro: la tarifa se fija al reservar.',
+      },
+      {
+        title: 'Espera por retrasos del vuelo',
+        text: 'Seguimos tu vuelo: siempre se incluye un margen de espera, sin coste adicional.',
+      },
+      {
+        title: 'Conductor profesional',
+        text: 'Discreto, puntual y con dominio del inglés.',
+      },
+      {
+        title: 'Seguro premium',
+        text: 'Servicio con licencia y cobertura de seguro premium en cada viaje.',
+      },
+      {
+        title: 'Factura electrónica',
+        text: 'Para empresas y profesionales, con todos los datos fiscales.',
+      },
+      {
+        title: 'Asistencia 24/7',
+        text: 'Respondemos a cualquier hora por WhatsApp, teléfono o email.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Tu próximo viaje,',

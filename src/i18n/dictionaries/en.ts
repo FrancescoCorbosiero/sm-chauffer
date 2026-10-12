@@ -32,6 +32,10 @@ const en: Dictionary = {
       title: 'Areas served | Transfer Luxury Driver',
       description: 'Milan, Brianza, Lake Como, the airports and Switzerland: coverage map with indicative distances and times.',
     },
+    pricing: {
+      title: 'Rates | Transfer Luxury Driver',
+      description: 'Fixed Milan–Malpensa fare, hourly rates by vehicle and tailored quotes: clear prices, agreed before departure.',
+    },
   },
   skipToContent: 'Skip to content',
   nav: {
@@ -176,6 +180,48 @@ const en: Dictionary = {
     groupsValue: 'Tailored',
     groupsNote: 'V-Class for up to 7 passengers, 18-seat minibus quoted on request.',
     cta: 'See all prices',
+  },
+  pricingPage: {
+    description: 'A fixed fare on the Milan–Malpensa route, hourly service with a dedicated chauffeur and tailored quotes for groups and trips abroad. No meter, no surprises.',
+    estimatorLabel: 'Estimator',
+    estimatorTitle: 'Get an estimate',
+    estimatorAccent: 'in seconds.',
+    estimatorText: 'Fixed fare for Milan–Malpensa and hourly rates by vehicle: for any other route we send you a tailored quote.',
+    routeLabel: 'From Milan to',
+    otherRoute: 'Other destination',
+    bookWith: 'Book with these details',
+    ratesTitle: 'Hourly rates',
+    ratesAccent: 'by vehicle.',
+    ratesText: 'A dedicated chauffeur at your disposal for the whole time booked.',
+    includedLabel: 'Always included',
+    includedTitle: 'In the price,',
+    includedAccent: 'no surprises.',
+    included: [
+      {
+        title: 'Agreed price',
+        text: 'No meter: the fare is set when you book.',
+      },
+      {
+        title: 'Waiting for flight delays',
+        text: 'We track your flight: a waiting margin is always included, at no extra cost.',
+      },
+      {
+        title: 'Professional chauffeur',
+        text: 'Discreet, punctual and English-speaking.',
+      },
+      {
+        title: 'Premium insurance',
+        text: 'A licensed chauffeur service with premium insurance cover on every ride.',
+      },
+      {
+        title: 'E-invoicing',
+        text: 'For companies and professionals, with all tax details.',
+      },
+      {
+        title: '24/7 assistance',
+        text: 'We answer at any hour on WhatsApp, by phone or by email.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Your next journey,',

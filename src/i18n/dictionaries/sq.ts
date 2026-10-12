@@ -32,6 +32,10 @@ const sq: Dictionary = {
       title: 'Zonat e shërbimit | Transfer Luxury Driver',
       description: 'Milano, Brianza, Liqeni i Komos, aeroportet dhe Zvicra: harta e zonave me distanca dhe kohë orientuese.',
     },
+    pricing: {
+      title: 'Tarifat | Transfer Luxury Driver',
+      description: 'Tarifë fikse Milano–Malpensa, tarifa për orë sipas automjetit dhe oferta të personalizuara: çmime të qarta, të rëna dakord para nisjes.',
+    },
   },
   skipToContent: 'Kalo te përmbajtja',
   nav: {
@@ -176,6 +180,48 @@ const sq: Dictionary = {
     groupsValue: 'Me porosi',
     groupsNote: 'Klasa V deri në 7 pasagjerë, minibus me 18 vende me ofertë.',
     cta: 'Shiko të gjitha tarifat',
+  },
+  pricingPage: {
+    description: 'Tarifë fikse në itinerarin Milano–Malpensa, shërbim me orë me shofer të dedikuar dhe oferta të personalizuara për grupe dhe udhëtime jashtë vendit. Pa taksimetër, pa surpriza.',
+    estimatorLabel: 'Llogaritësi',
+    estimatorTitle: 'Llogarit një vlerësim',
+    estimatorAccent: 'në pak sekonda.',
+    estimatorText: 'Tarifë fikse për Milano–Malpensa dhe tarifa për orë sipas automjetit: për çdo itinerar tjetër të dërgojmë një ofertë të personalizuar.',
+    routeLabel: 'Nga Milano në',
+    otherRoute: 'Destinacion tjetër',
+    bookWith: 'Rezervo me këto të dhëna',
+    ratesTitle: 'Tarifat për orë',
+    ratesAccent: 'sipas automjetit.',
+    ratesText: 'Shofer i dedikuar në dispozicion për gjithë kohën e rezervuar.',
+    includedLabel: 'Gjithmonë i përfshirë',
+    includedTitle: 'Në çmim,',
+    includedAccent: 'pa surpriza.',
+    included: [
+      {
+        title: 'Çmim i rënë dakord',
+        text: 'Pa taksimetër: tarifa caktohet në momentin e rezervimit.',
+      },
+      {
+        title: 'Pritje për vonesat e fluturimit',
+        text: 'Ndjekim fluturimin: një kohë pritjeje përfshihet gjithmonë, pa kosto shtesë.',
+      },
+      {
+        title: 'Shofer profesionist',
+        text: 'Diskret, i përpiktë dhe flet anglisht.',
+      },
+      {
+        title: 'Sigurim premium',
+        text: 'Shërbim i licencuar me mbulim sigurimi premium në çdo udhëtim.',
+      },
+      {
+        title: 'Faturë elektronike',
+        text: 'Për kompani dhe profesionistë, me të gjitha të dhënat fiskale.',
+      },
+      {
+        title: 'Asistencë 24/7',
+        text: 'Përgjigjemi në çdo orë në WhatsApp, telefon ose email.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Udhëtimi yt i radhës,',

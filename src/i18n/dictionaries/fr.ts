@@ -32,6 +32,10 @@ const fr: Dictionary = {
       title: 'Zones desservies | Transfer Luxury Driver',
       description: 'Milan, Brianza, lac de Côme, aéroports et Suisse : carte des zones avec distances et temps indicatifs.',
     },
+    pricing: {
+      title: 'Tarifs | Transfer Luxury Driver',
+      description: 'Tarif fixe Milan–Malpensa, tarifs horaires par véhicule et devis sur mesure : des prix clairs, convenus avant le départ.',
+    },
   },
   skipToContent: 'Aller au contenu',
   nav: {
@@ -176,6 +180,48 @@ const fr: Dictionary = {
     groupsValue: 'Sur mesure',
     groupsNote: 'Classe V jusqu’à 7 passagers, minibus de 18 places sur devis.',
     cta: 'Voir tous les tarifs',
+  },
+  pricingPage: {
+    description: 'Tarif fixe sur le trajet Milan–Malpensa, service à l’heure avec chauffeur dédié et devis sur mesure pour les groupes et les voyages à l’étranger. Pas de compteur, pas de surprise.',
+    estimatorLabel: 'Simulateur',
+    estimatorTitle: 'Obtenez une estimation',
+    estimatorAccent: 'en quelques secondes.',
+    estimatorText: 'Tarif fixe pour Milan–Malpensa et tarifs horaires par véhicule : pour tout autre trajet, nous vous envoyons un devis sur mesure.',
+    routeLabel: 'De Milan à',
+    otherRoute: 'Autre destination',
+    bookWith: 'Réserver avec ces informations',
+    ratesTitle: 'Tarifs horaires',
+    ratesAccent: 'par véhicule.',
+    ratesText: 'Un chauffeur dédié à votre disposition pendant toute la durée réservée.',
+    includedLabel: 'Toujours inclus',
+    includedTitle: 'Dans le prix,',
+    includedAccent: 'sans surprise.',
+    included: [
+      {
+        title: 'Prix convenu',
+        text: 'Pas de compteur : le tarif est fixé lors de la réservation.',
+      },
+      {
+        title: 'Attente en cas de retard du vol',
+        text: 'Nous suivons votre vol : une marge d’attente est toujours incluse, sans supplément.',
+      },
+      {
+        title: 'Chauffeur professionnel',
+        text: 'Discret, ponctuel et anglophone.',
+      },
+      {
+        title: 'Assurance premium',
+        text: 'Service de chauffeur agréé avec une couverture d’assurance premium à chaque trajet.',
+      },
+      {
+        title: 'Facture électronique',
+        text: 'Pour les entreprises et les professionnels, avec toutes les informations fiscales.',
+      },
+      {
+        title: 'Assistance 24h/24',
+        text: 'Nous répondons à toute heure par WhatsApp, téléphone ou e-mail.',
+      },
+    ],
   },
   ctaBand: {
     title: 'Votre prochain trajet,',
