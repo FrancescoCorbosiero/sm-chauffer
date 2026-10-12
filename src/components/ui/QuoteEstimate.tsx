@@ -1,10 +1,11 @@
 'use client';
+import { Calculator } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageProvider';
 import type { Estimate } from '@/lib/pricing';
 
 /**
- * Live price estimate shown under the booking/contact forms. Updates as the
- * user fills the form; announces changes politely for screen readers.
+ * Live price estimate shown in the booking flow. Updates as the visitor
+ * fills the form; announces changes politely for screen readers.
  */
 export default function QuoteEstimate({
   estimate,
@@ -17,80 +18,50 @@ export default function QuoteEstimate({
   const q = t.quote;
   const perHour = t.fleetCard.perHour;
 
-  const label = (
-    <div className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-faint)]">
-      {q.estimate}
-    </div>
-  );
-
-  let body: React.ReactNode;
+  let value: React.ReactNode = null;
+  let note: string | null = null;
   let showDisclaimer = false;
 
   switch (estimate.kind) {
     case 'incomplete':
-      body = <span className="text-sm text-[var(--color-text-muted)]">{q.incomplete}</span>;
+      note = q.incomplete;
       break;
     case 'hourly':
       showDisclaimer = true;
-      body = (
-        <div className="flex items-baseline justify-between gap-3">
-          <div>
-            {label}
-            <span className="text-2xl font-medium text-[var(--color-ink)]">€{estimate.amount}</span>
-          </div>
-          <span className="text-xs text-[var(--color-text-muted)] whitespace-nowrap">
-            {estimate.hours} × €{estimate.rate}
-            {perHour}
-          </span>
-        </div>
-      );
+      value = `€${estimate.amount}`;
+      note = `${estimate.hours} × €${estimate.rate}${perHour}`;
       break;
     case 'hourly-rate':
-      body = (
-        <div className="flex items-baseline justify-between gap-3">
-          {label}
-          <span className="text-lg font-medium text-[var(--color-ink)]">
-            {t.fleetCard.from} €{estimate.rate}
-            {perHour}
-          </span>
-        </div>
+      value = (
+        <>
+          <span className="mr-1.5 font-sans text-sm font-medium text-muted">{t.fleetCard.from}</span>€{estimate.rate}
+          <span className="font-sans text-sm text-muted">{perHour}</span>
+        </>
       );
       break;
     case 'fixed':
       showDisclaimer = true;
-      body = (
-        <div className="flex items-baseline justify-between gap-3">
-          <div>
-            {label}
-            <span className="text-2xl font-medium text-[var(--color-ink)]">€{estimate.amount}</span>
-          </div>
-          <span className="text-xs text-[var(--color-text-muted)] text-right">{q.fixedMalpensa}</span>
-        </div>
-      );
+      value = `€${estimate.amount}`;
+      note = q.fixedMalpensa;
       break;
     case 'on-request':
-      body = (
-        <div className="flex items-baseline justify-between gap-3">
-          {label}
-          <span className="text-sm font-medium text-[var(--color-ink)] text-right">
-            {estimate.reason === 'bus' ? q.busNote : q.customNote}
-          </span>
-        </div>
-      );
+      note = estimate.reason === 'bus' ? q.busNote : q.customNote;
       break;
   }
 
   return (
-    <div
-      aria-live="polite"
-      className={`rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 ${className}`}
-    >
-      {body}
-      {showDisclaimer && (
-        <p className="mt-1.5 text-[11px] leading-snug text-[var(--color-text-faint)]">
-          {q.disclaimer}
-        </p>
-      )}
+    <div aria-live="polite" className={`rounded-2xl border border-line bg-ivory px-5 py-4 ${className}`.trim()}>
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-gold-deep">
+            <Calculator size={14} aria-hidden />
+            {q.estimate}
+          </p>
+          {note && <p className="mt-1.5 text-sm text-muted">{note}</p>}
+        </div>
+        {value && <p className="shrink-0 font-display text-[2rem] leading-none text-ink tabular">{value}</p>}
+      </div>
+      {showDisclaimer && <p className="mt-2.5 text-xs leading-snug text-faint">{q.disclaimer}</p>}
     </div>
   );
 }

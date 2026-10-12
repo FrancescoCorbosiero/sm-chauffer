@@ -1,35 +1,27 @@
-'use client';
-import { services } from '@/lib/data';
-import ServiceCard from '@/components/ui/ServiceCard';
-import PageHero from '@/components/ui/PageHero';
-import ScrollReveal from '@/components/ui/ScrollReveal';
-import { useTranslation } from '@/i18n/LanguageProvider';
-import { usePageTitle } from '@/i18n/usePageTitle';
-import { IMAGES } from '@/lib/images';
+import type { Metadata } from 'next';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
+import ServicesIndexView from '@/components/services/ServicesIndexView';
+
+export const metadata: Metadata = {
+  title: 'Servizi NCC a Milano e Brianza — transfer, autista, tour',
+  description:
+    'Transfer aeroportuali Malpensa, Linate e Orio al Serio, autista privato a Milano e Brianza, tour Lago di Como, trasferimenti internazionali e minibus. Servizio NCC 24/7.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title: 'Servizi NCC · Transfer Luxury Driver',
+    description:
+      'Transfer aeroportuali, autista privato a Milano e Brianza, tour del Lago di Como, trasferimenti internazionali e minibus per gruppi.',
+    url: '/services',
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+};
 
 export default function ServicesPage() {
-  const t = useTranslation();
-  usePageTitle(t.meta.services.title, t.meta.services.description);
-
   return (
     <>
-      <PageHero
-        label={t.servicesPage.label}
-        title={t.servicesPage.title}
-        description={t.servicesPage.description}
-        image={IMAGES.pageHeroes.services}
-      />
-      <section className="py-20 md:py-24 bg-[var(--color-surface)]">
-        <div className="container-x">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-5 md:gap-6">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.id} delay={(i % 3) * 0.08} className="h-full">
-                <ServiceCard service={s} index={i} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BreadcrumbJsonLd items={[{ name: 'Servizi', path: '/services' }]} />
+      <ServicesIndexView />
     </>
   );
 }

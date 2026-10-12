@@ -1,12 +1,18 @@
 'use client';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { ArrowUpRight, Instagram, Mail, Phone } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import type { Locale } from '@/i18n/types';
 import { LOCALE_NAMES } from '@/i18n/types';
+import Logo from './Logo';
+import LiveStatus from '@/components/ui/LiveStatus';
+import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { SITE } from '@/lib/site';
+import { services, vehicles } from '@/lib/data';
+import { vehicleName } from '@/lib/fleet';
 import { locations } from '@/lib/locations';
 import { intlLandingsFor } from '@/lib/intlLandings';
+import { mailHref, phoneLabel, telHref, whatsappHref } from '@/lib/contact';
 import { reopenConsent } from '@/components/analytics/ConsentBanner';
 
 // Legal/footer labels kept local (short strings, 7 langs) to avoid bloating the
@@ -21,249 +27,210 @@ const LEGAL: Record<Locale, { privacy: string; cookie: string; terms: string; pr
   ru: { privacy: 'Политика конфиденциальности', cookie: 'Политика cookie', terms: 'Условия', prefs: 'Настройки cookie' },
 };
 
-// Heading for the city/area landing-page links (one per locale).
-const ZONES_LABEL: Record<Locale, string> = {
-  it: 'Zone servite',
-  en: 'Areas served',
-  es: 'Zonas de servicio',
-  de: 'Einsatzgebiete',
-  fr: 'Zones desservies',
-  sq: 'Zonat e shërbimit',
-  ru: 'Зоны обслуживания',
-};
+interface FootLink {
+  href: string;
+  label: string;
+  hrefLang?: string;
+}
 
-// Heading for the international (EN/DE) landing-page links (one per locale).
-const INTL_LABEL: Record<Locale, string> = {
-  it: 'Per ospiti internazionali',
-  en: 'For international guests',
-  es: 'Para huéspedes internacionales',
-  de: 'Für internationale Gäste',
-  fr: 'Pour la clientèle internationale',
-  sq: 'Për mysafirët ndërkombëtarë',
-  ru: 'Для международных гостей',
-};
+function LinkColumn({
+  title,
+  links,
+  groups,
+  className = '',
+}: {
+  title: string;
+  links?: FootLink[];
+  groups?: Array<{ title: string; links: FootLink[] }>;
+  className?: string;
+}) {
+  const linkClass = 'text-[15px] text-white/70 transition-colors duration-200 hover:text-white';
+  const list = (items: FootLink[]) => (
+    <ul className="space-y-3">
+      {items.map((l) => (
+        <li key={l.href + l.label}>
+          <Link href={l.href} hrefLang={l.hrefLang} className={linkClass}>
+            {l.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+  return (
+    <nav aria-label={title} className={className}>
+      <h2 className="mb-5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">{title}</h2>
+      {links && list(links)}
+      {groups && (
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-1">
+          {groups.map((g) => (
+            <div key={g.title}>
+              <h3 className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
+                {g.title}
+              </h3>
+              {list(g.links)}
+            </div>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
+}
 
 export default function Footer() {
   const { t, locale } = useLanguage();
   const legal = LEGAL[locale] ?? LEGAL.it;
-  const zonesLabel = ZONES_LABEL[locale] ?? ZONES_LABEL.it;
-  const intlLabel = INTL_LABEL[locale] ?? INTL_LABEL.it;
+  const f = t.footer;
 
-  // English & German SEO landing pages, grouped by language for internal links.
-  const intlGroups = (['en', 'de'] as const).map((lang) => ({
-    lang,
-    name: LOCALE_NAMES[lang],
-    pages: intlLandingsFor(lang),
-  }));
+  const intl = (lang: 'en' | 'de'): FootLink[] =>
+    intlLandingsFor(lang).map((p) => ({ href: `/${p.lang}/${p.slug}`, label: p.navLabel, hrefLang: p.lang }));
 
-  const zoneLinks = locations.map((l) => ({
-    href: `/ncc/${l.slug}`,
-    label: `NCC ${l.city}`,
-  }));
-
-  const navLinks = [
-    { href: '/fleet', label: t.nav.fleet },
-    { href: '/services', label: t.nav.services },
-    { href: '/about', label: t.nav.about },
-    { href: '/blog', label: t.nav.blog },
-    { href: '/contact', label: t.nav.contact },
-  ];
-
-  const serviceLinks = [
-    { href: '/services#airport-transfer', label: t.footer.serviceLinks.airport },
-    { href: '/services#autista-milano', label: t.footer.serviceLinks.milan },
-    { href: '/services#autista-brianza', label: t.footer.serviceLinks.brianza },
-    { href: '/services#tour-privati', label: t.footer.serviceLinks.tours },
-  ];
+  const card =
+    'group flex flex-col gap-1.5 rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition-colors duration-300 hover:border-gold/40';
 
   return (
-    <footer className="bg-[linear-gradient(180deg,#060606_0%,#0d0d0d_100%)] text-white border-t border-white/8">
-      <div className="container-x py-16 md:py-20">
-        <div className="grid gap-12 md:gap-10 md:grid-cols-2 lg:grid-cols-12">
-          <div className="lg:col-span-3">
-            <div className="text-2xl sm:text-[1.9rem] font-medium tracking-[0.08em] mb-5">
-              TRANSFER LUXURY DRIVER
+    <footer className="bg-ink pb-[calc(4.5rem+env(safe-area-inset-bottom))] text-white lg:pb-0">
+      <div className="container-x pt-16 md:pt-20">
+        <div className="grid grid-cols-1 gap-12 border-b border-white/10 pb-14 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            <Logo label={t.nav.homeAria} tagline={t.nav.logoTagline} size="lg" />
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/60">{f.tagline}</p>
+            <LiveStatus className="mt-6 text-sm text-white/75" />
+            <div className="mt-6 flex items-center gap-2.5">
+              <a
+                href={SITE.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram @${SITE.instagram.handle}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:text-gold"
+              >
+                <Instagram size={17} aria-hidden />
+              </a>
+              <a
+                href={whatsappHref(t.actions.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.whatsapp.aria}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:text-gold"
+              >
+                <WhatsAppIcon size={17} />
+              </a>
+              <span className="ml-1 text-sm text-white/50">@{SITE.instagram.handle}</span>
             </div>
-            <p className="text-sm sm:text-[0.98rem] text-white/72 leading-relaxed max-w-sm">
-              {t.footer.tagline}
-            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-3 lg:col-span-8">
+            <div className={card}>
+              <Phone size={18} aria-hidden className="mb-2 text-gold" />
+              <span className="text-[13px] text-white/50">{f.phone24}</span>
+              <a href={telHref(1)} className="text-[15px] font-semibold tabular hover:text-gold-light">
+                {phoneLabel(1)}
+              </a>
+              <a href={telHref(2)} className="text-[15px] font-semibold tabular hover:text-gold-light">
+                {phoneLabel(2)}
+              </a>
+            </div>
             <a
-              href={SITE.instagram.url}
+              href={whatsappHref(t.actions.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Instagram @${SITE.instagram.handle}`}
-              className="mt-6 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+              className={card}
             >
-              <Instagram size={16} aria-hidden />
-              <span>@{SITE.instagram.handle}</span>
+              <WhatsAppIcon size={18} className="mb-2 text-gold" />
+              <span className="text-[13px] text-white/50">{t.status.reply}</span>
+              <span className="text-[15px] font-semibold">WhatsApp</span>
+              <span className="mt-auto inline-flex items-center gap-1 pt-1 text-sm text-gold-light">
+                {t.actions.chatNow}
+                <ArrowUpRight
+                  size={14}
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </span>
             </a>
-          </div>
-
-          <nav aria-label={t.footer.pagesAria} className="lg:col-span-2 text-sm">
-            <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
-              <span className="h-px w-6 bg-white/30" />
-              {t.footer.explore}
-            </h4>
-            <ul className="space-y-3">
-              {navLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-[0.98rem] sm:text-[1.02rem] text-white/78 hover:text-white transition-colors duration-200"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label={t.footer.servicesAria} className="lg:col-span-2 text-sm">
-            <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
-              <span className="h-px w-6 bg-white/30" />
-              {t.footer.services}
-            </h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-[0.98rem] sm:text-[1.02rem] text-white/78 hover:text-white transition-colors duration-200"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label={zonesLabel} className="lg:col-span-2 text-sm">
-            <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
-              <span className="h-px w-6 bg-white/30" />
-              {zonesLabel}
-            </h4>
-            <ul className="space-y-3">
-              {zoneLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-[0.98rem] sm:text-[1.02rem] text-white/78 hover:text-white transition-colors duration-200"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="lg:col-span-3 text-sm">
-            <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-6">
-              <span className="h-px w-6 bg-white/30" />
-              {t.footer.contacts}
-            </h4>
-            <ul className="space-y-4 text-white/78">
-              <li className="flex items-start gap-3.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-white/55" />
-                <span>
-                  {t.footer.addressLine1}
-                  <br />
-                  {t.footer.addressLine2}
-                </span>
-              </li>
-              <li className="flex items-start gap-3.5">
-                <Phone size={16} className="mt-0.5 shrink-0 text-white/55" />
-                <span className="flex flex-col gap-1.5">
-                  <a
-                    href={`tel:${SITE.phone}`}
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    {SITE.phoneDisplay}
-                  </a>
-                  <a
-                    href={`tel:${SITE.phone2}`}
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    {SITE.phoneDisplay2}
-                  </a>
-                </span>
-              </li>
-              <li className="flex items-start gap-3.5">
-                <Mail size={16} className="mt-0.5 shrink-0 text-white/55" />
-                <span className="flex flex-col gap-1.5">
-                  <a
-                    href={`mailto:${SITE.email}`}
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    {SITE.email}
-                  </a>
-                  <a
-                    href={`mailto:${SITE.emailBackend}`}
-                    className="hover:text-white transition-colors duration-200"
-                  >
-                    {SITE.emailBackend}
-                  </a>
-                </span>
-              </li>
-            </ul>
+            <div className={card}>
+              <Mail size={18} aria-hidden className="mb-2 text-gold" />
+              <span className="text-[13px] text-white/50">Email</span>
+              <a href={mailHref()} className="text-[15px] font-semibold [overflow-wrap:anywhere] hover:text-gold-light">
+                {SITE.email.split('@')[0]}@<wbr />
+                {SITE.email.split('@')[1]}
+              </a>
+              <a
+                href={mailHref(SITE.emailBackend)}
+                className="text-[14px] text-white/70 [overflow-wrap:anywhere] hover:text-gold-light"
+              >
+                {SITE.emailBackend}
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-10">
-          <h4 className="inline-flex items-center gap-3 text-[11px] sm:text-[12px] uppercase tracking-[0.44em] text-white/88 mb-7">
-            <span className="h-px w-6 bg-white/30" />
-            {intlLabel}
-          </h4>
-          <div className="grid gap-8 sm:grid-cols-2 lg:gap-12">
-            {intlGroups.map((group) => (
-              <nav key={group.lang} aria-label={group.name} className="text-sm">
-                <span className="block text-[11px] uppercase tracking-[0.28em] text-white/55 mb-4">
-                  {group.name}
-                </span>
-                <ul className="flex flex-wrap gap-x-6 gap-y-2.5">
-                  {group.pages.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        href={`/${p.lang}/${p.slug}`}
-                        hrefLang={p.lang}
-                        className="text-white/78 hover:text-white transition-colors duration-200"
-                      >
-                        {p.navLabel}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 border-b border-white/10 py-14 md:grid-cols-3 xl:grid-cols-5">
+          <LinkColumn
+            title={f.services}
+            links={services.map((s) => ({ href: `/services/${s.id}`, label: t.services[s.id]?.title ?? s.id }))}
+          />
+          <LinkColumn
+            title={f.fleet}
+            links={[
+              ...vehicles.map((v) => ({ href: `/fleet/${v.id}`, label: vehicleName(v, t) })),
+              { href: '/fleet#compare', label: f.compare },
+            ]}
+          />
+          <LinkColumn
+            title={f.areas}
+            links={[
+              ...locations.map((l) => ({ href: `/ncc/${l.slug}`, label: `NCC ${l.city}` })),
+              { href: '/areas', label: t.nav.areasMap },
+            ]}
+          />
+          <LinkColumn
+            title={f.company}
+            links={[
+              { href: '/about', label: t.nav.about },
+              { href: '/pricing', label: t.nav.pricing },
+              { href: '/contact', label: t.nav.contact },
+              { href: '/blog', label: t.nav.blog },
+            ]}
+          />
+          <LinkColumn
+            title={f.intl}
+            className="col-span-2 md:col-span-1"
+            groups={[
+              { title: LOCALE_NAMES.en, links: intl('en') },
+              { title: LOCALE_NAMES.de, links: intl('de') },
+            ]}
+          />
         </div>
-      </div>
 
-      <div className="border-t border-white/10 bg-white/3">
-        <div className="container-x py-6 flex flex-col gap-4 text-[11px] sm:text-xs text-white/55 lg:flex-row lg:items-center lg:justify-between">
-          <div>© {new Date().getFullYear()} Transfer Luxury Driver · {t.footer.rightsReserved}</div>
-
+        <div className="flex flex-col gap-5 py-8 text-[13px] text-white/50 lg:flex-row lg:items-center lg:justify-between">
+          <p>
+            © {new Date().getFullYear()} {SITE.name} · {f.rightsReserved}
+          </p>
           <nav aria-label={legal.privacy} className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">{legal.privacy}</Link>
-            <Link href="/cookie-policy" className="hover:text-white transition-colors">{legal.cookie}</Link>
-            <Link href="/termini" className="hover:text-white transition-colors">{legal.terms}</Link>
-            <button type="button" onClick={reopenConsent} className="hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="transition-colors hover:text-white">
+              {legal.privacy}
+            </Link>
+            <Link href="/cookie-policy" className="transition-colors hover:text-white">
+              {legal.cookie}
+            </Link>
+            <Link href="/termini" className="transition-colors hover:text-white">
+              {legal.terms}
+            </Link>
+            <button type="button" onClick={reopenConsent} className="transition-colors hover:text-white">
               {legal.prefs}
             </button>
           </nav>
-
-          <div>P.IVA {SITE.vatNumber} · {SITE.legalAddress.street}, {SITE.legalAddress.postalCode} {SITE.legalAddress.locality} ({SITE.legalAddress.province})</div>
         </div>
+        <p className="border-t border-white/10 py-6 text-[12px] leading-relaxed text-white/55">
+          {SITE.legalName} · {f.vatLabel} {SITE.vatNumber} · {f.registeredOffice}: {SITE.legalAddress.street},{' '}
+          {SITE.legalAddress.postalCode} {SITE.legalAddress.locality} ({SITE.legalAddress.province}) · {f.sdiLabel}{' '}
+          {SITE.sdiCode}
+        </p>
       </div>
 
       {/* Bot trap: hidden, nofollow, disallowed in robots.txt. Humans and good
           crawlers never follow it; bots that scrape every href get banned. */}
-      <a
-        href="/api/blackhole"
-        rel="nofollow"
-        aria-hidden="true"
-        tabIndex={-1}
-        style={{ display: 'none' }}
-      >
+      <a href="/api/blackhole" rel="nofollow" aria-hidden="true" tabIndex={-1} style={{ display: 'none' }}>
         Do not follow this link
       </a>
     </footer>

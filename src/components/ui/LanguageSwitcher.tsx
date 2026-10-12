@@ -1,42 +1,77 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { Globe, Check, ChevronDown } from 'lucide-react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { Check, ChevronDown, Globe } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { LOCALES, LOCALE_NAMES, LOCALE_SHORT, type Locale } from '@/i18n/types';
 
-export default function LanguageSwitcher({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+/**
+ * Language picker. `dropdown` is the compact pill used in the header and
+ * top bar (on ink); `grid` lays every language out as tappable pills for
+ * the mobile menu.
+ */
+export default function LanguageSwitcher({
+  variant = 'dropdown',
+  align = 'right',
+  onPick,
+}: {
+  variant?: 'dropdown' | 'grid';
+  align?: 'left' | 'right';
+  onPick?: () => void;
+}) {
   const { locale, setLocale, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const listId = useId();
 
   useEffect(() => {
     if (!open) return;
-    const onClick = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+    const onPointer = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false);
     };
-    document.addEventListener('mousedown', onClick);
+    document.addEventListener('pointerdown', onPointer);
     document.addEventListener('keydown', onKey);
     return () => {
-      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('pointerdown', onPointer);
       document.removeEventListener('keydown', onKey);
     };
   }, [open]);
 
-  const handlePick = (l: Locale) => {
+  const pick = (l: Locale) => {
     setLocale(l);
     setOpen(false);
+    onPick?.();
   };
 
-  const isDark = variant === 'dark';
-  const buttonClass = isDark
-    ? 'border-white/40 text-white hover:bg-white/10'
-    : 'border-[var(--color-border)] text-[var(--color-ink)] hover:bg-[var(--color-surface)]';
+  if (variant === 'grid') {
+    return (
+      <div role="group" aria-label={t.languageSwitcher.aria} className="grid grid-cols-4 gap-2">
+        {LOCALES.map((l) => {
+          const active = l === locale;
+          return (
+            <button
+              key={l}
+              type="button"
+              lang={l}
+              onClick={() => pick(l)}
+              aria-pressed={active}
+              title={LOCALE_NAMES[l]}
+              className={`flex h-11 items-center justify-center rounded-full border text-sm font-semibold tracking-wide transition-colors ${
+                active
+                  ? 'border-gold bg-gold text-ink'
+                  : 'border-white/15 text-white/80 hover:border-white/50 hover:text-white'
+              }`}
+            >
+              {LOCALE_SHORT[l]}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="relative">
@@ -45,12 +80,12 @@ export default function LanguageSwitcher({ variant = 'light' }: { variant?: 'lig
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={t.languageSwitcher.aria}
-        title={t.languageSwitcher.aria}
-        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[13px] font-medium tracking-wide transition-colors ${buttonClass}`}
+        aria-controls={listId}
+        aria-label={`${t.languageSwitcher.aria}: ${LOCALE_NAMES[locale]}`}
+        className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/15 px-2.5 text-[13px] font-semibold tracking-wide text-white/85 transition-colors hover:border-white/40 hover:text-white sm:px-3"
       >
-        <Globe size={16} aria-hidden />
-        <span className="tabular-nums">{LOCALE_SHORT[locale]}</span>
+        <Globe size={15} aria-hidden className="hidden sm:block" />
+        <span className="tabular">{LOCALE_SHORT[locale]}</span>
         <ChevronDown
           size={14}
           aria-hidden
@@ -59,31 +94,34 @@ export default function LanguageSwitcher({ variant = 'light' }: { variant?: 'lig
       </button>
       {open && (
         <ul
+          id={listId}
           role="listbox"
-          className="absolute right-0 mt-2 min-w-[180px] z-[60] bg-white border border-[var(--color-border)] rounded-lg shadow-[var(--shadow-lg)] py-1.5"
+          aria-label={t.languageSwitcher.aria}
+          className={`absolute top-full z-[70] mt-2 min-w-[190px] overflow-clip rounded-xl border border-line bg-white py-1.5 text-ink shadow-lg ${
+            align === 'right' ? 'right-0' : 'left-0'
+          }`}
         >
           {LOCALES.map((l) => {
             const active = l === locale;
             return (
-              <li key={l}>
+              <li key={l} role="none">
                 <button
                   type="button"
                   role="option"
+                  lang={l}
                   aria-selected={active}
-                  onClick={() => handlePick(l)}
-                  className={`w-full flex items-center justify-between gap-3 px-3.5 py-2 text-sm transition-colors ${
-                    active
-                      ? 'text-[var(--color-ink)] bg-[var(--color-surface)]'
-                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-surface)]'
+                  onClick={() => pick(l)}
+                  className={`flex w-full items-center justify-between gap-3 px-3.5 py-2.5 text-left text-sm transition-colors ${
+                    active ? 'bg-ivory font-semibold' : 'text-muted hover:bg-ivory hover:text-ink'
                   }`}
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-[11px] uppercase tracking-[0.2em] tabular-nums w-6 text-left">
+                    <span className="w-6 text-[11px] font-semibold uppercase tracking-[0.16em] tabular">
                       {LOCALE_SHORT[l]}
                     </span>
                     <span>{LOCALE_NAMES[l]}</span>
                   </span>
-                  {active && <Check size={14} aria-hidden />}
+                  {active && <Check size={15} aria-hidden className="text-gold-deep" />}
                 </button>
               </li>
             );

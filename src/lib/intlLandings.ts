@@ -123,7 +123,7 @@ export const intlLandings: IntlLanding[] = [
       'A discreet, English-speaking chauffeur for Lake Como — airport transfers from Milan, private lake tours and chauffeured days between Bellagio, Cernobbio and Varenna.',
     image: IMAGES.blog.como,
     intro: [
-      'Lake Como is one of the most beautiful destinations in the world, and it deserves a service to match. Our private driver service gives international guests a discreet, English-speaking chauffeur, a luxury Mercedes, BMW or Range Rover, and a driver who knows every hairpin of the Tremezzina and the lake’s eastern shore.',
+      'Lake Como is one of the most beautiful destinations in the world, and it deserves a service to match. Our private driver service gives international guests a discreet, English-speaking chauffeur, a luxury Mercedes or Range Rover, and a driver who knows every hairpin of the Tremezzina and the lake’s eastern shore.',
       'Whether you are arriving from Malpensa, planning a full day between Bellagio, Varenna and Cernobbio, or need elegant transport for a wedding at one of the historic villas, every journey is booked in advance with a fixed, agreed fare — no meters, no surprises.',
     ],
     highlights: [
@@ -190,7 +190,7 @@ export const intlLandings: IntlLanding[] = [
       'Private transfers between Milan and Malpensa, Linate and Bergamo with an English-speaking chauffeur, fixed fares, flight monitoring and a meet-and-greet in arrivals.',
     image: IMAGES.services.airportTransfer,
     intro: [
-      'Arriving in Milan should be effortless. Our private airport transfer service meets you in the arrivals hall with a name sign, helps with your luggage and takes you directly to your hotel, the city centre or Lake Como in a luxury Mercedes, BMW or Range Rover.',
+      'Arriving in Milan should be effortless. Our private airport transfer service meets you in the arrivals hall with a name sign, helps with your luggage and takes you directly to your hotel, the city centre or Lake Como in a luxury Mercedes or Range Rover.',
       'We cover all three Milan-area airports — Malpensa, Linate and Bergamo Orio al Serio — with fixed fares agreed in advance and real-time flight monitoring, so a delayed or early landing is never a problem and the waiting time is included.',
     ],
     highlights: [
@@ -257,7 +257,7 @@ export const intlLandings: IntlLanding[] = [
     image: IMAGES.services.tourPrivati,
     intro: [
       'The drive from Milan to Lake Como takes about an hour, and it should be the relaxing start of your stay — not a struggle with trains and taxis. Our private transfer takes you door to door from central Milan, your hotel or Malpensa straight to Como, Cernobbio, Bellagio or any address on the lake.',
-      'Travel in a luxury Mercedes, BMW or Range Rover with a professional, English-speaking chauffeur. The fare is fixed and agreed in advance, and your driver can wait or stay at your disposal if you would like to continue with a tour of the lake.',
+      'Travel in a luxury Mercedes or Range Rover with a professional, English-speaking chauffeur. The fare is fixed and agreed in advance, and your driver can wait or stay at your disposal if you would like to continue with a tour of the lake.',
     ],
     highlights: [
       {
@@ -320,7 +320,7 @@ export const intlLandings: IntlLanding[] = [
     heroLabel: 'Chauffeur Milan',
     heroTitle: 'Chauffeur Service in Milan',
     heroDescription:
-      'A professional, English-speaking chauffeur in Milan for business, Fashion Week, events and hourly hire — with a premium Mercedes, BMW or Range Rover and complete discretion.',
+      'A professional, English-speaking chauffeur in Milan for business, Fashion Week, events and hourly hire — with a premium Mercedes or Range Rover and complete discretion.',
     image: IMAGES.services.autistaMilano,
     intro: [
       'Getting around Milan calls for punctuality, discretion and a driver who genuinely knows the city. Our chauffeur service provides professional, English-speaking drivers and a fleet of executive cars for everything from airport transfers and business meetings to Fashion Week, the Salone del Mobile and private events.',
@@ -457,7 +457,7 @@ export const intlLandings: IntlLanding[] = [
       'Ein diskreter, englischsprachiger Chauffeur für den Comer See — Flughafentransfers ab Mailand, private Seetouren und Chauffeurtage zwischen Bellagio, Cernobbio und Varenna.',
     image: IMAGES.blog.como,
     intro: [
-      'Der Comer See gehört zu den schönsten Reisezielen der Welt und verdient einen Service auf demselben Niveau. Unser Privatchauffeur-Service bietet internationalen Gästen einen diskreten, englischsprachigen Fahrer, einen luxuriösen Mercedes, BMW oder Range Rover und einen Chauffeur, der jede Kehre der Tremezzina und des Ostufers kennt.',
+      'Der Comer See gehört zu den schönsten Reisezielen der Welt und verdient einen Service auf demselben Niveau. Unser Privatchauffeur-Service bietet internationalen Gästen einen diskreten, englischsprachigen Fahrer, einen luxuriösen Mercedes oder Range Rover und einen Chauffeur, der jede Kehre der Tremezzina und des Ostufers kennt.',
       'Ob Sie aus Malpensa anreisen, einen ganzen Tag zwischen Bellagio, Varenna und Cernobbio planen oder einen eleganten Transfer für eine Hochzeit in einer der historischen Villen benötigen — jede Fahrt wird im Voraus zu einem festen, vereinbarten Preis gebucht. Ohne Taxameter, ohne Überraschungen.',
     ],
     highlights: [
@@ -523,7 +523,7 @@ export const intlLandings: IntlLanding[] = [
       'Private Transfers zwischen Mailand und Malpensa, Linate und Bergamo mit englischsprachigem Chauffeur, Festpreisen, Flugüberwachung und persönlichem Empfang im Ankunftsbereich.',
     image: IMAGES.services.airportTransfer,
     intro: [
-      'Die Ankunft in Mailand sollte mühelos sein. Unser privater Flughafentransfer empfängt Sie mit einem Namensschild in der Ankunftshalle, hilft mit dem Gepäck und bringt Sie direkt zu Ihrem Hotel, ins Zentrum oder an den Comer See — in einem luxuriösen Mercedes, BMW oder Range Rover.',
+      'Die Ankunft in Mailand sollte mühelos sein. Unser privater Flughafentransfer empfängt Sie mit einem Namensschild in der Ankunftshalle, hilft mit dem Gepäck und bringt Sie direkt zu Ihrem Hotel, ins Zentrum oder an den Comer See — in einem luxuriösen Mercedes oder Range Rover.',
       'Wir bedienen alle drei Flughäfen der Region Mailand — Malpensa, Linate und Bergamo Orio al Serio — zu im Voraus vereinbarten Festpreisen und mit Flugüberwachung in Echtzeit. Eine verspätete oder frühe Landung ist nie ein Problem, die Wartezeit ist inbegriffen.',
     ],
     highlights: [
@@ -590,7 +590,7 @@ export const intlLandings: IntlLanding[] = [
     image: IMAGES.services.tourPrivati,
     intro: [
       'Die Fahrt von Mailand an den Comer See dauert etwa eine Stunde und sollte der entspannte Auftakt Ihres Aufenthalts sein — kein Kampf mit Zügen und Taxis. Unser privater Transfer bringt Sie von Haustür zu Haustür: vom Mailänder Zentrum, Ihrem Hotel oder Malpensa direkt nach Como, Cernobbio, Bellagio oder zu jeder Adresse am See.',
-      'Reisen Sie in einem luxuriösen Mercedes, BMW oder Range Rover mit einem professionellen, englischsprachigen Chauffeur. Der Preis ist fest und im Voraus vereinbart, und Ihr Fahrer kann warten oder Ihnen für eine anschließende Seetour zur Verfügung stehen.',
+      'Reisen Sie in einem luxuriösen Mercedes oder Range Rover mit einem professionellen, englischsprachigen Chauffeur. Der Preis ist fest und im Voraus vereinbart, und Ihr Fahrer kann warten oder Ihnen für eine anschließende Seetour zur Verfügung stehen.',
     ],
     highlights: [
       {
@@ -652,7 +652,7 @@ export const intlLandings: IntlLanding[] = [
     heroLabel: 'Chauffeur Mailand',
     heroTitle: 'Chauffeurservice in Mailand',
     heroDescription:
-      'Ein professioneller, englischsprachiger Chauffeur in Mailand für Business, Fashion Week, Events und stundenweise Buchung — mit Mercedes, BMW oder Range Rover und absoluter Diskretion.',
+      'Ein professioneller, englischsprachiger Chauffeur in Mailand für Business, Fashion Week, Events und stundenweise Buchung — mit Mercedes oder Range Rover und absoluter Diskretion.',
     image: IMAGES.services.autistaMilano,
     intro: [
       'Sich in Mailand zu bewegen erfordert Pünktlichkeit, Diskretion und einen Fahrer, der die Stadt wirklich kennt. Unser Chauffeurservice bietet professionelle, englischsprachige Fahrer und eine Flotte von Repräsentationsfahrzeugen — von Flughafentransfers und Geschäftsterminen bis zur Fashion Week, dem Salone del Mobile und privaten Events.',

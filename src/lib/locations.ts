@@ -51,7 +51,7 @@ export const locations: Location[] = [
     areaServed: ['Milano', 'Città Metropolitana di Milano', 'Lombardia'],
     metaTitle: 'NCC Milano — Autista Privato e Noleggio con Conducente',
     metaDescription:
-      'Servizio NCC a Milano con autista privato: transfer Malpensa e Linate, business, Fashion Week ed eventi. Mercedes, BMW e Range Rover, disponibili 24/7.',
+      'Servizio NCC a Milano con autista privato: transfer Malpensa e Linate, business, Fashion Week ed eventi. Mercedes e Range Rover, disponibili 24/7.',
     keywords: [
       'NCC Milano',
       'autista privato Milano',

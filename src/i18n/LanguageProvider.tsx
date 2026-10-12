@@ -18,8 +18,13 @@ function isLocale(value: string | null): value is Locale {
   return value !== null && (LOCALES as readonly string[]).includes(value);
 }
 
+// Search-engine and preview crawlers keep the default (Italian, SEO-canonical)
+// language, so a JavaScript-rendering bot sees the same page as the server HTML.
+const CRAWLER_RE = /\b(?:bot|crawler|spider)\b|bot\/|slurp|facebookexternalhit|lighthouse/i;
+
 function detectInitialLocale(): Locale {
   if (typeof window === 'undefined') return DEFAULT_LOCALE;
+  if (CRAWLER_RE.test(window.navigator?.userAgent ?? '')) return DEFAULT_LOCALE;
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (isLocale(stored)) return stored;

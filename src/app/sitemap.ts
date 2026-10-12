@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/i18n/types';
-import { blogPosts } from '@/lib/data';
 import { locations } from '@/lib/locations';
 import { intlLandings, hreflangFor } from '@/lib/intlLandings';
+import { SERVICE_PAGES } from '@/lib/servicePages';
+import { blogPosts, vehicles } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -22,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/', priority: 1.0, changeFrequency: 'weekly' },
     { path: '/fleet', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
+    ...SERVICE_PAGES.map((p) => ({ path: `/services/${p.id}`, priority: 0.8, changeFrequency: 'monthly' as const })),
+    ...vehicles.map((v) => ({ path: `/fleet/${v.id}`, priority: 0.7, changeFrequency: 'monthly' as const })),
+    { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/areas', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },

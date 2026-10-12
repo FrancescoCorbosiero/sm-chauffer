@@ -1,47 +1,35 @@
 'use client';
-import { Star, Quote } from 'lucide-react';
-import { Testimonial } from '@/lib/types';
+import { Quote } from 'lucide-react';
+import type { Testimonial } from '@/lib/types';
 import { useTranslation } from '@/i18n/LanguageProvider';
+import Stars from './Stars';
 
 export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const t = useTranslation();
   const text = t.testimonials[testimonial.id]?.text ?? '';
   const stars = Math.max(0, Math.min(5, testimonial.rating));
-  const starsAria = t.testimonialsSection.starsAria.replace('{n}', String(stars));
 
   return (
-    <article className="gold-edge group relative flex flex-col h-full p-8 bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.06)] hover:border-[var(--color-ink)]/15">
-      <Quote
-        aria-hidden
-        size={56}
-        className="absolute -top-2 -right-2 text-[var(--color-ink)]/[0.06] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
-      />
-      <div className="relative flex items-center gap-1 mb-5" aria-label={starsAria}>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star
-            key={i}
-            size={14}
-            className={
-              i < stars
-                ? 'fill-[var(--color-accent)] text-[var(--color-accent)]'
-                : 'text-[var(--color-text-faint)]'
-            }
-          />
-        ))}
+    <figure className="card flex h-full flex-col p-7">
+      <div className="flex items-center justify-between">
+        <Stars value={stars} label={t.testimonialsSection.starsAria.replace('{n}', String(stars))} />
+        <Quote size={28} aria-hidden className="text-gold/50" />
       </div>
-      <p className="relative text-base leading-relaxed text-[var(--color-ink)] flex-1">
-        &ldquo;{text}&rdquo;
-      </p>
-      <footer className="relative mt-6 pt-5 border-t border-[var(--color-divider)] flex items-center justify-between">
-        <span className="text-sm text-[var(--color-ink)] font-medium">
-          {testimonial.name}
-        </span>
-        {testimonial.source && (
-          <span className="text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-faint)]">
-            {testimonial.source}
+      <blockquote className="mt-5 flex-1 text-[1.0625rem] leading-relaxed text-ink">
+        <p>&ldquo;{text}&rdquo;</p>
+      </blockquote>
+      <figcaption className="mt-6 flex items-center justify-between gap-3 border-t border-line pt-5">
+        <span className="flex items-center gap-3">
+          <span
+            aria-hidden
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-lg text-gold"
+          >
+            {testimonial.name.charAt(0)}
           </span>
-        )}
-      </footer>
-    </article>
+          <span className="text-[15px] font-semibold text-ink">{testimonial.name}</span>
+        </span>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-faint">{testimonial.source}</span>
+      </figcaption>
+    </figure>
   );
 }

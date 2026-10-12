@@ -1,87 +1,89 @@
-'use client';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import type { ReactNode } from 'react';
+import Breadcrumbs, { type Crumb } from './Breadcrumbs';
 
 interface PageHeroProps {
+  eyebrow?: string;
+  /** @deprecated alias of `eyebrow`, kept for the server-rendered landing pages. */
   label?: string;
   title: string;
+  accent?: string;
   description?: string;
   image?: string;
+  crumbs?: Crumb[];
+  children?: ReactNode;
+  /** Full-width content rendered under the text, on the same background. */
+  below?: ReactNode;
+  size?: 'md' | 'lg';
 }
 
-export default function PageHero({ label, title, description, image }: PageHeroProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const imageY = useTransform(scrollY, [0, 500], [0, 90]);
-  const orbY = useTransform(scrollY, [0, 500], [0, -40]);
-
+/**
+ * Internal-page hero on ink: breadcrumbs, eyebrow, split title, lede and an
+ * optional slot (CTAs, chips). Left-aligned for an editorial feel. Has no
+ * client-side state, so server pages can render it too.
+ */
+export default function PageHero({
+  eyebrow,
+  label,
+  title,
+  accent,
+  description,
+  image,
+  crumbs,
+  children,
+  below,
+  size = 'md',
+}: PageHeroProps) {
+  const kicker = eyebrow ?? label;
   return (
-    <section
-      ref={ref}
-      className="grain relative bg-[var(--color-ink)] text-white pt-36 md:pt-44 pb-20 md:pb-24 overflow-hidden isolate"
-    >
+    <section className="ink-panel on-ink relative isolate overflow-clip">
       {image && (
-        <>
-          <motion.div style={{ y: imageY }} className="absolute inset-0 will-change-transform">
-            <Image
-              src={image}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center opacity-50"
-            />
-          </motion.div>
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-[var(--color-ink)]/90 via-[var(--color-ink)]/55 to-[var(--color-ink)] pointer-events-none"
-          />
-        </>
+        <div aria-hidden className="absolute inset-0 -z-10">
+          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover object-center opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+        </div>
       )}
-
-      <motion.div
-        aria-hidden
-        style={{ y: orbY }}
-        className="absolute inset-0 pointer-events-none"
+      <div
+        className={`container-x relative ${
+          size === 'lg' ? 'pb-16 pt-8 md:pb-24 md:pt-12' : 'pb-12 pt-7 md:pb-20 md:pt-11'
+        }`}
       >
-        <div className="orb orb-a -left-32 top-12 h-80 w-80 bg-[radial-gradient(circle,rgba(255,168,6,0.22),transparent_60%)]" />
-        <div className="orb orb-b right-[-10%] bottom-[-30%] h-[420px] w-[420px] bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]" />
-      </motion.div>
-
-      <div className="container-x text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: 'easeOut' }}
-          className="max-w-3xl mx-auto flex flex-col items-center"
-        >
-          {label && (
-            <p className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.32em] text-white/70 mb-7">
-              <span className="block w-10 h-px bg-[var(--color-accent)]/80" />
-              {label}
-              <span className="block w-10 h-px bg-[var(--color-accent)]/80" />
+        {crumbs && crumbs.length > 0 && (
+          <div className="intro mb-10 md:mb-14">
+            <Breadcrumbs items={crumbs} />
+          </div>
+        )}
+        <div className="max-w-3xl">
+          {kicker && (
+            <p className="intro eyebrow eyebrow-light" style={{ ['--d' as string]: 40 }}>
+              {kicker}
             </p>
           )}
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className="text-[clamp(2.3rem,1rem+3.6vw,4.1rem)] font-light leading-[1.04] tracking-tight text-white"
-          >
+          <h1 className="intro mt-5 text-5xl text-white" style={{ ['--d' as string]: 100 }}>
             {title}
-          </motion.h1>
+            {accent && (
+              <>
+                {' '}
+                <span className="title-accent title-accent-light">{accent}</span>
+              </>
+            )}
+          </h1>
           {description && (
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.35 }}
-              className="mt-7 text-white/75 leading-relaxed max-w-2xl"
+            <p
+              className="intro mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-white/70 md:text-lg"
+              style={{ ['--d' as string]: 160 }}
             >
               {description}
-            </motion.p>
+            </p>
           )}
-        </motion.div>
+          {children && (
+            <div className="intro mt-8" style={{ ['--d' as string]: 220 }}>
+              {children}
+            </div>
+          )}
+        </div>
+        {below && <div className="mt-12 md:mt-16">{below}</div>}
       </div>
     </section>
   );

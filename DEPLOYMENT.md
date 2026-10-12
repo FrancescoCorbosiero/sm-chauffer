@@ -15,6 +15,60 @@ npm run build      # production build
 npm start          # serve the production build
 ```
 
+## Project map
+
+### Pages
+
+| Route | Content |
+|-------|---------|
+| `/` | Hero with quick booking form, key figures, services, booking steps, fleet, coverage map teaser, prices, reviews, FAQ, blog |
+| `/services`, `/services/[slug]` | Services index and one page per service (6) |
+| `/fleet`, `/fleet/[id]` | Fleet with capacity finder and comparison table (`#compare`), one page per vehicle (5) |
+| `/pricing` | Price tiles, live estimator, hourly rates, what every fare includes |
+| `/areas` | Interactive coverage map with indicative distances and drive times |
+| `/contact` | Contact channels and the 4-step booking wizard (`#prenota`) |
+| `/about`, `/blog`, `/blog/[slug]` | Company story and verifiable details, articles |
+| `/ncc/[city]`, `/en/[slug]`, `/de/[slug]` | SEO landing pages in Italian, English and German |
+| `/links` | Instagram link-in-bio (`noindex`) |
+
+### Where to edit content
+
+| What | File |
+|------|------|
+| Business identity, phones, emails, VAT, address | `src/lib/site.ts` |
+| Vehicles (seats, luggage, hourly rate, photo) | `src/lib/data.ts`; photos in `public/fleet/` (see the README there) |
+| Fixed fares and estimate rules | `src/lib/pricing.ts` — shared by the estimator, the booking wizard and the service pages |
+| Per-service setup (booking type, recommended vehicles, routes, FAQ, Italian SEO) | `src/lib/servicePages.ts` |
+| Per-vehicle Italian SEO | `src/lib/fleetSeo.ts` |
+| Map destinations, distances and times (indicative estimates) | `src/lib/coverage.ts` (`coverageGeo.ts` is generated geometry — don't edit by hand) |
+| Interface copy, in 7 languages | `src/i18n/dictionaries/*.ts`, typed by `src/i18n/types.ts` (TypeScript flags a missing key) |
+| FAQ, blog, city and international landings, legal pages | `src/lib/faq.ts`, `src/lib/blog/`, `src/lib/locations.ts`, `src/lib/intlLandings.ts`, `src/lib/legal.ts` |
+| Remote photos (heroes, services, blog) | `src/lib/images.ts` — Unsplash for now; swap in your own photos when available |
+
+### Booking flow
+
+Every "Book" entry point (home quick form, service and vehicle pages, map
+routes, pricing estimator, fleet finder) opens the wizard at `/contact#prenota`
+pre-filled through the query string (`type`, `from`, `to`, `hours`, `date`,
+`time`, `pax`, `car`). The wizard keeps a draft in `sessionStorage` and submits
+to `/api/quote` with the same payload as before, so the email template and the
+SES/WhatsApp/mailto delivery are unchanged.
+
+### Design system
+
+Tokens live in the `@theme` block of `src/app/globals.css`: the ink / ivory /
+champagne-gold palette, Cormorant Garamond for display type and DM Sans for
+text, plus shared classes (`.btn`, `.card`, `.chip`, `.field`, `.input`,
+`.eyebrow`, `.reveal`). Scroll reveals are CSS-only and respect
+`prefers-reduced-motion`.
+
+### Languages
+
+The interface is translated client-side (7 languages, stored per visitor).
+Server HTML and metadata are Italian, the canonical SEO language; search
+crawlers stay on Italian when they render JavaScript. English and German
+search traffic is served by the dedicated `/en/*` and `/de/*` landing pages.
+
 ## Run the production image locally
 
 ```bash
@@ -195,12 +249,15 @@ Put the verification token (the `content` of the
 ### What's already wired for SEO
 
 - Canonical URL + per-page Open Graph/Twitter metadata on every route.
-- `robots.txt` + multilingual `sitemap.xml` (hreflang alternates, blog posts).
+- `robots.txt` + multilingual `sitemap.xml` (hreflang alternates, services, vehicles, landings, blog posts).
 - JSON-LD: `LocalBusiness`/`LimousineService`, `Organization`, `WebSite`,
   per-post `BlogPosting`, `FAQPage`, and `BreadcrumbList` on every internal page.
 - Security headers + LCP image `priority`/`preconnect` for Core Web Vitals.
 - Dynamic, branded social cards via `app/opengraph-image.tsx` (next/og).
 - Per-vehicle `Vehicle` JSON-LD on the fleet page; `vatID`/`taxID` on the business.
+- `Service` JSON-LD (with fares where they are fixed) on every service page and
+  `Vehicle` JSON-LD on every vehicle page; all of them are in the sitemap.
+- A branded 404 page (`app/not-found.tsx`, `noindex`).
 
 ## Security & anti-spam
 
