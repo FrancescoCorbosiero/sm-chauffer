@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, useState, type ReactNode } from 'react';
+import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { ArrowUpDown, Building2, Landmark, MapPin, Plane, TrainFront, Waves, Globe2, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { pointName } from '@/lib/coverage';
@@ -22,7 +22,7 @@ type Which = 'from' | 'to';
  * for the pickup, a square for the destination, a line between, the swap
  * button on the side. Free text is always accepted; while a field has focus
  * a list of known places (airports first for airport transfers) fills it in
- * one tap.
+ * one tap, or with the arrow keys and Enter.
  */
 export default function RouteFields({
   from,
@@ -51,7 +51,7 @@ export default function RouteFields({
   const b = t.booking;
   const uid = useId();
   const [focus, setFocus] = useState<Which | null>(null);
-  const blurTimer = useRef<number | undefined>(undefined);
+  const [active, setActive] = useState(-1);
   const inputs = { from: useRef<HTMLInputElement>(null), to: useRef<HTMLInputElement>(null) };
 
   const query = focus === 'from' ? from : focus === 'to' ? to : '';
@@ -69,12 +69,25 @@ export default function RouteFields({
   };
 
   const onFocus = (which: Which) => {
-    window.clearTimeout(blurTimer.current);
     setFocus(which);
+    setActive(-1);
   };
-  // Let a tap on a suggestion land before the list closes.
-  const onBlur = () => {
-    blurTimer.current = window.setTimeout(() => setFocus(null), 120);
+
+  // Combobox keys: arrows move through the suggestions, Enter picks one,
+  // Escape closes the list (a second Escape closes the app).
+  const onKeyDown = (which: Which, e: KeyboardEvent<HTMLInputElement>) => {
+    if (focus !== which || suggestions.length === 0) return;
+    const n = suggestions.length;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive((i) => (e.key === 'ArrowDown' ? (i + 1) % n : i <= 0 ? n - 1 : i - 1));
+    } else if (e.key === 'Enter' && active >= 0 && active < n) {
+      e.preventDefault();
+      pick(which, suggestions[active]);
+    } else if (e.key === 'Escape') {
+      e.stopPropagation();
+      setFocus(null);
+    }
   };
 
   const field = (which: Which, label: string, placeholder: string, value: string, error?: string) => {
@@ -90,15 +103,21 @@ export default function RouteFields({
             id={id}
             data-field={which}
             value={value}
-            onChange={(e) => onChange(which, e.target.value)}
+            onChange={(e) => {
+              onChange(which, e.target.value);
+              setFocus(which);
+              setActive(-1);
+            }}
             onFocus={() => onFocus(which)}
-            onBlur={onBlur}
+            onBlur={() => setFocus(null)}
+            onKeyDown={(e) => onKeyDown(which, e)}
             placeholder={placeholder}
             autoComplete="off"
             enterKeyHint="next"
             role="combobox"
             aria-expanded={focus === which && suggestions.length > 0}
             aria-controls={listId}
+            aria-activedescendant={focus === which && active >= 0 ? `${listId}-${active}` : undefined}
             aria-autocomplete="list"
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? `${id}-error` : undefined}
@@ -165,15 +184,19 @@ export default function RouteFields({
           aria-label={b.suggestions}
           className="step-in mt-2 overflow-clip rounded-3xl bg-white py-1"
         >
-          {suggestions.map((p) => {
+          {suggestions.map((p, i) => {
             const Icon = KIND_ICON[p.kind];
             return (
-              <li key={p.id} role="option" aria-selected={false}>
+              <li key={p.id} id={`${listId}-${i}`} role="option" aria-selected={i === active}>
+                {/* The field keeps focus on tap (no blur), so the list stays for the click. */}
                 <button
                   type="button"
+                  tabIndex={-1}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => pick(focus, p)}
-                  className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors active:bg-ivory hover:bg-ivory/70"
+                  className={`flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors active:bg-ivory hover:bg-ivory/70 ${
+                    i === active ? 'bg-ivory' : ''
+                  }`}
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ivory text-ink">
                     <Icon size={16} aria-hidden />

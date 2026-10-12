@@ -5,7 +5,7 @@
  *    src/lib/fleetPhotos.ts, so every car is framed the same way (same size
  *    on stage, tyres on the same floor line, reflection from the tyres);
  *  - cuts each car's silhouette to public/fleet/silhouettes/<name>.png, used
- *    as a mask for the light sweep on the paint and for the model selector.
+ *    as a mask for the light sweep on the paint.
  *
  * Run after replacing a photo in public/fleet/:
  *   npm run fleet:prepare
@@ -13,11 +13,20 @@
  * Photos should show the car on a white or very light background (studio
  * cut-outs, as today). The car is what is clearly darker than the
  * background and not connected to it; the soft floor shadow is ignored.
+ *
+ * Uses sharp, the image library installed with Next.js (`npm install`).
  */
 import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { basename, dirname, extname, join } from 'node:path';
-import sharp from 'sharp';
+
+const sharp = await import('sharp').then(
+  (m) => m.default,
+  () => {
+    console.error('sharp is missing: run `npm install` first (it comes with Next.js).');
+    process.exit(1);
+  },
+);
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FLEET_DIR = join(ROOT, 'public', 'fleet');

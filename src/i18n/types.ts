@@ -544,7 +544,7 @@ export interface Dictionary {
     suggestions: string;
     kinds: { airport: string; station: string; venue: string; city: string; lake: string; intl: string };
     /** Names of the recognised places that are not on the coverage map. */
-    places: { centrale: string; fiera: string };
+    places: { centrale: string; fiera: string; bergamo: string };
     mapEmpty: string;
     mapAddTo: string;
     mapCustom: string;
@@ -565,6 +565,8 @@ export interface Dictionary {
     signPlaceholder: string;
     signWelcome: string;
     signCaption: string;
+    /** Vehicle list: "Up to {n} bags" */
+    bagsMax: string;
     sentEmailBody: string;
     sentWhatsAppTitle: string;
     sentWhatsAppBody: string;

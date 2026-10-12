@@ -73,7 +73,8 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
 
   const set = <K extends keyof BookingDraft>(key: K, value: BookingDraft[K]) => {
     setDraft((d) => ({ ...d, [key]: value }));
-    setErrors((e) => (e[key] || (key === 'pax' && e.capacity) ? { ...e, [key]: undefined, capacity: undefined } : e));
+    const capacity = key === 'pax' || key === 'car';
+    setErrors((e) => (e[key] || (capacity && e.capacity) ? { ...e, [key]: undefined, capacity: undefined } : e));
   };
 
   /* ---------------- the trip ---------------- */
@@ -249,6 +250,7 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
       honeypot: company,
       turnstileToken: () => tokenRef.current,
     });
+    tokenRef.current = ''; // single use
     setSending(false);
     moved.current = true;
     setSent(result === 'sent' ? 'email' : 'mailto');

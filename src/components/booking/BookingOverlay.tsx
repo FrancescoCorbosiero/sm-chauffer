@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Sheet } from 'react-modal-sheet';
 import { KonstaProvider } from 'konsta/react';
@@ -38,6 +38,29 @@ export default function BookingOverlay({
   );
 }
 
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]):not([tabindex="-1"]), select, textarea, [tabindex]:not([tabindex="-1"])';
+
+/** Keeps Tab and Shift+Tab inside the open app. */
+function trapTab(e: KeyboardEvent, container: HTMLElement | null) {
+  if (e.key !== 'Tab' || !container) return;
+  const items = Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((el) => el.offsetParent !== null);
+  if (items.length === 0) return;
+  const first = items[0];
+  const last = items[items.length - 1];
+  const active = document.activeElement;
+  if (!container.contains(active)) {
+    e.preventDefault();
+    first.focus();
+  } else if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
 function MobileSheet({
   open,
   handoff,
@@ -53,12 +76,13 @@ function MobileSheet({
   const opener = useRef<HTMLElement | null>(null);
 
   // Focus moves into the sheet once it is up and back to the opener after it
-  // closes; Escape closes it (tablets with a keyboard).
+  // closes; with a keyboard (tablets), Tab stays inside and Escape closes.
   useEffect(() => {
     if (!open) return;
     opener.current = document.activeElement as HTMLElement | null;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      else trapTab(e, containerRef.current);
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
@@ -96,13 +120,15 @@ function MobileSheet({
           </Sheet.Container>
         )}
       </BookingFlow>
-      <Sheet.Backdrop onTap={onClose} className="!bg-ink/55 backdrop-blur-[2px]" />
+      <Sheet.Backdrop
+        onTap={onClose}
+        tabIndex={-1}
+        aria-label={t.quoteModal.close}
+        className="!bg-ink/55 backdrop-blur-[2px]"
+      />
     </Sheet>
   );
 }
-
-const FOCUSABLE =
-  'a[href], button:not([disabled]), input:not([disabled]):not([tabindex="-1"]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
 function Drawer({
   open,
@@ -117,16 +143,27 @@ function Drawer({
   const reduced = useReducedMotion();
   const panelRef = useRef<HTMLElement>(null);
 
-  // Modal behaviour: page scroll locked, focus kept inside, Escape closes,
-  // focus returns to the opener.
-  useEffect(() => {
+  // Page scroll locked behind it. A layout effect, like the sheet's own lock:
+  // when a rotating tablet swaps drawer and sheet, one lock is released
+  // before the other is taken.
+  useLayoutEffect(() => {
     if (!open) return;
-    const opener = document.activeElement as HTMLElement | null;
     const root = document.documentElement;
     const gap = window.innerWidth - root.clientWidth;
     const prev = { overflow: root.style.overflow, padding: document.body.style.paddingRight };
     root.style.overflow = 'hidden';
     if (gap > 0) document.body.style.paddingRight = `${gap}px`;
+    return () => {
+      root.style.overflow = prev.overflow;
+      document.body.style.paddingRight = prev.padding;
+    };
+  }, [open]);
+
+  // Modal behaviour: focus kept inside, Escape closes, focus returns to the
+  // opener.
+  useEffect(() => {
+    if (!open) return;
+    const opener = document.activeElement as HTMLElement | null;
     const frame = requestAnimationFrame(() => {
       panelRef.current?.querySelector<HTMLElement>('h3[tabindex="-1"]')?.focus({ preventScroll: true });
     });
@@ -137,27 +174,12 @@ function Drawer({
         onClose();
         return;
       }
-      if (e.key !== 'Tab' || !panelRef.current) return;
-      const items = Array.from(panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
-        (el) => el.offsetParent !== null,
-      );
-      if (items.length === 0) return;
-      const first = items[0];
-      const last = items[items.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      trapTab(e, panelRef.current);
     };
     document.addEventListener('keydown', onKey);
     return () => {
       cancelAnimationFrame(frame);
       document.removeEventListener('keydown', onKey);
-      root.style.overflow = prev.overflow;
-      document.body.style.paddingRight = prev.padding;
       if (opener?.isConnected) opener.focus({ preventScroll: true });
     };
   }, [open, onClose]);

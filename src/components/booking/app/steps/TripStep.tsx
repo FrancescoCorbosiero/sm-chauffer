@@ -7,7 +7,7 @@ import { QUICK_DESTINATIONS } from '@/lib/places';
 import { looksLikeAirport, type ServiceType } from '@/lib/booking';
 import RouteFields from '../RouteFields';
 import CountStepper from '../CountStepper';
-import { IconLabel, fieldError, inputClass, listClass } from '../fields';
+import { FieldLabel, fieldError, inputClass, listClass } from '../fields';
 import type { BookingForm } from '../useBookingForm';
 
 const TYPES: ServiceType[] = ['one-way', 'airport-transfer', 'hourly'];
@@ -26,9 +26,15 @@ export default function TripStep({ form, map }: { form: BookingForm; map: ReactN
     <div className="grid gap-4">
       {map}
 
-      <Segmented strong rounded className="!bg-ivory-2">
+      <Segmented strong rounded role="group" aria-label={t.contactPage.form.serviceType} className="!bg-ivory-2">
         {TYPES.map((type) => (
-          <SegmentedButton key={type} active={draft.type === type} onClick={() => set('type', type)} className="!text-[14px]">
+          <SegmentedButton
+            key={type}
+            active={draft.type === type}
+            aria-pressed={draft.type === type}
+            onClick={() => set('type', type)}
+            className="!text-[14px]"
+          >
             {form.typeLabel(type)}
           </SegmentedButton>
         ))}
@@ -93,7 +99,11 @@ export default function TripStep({ form, map }: { form: BookingForm; map: ReactN
 
       <List strong inset className={listClass}>
         <ListInput
-          label={<IconLabel icon={<CalendarDays size={13} aria-hidden />}>{t.bookingForm.date}</IconLabel>}
+          label={
+            <FieldLabel htmlFor={form.fid('date')} icon={<CalendarDays size={13} aria-hidden />}>
+              {t.bookingForm.date}
+            </FieldLabel>
+          }
           error={fieldError(form, 'date')}
           input={
             <input
@@ -109,7 +119,11 @@ export default function TripStep({ form, map }: { form: BookingForm; map: ReactN
           }
         />
         <ListInput
-          label={<IconLabel icon={<Clock3 size={13} aria-hidden />}>{t.contactPage.form.pickupTime}</IconLabel>}
+          label={
+            <FieldLabel htmlFor={form.fid('time')} icon={<Clock3 size={13} aria-hidden />}>
+              {t.contactPage.form.pickupTime}
+            </FieldLabel>
+          }
           error={fieldError(form, 'time')}
           input={
             <input
@@ -126,7 +140,11 @@ export default function TripStep({ form, map }: { form: BookingForm; map: ReactN
         />
         {isAirport && (
           <ListInput
-            label={<IconLabel icon={<Plane size={13} aria-hidden />}>{b.flight}</IconLabel>}
+            label={
+              <FieldLabel htmlFor={form.fid('flight')} icon={<Plane size={13} aria-hidden />}>
+                {b.flight}
+              </FieldLabel>
+            }
             info={b.flightInfo}
             input={
               <input

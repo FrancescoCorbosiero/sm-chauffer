@@ -3,7 +3,6 @@
 import { Baby, Briefcase, Users } from 'lucide-react';
 import { List, ListItem, Toggle } from 'konsta/react';
 import { vehicles } from '@/lib/data';
-import { fits } from '@/lib/fleet';
 import VehicleOptions from '../VehicleOptions';
 import CountStepper from '../CountStepper';
 import { listClass } from '../fields';
@@ -49,7 +48,8 @@ export default function VehicleStep({ form }: { form: BookingForm }) {
         onChange={(id) => {
           set('car', id);
           const v = vehicles.find((x) => x.id === id);
-          if (v && !fits(v, pax, bags)) form.setErrors((e) => ({ ...e, capacity: w.errors.capacity }));
+          // Seats are a must; too many bags is only noted on the card.
+          if (v && v.passengers < pax) form.setErrors((e) => ({ ...e, capacity: w.errors.capacity }));
         }}
         error={errors.car ?? errors.capacity}
       />

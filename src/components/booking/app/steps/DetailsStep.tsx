@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { List, ListInput } from 'konsta/react';
 import NameSign from '../NameSign';
-import { fieldError, inputClass, listClass } from '../fields';
+import { FieldLabel, fieldError, inputClass, listClass } from '../fields';
 import type { BookingForm } from '../useBookingForm';
 
 /** Step 3: contact details; airport pickups preview the name sign. */
@@ -15,7 +15,7 @@ export default function DetailsStep({ form }: { form: BookingForm }) {
     <div className="grid gap-4">
       <List strong inset className={listClass}>
         <ListInput
-          label={t.contactPage.name}
+          label={<FieldLabel htmlFor={form.fid('name')}>{t.contactPage.name}</FieldLabel>}
           error={fieldError(form, 'name')}
           input={
             <input
@@ -32,7 +32,7 @@ export default function DetailsStep({ form }: { form: BookingForm }) {
           }
         />
         <ListInput
-          label={t.contactPage.phone}
+          label={<FieldLabel htmlFor={form.fid('phone')}>{t.contactPage.phone}</FieldLabel>}
           error={fieldError(form, 'phone')}
           info={errors.phone ? undefined : w.phoneHint}
           input={
@@ -52,7 +52,7 @@ export default function DetailsStep({ form }: { form: BookingForm }) {
           }
         />
         <ListInput
-          label={t.contactPage.email}
+          label={<FieldLabel htmlFor={form.fid('email')}>{t.contactPage.email}</FieldLabel>}
           error={fieldError(form, 'email')}
           input={
             <input
@@ -73,7 +73,11 @@ export default function DetailsStep({ form }: { form: BookingForm }) {
       </List>
       <List strong inset className={listClass}>
         <ListInput
-          label={`${t.contactPage.form.additionalNotes} · ${w.notesHint}`}
+          label={
+            <FieldLabel htmlFor={form.fid('notes')}>
+              {t.contactPage.form.additionalNotes} · {w.notesHint}
+            </FieldLabel>
+          }
           input={
             <textarea
               id={form.fid('notes')}

@@ -861,6 +861,7 @@ const sq: Dictionary = {
     places: {
       centrale: 'Milano Centrale',
       fiera: 'Fiera Milano Rho',
+      bergamo: 'Bergamo',
     },
     mapEmpty: 'Ku t’ju çojmë?',
     mapAddTo: 'Tani destinacioni',
@@ -881,6 +882,7 @@ const sq: Dictionary = {
     signPlaceholder: 'Emri juaj',
     signWelcome: 'Mirë se vini',
     signCaption: 'Te mbërritjet shoferi ju pret me emrin tuaj dhe ju ndihmon me bagazhet.',
+    bagsMax: 'Maksimumi {n} bagazhe',
     sentEmailBody: 'Ju kontaktojmë brenda pak minutash me disponueshmërinë dhe çmimin përfundimtar.',
     sentWhatsAppTitle: 'Hapi i fundit në WhatsApp',
     sentWhatsAppBody: 'Hapëm WhatsApp me kërkesën tashmë të shkruar: shtypni Dërgo dhe ju përgjigjemi brenda pak minutash.',

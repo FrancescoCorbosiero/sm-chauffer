@@ -861,6 +861,7 @@ const it: Dictionary = {
     places: {
       centrale: 'Milano Centrale',
       fiera: 'Fiera Milano Rho',
+      bergamo: 'Bergamo',
     },
     mapEmpty: 'Dove ti portiamo?',
     mapAddTo: 'Ora la destinazione',
@@ -881,6 +882,7 @@ const it: Dictionary = {
     signPlaceholder: 'Il tuo nome',
     signWelcome: 'Benvenuti',
     signCaption: 'All’arrivo l’autista ti aspetta con il tuo nome e ti aiuta con i bagagli.',
+    bagsMax: 'Massimo {n} bagagli',
     sentEmailBody: 'Ti ricontattiamo in pochi minuti con disponibilità e prezzo definitivo.',
     sentWhatsAppTitle: 'Ultimo passo su WhatsApp',
     sentWhatsAppBody: 'Abbiamo aperto WhatsApp con la richiesta già scritta: premi Invia e ti rispondiamo in pochi minuti.',

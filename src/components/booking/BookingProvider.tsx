@@ -1,9 +1,9 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Component, createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { draftFromParams, isBookingUrl, type BookingDraft } from '@/lib/booking';
+import { bookingHref, draftFromParams, isBookingUrl, type BookingDraft } from '@/lib/booking';
 
 const loadOverlay = () => import('./BookingOverlay');
 const BookingOverlay = dynamic(loadOverlay, { ssr: false });
@@ -18,6 +18,24 @@ export function useOpenBooking(): OpenBooking | null {
 }
 
 const HISTORY_FLAG = 'tldBooking';
+// Entries are marked with this page load's id: after a reload, an entry
+// flagged by the previous load is just the page, not the app.
+const PAGE_LOAD = Math.random().toString(36).slice(2);
+const isAppEntry = (state: unknown) => (state as Record<string, unknown> | null)?.[HISTORY_FLAG] === PAGE_LOAD;
+
+/** If the app's code can't be fetched (offline, a new deploy), go to the booking page. */
+class OverlayBoundary extends Component<{ href: string; children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  componentDidCatch() {
+    window.location.assign(this.props.href);
+  }
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
 
 /**
  * Makes every "Book" link on the site open the booking app in place instead
@@ -32,46 +50,33 @@ const HISTORY_FLAG = 'tldBooking';
 export function BookingProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [session, setSession] = useState<{ id: number; handoff: Partial<BookingDraft> } | null>(null);
-  const pushed = useRef(false);
+  const [session, setSession] = useState<{ id: number; handoff: Partial<BookingDraft>; path: string } | null>(null);
 
   const openBooking = useCallback<OpenBooking>((handoff = {}) => {
-    setSession((s) => ({ id: (s?.id ?? 0) + 1, handoff }));
+    setSession((s) => ({ id: (s?.id ?? 0) + 1, handoff, path: window.location.pathname }));
     setOpen(true);
-    if (!pushed.current) {
-      window.history.pushState({ [HISTORY_FLAG]: true }, '');
-      pushed.current = true;
-    }
+    if (!isAppEntry(window.history.state)) window.history.pushState({ [HISTORY_FLAG]: PAGE_LOAD }, '');
   }, []);
 
   const close = useCallback(() => {
     setOpen(false);
-    if (pushed.current) {
-      pushed.current = false;
-      window.history.back();
-    }
+    if (isAppEntry(window.history.state)) window.history.back();
   }, []);
 
   // Back/forward: the app is open exactly on its own history entry.
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
-      const mine = Boolean((e.state as Record<string, unknown> | null)?.[HISTORY_FLAG]);
-      pushed.current = mine;
+      const mine = isAppEntry(e.state);
       setOpen(mine);
-      if (mine) setSession((s) => s ?? { id: 1, handoff: {} });
+      if (mine) setSession((s) => ({ id: s?.id ?? 1, handoff: s?.handoff ?? {}, path: window.location.pathname }));
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
-  // Navigating elsewhere closes it (its history entry stays behind the new page).
-  const lastPath = useRef(pathname);
-  useEffect(() => {
-    if (lastPath.current === pathname) return;
-    lastPath.current = pathname;
-    pushed.current = false;
-    setOpen(false);
-  }, [pathname]);
+  // It shows on the page it was opened on: navigating elsewhere hides it (its
+  // history entry stays behind the new page), coming back shows it again.
+  const shown = open && session?.path === pathname;
 
   // Every booking link opens the app in place.
   useEffect(() => {
@@ -81,10 +86,12 @@ export function BookingProvider({ children }: { children: ReactNode }) {
       if (!link || (link.target && link.target !== '_self') || link.hasAttribute('download')) return;
       const url = new URL(link.href, window.location.href);
       if (!isBookingUrl(url, window.location.origin) || window.location.pathname === '/contact') return;
-      // Capture phase: Next's <Link> still runs its own onClick (menus close),
-      // then sees defaultPrevented and does not navigate.
+      // Capture phase: Next's <Link> still runs its own onClick, then sees
+      // defaultPrevented and does not navigate. The app opens in the next
+      // task, once a menu closed by that onClick has released the page scroll.
       e.preventDefault();
-      openBooking(draftFromParams(url.searchParams));
+      const handoff = draftFromParams(url.searchParams);
+      window.setTimeout(() => openBooking(handoff), 0);
     };
     document.addEventListener('click', onClick, true);
     return () => document.removeEventListener('click', onClick, true);
@@ -94,14 +101,18 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 2500));
     const cancel = window.cancelIdleCallback ?? window.clearTimeout;
-    const id = idle(() => void loadOverlay());
+    const id = idle(() => void loadOverlay().catch(() => {}));
     return () => cancel(id);
   }, []);
 
   return (
     <BookingContext.Provider value={openBooking}>
       {children}
-      {session && <BookingOverlay open={open} session={session.id} handoff={session.handoff} onClose={close} />}
+      {session && (
+        <OverlayBoundary href={bookingHref(session.handoff)}>
+          <BookingOverlay open={shown} session={session.id} handoff={session.handoff} onClose={close} />
+        </OverlayBoundary>
+      )}
       <Toaster
         position="top-center"
         offset={{ top: 'calc(env(safe-area-inset-top) + 14px)' }}

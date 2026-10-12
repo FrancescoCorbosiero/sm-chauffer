@@ -89,7 +89,7 @@ const ALIASES: Record<string, string[]> = {
   varenna: ['varenna'],
   mxp: ['malpensa', 'mxp'],
   lin: ['linate', 'lin'],
-  bgy: ['orio al serio', 'orio', 'bgy', 'bergamo'],
+  bgy: ['orio al serio', 'orio', 'bgy'],
   lugano: ['lugano'],
   stmoritz: ['st. moritz', 'st moritz', 'sankt moritz', 'san maurizio'],
   zurich: ['zurigo', 'zurich', 'zuerich', 'zurych'],
@@ -114,7 +114,23 @@ const EXTRA: Place[] = [
     lon: 9.087,
     aliases: ['fiera milano', 'fiera rho', 'rho fiera', 'rho'],
   },
+  {
+    id: 'bergamo',
+    value: 'Bergamo',
+    kind: 'city',
+    lat: 45.6983,
+    lon: 9.6773,
+    aliases: ['bergamo', 'bergame', 'бергамо'],
+  },
 ];
+
+/** A city named together with "airport" means its airport. */
+const AIRPORT_OF: Record<string, string> = { bergamo: 'bgy' };
+const AIRPORT_WORD = /aeroport|airport|flughafen|aeropuerto|аэропорт/;
+
+/** Street types: "Viale Monza, Milano" is in Milan, not in Monza. */
+const STREET_BEFORE =
+  /(^|\s)(via|viale|v\.le|corso|c\.so|piazza|piazzale|p\.za|p\.zza|p\.le|largo|vicolo|strada|str\.|alzaia|bastioni|lungolago|riva|salita|galleria|passaggio|ponte)(\s+(di|del|della|dello|dei|degli|delle|per))?\s*$/;
 
 /** Lower-case, accents stripped, punctuation folded to spaces. */
 export function normalizePlace(text: string): string {
@@ -127,8 +143,10 @@ export function normalizePlace(text: string): string {
     .trim();
 }
 
+/** The point's names in every language, also without the airport code. */
 function pointNames(p: CoveragePoint): string[] {
-  return typeof p.name === 'string' ? [p.name] : Object.values(p.name);
+  const names = typeof p.name === 'string' ? [p.name] : Object.values(p.name);
+  return names.flatMap((n) => [n, n.replace(/\([^)]*\)/g, ' ')]);
 }
 
 export const PLACES: Place[] = [
@@ -164,9 +182,20 @@ const MATCHERS = PLACES.flatMap((place) =>
   place.aliases.map((alias) => ({
     place,
     alias,
-    re: new RegExp(`(^|[^\\p{L}\\p{N}])${escapeRe(alias)}($|[^\\p{L}\\p{N}])`, 'u'),
+    re: new RegExp(`(^|[^\\p{L}\\p{N}])${escapeRe(alias)}(?=$|[^\\p{L}\\p{N}])`, 'gu'),
   })),
 );
+
+/** Whether `alias` names the place somewhere in `q` (not as a street name). */
+function names(q: string, re: RegExp): boolean {
+  re.lastIndex = 0;
+  for (let m = re.exec(q); m; m = re.exec(q)) {
+    const start = m.index + m[1].length;
+    if (!STREET_BEFORE.test(q.slice(0, start))) return true;
+    re.lastIndex = start + 1;
+  }
+  return false;
+}
 
 /** The place a free-text pickup or destination refers to, if any. */
 export function matchPlace(text: string): Place | null {
@@ -174,11 +203,12 @@ export function matchPlace(text: string): Place | null {
   if (q.length < 2) return null;
   let best: { place: Place; score: number } | null = null;
   for (const m of MATCHERS) {
-    if (!m.re.test(q)) continue;
+    if (!names(q, m.re)) continue;
     const score = KIND_RANK[m.place.kind] * 100 + m.alias.length;
     if (!best || score > best.score) best = { place: m.place, score };
   }
-  return best?.place ?? null;
+  const airport = best && AIRPORT_WORD.test(q) ? AIRPORT_OF[best.place.id] : undefined;
+  return (airport && getPlace(airport)) || (best?.place ?? null);
 }
 
 /** Suggestions for a pickup/destination field, best first. */

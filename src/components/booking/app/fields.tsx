@@ -8,13 +8,16 @@ export const inputClass =
 /** Konsta inset lists inside the flow: no outer margins, tighter rows. */
 export const listClass = '!my-0 !mx-0 [&_.k-list-input]:!py-0';
 
-/** A field label with a small leading icon. */
-export function IconLabel({ icon, children }: { icon: ReactNode; children: ReactNode }) {
+/**
+ * A ListInput's label, tied to its input (Konsta draws the label as a plain
+ * div, which names nothing), with an optional leading icon.
+ */
+export function FieldLabel({ htmlFor, icon, children }: { htmlFor: string; icon?: ReactNode; children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5">
+    <label htmlFor={htmlFor} className="inline-flex items-center gap-1.5">
       {icon}
       {children}
-    </span>
+    </label>
   );
 }
 

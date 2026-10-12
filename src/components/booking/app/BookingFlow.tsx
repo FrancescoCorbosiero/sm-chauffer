@@ -92,15 +92,17 @@ export default function BookingFlow({
                   style={{ width: done || current ? '100%' : '0%' }}
                 />
               </span>
-              {variant === 'inline' && (
-                <span
-                  className={`truncate text-[12.5px] ${
-                    current ? 'font-semibold text-ink' : done ? 'text-ink group-enabled:group-hover:underline' : 'text-muted'
-                  }`}
-                >
-                  {label}
-                </span>
-              )}
+              <span
+                className={
+                  variant === 'sheet'
+                    ? 'sr-only'
+                    : `truncate text-[12.5px] ${
+                        current ? 'font-semibold text-ink' : done ? 'text-ink group-enabled:group-hover:underline' : 'text-muted'
+                      }`
+                }
+              >
+                {label}
+              </span>
             </button>
           </li>
         );

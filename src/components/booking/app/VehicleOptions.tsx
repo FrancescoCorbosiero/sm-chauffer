@@ -47,6 +47,7 @@ export default function VehicleOptions({
         {vehicles.map((v) => {
           const selected = value === v.id;
           const ok = fits(v, pax, bags);
+          const seatsOk = v.passengers >= pax;
           const p = price(v);
           const name = vehicleName(v, t);
           return (
@@ -80,7 +81,9 @@ export default function VehicleOptions({
                   </span>
                   {!ok && (
                     <span className="mt-1 block text-[12px] font-medium text-[#b42318]">
-                      {t.wizard.capacityMax.replace('{n}', String(v.passengers))}
+                      {seatsOk
+                        ? t.booking.bagsMax.replace('{n}', String(v.bags))
+                        : t.wizard.capacityMax.replace('{n}', String(v.passengers))}
                     </span>
                   )}
                 </span>

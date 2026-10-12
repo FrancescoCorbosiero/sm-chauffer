@@ -52,7 +52,8 @@ const SERVICE_TYPES: ServiceType[] = ['one-way', 'hourly', 'airport-transfer'];
 /** Fields that may travel in the URL (never the customer's personal details). */
 const URL_FIELDS = ['from', 'to', 'hours', 'date', 'time', 'pax', 'car'] as const;
 
-const AIRPORT_RX = /aeroport|airport|flughafen|aéroport|aeropuerto|malpensa|linate|orio|\b(mxp|lin|bgy)\b/i;
+// Whole words for the names: "Corso Vittorio Emanuele" is not Orio al Serio.
+const AIRPORT_RX = /aeroport|airport|flughafen|aéroport|aeropuerto|аэропорт|мальпенс|линате|\b(malpensa|linate|orio|mxp|lin|bgy)\b/i;
 
 export function looksLikeAirport(...places: string[]): boolean {
   return places.some((p) => AIRPORT_RX.test(p));

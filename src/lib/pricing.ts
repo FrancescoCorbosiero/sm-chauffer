@@ -32,10 +32,11 @@ export type Estimate =
 const norm = (s: string) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
 
-const isMalpensa = (s: string) => /malpensa|\bmxp\b/.test(s);
-// Milan itself, not one of its other airports ("Aeroporto di Milano Linate").
+const isMalpensa = (s: string) => /\b(malpensa|mxp)\b|мальпенс/.test(s);
+// Milan itself, not one of its other airports ("Aeroporto di Milano Linate",
+// "Milan Bergamo"). Whole words: "Corso Vittorio Emanuele" is in Milan.
 const isMilan = (s: string) =>
-  /\bmilan|mailand|милан/.test(s) && !isMalpensa(s) && !/linate|orio|bergamo|\b(lin|bgy)\b/.test(s);
+  /\bmilan|mailand|милан/.test(s) && !isMalpensa(s) && !/\b(linate|orio|bergamo|lin|bgy)\b|линате|бергамо/.test(s);
 
 /** Recognise the Milano–Malpensa fixed-fare route from free-text fields. */
 export function isMilanoMalpensa(from = '', to = ''): boolean {

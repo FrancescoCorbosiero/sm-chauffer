@@ -24,10 +24,16 @@ const MILAN = project(45.4642, 9.19);
 type Box = { x: number; y: number; w: number; h: number };
 type Pt = { x: number; y: number; off: boolean };
 
-/** A place on the map; outside the frame it is pinned to the edge, on the line from `toward`. */
+const inFrame = (q: { x: number; y: number }) => q.x >= EDGE && q.x <= W - EDGE && q.y >= EDGE && q.y <= H - EDGE;
+
+/**
+ * A place on the map; outside the frame it is pinned to the edge, on the
+ * line from `toward` (from Milan when `toward` is outside too).
+ */
 function position(p: Place, toward: { x: number; y: number }): Pt {
   const raw = project(p.lat, p.lon);
-  if (raw.x >= EDGE && raw.x <= W - EDGE && raw.y >= EDGE && raw.y <= H - EDGE) return { ...raw, off: false };
+  if (inFrame(raw)) return { ...raw, off: false };
+  if (!inFrame(toward)) toward = MILAN;
   const dx = raw.x - toward.x;
   const dy = raw.y - toward.y;
   const ts = [
@@ -67,14 +73,20 @@ function frameFor(points: Pt[], aspect: number): Box {
   return { x, y, w, h };
 }
 
-/** Quadratic arc between two points, bowed to the left of travel. */
+/**
+ * Quadratic arc between two points, bowed to the left of travel, or to the
+ * right when the left is off the map (two ends pinned to the same edge).
+ */
 function arcPath(a: Pt, b: Pt): string {
   const dx = b.x - a.x;
   const dy = b.y - a.y;
   const len = Math.hypot(dx, dy) || 1;
-  const bend = Math.min(80, len * 0.18);
-  const cx = (a.x + b.x) / 2 + (dy / len) * bend;
-  const cy = (a.y + b.y) / 2 - (dx / len) * bend;
+  let bend = Math.min(80, len * 0.18);
+  const mx = (a.x + b.x) / 2;
+  const my = (a.y + b.y) / 2;
+  if (!inFrame({ x: mx + (dy / len) * bend, y: my - (dx / len) * bend })) bend = -bend;
+  const cx = mx + (dy / len) * bend;
+  const cy = my - (dx / len) * bend;
   return `M${a.x.toFixed(1)},${a.y.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)}`;
 }
 
@@ -200,7 +212,7 @@ export default function TripMap({
 
   const end = hourly ? null : to;
   const a = from ? position(from, end ? project(end.lat, end.lon) : MILAN) : null;
-  const z = end ? position(end, a ?? MILAN) : null;
+  const z = end ? position(end, a && !a.off ? a : MILAN) : null;
   const pts = [a, z].filter((p): p is Pt => p !== null);
   const aspect = size.w / size.h;
   const box = useCamera(frameFor(pts, aspect), `${from?.id ?? ''}>${end?.id ?? ''}`, reduced);
@@ -218,15 +230,26 @@ export default function TripMap({
   };
   const dur = (m: number) => formatDuration(m, c.unitMin, c.unitHour);
 
+  // A name beside its pin; one that would run under the chip in the
+  // bottom-left corner (about 225 × 60 px with its margin) goes above the pin.
   const label = (p: Pt, text: string, key: string) => {
     const rightSide = p.x < box.x + box.w * 0.62;
     const fs = 12.5 * upp;
+    const textW = text.length * fs * 0.56;
+    let x = p.x + (rightSide ? 11 : -11) * upp;
+    let y = p.y + 4.2 * upp;
+    let anchor: 'start' | 'end' | 'middle' = rightSide ? 'start' : 'end';
+    if (p.y > box.y + box.h - 60 * upp && (rightSide ? x : x - textW) < box.x + 225 * upp) {
+      x = Math.min(Math.max(p.x, box.x + textW / 2 + 8 * upp), box.x + box.w - textW / 2 - 8 * upp);
+      y = p.y - 13 * upp;
+      anchor = 'middle';
+    }
     return (
       <text
         key={key}
-        x={p.x + (rightSide ? 11 : -11) * upp}
-        y={p.y + 4.2 * upp}
-        textAnchor={rightSide ? 'start' : 'end'}
+        x={x}
+        y={y}
+        textAnchor={anchor}
         fontSize={fs}
         fontWeight={600}
         fill="#fff"
@@ -315,15 +338,16 @@ export default function TripMap({
         {routeD && (
           <g key={routeKey}>
             <path d={routeD} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="9" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+            {/* Width in map units: a non-scaling stroke would lay the dashes
+                that draw the line in screen pixels, and break it when zoomed. */}
             <path
               id={routeId}
               d={routeD}
               fill="none"
               stroke="#fff"
-              strokeWidth="2.6"
+              strokeWidth={2.6 * upp}
               strokeLinecap="round"
               pathLength={1}
-              vectorEffect="non-scaling-stroke"
               className={reduced ? '' : 'trip-draw'}
             />
             {!reduced && (
