@@ -10,7 +10,7 @@ const de: Dictionary = {
     },
     fleet: {
       title: 'Unsere Flotte | Transfer Luxury Driver',
-      description: 'Entdecken Sie unsere Luxusflotte: Mercedes, BMW, Range Rover.',
+      description: 'Entdecken Sie unsere Luxusflotte: Mercedes und Range Rover.',
     },
     services: {
       title: 'Leistungen | Transfer Luxury Driver',
@@ -43,10 +43,55 @@ const de: Dictionary = {
     closeMenu: 'Menü schließen',
     mainNavLabel: 'Hauptnavigation',
     homeAria: 'Transfer Luxury Driver — Home',
+    areas: 'Gebiete',
+    pricing: 'Preise',
+    showMenu: 'Untermenü anzeigen',
+    menuTitle: 'Menü',
+    logoTagline: 'Chauffeur · Mailand · Comer See',
+    allServices: 'Alle Leistungen',
+    servicesLead: 'Eigener Chauffeur, Preis vor der Fahrt vereinbart.',
+    featuredLabel: 'Festpreis',
+    featuredText: 'Limousine mit Chauffeur von Mailand nach Malpensa. Preis vor Abfahrt vereinbart, kein Taxameter.',
+    citiesTitle: 'Nach Stadt',
+    airportsTitle: 'Flughäfen',
+    areasMap: 'Karte der Einsatzgebiete',
+    areasLead: 'Mailand, Brianza, Comer See, Flughäfen und Schweiz: wo wir fahren, mit Richtzeiten.',
+    quickContact: 'Schnellkontakt',
+    language: 'Sprache',
+  },
+  status: {
+    available: 'Jetzt erreichbar',
+    always: 'Rund um die Uhr im Einsatz, 7 Tage die Woche',
+    city: 'Mailand',
+    reply: 'Antwort in wenigen Minuten',
+  },
+  actions: {
+    call: 'Anrufen',
+    book: 'Buchen',
+    quote: 'Angebot anfordern',
+    backToTop: 'Nach oben',
+    whatsappMessage: 'Guten Tag, ich hätte gerne Informationen zu einem Chauffeurservice.',
+    writeUs: 'Schreiben Sie uns',
+    chatNow: 'Jetzt schreiben',
+    barLabel: 'Schnellaktionen',
+  },
+  common: {
+    explore: 'Entdecken',
+    learnMore: 'Mehr erfahren',
+    previous: 'Zurück',
+    next: 'Weiter',
   },
   footer: {
-    tagline:
-      'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See. Eleganz, Pünktlichkeit und Diskretion seit 2014.',
+    phone24: 'Telefon · 24/7',
+    fleet: 'Flotte',
+    areas: 'Einsatzgebiete',
+    company: 'Unternehmen',
+    compare: 'Fahrzeuge vergleichen',
+    intl: 'Internationale Gäste',
+    vatLabel: 'USt-IdNr.',
+    registeredOffice: 'Firmensitz',
+    sdiLabel: 'SDI-Code',
+    tagline: 'Luxus-Chauffeurservice in Mailand, Brianza und am Comer See. Eleganz, Pünktlichkeit und Diskretion seit 2014.',
     explore: 'Entdecken',
     services: 'Leistungen',
     contacts: 'Kontakt',
@@ -64,41 +109,98 @@ const de: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Transfer Luxury Driver',
-    titlePart1: 'Luxus-Chauffeur',
-    titlePart2: 'in Italien',
-    description:
-      'Flughafentransfers, Privattouren und VIP-Services mit persönlichem Chauffeur. 24/7 verfügbar in Mailand, Brianza und am Comer See.',
-    ctaBook: 'Jetzt Buchen',
-    ctaFleet: 'Unsere Flotte',
-    statsLabels: { years: 'Jahre', transfers: 'Transfers', google: 'Google' },
-    imageAlt: 'Luxusauto mit Chauffeur',
+    titlePart1: 'Luxus-Privatchauffeur',
+    titlePart2: 'in Mailand und am Comer See.',
+    description: 'Flughafentransfers, Stundenservice und private Touren mit eigenem Chauffeur. Preis vor der Fahrt vereinbart, Flugüberwachung und Betreuung rund um die Uhr.',
+    trustGoogle: '5.0 bei Google',
+    trustLicensed: 'Lizenzierter Fahrdienst',
+    trustFlight: 'Flugüberwachung',
+    trust247: 'Rund um die Uhr',
+  },
+  quickBook: {
+    title: 'Ihren Chauffeur buchen',
+    subtitle: 'Kostenloses Angebot, Antwort in wenigen Minuten.',
+    tripType: 'Art der Fahrt',
+    transfer: 'Transfer',
+    hourly: 'Stundenweise',
+    fromPlaceholder: 'Adresse, Hotel oder Flughafen',
+    toPlaceholder: 'Wohin soll es gehen?',
+    duration: 'Dauer',
+    durationPlaceholder: 'Stunden wählen',
+    hourOne: '1 Stunde',
+    hourMany: '{n} Stunden',
+    passengers: 'Fahrgäste',
+    passengersPlaceholder: 'Wie viele?',
+    submit: 'Anfrage fortsetzen',
+    free: 'Kostenlos',
+    noCard: 'Ohne Kreditkarte',
+  },
+  steps: {
+    label: 'So funktioniert es',
+    title: 'Buchen ist einfach,',
+    accent: 'von Anfang bis Ende.',
+    description: 'Keine App nötig: Sie schreiben uns, erhalten einen klaren Preis und reisen entspannt.',
+    items: [
+      {
+        title: 'Anfragen',
+        description: 'Formular ausfüllen, per WhatsApp schreiben oder anrufen: Strecke, Datum und Uhrzeit genügen.',
+      },
+      {
+        title: 'Bestätigen',
+        description: 'Wir antworten in wenigen Minuten mit Verfügbarkeit und Preis – vor der Fahrt vereinbart.',
+      },
+      {
+        title: 'Abholung',
+        description: 'Ihr Chauffeur ist pünktlich zur Stelle. Am Flughafen verfolgen wir Ihren Flug und empfangen Sie mit Namensschild.',
+      },
+      {
+        title: 'Ankommen',
+        description: 'Premiumfahrzeug, sichere Fahrweise und absolute Diskretion bis ans Ziel.',
+      },
+    ],
+  },
+  pricingTeaser: {
+    label: 'Preise',
+    title: 'Klare Preise,',
+    accent: 'vor der Fahrt vereinbart.',
+    description: 'Kein Taxameter, keine Überraschungen: Festpreis auf der Strecke Mailand–Malpensa und Stundenservice mit eigenem Chauffeur.',
+    malpensaLabel: 'Transfer Mailand–Malpensa',
+    malpensaNote: 'Festpreis in der Limousine, ab Mailand.',
+    hourlyLabel: 'Chauffeur stundenweise',
+    hourlyNote: 'Chauffeur zu Ihrer Verfügung für Meetings, Shopping und Events – von der E- bis zur S-Klasse.',
+    groupsLabel: 'Gruppen und Events',
+    groupsValue: 'Individuell',
+    groupsNote: 'V-Klasse für bis zu 7 Fahrgäste, Kleinbus mit 18 Sitzen auf Anfrage.',
+    cta: 'Alle Preise ansehen',
+  },
+  ctaBand: {
+    title: 'Ihre nächste Fahrt,',
+    accent: 'bis ins Detail geplant.',
+    description: 'Antwort in wenigen Minuten per WhatsApp, Telefon oder E-Mail. Klare Preise, eigener Chauffeur und Pünktlichkeit in Mailand, der Brianza und am Comer See.',
   },
   fleetPreview: {
     label: 'Unsere Flotte',
-    title: 'Luxusfahrzeuge, sorgfältig ausgewählt',
-    description:
-      'Mercedes, BMW und Range Rover. Jedes Fahrzeug nach Premium-Standards gewartet, jedes Detail durchdacht.',
-    cta: 'Gesamte Flotte ansehen →',
+    title: 'Repräsentative Fahrzeuge,',
+    accent: 'sorgfältig ausgewählt.',
+    description: 'Mercedes S-, E- und V-Klasse, Range Rover und ein Kleinbus mit 18 Sitzen – jedes Fahrzeug nach Premium-Standards gepflegt.',
+    cta: 'Gesamte Flotte ansehen',
   },
   servicesPreview: {
     label: 'Leistungen',
-    title: 'Jede Fahrt, maßgeschneidert',
-    description:
-      'Vom Flughafentransfer bis zu Privattouren in den exklusivsten Reisezielen Italiens und Europas.',
-    cta: 'Alle Leistungen →',
+    title: 'Jede Fahrt,',
+    accent: 'maßgeschneidert.',
+    description: 'Vom Flughafentransfer bis zu Privattouren in den exklusivsten Reisezielen Italiens und Europas.',
+    cta: 'Alle Leistungen',
   },
   whyUs: {
     label: 'Warum Wir',
     title: 'Exzellenz im Detail',
-    description:
-      'Zehn Jahre Erfahrung im Dienst der anspruchsvollsten Kunden, mit Standards, die nie Kompromisse eingehen.',
+    description: 'Zehn Jahre Erfahrung im Dienst der anspruchsvollsten Kunden, mit Standards, die nie Kompromisse eingehen.',
     items: [
       {
         icon: 'ShieldCheck',
         title: 'Lizenziert und Versichert',
-        description:
-          'Regulärer Chauffeurservice mit allen behördlichen Genehmigungen und Premium-Versicherungsschutz.',
+        description: 'Regulärer Chauffeurservice mit allen behördlichen Genehmigungen und Premium-Versicherungsschutz.',
       },
       {
         icon: 'Clock',
@@ -119,24 +221,34 @@ const de: Dictionary = {
   },
   testimonialsSection: {
     label: 'Stimmen',
-    title: 'Was unsere Kunden sagen',
-    description: '5,0 Sterne auf Google und Uber — echtes Feedback von denen, die Transfer Luxury Driver gewählt haben.',
+    title: 'Was unsere',
+    accent: 'Kunden sagen.',
+    description: 'Echte Bewertungen unserer Fahrgäste auf Google und Uber.',
     starsAria: '{n} von 5 Sternen',
+    ratingLabel: 'Durchschnittliche Kundenbewertung',
   },
   blogPreview: {
     label: 'Aus Unserem Blog',
-    title: 'Reiseführer und Reisegeschichten',
+    title: 'Guides und',
+    accent: 'Reisegeschichten.',
     description: 'Geschichten, Reiserouten und Tipps, um Italien stilvoll zu erleben.',
-    cta: 'Alle Artikel →',
+    cta: 'Alle Artikel',
   },
   fleetCard: {
     pax: 'Pers.',
     bag: 'Koffer',
     from: 'Ab',
     perHour: '/Std',
+    seats: '{n} Sitze',
+    luggage: '{n} Gepäckstücke',
     book: 'Buchen',
     onRequest: 'Auf Anfrage',
-    categories: { berlina: 'Limousine', van: 'Van', suv: 'SUV', bus: 'Bus' },
+    categories: {
+      berlina: 'Limousine',
+      van: 'Van',
+      suv: 'SUV',
+      bus: 'Bus',
+    },
   },
   serviceCard: {
     requestService: 'Service Anfragen',
@@ -163,14 +275,12 @@ const de: Dictionary = {
   fleetPage: {
     label: 'Flotte',
     title: 'Unsere Flotte',
-    description:
-      'Sorgfältig ausgewählte Fahrzeuge, die Ihnen maximalen Komfort, Sicherheit und Stil bieten.',
+    description: 'Sorgfältig ausgewählte Fahrzeuge, die Ihnen maximalen Komfort, Sicherheit und Stil bieten.',
   },
   servicesPage: {
     label: 'Leistungen',
     title: 'Unsere Leistungen',
-    description:
-      'Flughafentransfers, privater Chauffeur, Touren in Italien und Europa. Jede Fahrt bis ins Detail durchdacht.',
+    description: 'Flughafentransfers, privater Chauffeur, Touren in Italien und Europa. Jede Fahrt bis ins Detail durchdacht.',
   },
   aboutPage: {
     label: 'Über Uns',
@@ -179,7 +289,7 @@ const de: Dictionary = {
     paragraphs: [
       'Transfer Luxury Driver wurde in Mailand mit einem einfachen Ziel gegründet: privaten Transfers das gleiche Maß an Sorgfalt, Eleganz und Aufmerksamkeit zu verleihen, das die gehobene Hotellerie auszeichnet.',
       'Wir arbeiten täglich mit Geschäftskunden, Gästen von Fünf-Sterne-Hotels, Luxus-Reisebüros und Modeunternehmen während der wichtigsten Wochen im Mailänder Kalender.',
-      'Unsere Flotte — durchgängig Mercedes, BMW und Range Rover — wird von engagiertem Personal gewartet. Die sorgfältig ausgewählten Chauffeure sprechen Englisch und kennen die Serviceprotokolle des Luxussektors.',
+      'Unsere Flotte — durchgängig Mercedes und Range Rover — wird von engagiertem Personal gewartet. Die sorgfältig ausgewählten Chauffeure sprechen Englisch und kennen die Serviceprotokolle des Luxussektors.',
     ],
     values: [
       {
@@ -212,7 +322,14 @@ const de: Dictionary = {
     ctaTitle: 'Einen Transfer oder eine Route zu planen?',
     ctaButton: 'Angebot anfragen',
   },
-  faq: { label: 'FAQ', title: 'Häufige Fragen' },
+  faq: {
+    label: 'FAQ',
+    title: 'Häufige',
+    accent: 'Fragen.',
+    description: 'Antworten auf die häufigsten Fragen. Für alles andere sind wir nur eine Nachricht entfernt.',
+    ctaTitle: 'Noch eine Frage?',
+    ctaText: 'Wir antworten in wenigen Minuten – zu jeder Uhrzeit.',
+  },
   contactPage: {
     label: 'Kontakt',
     title: 'Nehmen Sie Kontakt auf',
@@ -256,6 +373,7 @@ const de: Dictionary = {
     },
   },
   stats: {
+    label: 'In Zahlen',
     years: 'Jahre Erfahrung',
     transfers: 'Abgeschlossene Transfers',
     googleStars: 'Sterne auf Google',
@@ -286,64 +404,59 @@ const de: Dictionary = {
     },
     'bus-18': {
       badge: '18 Sitze',
-      description:
-        '18-Sitzer-Bus für Gruppen, Events und Sammeltransfers. Auf Anfrage verfügbar.',
+      description: '18-Sitzer-Bus für Gruppen, Events und Sammeltransfers. Auf Anfrage verfügbar.',
     },
   },
   services: {
     'airport-transfer': {
       title: 'Flughafentransfer',
       description: 'Malpensa, Bergamo, Linate — immer pünktlich.',
-      longDescription:
-        'Wir verfolgen Ihren Flug in Echtzeit. Ihr Chauffeur erwartet Sie bei der Ankunft mit Namensschild und hilft Ihnen mit dem Gepäck. Verfügbar 24/7, 365 Tage im Jahr für alle Flughäfen der Lombardei. Festpreis-Transfer Mailand–Malpensa ab 150€.',
+      longDescription: 'Wir verfolgen Ihren Flug in Echtzeit. Ihr Chauffeur erwartet Sie bei der Ankunft mit Namensschild und hilft Ihnen mit dem Gepäck. Verfügbar 24/7, 365 Tage im Jahr für alle Flughäfen der Lombardei. Festpreis-Transfer Mailand–Malpensa ab 150€.',
     },
     'autista-milano': {
       title: 'Chauffeur in Mailand',
       description: 'Ihr privater Chauffeur im Herzen der Mode.',
-      longDescription:
-        'Fahrten in der Stadt, Geschäftstermine, Gala-Dinner, Fashion Week. Unser Chauffeurservice in Mailand garantiert Diskretion, Pünktlichkeit und Komfort zu jedem Anlass.',
+      longDescription: 'Fahrten in der Stadt, Geschäftstermine, Gala-Dinner, Fashion Week. Unser Chauffeurservice in Mailand garantiert Diskretion, Pünktlichkeit und Komfort zu jedem Anlass.',
     },
     'autista-brianza': {
       title: 'Chauffeur in der Brianza',
       description: 'Ihr privater Chauffeur zwischen Monza und den Villen der Brianza.',
-      longDescription:
-        'Von Monza bis Lecco, von den historischen Villen der Brianza zu Premium-Zielen: Unser Chauffeurservice garantiert Pünktlichkeit, Diskretion und Komfort zu jedem Anlass.',
+      longDescription: 'Von Monza bis Lecco, von den historischen Villen der Brianza zu Premium-Zielen: Unser Chauffeurservice garantiert Pünktlichkeit, Diskretion und Komfort zu jedem Anlass.',
     },
     'tour-privati': {
       title: 'Privattouren Italien',
       description: 'Comer See, Toskana, Amalfi — nur für Sie.',
-      longDescription:
-        'Maßgeschneiderte Routen zu den schönsten Reisezielen Italiens. Comer See, Langhe, Amalfiküste, Cinque Terre. Jede Tour individuell, mit persönlichem Chauffeur und Liebe zum Detail.',
+      longDescription: 'Maßgeschneiderte Routen zu den schönsten Reisezielen Italiens. Comer See, Langhe, Amalfiküste, Cinque Terre. Jede Tour individuell, mit persönlichem Chauffeur und Liebe zum Detail.',
     },
     'trasferimenti-internazionali': {
       title: 'Internationale Transfers',
       description: 'Italien, Schweiz, Frankreich, Monaco — grenzenlos.',
-      longDescription:
-        'Door-to-Door-Transfers zu den wichtigsten europäischen Zielen: Genf, Zürich, Nizza, Monaco, Paris. Unsere Chauffeure kennen die besten Routen und erledigen alle Grenzformalitäten.',
+      longDescription: 'Door-to-Door-Transfers zu den wichtigsten europäischen Zielen: Genf, Zürich, Nizza, Monaco, Paris. Unsere Chauffeure kennen die besten Routen und erledigen alle Grenzformalitäten.',
     },
     'minibus-gruppi': {
       title: 'Minibus & Gruppen',
-      description: 'Bis zu 19 Plätze, für Events und Delegationen.',
-      longDescription:
-        'Großraumfahrzeuge für Konferenzen, Firmenevents, Hochzeiten und Gruppentouren. Wir koordinieren mehrere Flotten für Großveranstaltungen mit dedizierter Logistik.',
+      description: 'Bis zu 18 Plätze, für Events und Delegationen.',
+      longDescription: 'Großraumfahrzeuge für Konferenzen, Firmenevents, Hochzeiten und Gruppentouren. Wir koordinieren mehrere Flotten für Großveranstaltungen mit dedizierter Logistik.',
     },
   },
   testimonials: {
     '1': {
-      text:
-        'Super professioneller NCC-Service. Ich konnte direkt über die Website bis zum Flughafen Malpensa buchen – klar und schnell. Man hat sich sofort bei mir gemeldet. Fünf-Sterne-Service.',
+      text: 'Super professioneller NCC-Service. Ich konnte direkt über die Website bis zum Flughafen Malpensa buchen – klar und schnell. Man hat sich sofort bei mir gemeldet. Fünf-Sterne-Service.',
     },
     '2': {
-      text:
-        'Äußerst pünktlicher Fahrer und ein makelloses Auto. Einfache Buchung und stets klare Kommunikation: Ich fühlte mich von Anfang bis Ende gut betreut. Ein wirklich hochwertiges Erlebnis.',
+      text: 'Äußerst pünktlicher Fahrer und ein makelloses Auto. Einfache Buchung und stets klare Kommunikation: Ich fühlte mich von Anfang bis Ende gut betreut. Ein wirklich hochwertiges Erlebnis.',
     },
     '3': {
-      text:
-        'Perfekter Transfer nach Malpensa: kam vorzeitig an, sichere Fahrweise und größte Höflichkeit. Hervorragendes Preis-Leistungs-Verhältnis, ich empfehle es uneingeschränkt.',
+      text: 'Perfekter Transfer nach Malpensa: kam vorzeitig an, sichere Fahrweise und größte Höflichkeit. Hervorragendes Preis-Leistungs-Verhältnis, ich empfehle es uneingeschränkt.',
     },
   },
-  whatsapp: { aria: 'Kontaktieren Sie uns auf WhatsApp', label: 'WhatsApp' },
-  languageSwitcher: { aria: 'Sprache ändern' },
+  whatsapp: {
+    aria: 'Kontaktieren Sie uns auf WhatsApp',
+    label: 'WhatsApp',
+  },
+  languageSwitcher: {
+    aria: 'Sprache ändern',
+  },
   quote: {
     estimate: 'Kostenschätzung',
     fixedMalpensa: 'Festpreis Mailand–Malpensa',

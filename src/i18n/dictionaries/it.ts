@@ -10,7 +10,7 @@ const it: Dictionary = {
     },
     fleet: {
       title: 'La Nostra Flotta | Transfer Luxury Driver',
-      description: 'Scopri la nostra flotta di veicoli luxury: Mercedes, BMW, Range Rover.',
+      description: 'Scopri la nostra flotta di veicoli luxury: Mercedes e Range Rover.',
     },
     services: {
       title: 'Servizi | Transfer Luxury Driver',
@@ -43,10 +43,55 @@ const it: Dictionary = {
     closeMenu: 'Chiudi menu',
     mainNavLabel: 'Navigazione principale',
     homeAria: 'Transfer Luxury Driver — Home',
+    areas: 'Zone',
+    pricing: 'Tariffe',
+    showMenu: 'mostra sottomenu',
+    menuTitle: 'Menu',
+    logoTagline: 'NCC · Milano · Lago di Como',
+    allServices: 'Tutti i servizi',
+    servicesLead: 'Autista dedicato e prezzo concordato prima di partire.',
+    featuredLabel: 'Tariffa fissa',
+    featuredText: 'Berlina con autista da Milano a Malpensa. Prezzo concordato prima di partire, nessun tassametro.',
+    citiesTitle: 'NCC per città',
+    airportsTitle: 'Aeroporti',
+    areasMap: 'Mappa delle zone servite',
+    areasLead: 'Milano, Brianza, Lago di Como, aeroporti e Svizzera: dove operiamo, con tempi indicativi.',
+    quickContact: 'Contatto rapido',
+    language: 'Lingua',
+  },
+  status: {
+    available: 'Operativi ora',
+    always: 'Servizio attivo 24 ore su 24, 7 giorni su 7',
+    city: 'Milano',
+    reply: 'Risposta in pochi minuti',
+  },
+  actions: {
+    call: 'Chiama',
+    book: 'Prenota',
+    quote: 'Richiedi preventivo',
+    backToTop: 'Torna su',
+    whatsappMessage: 'Buongiorno, vorrei informazioni per un servizio con autista.',
+    writeUs: 'Scrivici',
+    chatNow: 'Scrivici ora',
+    barLabel: 'Azioni rapide',
+  },
+  common: {
+    explore: 'Esplora',
+    learnMore: 'Scopri di più',
+    previous: 'Precedente',
+    next: 'Successivo',
   },
   footer: {
-    tagline:
-      'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como. Eleganza, puntualità, riservatezza dal 2014.',
+    phone24: 'Telefono · 24/7',
+    fleet: 'Flotta',
+    areas: 'Zone servite',
+    company: 'Azienda',
+    compare: 'Confronta i veicoli',
+    intl: 'Ospiti internazionali',
+    vatLabel: 'P.IVA',
+    registeredOffice: 'Sede legale',
+    sdiLabel: 'Codice SDI',
+    tagline: 'Servizio NCC di lusso con autista a Milano, in Brianza e sul Lago di Como. Eleganza, puntualità, riservatezza dal 2014.',
     explore: 'Esplora',
     services: 'Servizi',
     contacts: 'Contatti',
@@ -64,47 +109,103 @@ const it: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Transfer Luxury Driver',
-    titlePart1: 'Autista di lusso',
-    titlePart2: 'in Italia',
-    description:
-      'Transfer aeroportuali, tour privati e servizi VIP con autista dedicato. Disponibili 24/7 a Milano, in Brianza e sul Lago di Como.',
-    ctaBook: 'Prenota Ora',
-    ctaFleet: 'La Flotta',
-    statsLabels: { years: 'Anni', transfers: 'Transfer', google: 'Google' },
-    imageAlt: 'Auto di lusso con autista',
+    titlePart1: 'Autista privato di lusso',
+    titlePart2: 'a Milano e sul Lago di Como.',
+    description: 'Transfer aeroportuali, servizio a ore e tour privati con autista dedicato. Prezzo concordato prima di partire, monitoraggio del volo e assistenza 24/7.',
+    trustGoogle: '5.0 su Google',
+    trustLicensed: 'NCC autorizzato',
+    trustFlight: 'Monitoraggio voli',
+    trust247: 'Attivi 24/7',
+  },
+  quickBook: {
+    title: 'Prenota il tuo autista',
+    subtitle: 'Preventivo gratuito, risposta in pochi minuti.',
+    tripType: 'Tipo di servizio',
+    transfer: 'Transfer',
+    hourly: 'A ore',
+    fromPlaceholder: 'Indirizzo, hotel o aeroporto',
+    toPlaceholder: 'Dove vuoi andare?',
+    duration: 'Durata',
+    durationPlaceholder: 'Seleziona le ore',
+    hourOne: '1 ora',
+    hourMany: '{n} ore',
+    passengers: 'Passeggeri',
+    passengersPlaceholder: 'Quanti siete?',
+    submit: 'Continua la richiesta',
+    free: 'Preventivo gratuito',
+    noCard: 'Nessuna carta richiesta',
+  },
+  steps: {
+    label: 'Come funziona',
+    title: 'Prenotare è semplice,',
+    accent: 'dall’inizio alla fine.',
+    description: 'Nessuna app da scaricare: ci scrivi, ricevi un prezzo chiaro e viaggi sereno.',
+    items: [
+      {
+        title: 'Richiedi',
+        description: 'Compila il modulo, scrivici su WhatsApp o chiamaci: bastano tratta, data e orario.',
+      },
+      {
+        title: 'Conferma',
+        description: 'Ti rispondiamo in pochi minuti con disponibilità e prezzo, concordato prima di partire.',
+      },
+      {
+        title: 'Accoglienza',
+        description: 'L’autista ti attende puntuale. In aeroporto monitoriamo il volo e ti accogliamo con cartello nominativo.',
+      },
+      {
+        title: 'Viaggia',
+        description: 'Vettura premium, guida sicura e massima discrezione fino a destinazione.',
+      },
+    ],
+  },
+  pricingTeaser: {
+    label: 'Tariffe',
+    title: 'Prezzi chiari,',
+    accent: 'concordati prima di partire.',
+    description: 'Nessun tassametro e nessuna sorpresa: tariffa fissa sulla tratta Milano–Malpensa e servizio a ore con autista dedicato.',
+    malpensaLabel: 'Transfer Milano–Malpensa',
+    malpensaNote: 'Tariffa fissa in berlina, a partire da Milano.',
+    hourlyLabel: 'Autista a ore',
+    hourlyNote: 'Autista a disposizione per meeting, shopping ed eventi, dalla Classe E alla Classe S.',
+    groupsLabel: 'Gruppi ed eventi',
+    groupsValue: 'Su misura',
+    groupsNote: 'Classe V fino a 7 passeggeri, minibus da 18 posti su preventivo.',
+    cta: 'Tutte le tariffe',
+  },
+  ctaBand: {
+    title: 'Il tuo prossimo viaggio,',
+    accent: 'curato nei dettagli.',
+    description: 'Risposta in pochi minuti via WhatsApp, telefono o email. Tariffa chiara, autista dedicato e puntualità a Milano, in Brianza e sul Lago di Como.',
   },
   fleetPreview: {
     label: 'La Nostra Flotta',
-    title: 'Veicoli di lusso, scelti uno a uno',
-    description:
-      'Mercedes, BMW e Range Rover. Ogni vettura mantenuta secondo standard premium, ogni dettaglio curato.',
-    cta: 'Vedi tutta la flotta →',
+    title: 'Vetture di rappresentanza,',
+    accent: 'scelte una a una.',
+    description: 'Mercedes Classe S, E e V, Range Rover e un minibus da 18 posti: ogni vettura curata secondo standard premium.',
+    cta: 'Vedi tutta la flotta',
   },
   servicesPreview: {
     label: 'Servizi',
-    title: 'Ogni viaggio, su misura',
-    description:
-      "Dai transfer aeroportuali ai tour privati nelle destinazioni più esclusive d'Italia ed Europa.",
-    cta: 'Tutti i servizi →',
+    title: 'Ogni viaggio,',
+    accent: 'su misura.',
+    description: 'Dai transfer aeroportuali ai tour privati nelle destinazioni più esclusive d\'Italia ed Europa.',
+    cta: 'Tutti i servizi',
   },
   whyUs: {
     label: 'Perché Sceglierci',
-    title: "L'eccellenza nei dettagli",
-    description:
-      'Dieci anni di esperienza al servizio dei clienti più esigenti, con standard che non scendono mai a compromessi.',
+    title: 'L\'eccellenza nei dettagli',
+    description: 'Dieci anni di esperienza al servizio dei clienti più esigenti, con standard che non scendono mai a compromessi.',
     items: [
       {
         icon: 'ShieldCheck',
         title: 'Autorizzati e Assicurati',
-        description:
-          'NCC regolare con tutte le autorizzazioni ministeriali e copertura assicurativa premium.',
+        description: 'NCC regolare con tutte le autorizzazioni ministeriali e copertura assicurativa premium.',
       },
       {
         icon: 'Clock',
         title: 'Disponibili 24/7',
-        description:
-          "Il nostro servizio non dorme mai. Prenota con largo anticipo o all'ultimo minuto.",
+        description: 'Il nostro servizio non dorme mai. Prenota con largo anticipo o all\'ultimo minuto.',
       },
       {
         icon: 'Globe2',
@@ -120,24 +221,34 @@ const it: Dictionary = {
   },
   testimonialsSection: {
     label: 'Testimonianze',
-    title: 'Cosa dicono i nostri clienti',
-    description: '5.0 stelle su Google e Uber — feedback reali da chi ha scelto Transfer Luxury Driver.',
+    title: 'Cosa dicono',
+    accent: 'i nostri clienti.',
+    description: 'Recensioni reali di chi ha viaggiato con noi, su Google e Uber.',
     starsAria: '{n} su 5 stelle',
+    ratingLabel: 'Valutazione media dei clienti',
   },
   blogPreview: {
     label: 'Dal Nostro Blog',
-    title: 'Guide e racconti di viaggio',
-    description: "Storie, itinerari e consigli per vivere l'Italia con stile.",
-    cta: 'Tutti gli articoli →',
+    title: 'Guide e',
+    accent: 'racconti di viaggio.',
+    description: 'Storie, itinerari e consigli per vivere l\'Italia con stile.',
+    cta: 'Tutti gli articoli',
   },
   fleetCard: {
     pax: 'pax',
     bag: 'bag',
     from: 'Da',
     perHour: '/h',
+    seats: '{n} posti',
+    luggage: '{n} bagagli',
     book: 'Prenota',
     onRequest: 'Su preventivo',
-    categories: { berlina: 'Berlina', van: 'Van', suv: 'SUV', bus: 'Bus' },
+    categories: {
+      berlina: 'Berlina',
+      van: 'Van',
+      suv: 'SUV',
+      bus: 'Bus',
+    },
   },
   serviceCard: {
     requestService: 'Richiedi Servizio',
@@ -164,24 +275,21 @@ const it: Dictionary = {
   fleetPage: {
     label: 'Flotta',
     title: 'La Nostra Flotta',
-    description:
-      'Veicoli selezionati con cura per offrirti il massimo del comfort, della sicurezza e dello stile.',
+    description: 'Veicoli selezionati con cura per offrirti il massimo del comfort, della sicurezza e dello stile.',
   },
   servicesPage: {
     label: 'Servizi',
     title: 'I Nostri Servizi',
-    description:
-      'Transfer aeroportuali, autista privato, tour in Italia e in Europa. Ogni viaggio è studiato nei minimi dettagli.',
+    description: 'Transfer aeroportuali, autista privato, tour in Italia e in Europa. Ogni viaggio è studiato nei minimi dettagli.',
   },
   aboutPage: {
     label: 'Chi Siamo',
     title: 'Transfer Luxury Driver',
-    description:
-      "Dal 2014 al servizio di chi cerca un trasferimento all'altezza delle proprie aspettative.",
+    description: 'Dal 2014 al servizio di chi cerca un trasferimento all\'altezza delle proprie aspettative.',
     paragraphs: [
-      "Transfer Luxury Driver nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l'hôtellerie di alto livello.",
-      "Lavoriamo ogni giorno con clienti business, ospiti d'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.",
-      'La nostra flotta — interamente Mercedes, BMW e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
+      'Transfer Luxury Driver nasce a Milano con un obiettivo semplice: portare nei trasferimenti privati lo stesso livello di cura, eleganza e attenzione che caratterizza l\'hôtellerie di alto livello.',
+      'Lavoriamo ogni giorno con clienti business, ospiti d\'hotel a cinque stelle, agenzie di viaggio luxury e operatori della moda durante le settimane più importanti del calendario milanese.',
+      'La nostra flotta — interamente Mercedes e Range Rover — è mantenuta da personale dedicato. Gli autisti, selezionati con cura, parlano inglese e conoscono i protocolli di servizio del settore luxury.',
     ],
     values: [
       {
@@ -205,7 +313,7 @@ const it: Dictionary = {
   blogPage: {
     label: 'Blog',
     title: 'Storie, guide e itinerari',
-    description: "Approfondimenti su viaggi, destinazioni e l'arte del trasferimento di lusso in Italia.",
+    description: 'Approfondimenti su viaggi, destinazioni e l\'arte del trasferimento di lusso in Italia.',
   },
   blogPost: {
     back: 'Blog',
@@ -214,7 +322,14 @@ const it: Dictionary = {
     ctaTitle: 'Hai un trasferimento o un itinerario da organizzare?',
     ctaButton: 'Richiedi un preventivo',
   },
-  faq: { label: 'FAQ', title: 'Domande frequenti' },
+  faq: {
+    label: 'FAQ',
+    title: 'Domande',
+    accent: 'frequenti.',
+    description: 'Le risposte alle domande che riceviamo più spesso. Per tutto il resto, siamo a un messaggio di distanza.',
+    ctaTitle: 'Hai un’altra domanda?',
+    ctaText: 'Ti rispondiamo in pochi minuti, a qualsiasi ora.',
+  },
   contactPage: {
     label: 'Contatti',
     title: 'Mettiti in contatto',
@@ -244,9 +359,9 @@ const it: Dictionary = {
       phonePlaceholder: '+39 000 000 0000',
       addressPlaceholder: 'Indirizzo, aeroporto, hotel...',
       pickupTime: 'Orario di partenza',
-      selectCarLabel: "Seleziona un'auto",
+      selectCarLabel: 'Seleziona un\'auto',
       selectPlaceholder: 'Seleziona',
-      selectCarFirst: "Seleziona prima un'auto",
+      selectCarFirst: 'Seleziona prima un\'auto',
       passengers: 'Passeggeri',
       bags: 'Bagagli',
       childSeat: 'Ho bisogno di un seggiolino',
@@ -258,6 +373,7 @@ const it: Dictionary = {
     },
   },
   stats: {
+    label: 'In cifre',
     years: 'Anni di Esperienza',
     transfers: 'Trasferimenti Completati',
     googleStars: 'Stelle su Google',
@@ -273,8 +389,7 @@ const it: Dictionary = {
     },
     'mercedes-v-class': {
       badge: 'Gruppi',
-      description:
-        'Spazio e lusso per gruppi e famiglie. Ideale per eventi e transfer aeroportuali.',
+      description: 'Spazio e lusso per gruppi e famiglie. Ideale per eventi e transfer aeroportuali.',
     },
     'mercedes-s-class-lwb': {
       badge: 'VIP',
@@ -285,69 +400,63 @@ const it: Dictionary = {
     },
     'range-rover': {
       badge: 'SUV',
-      description:
-        "Il SUV di lusso per eccellenza. Perfetto per ogni terreno e ogni occasione.",
+      description: 'Il SUV di lusso per eccellenza. Perfetto per ogni terreno e ogni occasione.',
     },
     'bus-18': {
       badge: '18 Posti',
-      description:
-        'Bus 18 posti per gruppi, eventi e transfer collettivi. Disponibile su prenotazione.',
+      description: 'Bus 18 posti per gruppi, eventi e transfer collettivi. Disponibile su prenotazione.',
     },
   },
   services: {
     'airport-transfer': {
       title: 'Transfer Aeroporto',
       description: 'Malpensa, Bergamo, Linate — puntuale sempre.',
-      longDescription:
-        "Monitoriamo il tuo volo in tempo reale. Il tuo autista ti aspetterà all'arrivo con cartello nominativo, pronto ad assistere con i bagagli. Disponibile 24/7, 365 giorni l'anno per tutti gli aeroporti della Lombardia. Transfer Milano–Malpensa a tariffa fissa da 150€.",
+      longDescription: 'Monitoriamo il tuo volo in tempo reale. Il tuo autista ti aspetterà all\'arrivo con cartello nominativo, pronto ad assistere con i bagagli. Disponibile 24/7, 365 giorni l\'anno per tutti gli aeroporti della Lombardia. Transfer Milano–Malpensa a tariffa fissa da 150€.',
     },
     'autista-milano': {
       title: 'Autista a Milano',
       description: 'Il tuo autista privato nel cuore della moda.',
-      longDescription:
-        'Spostamenti in città, meeting aziendali, cene di gala, Fashion Week. Il nostro servizio autista a Milano garantisce discrezione, puntualità e comfort per ogni occasione.',
+      longDescription: 'Spostamenti in città, meeting aziendali, cene di gala, Fashion Week. Il nostro servizio autista a Milano garantisce discrezione, puntualità e comfort per ogni occasione.',
     },
     'autista-brianza': {
       title: 'Autista in Brianza',
       description: 'Il tuo autista privato tra Monza e le ville della Brianza.',
-      longDescription:
-        'Da Monza a Lecco, dalle ville storiche della Brianza alle destinazioni premium: il nostro servizio autista garantisce puntualità, discrezione e comfort per ogni occasione.',
+      longDescription: 'Da Monza a Lecco, dalle ville storiche della Brianza alle destinazioni premium: il nostro servizio autista garantisce puntualità, discrezione e comfort per ogni occasione.',
     },
     'tour-privati': {
       title: 'Tour Privati Italia',
       description: 'Lago di Como, Toscana, Amalfi — solo per te.',
-      longDescription:
-        "Itinerari personalizzati nelle destinazioni più belle d'Italia. Lago di Como, Langhe, Costa Amalfitana, Cinque Terre. Ogni tour è su misura, con autista dedicato e attenzione ai dettagli.",
+      longDescription: 'Itinerari personalizzati nelle destinazioni più belle d\'Italia. Lago di Como, Langhe, Costa Amalfitana, Cinque Terre. Ogni tour è su misura, con autista dedicato e attenzione ai dettagli.',
     },
     'trasferimenti-internazionali': {
       title: 'Trasferimenti Internazionali',
       description: 'Italia, Svizzera, Francia, Monaco — senza confini.',
-      longDescription:
-        'Trasferimenti door-to-door verso le principali destinazioni europee: Ginevra, Zurigo, Nizza, Monaco, Parigi. I nostri autisti conoscono le migliori rotte e gestiscono tutte le formalità di frontiera.',
+      longDescription: 'Trasferimenti door-to-door verso le principali destinazioni europee: Ginevra, Zurigo, Nizza, Monaco, Parigi. I nostri autisti conoscono le migliori rotte e gestiscono tutte le formalità di frontiera.',
     },
     'minibus-gruppi': {
       title: 'Minibus & Gruppi',
-      description: 'Fino a 19 posti, per eventi e delegazioni.',
-      longDescription:
-        'Veicoli di grande capacità per conferenze, eventi aziendali, matrimoni e tour di gruppo. Coordiniamo flotte multiple per grandi eventi con logistica dedicata.',
+      description: 'Fino a 18 posti, per eventi e delegazioni.',
+      longDescription: 'Veicoli di grande capacità per conferenze, eventi aziendali, matrimoni e tour di gruppo. Coordiniamo flotte multiple per grandi eventi con logistica dedicata.',
     },
   },
   testimonials: {
     '1': {
-      text:
-        "Servizio di NCC super professionale. Ho avuto la possibilità di prenotare direttamente dal sito fino all'aeroporto di Malpensa in maniera chiara e rapida. Mi hanno subito ricontattato. Servizio a 5 stelle.",
+      text: 'Servizio di NCC super professionale. Ho avuto la possibilità di prenotare direttamente dal sito fino all\'aeroporto di Malpensa in maniera chiara e rapida. Mi hanno subito ricontattato. Servizio a 5 stelle.',
     },
     '2': {
-      text:
-        "Autista puntualissimo e auto impeccabile. Prenotazione semplice e comunicazione sempre chiara: mi sono sentita seguita dall'inizio alla fine. Un'esperienza davvero di livello.",
+      text: 'Autista puntualissimo e auto impeccabile. Prenotazione semplice e comunicazione sempre chiara: mi sono sentita seguita dall\'inizio alla fine. Un\'esperienza davvero di livello.',
     },
     '3': {
-      text:
-        'Transfer per Malpensa perfetto: arrivato in anticipo, guida sicura e massima cortesia. Ottimo rapporto qualità-prezzo, lo consiglio senza riserve.',
+      text: 'Transfer per Malpensa perfetto: arrivato in anticipo, guida sicura e massima cortesia. Ottimo rapporto qualità-prezzo, lo consiglio senza riserve.',
     },
   },
-  whatsapp: { aria: 'Contattaci su WhatsApp', label: 'WhatsApp' },
-  languageSwitcher: { aria: 'Cambia lingua' },
+  whatsapp: {
+    aria: 'Contattaci su WhatsApp',
+    label: 'WhatsApp',
+  },
+  languageSwitcher: {
+    aria: 'Cambia lingua',
+  },
   quote: {
     estimate: 'Stima preventivo',
     fixedMalpensa: 'Tariffa fissa Milano–Malpensa',

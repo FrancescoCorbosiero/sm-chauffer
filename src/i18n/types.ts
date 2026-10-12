@@ -48,8 +48,56 @@ export interface Dictionary {
     closeMenu: string;
     mainNavLabel: string;
     homeAria: string;
+    areas: string;
+    pricing: string;
+    showMenu: string;
+    menuTitle: string;
+    logoTagline: string;
+    allServices: string;
+    servicesLead: string;
+    featuredLabel: string;
+    featuredText: string;
+    citiesTitle: string;
+    airportsTitle: string;
+    areasMap: string;
+    areasLead: string;
+    quickContact: string;
+    language: string;
+  };
+  /** Live availability indicator (top bar, footer, contact page). */
+  status: {
+    available: string;
+    always: string;
+    city: string;
+    reply: string;
+  };
+  /** Global call-to-action labels (header, action bar, floating buttons). */
+  actions: {
+    call: string;
+    book: string;
+    quote: string;
+    backToTop: string;
+    whatsappMessage: string;
+    writeUs: string;
+    chatNow: string;
+    barLabel: string;
+  };
+  common: {
+    explore: string;
+    learnMore: string;
+    previous: string;
+    next: string;
   };
   footer: {
+    phone24: string;
+    fleet: string;
+    areas: string;
+    company: string;
+    compare: string;
+    intl: string;
+    vatLabel: string;
+    registeredOffice: string;
+    sdiLabel: string;
     tagline: string;
     explore: string;
     services: string;
@@ -68,24 +116,73 @@ export interface Dictionary {
     };
   };
   hero: {
-    eyebrow: string;
     titlePart1: string;
     titlePart2: string;
     description: string;
-    ctaBook: string;
-    ctaFleet: string;
-    statsLabels: { years: string; transfers: string; google: string };
-    imageAlt: string;
+    trustGoogle: string;
+    trustLicensed: string;
+    trustFlight: string;
+    trust247: string;
+  };
+  /** Hero quick-booking card. */
+  quickBook: {
+    title: string;
+    subtitle: string;
+    tripType: string;
+    transfer: string;
+    hourly: string;
+    fromPlaceholder: string;
+    toPlaceholder: string;
+    duration: string;
+    durationPlaceholder: string;
+    /** "1 hour" */
+    hourOne: string;
+    /** "{n} hours" */
+    hourMany: string;
+    passengers: string;
+    passengersPlaceholder: string;
+    submit: string;
+    free: string;
+    noCard: string;
+  };
+  /** "How it works" — four booking steps. */
+  steps: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    items: Array<{ title: string; description: string }>;
+  };
+  pricingTeaser: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    malpensaLabel: string;
+    malpensaNote: string;
+    hourlyLabel: string;
+    hourlyNote: string;
+    groupsLabel: string;
+    groupsValue: string;
+    groupsNote: string;
+    cta: string;
+  };
+  ctaBand: {
+    title: string;
+    accent: string;
+    description: string;
   };
   fleetPreview: {
     label: string;
     title: string;
+    accent: string;
     description: string;
     cta: string;
   };
   servicesPreview: {
     label: string;
     title: string;
+    accent: string;
     description: string;
     cta: string;
   };
@@ -96,6 +193,8 @@ export interface Dictionary {
     items: Array<{ icon: string; title: string; description: string }>;
   };
   testimonialsSection: {
+    ratingLabel: string;
+    accent: string;
     label: string;
     title: string;
     description: string;
@@ -104,6 +203,7 @@ export interface Dictionary {
   blogPreview: {
     label: string;
     title: string;
+    accent: string;
     description: string;
     cta: string;
   };
@@ -112,6 +212,10 @@ export interface Dictionary {
     bag: string;
     from: string;
     perHour: string;
+    /** "{n} seats" */
+    seats: string;
+    /** "{n} bags" */
+    luggage: string;
     book: string;
     onRequest: string;
     categories: { berlina: string; van: string; suv: string; bus: string };
@@ -155,7 +259,14 @@ export interface Dictionary {
     ctaTitle: string;
     ctaButton: string;
   };
-  faq: { label: string; title: string };
+  faq: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    ctaTitle: string;
+    ctaText: string;
+  };
   contactPage: {
     label: string;
     title: string;
@@ -199,6 +310,7 @@ export interface Dictionary {
     };
   };
   stats: {
+    label: string;
     years: string;
     transfers: string;
     googleStars: string;

@@ -10,7 +10,7 @@ const fr: Dictionary = {
     },
     fleet: {
       title: 'Notre Flotte | Transfer Luxury Driver',
-      description: 'Découvrez notre flotte de véhicules de luxe : Mercedes, BMW, Range Rover.',
+      description: 'Découvrez notre flotte de véhicules de luxe : Mercedes et Range Rover.',
     },
     services: {
       title: 'Services | Transfer Luxury Driver',
@@ -43,15 +43,60 @@ const fr: Dictionary = {
     closeMenu: 'Fermer le menu',
     mainNavLabel: 'Navigation principale',
     homeAria: 'Transfer Luxury Driver — Accueil',
+    areas: 'Zones',
+    pricing: 'Tarifs',
+    showMenu: 'afficher le sous-menu',
+    menuTitle: 'Menu',
+    logoTagline: 'Chauffeur · Milan · Lac de Côme',
+    allServices: 'Tous les services',
+    servicesLead: 'Chauffeur dédié et prix convenu avant le départ.',
+    featuredLabel: 'Tarif fixe',
+    featuredText: 'Berline avec chauffeur de Milan à Malpensa. Prix convenu avant le départ, sans compteur.',
+    citiesTitle: 'Par ville',
+    airportsTitle: 'Aéroports',
+    areasMap: 'Carte des zones desservies',
+    areasLead: 'Milan, Brianza, lac de Côme, aéroports et Suisse : où nous intervenons, avec des temps indicatifs.',
+    quickContact: 'Contact rapide',
+    language: 'Langue',
+  },
+  status: {
+    available: 'Disponibles maintenant',
+    always: 'Service assuré 24 h/24, 7 j/7',
+    city: 'Milan',
+    reply: 'Réponse en quelques minutes',
+  },
+  actions: {
+    call: 'Appeler',
+    book: 'Réserver',
+    quote: 'Demander un devis',
+    backToTop: 'Haut de page',
+    whatsappMessage: 'Bonjour, je souhaiterais des informations sur un service avec chauffeur.',
+    writeUs: 'Écrivez-nous',
+    chatNow: 'Écrire maintenant',
+    barLabel: 'Actions rapides',
+  },
+  common: {
+    explore: 'Découvrir',
+    learnMore: 'En savoir plus',
+    previous: 'Précédent',
+    next: 'Suivant',
   },
   footer: {
-    tagline:
-      'Service de chauffeur de luxe à Milan, en Brianza et sur le lac de Côme. Élégance, ponctualité et discrétion depuis 2014.',
+    phone24: 'Téléphone · 24/7',
+    fleet: 'Flotte',
+    areas: 'Zones desservies',
+    company: 'Entreprise',
+    compare: 'Comparer les véhicules',
+    intl: 'Clientèle internationale',
+    vatLabel: 'TVA',
+    registeredOffice: 'Siège social',
+    sdiLabel: 'Code SDI',
+    tagline: 'Service de chauffeur de luxe à Milan, en Brianza et sur le lac de Côme. Élégance, ponctualité et discrétion depuis 2014.',
     explore: 'Explorer',
     services: 'Services',
     contacts: 'Contact',
     rightsReserved: 'Tous droits réservés',
-    vat: "N° TVA en cours d'attribution · Chauffeur autorisé",
+    vat: 'N° TVA en cours d\'attribution · Chauffeur autorisé',
     addressLine1: 'Milano · Brianza',
     addressLine2: 'Como · Bellagio · Tremezzo',
     pagesAria: 'Pages',
@@ -64,46 +109,103 @@ const fr: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Transfer Luxury Driver',
-    titlePart1: 'Chauffeur de luxe',
-    titlePart2: 'en Italie',
-    description:
-      'Transferts aéroport, tours privés et services VIP avec chauffeur dédié. Disponibles 24/7 à Milan, en Brianza et sur le lac de Côme.',
-    ctaBook: 'Réserver Maintenant',
-    ctaFleet: 'La Flotte',
-    statsLabels: { years: 'Années', transfers: 'Transferts', google: 'Google' },
-    imageAlt: 'Voiture de luxe avec chauffeur',
+    titlePart1: 'Chauffeur privé de luxe',
+    titlePart2: 'à Milan et sur le lac de Côme.',
+    description: 'Transferts aéroport, mise à disposition à l’heure et circuits privés avec chauffeur dédié. Prix convenu avant le départ, suivi du vol et assistance 24h/24.',
+    trustGoogle: '5.0 sur Google',
+    trustLicensed: 'Service agréé',
+    trustFlight: 'Suivi des vols',
+    trust247: 'Disponible 24h/24',
+  },
+  quickBook: {
+    title: 'Réservez votre chauffeur',
+    subtitle: 'Devis gratuit, réponse en quelques minutes.',
+    tripType: 'Type de service',
+    transfer: 'Transfert',
+    hourly: 'À l’heure',
+    fromPlaceholder: 'Adresse, hôtel ou aéroport',
+    toPlaceholder: 'Où allez-vous ?',
+    duration: 'Durée',
+    durationPlaceholder: 'Choisir la durée',
+    hourOne: '1 heure',
+    hourMany: '{n} heures',
+    passengers: 'Passagers',
+    passengersPlaceholder: 'Combien ?',
+    submit: 'Poursuivre la demande',
+    free: 'Devis gratuit',
+    noCard: 'Sans carte bancaire',
+  },
+  steps: {
+    label: 'Comment ça marche',
+    title: 'Réserver, c’est simple,',
+    accent: 'du début à la fin.',
+    description: 'Aucune application à télécharger : vous nous écrivez, recevez un prix clair et voyagez sereinement.',
+    items: [
+      {
+        title: 'Demandez',
+        description: 'Remplissez le formulaire, écrivez-nous sur WhatsApp ou appelez : trajet, date et heure suffisent.',
+      },
+      {
+        title: 'Confirmez',
+        description: 'Nous répondons en quelques minutes avec disponibilité et prix, convenu avant le départ.',
+      },
+      {
+        title: 'Accueil',
+        description: 'Votre chauffeur vous attend à l’heure. À l’aéroport, nous suivons votre vol et vous accueillons avec une pancarte à votre nom.',
+      },
+      {
+        title: 'Voyagez',
+        description: 'Véhicule premium, conduite sûre et discrétion totale jusqu’à destination.',
+      },
+    ],
+  },
+  pricingTeaser: {
+    label: 'Tarifs',
+    title: 'Des prix clairs,',
+    accent: 'convenus avant le départ.',
+    description: 'Pas de compteur, pas de surprise : tarif fixe sur le trajet Milan–Malpensa et mise à disposition à l’heure avec chauffeur dédié.',
+    malpensaLabel: 'Transfert Milan–Malpensa',
+    malpensaNote: 'Tarif fixe en berline, au départ de Milan.',
+    hourlyLabel: 'Chauffeur à l’heure',
+    hourlyNote: 'Chauffeur à disposition pour rendez-vous, shopping et événements, de la Classe E à la Classe S.',
+    groupsLabel: 'Groupes et événements',
+    groupsValue: 'Sur mesure',
+    groupsNote: 'Classe V jusqu’à 7 passagers, minibus de 18 places sur devis.',
+    cta: 'Voir tous les tarifs',
+  },
+  ctaBand: {
+    title: 'Votre prochain trajet,',
+    accent: 'soigné dans les moindres détails.',
+    description: 'Réponse en quelques minutes par WhatsApp, téléphone ou e-mail. Tarif clair, chauffeur dédié et ponctualité à Milan, en Brianza et sur le lac de Côme.',
   },
   fleetPreview: {
     label: 'Notre Flotte',
-    title: 'Véhicules de luxe, choisis un par un',
-    description:
-      'Mercedes, BMW et Range Rover. Chaque voiture entretenue selon des standards premium, chaque détail soigné.',
-    cta: 'Voir toute la flotte →',
+    title: 'Des véhicules de prestige,',
+    accent: 'choisis un à un.',
+    description: 'Mercedes Classe S, E et V, Range Rover et un minibus de 18 places : chaque véhicule entretenu selon des standards premium.',
+    cta: 'Voir toute la flotte',
   },
   servicesPreview: {
     label: 'Services',
-    title: 'Chaque voyage, sur mesure',
-    description:
-      "Des transferts aéroport aux tours privés dans les destinations les plus exclusives d'Italie et d'Europe.",
-    cta: 'Tous les services →',
+    title: 'Chaque trajet,',
+    accent: 'sur mesure.',
+    description: 'Des transferts aéroport aux tours privés dans les destinations les plus exclusives d\'Italie et d\'Europe.',
+    cta: 'Tous les services',
   },
   whyUs: {
     label: 'Pourquoi Nous Choisir',
-    title: "L'excellence dans les détails",
-    description:
-      "Dix ans d'expérience au service des clients les plus exigeants, avec des standards qui ne font jamais de compromis.",
+    title: 'L\'excellence dans les détails',
+    description: 'Dix ans d\'expérience au service des clients les plus exigeants, avec des standards qui ne font jamais de compromis.',
     items: [
       {
         icon: 'ShieldCheck',
         title: 'Autorisés et Assurés',
-        description:
-          'Service de chauffeur en règle avec toutes les autorisations ministérielles et une assurance premium.',
+        description: 'Service de chauffeur en règle avec toutes les autorisations ministérielles et une assurance premium.',
       },
       {
         icon: 'Clock',
         title: 'Disponibles 24/7',
-        description: "Notre service ne dort jamais. Réservez à l'avance ou à la dernière minute.",
+        description: 'Notre service ne dort jamais. Réservez à l\'avance ou à la dernière minute.',
       },
       {
         icon: 'Globe2',
@@ -119,24 +221,34 @@ const fr: Dictionary = {
   },
   testimonialsSection: {
     label: 'Témoignages',
-    title: 'Ce que disent nos clients',
-    description: '5,0 étoiles sur Google et Uber — avis réels de ceux qui ont choisi Transfer Luxury Driver.',
+    title: 'Ce que disent',
+    accent: 'nos clients.',
+    description: 'Des avis authentiques de nos clients, sur Google et Uber.',
     starsAria: '{n} sur 5 étoiles',
+    ratingLabel: 'Note moyenne des clients',
   },
   blogPreview: {
     label: 'Notre Blog',
-    title: 'Guides et récits de voyage',
-    description: "Histoires, itinéraires et conseils pour vivre l'Italie avec style.",
-    cta: 'Tous les articles →',
+    title: 'Guides et',
+    accent: 'récits de voyage.',
+    description: 'Histoires, itinéraires et conseils pour vivre l\'Italie avec style.',
+    cta: 'Tous les articles',
   },
   fleetCard: {
     pax: 'pax',
     bag: 'bagages',
     from: 'À partir de',
     perHour: '/h',
+    seats: '{n} places',
+    luggage: '{n} bagages',
     book: 'Réserver',
     onRequest: 'Sur devis',
-    categories: { berlina: 'Berline', van: 'Van', suv: 'SUV', bus: 'Bus' },
+    categories: {
+      berlina: 'Berline',
+      van: 'Van',
+      suv: 'SUV',
+      bus: 'Bus',
+    },
   },
   serviceCard: {
     requestService: 'Demander le Service',
@@ -147,14 +259,14 @@ const fr: Dictionary = {
     eyebrow: 'Réservation',
     title: 'Demander un devis',
     oneWay: 'Aller Simple',
-    hourly: "À l'Heure",
+    hourly: 'À l\'Heure',
     vehicle: 'Véhicule',
     vehiclePlaceholder: 'Sélectionnez un véhicule',
     from: 'Départ',
     fromPlaceholder: 'Adresse ou aéroport',
     to: 'Destination',
     duration: 'Durée (heures)',
-    toPlaceholder: "Adresse d'arrivée",
+    toPlaceholder: 'Adresse d\'arrivée',
     durationPlaceholder: 'ex. 4',
     date: 'Date',
     time: 'Heure',
@@ -163,28 +275,26 @@ const fr: Dictionary = {
   fleetPage: {
     label: 'Flotte',
     title: 'Notre Flotte',
-    description:
-      'Des véhicules choisis avec soin pour vous offrir un maximum de confort, de sécurité et de style.',
+    description: 'Des véhicules choisis avec soin pour vous offrir un maximum de confort, de sécurité et de style.',
   },
   servicesPage: {
     label: 'Services',
     title: 'Nos Services',
-    description:
-      'Transferts aéroport, chauffeur privé, tours en Italie et en Europe. Chaque voyage pensé dans les moindres détails.',
+    description: 'Transferts aéroport, chauffeur privé, tours en Italie et en Europe. Chaque voyage pensé dans les moindres détails.',
   },
   aboutPage: {
     label: 'À Propos',
     title: 'Transfer Luxury Driver',
     description: 'Depuis 2014 au service de ceux qui recherchent un transfert à la hauteur de leurs attentes.',
     paragraphs: [
-      "Transfer Luxury Driver est né à Milan avec un objectif simple : apporter aux transferts privés le même niveau de soin, d'élégance et d'attention qui caractérise l'hôtellerie haut de gamme.",
-      "Nous travaillons chaque jour avec des clients d'affaires, des clients d'hôtels cinq étoiles, des agences de voyages de luxe et des acteurs de la mode pendant les semaines les plus importantes du calendrier milanais.",
-      'Notre flotte — entièrement Mercedes, BMW et Range Rover — est entretenue par un personnel dédié. Les chauffeurs, soigneusement sélectionnés, parlent anglais et connaissent les protocoles du secteur du luxe.',
+      'Transfer Luxury Driver est né à Milan avec un objectif simple : apporter aux transferts privés le même niveau de soin, d\'élégance et d\'attention qui caractérise l\'hôtellerie haut de gamme.',
+      'Nous travaillons chaque jour avec des clients d\'affaires, des clients d\'hôtels cinq étoiles, des agences de voyages de luxe et des acteurs de la mode pendant les semaines les plus importantes du calendrier milanais.',
+      'Notre flotte — entièrement Mercedes et Range Rover — est entretenue par un personnel dédié. Les chauffeurs, soigneusement sélectionnés, parlent anglais et connaissent les protocoles du secteur du luxe.',
     ],
     values: [
       {
         title: 'Fiabilité',
-        body: "Service de chauffeur autorisé, couverture d'assurance premium et standards de sécurité certifiés.",
+        body: 'Service de chauffeur autorisé, couverture d\'assurance premium et standards de sécurité certifiés.',
       },
       {
         title: 'Ponctualité',
@@ -192,7 +302,7 @@ const fr: Dictionary = {
       },
       {
         title: 'Discrétion',
-        body: "Discrétion absolue pour les clients d'affaires, célébrités et personnalités de renom.",
+        body: 'Discrétion absolue pour les clients d\'affaires, célébrités et personnalités de renom.',
       },
       {
         title: 'Expérience',
@@ -203,7 +313,7 @@ const fr: Dictionary = {
   blogPage: {
     label: 'Blog',
     title: 'Histoires, guides et itinéraires',
-    description: "Décryptages sur les voyages, les destinations et l'art du transfert de luxe en Italie.",
+    description: 'Décryptages sur les voyages, les destinations et l\'art du transfert de luxe en Italie.',
   },
   blogPost: {
     back: 'Blog',
@@ -212,7 +322,14 @@ const fr: Dictionary = {
     ctaTitle: 'Un transfert ou un itinéraire à organiser ?',
     ctaButton: 'Demander un devis',
   },
-  faq: { label: 'FAQ', title: 'Questions fréquentes' },
+  faq: {
+    label: 'FAQ',
+    title: 'Questions',
+    accent: 'fréquentes.',
+    description: 'Les réponses aux questions les plus fréquentes. Pour le reste, nous sommes à un message près.',
+    ctaTitle: 'Une autre question ?',
+    ctaText: 'Nous répondons en quelques minutes, à toute heure.',
+  },
   contactPage: {
     label: 'Contact',
     title: 'Contactez-nous',
@@ -244,10 +361,10 @@ const fr: Dictionary = {
       pickupTime: 'Heure de prise en charge',
       selectCarLabel: 'Choisir un véhicule',
       selectPlaceholder: 'Sélectionner',
-      selectCarFirst: "Choisissez d'abord un véhicule",
+      selectCarFirst: 'Choisissez d\'abord un véhicule',
       passengers: 'Passagers',
       bags: 'Bagages',
-      childSeat: "J'ai besoin d'un siège enfant",
+      childSeat: 'J\'ai besoin d\'un siège enfant',
       additionalNotes: 'Notes supplémentaires',
       notesPlaceholder: 'Autre chose à nous signaler ?',
       confirmBooking: 'Confirmer la réservation',
@@ -256,7 +373,8 @@ const fr: Dictionary = {
     },
   },
   stats: {
-    years: "Années d'Expérience",
+    label: 'En chiffres',
+    years: 'Années d\'Expérience',
     transfers: 'Transferts Réalisés',
     googleStars: 'Étoiles sur Google',
     availability: 'Disponibilité',
@@ -286,64 +404,59 @@ const fr: Dictionary = {
     },
     'bus-18': {
       badge: '18 Places',
-      description:
-        'Bus de 18 places pour groupes, événements et transferts collectifs. Disponible sur demande.',
+      description: 'Bus de 18 places pour groupes, événements et transferts collectifs. Disponible sur demande.',
     },
   },
   services: {
     'airport-transfer': {
       title: 'Transfert Aéroport',
-      description: "Malpensa, Bergame, Linate — toujours à l'heure.",
-      longDescription:
-        "Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie. Transfert Milan–Malpensa à tarif fixe à partir de 150€.",
+      description: 'Malpensa, Bergame, Linate — toujours à l\'heure.',
+      longDescription: 'Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l\'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie. Transfert Milan–Malpensa à tarif fixe à partir de 150€.',
     },
     'autista-milano': {
       title: 'Chauffeur à Milan',
       description: 'Votre chauffeur privé au cœur de la mode.',
-      longDescription:
-        "Déplacements en ville, réunions d'affaires, dîners de gala, Fashion Week. Notre service de chauffeur à Milan garantit discrétion, ponctualité et confort à chaque occasion.",
+      longDescription: 'Déplacements en ville, réunions d\'affaires, dîners de gala, Fashion Week. Notre service de chauffeur à Milan garantit discrétion, ponctualité et confort à chaque occasion.',
     },
     'autista-brianza': {
       title: 'Chauffeur en Brianza',
       description: 'Votre chauffeur privé entre Monza et les villas de la Brianza.',
-      longDescription:
-        'De Monza à Lecco, des villas historiques de la Brianza aux destinations premium : notre service de chauffeur garantit ponctualité, discrétion et confort en toute occasion.',
+      longDescription: 'De Monza à Lecco, des villas historiques de la Brianza aux destinations premium : notre service de chauffeur garantit ponctualité, discrétion et confort en toute occasion.',
     },
     'tour-privati': {
       title: 'Tours Privés en Italie',
       description: 'Lac de Côme, Toscane, Amalfi — rien que pour vous.',
-      longDescription:
-        "Itinéraires personnalisés vers les plus belles destinations d'Italie. Lac de Côme, Langhe, Côte Amalfitaine, Cinque Terre. Chaque tour est sur mesure, avec un chauffeur dédié et le souci du détail.",
+      longDescription: 'Itinéraires personnalisés vers les plus belles destinations d\'Italie. Lac de Côme, Langhe, Côte Amalfitaine, Cinque Terre. Chaque tour est sur mesure, avec un chauffeur dédié et le souci du détail.',
     },
     'trasferimenti-internazionali': {
       title: 'Transferts Internationaux',
       description: 'Italie, Suisse, France, Monaco — sans frontières.',
-      longDescription:
-        'Transferts porte-à-porte vers les principales destinations européennes : Genève, Zurich, Nice, Monaco, Paris. Nos chauffeurs connaissent les meilleures routes et gèrent toutes les formalités frontalières.',
+      longDescription: 'Transferts porte-à-porte vers les principales destinations européennes : Genève, Zurich, Nice, Monaco, Paris. Nos chauffeurs connaissent les meilleures routes et gèrent toutes les formalités frontalières.',
     },
     'minibus-gruppi': {
       title: 'Minibus & Groupes',
-      description: "Jusqu'à 19 places, pour événements et délégations.",
-      longDescription:
-        "Véhicules de grande capacité pour conférences, événements d'entreprise, mariages et tours de groupe. Nous coordonnons plusieurs flottes pour les grands événements avec une logistique dédiée.",
+      description: 'Jusqu\'à 18 places, pour événements et délégations.',
+      longDescription: 'Véhicules de grande capacité pour conférences, événements d\'entreprise, mariages et tours de groupe. Nous coordonnons plusieurs flottes pour les grands événements avec une logistique dédiée.',
     },
   },
   testimonials: {
     '1': {
-      text:
-        "Service NCC super professionnel. J'ai pu réserver directement depuis le site jusqu'à l'aéroport de Malpensa, de manière claire et rapide. On m'a rappelé tout de suite. Service cinq étoiles.",
+      text: 'Service NCC super professionnel. J\'ai pu réserver directement depuis le site jusqu\'à l\'aéroport de Malpensa, de manière claire et rapide. On m\'a rappelé tout de suite. Service cinq étoiles.',
     },
     '2': {
-      text:
-        "Chauffeur très ponctuel et voiture impeccable. Réservation simple et communication toujours claire : je me suis sentie accompagnée du début à la fin. Une expérience vraiment haut de gamme.",
+      text: 'Chauffeur très ponctuel et voiture impeccable. Réservation simple et communication toujours claire : je me suis sentie accompagnée du début à la fin. Une expérience vraiment haut de gamme.',
     },
     '3': {
-      text:
-        "Transfert vers Malpensa parfait : arrivé en avance, conduite sûre et grande courtoisie. Excellent rapport qualité-prix, je le recommande sans réserve.",
+      text: 'Transfert vers Malpensa parfait : arrivé en avance, conduite sûre et grande courtoisie. Excellent rapport qualité-prix, je le recommande sans réserve.',
     },
   },
-  whatsapp: { aria: 'Contactez-nous sur WhatsApp', label: 'WhatsApp' },
-  languageSwitcher: { aria: 'Changer de langue' },
+  whatsapp: {
+    aria: 'Contactez-nous sur WhatsApp',
+    label: 'WhatsApp',
+  },
+  languageSwitcher: {
+    aria: 'Changer de langue',
+  },
   quote: {
     estimate: 'Devis estimé',
     fixedMalpensa: 'Tarif fixe Milan–Malpensa',
@@ -383,7 +496,7 @@ const fr: Dictionary = {
     },
   },
   formErrors: {
-    required: "Veuillez remplir tous les champs obligatoires avant d'envoyer votre demande.",
+    required: 'Veuillez remplir tous les champs obligatoires avant d\'envoyer votre demande.',
     invalidDate: 'Date invalide. Veuillez saisir une date existante.',
     invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
   },

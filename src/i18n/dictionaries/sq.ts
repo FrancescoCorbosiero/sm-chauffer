@@ -10,7 +10,7 @@ const sq: Dictionary = {
     },
     fleet: {
       title: 'Flota Jonë | Transfer Luxury Driver',
-      description: 'Zbuloni flotën tonë të automjeteve luksoze: Mercedes, BMW, Range Rover.',
+      description: 'Zbuloni flotën tonë të automjeteve luksoze: Mercedes dhe Range Rover.',
     },
     services: {
       title: 'Shërbimet | Transfer Luxury Driver',
@@ -43,10 +43,55 @@ const sq: Dictionary = {
     closeMenu: 'Mbyll menynë',
     mainNavLabel: 'Navigimi kryesor',
     homeAria: 'Transfer Luxury Driver — Kreu',
+    areas: 'Zonat',
+    pricing: 'Tarifat',
+    showMenu: 'shfaq nënmenunë',
+    menuTitle: 'Menyja',
+    logoTagline: 'Shofer · Milano · Liqeni i Komos',
+    allServices: 'Të gjitha shërbimet',
+    servicesLead: 'Shofer i dedikuar dhe çmim i rënë dakord para nisjes.',
+    featuredLabel: 'Tarifë fikse',
+    featuredText: 'Berlinë me shofer nga Milano në Malpensa. Çmimi bie dakord para nisjes, pa taksimetër.',
+    citiesTitle: 'Sipas qytetit',
+    airportsTitle: 'Aeroportet',
+    areasMap: 'Harta e zonave',
+    areasLead: 'Milano, Brianza, Liqeni i Komos, aeroportet dhe Zvicra: ku operojmë, me kohë orientuese.',
+    quickContact: 'Kontakt i shpejtë',
+    language: 'Gjuha',
+  },
+  status: {
+    available: 'Në dispozicion tani',
+    always: 'Shërbim aktiv 24 orë në ditë, 7 ditë në javë',
+    city: 'Milano',
+    reply: 'Përgjigje brenda pak minutash',
+  },
+  actions: {
+    call: 'Telefono',
+    book: 'Rezervo',
+    quote: 'Kërko një ofertë',
+    backToTop: 'Kthehu lart',
+    whatsappMessage: 'Përshëndetje, dëshiroj informacion për një shërbim me shofer.',
+    writeUs: 'Na shkruani',
+    chatNow: 'Shkruaj tani',
+    barLabel: 'Veprime të shpejta',
+  },
+  common: {
+    explore: 'Eksploro',
+    learnMore: 'Mëso më shumë',
+    previous: 'I mëparshmi',
+    next: 'Tjetri',
   },
   footer: {
-    tagline:
-      'Shërbim me shofer në Milano, Brianza dhe Liqenin e Komos. Elegancë, përpikëri dhe diskrecion që nga viti 2014.',
+    phone24: 'Telefon · 24/7',
+    fleet: 'Flota',
+    areas: 'Zonat e shërbimit',
+    company: 'Kompania',
+    compare: 'Krahaso automjetet',
+    intl: 'Mysafirë ndërkombëtarë',
+    vatLabel: 'TVSH',
+    registeredOffice: 'Selia ligjore',
+    sdiLabel: 'Kodi SDI',
+    tagline: 'Shërbim me shofer në Milano, Brianza dhe Liqenin e Komos. Elegancë, përpikëri dhe diskrecion që nga viti 2014.',
     explore: 'Eksploro',
     services: 'Shërbimet',
     contacts: 'Kontakt',
@@ -64,41 +109,98 @@ const sq: Dictionary = {
     },
   },
   hero: {
-    eyebrow: 'Transfer Luxury Driver',
-    titlePart1: 'Shofer luksoz',
-    titlePart2: 'në Itali',
-    description:
-      'Transferta aeroportuale, tura private dhe shërbime VIP me shofer të dedikuar. Të disponueshme 24/7 në Milano, Brianza dhe Liqenin e Komos.',
-    ctaBook: 'Rezervo Tani',
-    ctaFleet: 'Flota',
-    statsLabels: { years: 'Vite', transfers: 'Transferta', google: 'Google' },
-    imageAlt: 'Makinë luksoze me shofer',
+    titlePart1: 'Shofer privat luksoz',
+    titlePart2: 'në Milano dhe në Liqenin e Komos.',
+    description: 'Transferta aeroporti, shërbim me orë dhe ture private me shofer të dedikuar. Çmim i rënë dakord para nisjes, monitorim i fluturimit dhe asistencë 24/7.',
+    trustGoogle: '5.0 në Google',
+    trustLicensed: 'Shërbim i licencuar',
+    trustFlight: 'Monitorim fluturimesh',
+    trust247: 'Aktivë 24/7',
+  },
+  quickBook: {
+    title: 'Rezervo shoferin tënd',
+    subtitle: 'Ofertë falas, përgjigje brenda pak minutash.',
+    tripType: 'Lloji i shërbimit',
+    transfer: 'Transfertë',
+    hourly: 'Me orë',
+    fromPlaceholder: 'Adresë, hotel ose aeroport',
+    toPlaceholder: 'Ku dëshiron të shkosh?',
+    duration: 'Kohëzgjatja',
+    durationPlaceholder: 'Zgjidh orët',
+    hourOne: '1 orë',
+    hourMany: '{n} orë',
+    passengers: 'Pasagjerë',
+    passengersPlaceholder: 'Sa veta?',
+    submit: 'Vazhdo kërkesën',
+    free: 'Ofertë falas',
+    noCard: 'Pa kartë',
+  },
+  steps: {
+    label: 'Si funksionon',
+    title: 'Rezervimi është i thjeshtë,',
+    accent: 'nga fillimi në fund.',
+    description: 'Pa aplikacione për të shkarkuar: na shkruan, merr një çmim të qartë dhe udhëton i qetë.',
+    items: [
+      {
+        title: 'Kërko',
+        description: 'Plotëso formularin, na shkruaj në WhatsApp ose na telefono: mjaftojnë itinerari, data dhe ora.',
+      },
+      {
+        title: 'Konfirmo',
+        description: 'Të përgjigjemi brenda pak minutash me disponueshmërinë dhe çmimin, të rënë dakord para nisjes.',
+      },
+      {
+        title: 'Pritja',
+        description: 'Shoferi të pret në kohë. Në aeroport monitorojmë fluturimin dhe të presim me tabelë me emrin tënd.',
+      },
+      {
+        title: 'Udhëto',
+        description: 'Automjet premium, drejtim i sigurt dhe diskrecion maksimal deri në destinacion.',
+      },
+    ],
+  },
+  pricingTeaser: {
+    label: 'Tarifat',
+    title: 'Çmime të qarta,',
+    accent: 'të rëna dakord para nisjes.',
+    description: 'Pa taksimetër dhe pa surpriza: tarifë fikse në rrugën Milano–Malpensa dhe shërbim me orë me shofer të dedikuar.',
+    malpensaLabel: 'Transfertë Milano–Malpensa',
+    malpensaNote: 'Tarifë fikse me berlinë, nga Milano.',
+    hourlyLabel: 'Shofer me orë',
+    hourlyNote: 'Shofer në dispozicion për takime, pazar dhe evente, nga Klasa E te Klasa S.',
+    groupsLabel: 'Grupe dhe evente',
+    groupsValue: 'Me porosi',
+    groupsNote: 'Klasa V deri në 7 pasagjerë, minibus me 18 vende me ofertë.',
+    cta: 'Shiko të gjitha tarifat',
+  },
+  ctaBand: {
+    title: 'Udhëtimi yt i radhës,',
+    accent: 'e kujdesur në çdo detaj.',
+    description: 'Përgjigje brenda pak minutash në WhatsApp, telefon ose email. Tarifë e qartë, shofer i dedikuar dhe përpikmëri në Milano, Brianza dhe Liqenin e Komos.',
   },
   fleetPreview: {
     label: 'Flota Jonë',
-    title: 'Automjete luksoze, të zgjedhura një nga një',
-    description:
-      'Mercedes, BMW dhe Range Rover. Çdo automjet mbahet sipas standardeve premium, çdo detaj i kujdesur.',
-    cta: 'Shiko të gjithë flotën →',
+    title: 'Automjete përfaqësuese,',
+    accent: 'të zgjedhura një nga një.',
+    description: 'Mercedes Klasa S, E dhe V, Range Rover dhe një minibus me 18 vende: çdo automjet i mirëmbajtur me standarde premium.',
+    cta: 'Shiko gjithë flotën',
   },
   servicesPreview: {
     label: 'Shërbimet',
-    title: 'Çdo udhëtim, i personalizuar',
-    description:
-      'Nga transfertat aeroportuale tek turat private në destinacionet më ekskluzive të Italisë dhe Evropës.',
-    cta: 'Të gjitha shërbimet →',
+    title: 'Çdo udhëtim,',
+    accent: 'sipas porosisë.',
+    description: 'Nga transfertat aeroportuale tek turat private në destinacionet më ekskluzive të Italisë dhe Evropës.',
+    cta: 'Të gjitha shërbimet',
   },
   whyUs: {
     label: 'Pse Të Na Zgjidhni',
     title: 'Përsosmëria në detaje',
-    description:
-      'Dhjetë vjet përvojë në shërbim të klientëve më kërkues, me standarde që nuk bëjnë kurrë kompromis.',
+    description: 'Dhjetë vjet përvojë në shërbim të klientëve më kërkues, me standarde që nuk bëjnë kurrë kompromis.',
     items: [
       {
         icon: 'ShieldCheck',
         title: 'Të Autorizuar dhe të Siguruar',
-        description:
-          'Shofer i rregullt me të gjitha autorizimet ministrore dhe mbulim sigurimi premium.',
+        description: 'Shofer i rregullt me të gjitha autorizimet ministrore dhe mbulim sigurimi premium.',
       },
       {
         icon: 'Clock',
@@ -119,24 +221,34 @@ const sq: Dictionary = {
   },
   testimonialsSection: {
     label: 'Dëshmitë',
-    title: 'Çfarë thonë klientët tanë',
-    description: '5.0 yje në Google dhe Uber — vlerësime reale nga ata që zgjodhën Transfer Luxury Driver.',
+    title: 'Çfarë thonë',
+    accent: 'klientët tanë.',
+    description: 'Vlerësime të vërteta nga ata që udhëtuan me ne, në Google dhe Uber.',
     starsAria: '{n} nga 5 yje',
+    ratingLabel: 'Vlerësimi mesatar i klientëve',
   },
   blogPreview: {
     label: 'Nga Blogu Ynë',
-    title: 'Udhëzues dhe rrëfime udhëtimi',
+    title: 'Udhëzues dhe',
+    accent: 'histori udhëtimi.',
     description: 'Histori, itinerare dhe këshilla për ta jetuar Italinë me stil.',
-    cta: 'Të gjithë artikujt →',
+    cta: 'Të gjithë artikujt',
   },
   fleetCard: {
     pax: 'pers.',
     bag: 'çanta',
     from: 'Nga',
     perHour: '/orë',
+    seats: '{n} vende',
+    luggage: '{n} bagazhe',
     book: 'Rezervo',
     onRequest: 'Sipas kërkesës',
-    categories: { berlina: 'Berlinë', van: 'Van', suv: 'SUV', bus: 'Autobus' },
+    categories: {
+      berlina: 'Berlinë',
+      van: 'Van',
+      suv: 'SUV',
+      bus: 'Autobus',
+    },
   },
   serviceCard: {
     requestService: 'Kërko Shërbimin',
@@ -163,14 +275,12 @@ const sq: Dictionary = {
   fleetPage: {
     label: 'Flota',
     title: 'Flota Jonë',
-    description:
-      'Automjete të zgjedhura me kujdes për t’ju ofruar komoditetin, sigurinë dhe stilin maksimal.',
+    description: 'Automjete të zgjedhura me kujdes për t’ju ofruar komoditetin, sigurinë dhe stilin maksimal.',
   },
   servicesPage: {
     label: 'Shërbimet',
     title: 'Shërbimet Tona',
-    description:
-      'Transferta aeroportuale, shofer privat, tura në Itali dhe Evropë. Çdo udhëtim i menduar deri në detajet më të vogla.',
+    description: 'Transferta aeroportuale, shofer privat, tura në Itali dhe Evropë. Çdo udhëtim i menduar deri në detajet më të vogla.',
   },
   aboutPage: {
     label: 'Rreth Nesh',
@@ -179,7 +289,7 @@ const sq: Dictionary = {
     paragraphs: [
       'Transfer Luxury Driver lindi në Milano me një objektiv të thjeshtë: t’u sjellë transfertave private të njëjtin nivel kujdesi, elegance dhe vëmendjeje që karakterizon mikpritjen e nivelit të lartë.',
       'Çdo ditë punojmë me klientë biznesi, mysafirë të hoteleve pesë-yje, agjenci udhëtimesh luksoze dhe operatorë të modës gjatë javëve më të rëndësishme të kalendarit milanez.',
-      'Flota jonë — tërësisht Mercedes, BMW dhe Range Rover — mirëmbahet nga personel i dedikuar. Shoferët, të zgjedhur me kujdes, flasin anglisht dhe njohin protokollet e shërbimit të sektorit luksoz.',
+      'Flota jonë — tërësisht Mercedes dhe Range Rover — mirëmbahet nga personel i dedikuar. Shoferët, të zgjedhur me kujdes, flasin anglisht dhe njohin protokollet e shërbimit të sektorit luksoz.',
     ],
     values: [
       {
@@ -212,7 +322,14 @@ const sq: Dictionary = {
     ctaTitle: 'Ke një transfertë ose një itinerar për të organizuar?',
     ctaButton: 'Kërko një ofertë',
   },
-  faq: { label: 'FAQ', title: 'Pyetje të shpeshta' },
+  faq: {
+    label: 'FAQ',
+    title: 'Pyetje',
+    accent: 'të shpeshta.',
+    description: 'Përgjigjet e pyetjeve që marrim më shpesh. Për gjithçka tjetër, jemi një mesazh larg.',
+    ctaTitle: 'Ke një pyetje tjetër?',
+    ctaText: 'Të përgjigjemi brenda pak minutash, në çdo orë.',
+  },
   contactPage: {
     label: 'Kontakt',
     title: 'Vihu në kontakt',
@@ -256,6 +373,7 @@ const sq: Dictionary = {
     },
   },
   stats: {
+    label: 'Në shifra',
     years: 'Vite Përvojë',
     transfers: 'Transferta të Përfunduara',
     googleStars: 'Yje në Google',
@@ -286,64 +404,59 @@ const sq: Dictionary = {
     },
     'bus-18': {
       badge: '18 Vende',
-      description:
-        'Autobus me 18 vende për grupe, evente dhe transferime kolektive. I disponueshëm sipas kërkesës.',
+      description: 'Autobus me 18 vende për grupe, evente dhe transferime kolektive. I disponueshëm sipas kërkesës.',
     },
   },
   services: {
     'airport-transfer': {
       title: 'Transfertë Aeroporti',
       description: 'Malpensa, Bergamo, Linate — gjithmonë në kohë.',
-      longDescription:
-        'Monitorojmë fluturimin tuaj në kohë reale. Shoferi juaj do t’ju presë në mbërritje me një tabelë me emrin tuaj, gati për t’ju ndihmuar me bagazhet. I disponueshëm 24/7, 365 ditë në vit për të gjithë aeroportet e Lombardisë. Transfer Milano–Malpensa me tarifë fikse nga 150€.',
+      longDescription: 'Monitorojmë fluturimin tuaj në kohë reale. Shoferi juaj do t’ju presë në mbërritje me një tabelë me emrin tuaj, gati për t’ju ndihmuar me bagazhet. I disponueshëm 24/7, 365 ditë në vit për të gjithë aeroportet e Lombardisë. Transfer Milano–Malpensa me tarifë fikse nga 150€.',
     },
     'autista-milano': {
       title: 'Shofer në Milano',
       description: 'Shoferi juaj privat në zemër të modës.',
-      longDescription:
-        'Lëvizje në qytet, takime biznesi, darka gala, Fashion Week. Shërbimi ynë me shofer në Milano garanton diskrecion, përpikëri dhe komoditet për çdo rast.',
+      longDescription: 'Lëvizje në qytet, takime biznesi, darka gala, Fashion Week. Shërbimi ynë me shofer në Milano garanton diskrecion, përpikëri dhe komoditet për çdo rast.',
     },
     'autista-brianza': {
       title: 'Shofer në Brianza',
       description: 'Shoferi juaj privat midis Monzës dhe villave të Brianzës.',
-      longDescription:
-        'Nga Monza tek Lecco, nga vilat historike të Brianzës deri tek destinacionet premium: shërbimi ynë me shofer garanton përpikëri, diskrecion dhe komoditet për çdo rast.',
+      longDescription: 'Nga Monza tek Lecco, nga vilat historike të Brianzës deri tek destinacionet premium: shërbimi ynë me shofer garanton përpikëri, diskrecion dhe komoditet për çdo rast.',
     },
     'tour-privati': {
       title: 'Tura Private në Itali',
       description: 'Liqeni i Komos, Toskanë, Amalfi — vetëm për ju.',
-      longDescription:
-        'Itinerare të personalizuara në destinacionet më të bukura të Italisë. Liqeni i Komos, Langhe, Bregu i Amalfit, Cinque Terre. Çdo turë është e bërë me porosi, me shofer të dedikuar dhe vëmendje për detajet.',
+      longDescription: 'Itinerare të personalizuara në destinacionet më të bukura të Italisë. Liqeni i Komos, Langhe, Bregu i Amalfit, Cinque Terre. Çdo turë është e bërë me porosi, me shofer të dedikuar dhe vëmendje për detajet.',
     },
     'trasferimenti-internazionali': {
       title: 'Transferta Ndërkombëtare',
       description: 'Itali, Zvicër, Francë, Monako — pa kufij.',
-      longDescription:
-        'Transferta nga dera në derë drejt destinacioneve kryesore evropiane: Gjenevë, Cyrih, Nicë, Monako, Paris. Shoferët tanë njohin rrugët më të mira dhe menaxhojnë të gjitha formalitetet kufitare.',
+      longDescription: 'Transferta nga dera në derë drejt destinacioneve kryesore evropiane: Gjenevë, Cyrih, Nicë, Monako, Paris. Shoferët tanë njohin rrugët më të mira dhe menaxhojnë të gjitha formalitetet kufitare.',
     },
     'minibus-gruppi': {
       title: 'Minibus dhe Grupe',
-      description: 'Deri në 19 vende, për ngjarje dhe delegacione.',
-      longDescription:
-        'Automjete me kapacitet të madh për konferenca, ngjarje korporative, dasma dhe tura grupesh. Koordinojmë disa flota për ngjarje të mëdha me logjistikë të dedikuar.',
+      description: 'Deri në 18 vende, për ngjarje dhe delegacione.',
+      longDescription: 'Automjete me kapacitet të madh për konferenca, ngjarje korporative, dasma dhe tura grupesh. Koordinojmë disa flota për ngjarje të mëdha me logjistikë të dedikuar.',
     },
   },
   testimonials: {
     '1': {
-      text:
-        'Shërbim NCC super profesional. Munda të rezervoj direkt nga faqja deri në aeroportin e Malpensës, qartë dhe shpejt. Më kontaktuan menjëherë. Shërbim me pesë yje.',
+      text: 'Shërbim NCC super profesional. Munda të rezervoj direkt nga faqja deri në aeroportin e Malpensës, qartë dhe shpejt. Më kontaktuan menjëherë. Shërbim me pesë yje.',
     },
     '2': {
-      text:
-        'Shofer shumë i përpiktë dhe makinë e patëmetë. Rezervim i thjeshtë dhe komunikim gjithmonë i qartë: u ndjeva e kujdesur nga fillimi në fund. Një përvojë vërtet e nivelit të lartë.',
+      text: 'Shofer shumë i përpiktë dhe makinë e patëmetë. Rezervim i thjeshtë dhe komunikim gjithmonë i qartë: u ndjeva e kujdesur nga fillimi në fund. Një përvojë vërtet e nivelit të lartë.',
     },
     '3': {
-      text:
-        'Transfertë për Malpensën perfekte: erdhi para kohe, drejtim i sigurt dhe mirësjellje maksimale. Raport cilësi-çmim i shkëlqyer, e rekomandoj pa rezerva.',
+      text: 'Transfertë për Malpensën perfekte: erdhi para kohe, drejtim i sigurt dhe mirësjellje maksimale. Raport cilësi-çmim i shkëlqyer, e rekomandoj pa rezerva.',
     },
   },
-  whatsapp: { aria: 'Na kontaktoni në WhatsApp', label: 'WhatsApp' },
-  languageSwitcher: { aria: 'Ndrysho gjuhën' },
+  whatsapp: {
+    aria: 'Na kontaktoni në WhatsApp',
+    label: 'WhatsApp',
+  },
+  languageSwitcher: {
+    aria: 'Ndrysho gjuhën',
+  },
   quote: {
     estimate: 'Vlerësim oferte',
     fixedMalpensa: 'Tarifë fikse Milano–Malpensa',

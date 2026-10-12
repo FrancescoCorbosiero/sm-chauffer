@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google';
-import Navbar from '@/components/layout/Navbar';
+import SiteHeader from '@/components/layout/SiteHeader';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
-import ScrollProgress from '@/components/ui/ScrollProgress';
+import MobileActionBar from '@/components/layout/MobileActionBar';
+import FloatingActions from '@/components/layout/FloatingActions';
 import JsonLd from '@/components/seo/JsonLd';
 import SpeculationRules from '@/components/seo/SpeculationRules';
 import Analytics from '@/components/analytics/Analytics';
@@ -16,7 +16,7 @@ import { LOCALES } from '@/i18n/types';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
   variable: '--font-cormorant',
   display: 'swap',
@@ -24,7 +24,7 @@ const cormorant = Cormorant_Garamond({
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-dm-sans',
   display: 'swap',
 });
@@ -119,10 +119,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
+  // The header is ink on every page, so the browser chrome matches it.
+  themeColor: '#0c0c0e',
   colorScheme: 'light',
   width: 'device-width',
   initialScale: 1,
@@ -139,11 +137,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LanguageProvider>
           <SkipLink />
-          <ScrollProgress />
-          <Navbar />
+          <SiteHeader />
           <main id="main-content">{children}</main>
           <Footer />
-          <WhatsAppButton />
+          <MobileActionBar />
+          <FloatingActions />
           <ConsentBanner />
         </LanguageProvider>
         <JsonLd />

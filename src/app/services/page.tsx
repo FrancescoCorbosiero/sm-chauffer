@@ -24,7 +24,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-5 md:gap-6">
             {services.map((s, i) => (
               <ScrollReveal key={s.id} delay={(i % 3) * 0.08} className="h-full">
-                <ServiceCard service={s} index={i} />
+                <ServiceCard service={s} />
               </ScrollReveal>
             ))}
           </div>
