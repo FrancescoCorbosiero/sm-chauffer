@@ -384,8 +384,35 @@ const it: Dictionary = {
   },
   servicesPage: {
     label: 'Servizi',
-    title: 'I Nostri Servizi',
+    title: 'Servizi con autista,',
+    accent: 'per ogni occasione.',
     description: 'Transfer aeroportuali, autista privato, tour in Italia e in Europa. Ogni viaggio è studiato nei minimi dettagli.',
+    jump: 'Vai al servizio',
+    discover: 'Scopri il servizio',
+  },
+  serviceDetail: {
+    eyebrow: 'Servizio con autista',
+    book: 'Prenota questo servizio',
+    factsLabel: 'In breve',
+    hourlyLabel: 'Servizio a ore con autista dedicato',
+    quoteLabel: 'Prezzo concordato prima di partire',
+    paxLabel: 'passeggeri per vettura',
+    availabilityLabel: 'operativi 365 giorni l’anno',
+    featuresLabel: 'Il servizio',
+    featuresTitle: 'Cosa include',
+    featuresAccent: 'il servizio.',
+    asideTitle: 'Prenota in pochi minuti',
+    asideText: 'Indica tratta, data e orario: ti confermiamo disponibilità e prezzo prima della partenza.',
+    priceLabel: 'Tariffa',
+    vehiclesTitle: 'Le vetture',
+    vehiclesAccent: 'consigliate.',
+    vehiclesText: 'Scegli in base a passeggeri e bagagli: potrai sempre cambiare vettura in fase di prenotazione.',
+    zonesLabel: 'Tratte',
+    zonesTitle: 'Le destinazioni',
+    zonesAccent: 'più richieste.',
+    zonesText: 'Distanze e tempi indicativi da Milano. Per ogni altra destinazione, chiedici un preventivo.',
+    otherTitle: 'Scopri anche',
+    otherAccent: 'gli altri servizi.',
   },
   aboutPage: {
     label: 'Chi Siamo',
@@ -536,31 +563,139 @@ const it: Dictionary = {
       title: 'Transfer Aeroporto',
       description: 'Malpensa, Bergamo, Linate — puntuale sempre.',
       longDescription: 'Monitoriamo il tuo volo in tempo reale. Il tuo autista ti aspetterà all\'arrivo con cartello nominativo, pronto ad assistere con i bagagli. Disponibile 24/7, 365 giorni l\'anno per tutti gli aeroporti della Lombardia. Transfer Milano–Malpensa a tariffa fissa da 150€.',
+      features: [
+        {
+          title: 'Volo monitorato',
+          text: 'Seguiamo il tuo volo in tempo reale e adeguiamo l’orario di ritiro: nessun costo extra per i ritardi.',
+        },
+        {
+          title: 'Accoglienza con cartello',
+          text: 'L’autista ti attende agli arrivi con cartello nominativo e ti aiuta con i bagagli.',
+        },
+        {
+          title: 'Tariffa fissa',
+          text: 'Milano–Malpensa a prezzo fisso da 150\u00a0€, concordato prima della partenza: niente tassametro.',
+        },
+        {
+          title: 'Tre aeroporti, 24/7',
+          text: 'Malpensa, Linate e Orio al Serio a ogni ora del giorno e della notte, anche per i voli all’alba.',
+        },
+      ],
     },
     'autista-milano': {
       title: 'Autista a Milano',
       description: 'Il tuo autista privato nel cuore della moda.',
       longDescription: 'Spostamenti in città, meeting aziendali, cene di gala, Fashion Week. Il nostro servizio autista a Milano garantisce discrezione, puntualità e comfort per ogni occasione.',
+      features: [
+        {
+          title: 'Business e meeting',
+          text: 'Un autista a disposizione tra un appuntamento e l’altro, per roadshow, visite e trasferte in giornata.',
+        },
+        {
+          title: 'Fashion Week ed eventi',
+          text: 'Arrivi e partenze puntuali per sfilate, showroom, cene di gala e serate in città.',
+        },
+        {
+          title: 'Servizio a ore',
+          text: 'Prenoti solo le ore che ti servono, a partire da 70\u00a0€/h in Classe E.',
+        },
+        {
+          title: 'Discrezione assoluta',
+          text: 'Autisti professionali e riservati, abituati a lavorare con manager, ospiti VIP e delegazioni.',
+        },
+      ],
     },
     'autista-brianza': {
       title: 'Autista in Brianza',
       description: 'Il tuo autista privato tra Monza e le ville della Brianza.',
       longDescription: 'Da Monza a Lecco, dalle ville storiche della Brianza alle destinazioni premium: il nostro servizio autista garantisce puntualità, discrezione e comfort per ogni occasione.',
+      features: [
+        {
+          title: 'Aziende del distretto',
+          text: 'Trasferte, accoglienza clienti e servizio a ore per le imprese della Brianza, con fatturazione dedicata.',
+        },
+        {
+          title: 'Gran Premio e Autodromo',
+          text: 'Transfer nei weekend di gara, con orari coordinati per evitare le code attorno all’Autodromo di Monza.',
+        },
+        {
+          title: 'Ville e cerimonie',
+          text: 'Matrimoni e ricevimenti nelle ville storiche, dalla Villa Reale di Monza alle dimore brianzole.',
+        },
+        {
+          title: 'Aeroporti e Milano',
+          text: 'Collegamenti diretti con Malpensa, Linate, Orio al Serio e Milano da tutti i comuni della Brianza.',
+        },
+      ],
     },
     'tour-privati': {
       title: 'Tour Privati Italia',
       description: 'Lago di Como, Toscana, Amalfi — solo per te.',
       longDescription: 'Itinerari personalizzati nelle destinazioni più belle d\'Italia. Lago di Como, Langhe, Costa Amalfitana, Cinque Terre. Ogni tour è su misura, con autista dedicato e attenzione ai dettagli.',
+      features: [
+        {
+          title: 'Itinerari su misura',
+          text: 'Costruiamo il percorso con te: tappe, orari e ritmo del viaggio li decidi tu.',
+        },
+        {
+          title: 'Lago di Como e oltre',
+          text: 'Bellagio, Varenna e Tremezzo, ma anche Langhe, Cinque Terre e Costiera Amalfitana.',
+        },
+        {
+          title: 'Autista dedicato',
+          text: 'Lo stesso autista dall’inizio alla fine della giornata, che ti attende a ogni tappa.',
+        },
+        {
+          title: 'Comfort per famiglie e gruppi',
+          text: 'Classe V fino a 7 passeggeri e seggiolini per bambini su richiesta.',
+        },
+      ],
     },
     'trasferimenti-internazionali': {
       title: 'Trasferimenti Internazionali',
       description: 'Italia, Svizzera, Francia, Monaco — senza confini.',
       longDescription: 'Trasferimenti door-to-door verso le principali destinazioni europee: Ginevra, Zurigo, Nizza, Monaco, Parigi. I nostri autisti conoscono le migliori rotte e gestiscono tutte le formalità di frontiera.',
+      features: [
+        {
+          title: 'Porta a porta in Europa',
+          text: 'Ginevra, Zurigo, Nizza, Monaco e Parigi: dal tuo indirizzo alla destinazione, senza cambi.',
+        },
+        {
+          title: 'Frontiere senza pensieri',
+          text: 'I nostri autisti conoscono le rotte migliori e gestiscono le formalità di confine.',
+        },
+        {
+          title: 'Svizzera ed Engadina',
+          text: 'Lugano e St. Moritz sono tra le destinazioni più richieste, in ogni stagione.',
+        },
+        {
+          title: 'Prezzo chiaro',
+          text: 'Ricevi un preventivo dettagliato prima di partire: nessuna sorpresa all’arrivo.',
+        },
+      ],
     },
     'minibus-gruppi': {
       title: 'Minibus & Gruppi',
       description: 'Fino a 18 posti, per eventi e delegazioni.',
       longDescription: 'Veicoli di grande capacità per conferenze, eventi aziendali, matrimoni e tour di gruppo. Coordiniamo flotte multiple per grandi eventi con logistica dedicata.',
+      features: [
+        {
+          title: 'Fino a 18 posti',
+          text: 'Bus da 18 posti e Classe V da 7: la vettura giusta per ogni gruppo.',
+        },
+        {
+          title: 'Congressi ed eventi aziendali',
+          text: 'Navette per conferenze ed eventi, con orari coordinati per tutti gli ospiti.',
+        },
+        {
+          title: 'Matrimoni',
+          text: 'Trasferimenti degli invitati tra cerimonia, ricevimento e hotel, senza pensieri.',
+        },
+        {
+          title: 'Un unico referente',
+          text: 'Coordiniamo più vetture per i grandi eventi, con logistica dedicata e un solo contatto.',
+        },
+      ],
     },
   },
   testimonials: {

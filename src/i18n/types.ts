@@ -321,7 +321,40 @@ export interface Dictionary {
     submit: string;
   };
   fleetPage: { label: string; title: string; description: string };
-  servicesPage: { label: string; title: string; description: string };
+  servicesPage: {
+    label: string;
+    title: string;
+    accent: string;
+    description: string;
+    /** aria-label of the jump-to-service chips. */
+    jump: string;
+    discover: string;
+  };
+  /** Shared copy of the /services/[slug] pages. */
+  serviceDetail: {
+    eyebrow: string;
+    book: string;
+    factsLabel: string;
+    hourlyLabel: string;
+    quoteLabel: string;
+    paxLabel: string;
+    availabilityLabel: string;
+    featuresLabel: string;
+    featuresTitle: string;
+    featuresAccent: string;
+    asideTitle: string;
+    asideText: string;
+    priceLabel: string;
+    vehiclesTitle: string;
+    vehiclesAccent: string;
+    vehiclesText: string;
+    zonesLabel: string;
+    zonesTitle: string;
+    zonesAccent: string;
+    zonesText: string;
+    otherTitle: string;
+    otherAccent: string;
+  };
   aboutPage: {
     label: string;
     title: string;
@@ -409,7 +442,16 @@ export interface Dictionary {
     availability: string;
   };
   vehicles: Record<string, { badge?: string; description: string }>;
-  services: Record<string, { title: string; description: string; longDescription: string }>;
+  services: Record<
+    string,
+    {
+      title: string;
+      description: string;
+      longDescription: string;
+      /** Four highlights shown on the service page (and as bullets on /services). */
+      features: Array<{ title: string; text: string }>;
+    }
+  >;
   testimonials: Record<string, { text: string }>;
   whatsapp: { aria: string; label: string };
   languageSwitcher: { aria: string };

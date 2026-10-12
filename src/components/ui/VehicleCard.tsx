@@ -4,9 +4,18 @@ import Link from 'next/link';
 import { ArrowRight, Briefcase, Users } from 'lucide-react';
 import type { Vehicle } from '@/lib/types';
 import { useTranslation } from '@/i18n/LanguageProvider';
-import { bookingHref } from '@/lib/booking';
+import { bookingHref, type BookingDraft } from '@/lib/booking';
 
-export default function VehicleCard({ vehicle, priority = false }: { vehicle: Vehicle; priority?: boolean }) {
+export default function VehicleCard({
+  vehicle,
+  priority = false,
+  booking,
+}: {
+  vehicle: Vehicle;
+  priority?: boolean;
+  /** Extra booking fields for the Book button (e.g. the service type on a service page). */
+  booking?: Partial<BookingDraft>;
+}) {
   const t = useTranslation();
   const copy = t.vehicles[vehicle.id] ?? { description: '' };
   const fc = t.fleetCard;
@@ -51,7 +60,7 @@ export default function VehicleCard({ vehicle, priority = false }: { vehicle: Ve
         </ul>
         <div className="mt-auto flex items-end justify-between gap-4 pt-6">
           <div>
-            <span className="block text-xs font-medium text-muted">{fc.from}</span>
+            {!vehicle.priceOnRequest && <span className="block text-xs font-medium text-muted">{fc.from}</span>}
             {vehicle.priceOnRequest ? (
               <span className="text-lg font-semibold text-ink">{fc.onRequest}</span>
             ) : (
@@ -62,7 +71,7 @@ export default function VehicleCard({ vehicle, priority = false }: { vehicle: Ve
             )}
           </div>
           <Link
-            href={bookingHref({ car: vehicle.id })}
+            href={bookingHref({ ...booking, car: vehicle.id })}
             className="btn btn-primary btn-sm relative z-[1]"
             aria-label={`${t.actions.book} — ${vehicle.name}`}
           >

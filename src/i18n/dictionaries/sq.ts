@@ -384,8 +384,35 @@ const sq: Dictionary = {
   },
   servicesPage: {
     label: 'Shërbimet',
-    title: 'Shërbimet Tona',
+    title: 'Shërbime me shofer,',
+    accent: 'për çdo rast.',
     description: 'Transferta aeroportuale, shofer privat, tura në Itali dhe Evropë. Çdo udhëtim i menduar deri në detajet më të vogla.',
+    jump: 'Shko te shërbimi',
+    discover: 'Zbulo shërbimin',
+  },
+  serviceDetail: {
+    eyebrow: 'Shërbim me shofer',
+    book: 'Rezervo këtë shërbim',
+    factsLabel: 'Shkurtimisht',
+    hourlyLabel: 'Shërbim me orë me shofer të dedikuar',
+    quoteLabel: 'Çmimi bihet dakord para nisjes',
+    paxLabel: 'pasagjerë për automjet',
+    availabilityLabel: 'në shërbim 365 ditë në vit',
+    featuresLabel: 'Shërbimi',
+    featuresTitle: 'Çfarë përfshin',
+    featuresAccent: 'shërbimi.',
+    asideTitle: 'Rezervo për pak minuta',
+    asideText: 'Na trego itinerarin, datën dhe orën: të konfirmojmë disponueshmërinë dhe çmimin para nisjes.',
+    priceLabel: 'Tarifa',
+    vehiclesTitle: 'Automjetet',
+    vehiclesAccent: 'e rekomanduara.',
+    vehiclesText: 'Zgjidh sipas pasagjerëve dhe bagazheve: mund ta ndryshosh automjetin gjatë rezervimit.',
+    zonesLabel: 'Itinerare',
+    zonesTitle: 'Destinacionet',
+    zonesAccent: 'më të kërkuara.',
+    zonesText: 'Distanca dhe kohë orientuese nga Milano. Për çdo destinacion tjetër, na kërko një ofertë.',
+    otherTitle: 'Zbulo edhe',
+    otherAccent: 'shërbimet e tjera.',
   },
   aboutPage: {
     label: 'Rreth Nesh',
@@ -536,31 +563,139 @@ const sq: Dictionary = {
       title: 'Transfertë Aeroporti',
       description: 'Malpensa, Bergamo, Linate — gjithmonë në kohë.',
       longDescription: 'Monitorojmë fluturimin tuaj në kohë reale. Shoferi juaj do t’ju presë në mbërritje me një tabelë me emrin tuaj, gati për t’ju ndihmuar me bagazhet. I disponueshëm 24/7, 365 ditë në vit për të gjithë aeroportet e Lombardisë. Transfer Milano–Malpensa me tarifë fikse nga 150€.',
+      features: [
+        {
+          title: 'Monitorim i fluturimit',
+          text: 'Ndjekim fluturimin tënd në kohë reale dhe përshtatim orën e marrjes: pa kosto shtesë për vonesat.',
+        },
+        {
+          title: 'Pritje me tabelë',
+          text: 'Shoferi të pret te mbërritjet me një tabelë me emrin tënd dhe të ndihmon me bagazhet.',
+        },
+        {
+          title: 'Tarifë fikse',
+          text: 'Milano–Malpensa me çmim fiks nga 150\u00a0€, i rënë dakord para nisjes: pa taksimetër.',
+        },
+        {
+          title: 'Tre aeroporte, 24/7',
+          text: 'Malpensa, Linate dhe Bergamo Orio al Serio në çdo orë të ditës dhe natës, edhe për fluturimet herët në mëngjes.',
+        },
+      ],
     },
     'autista-milano': {
       title: 'Shofer në Milano',
       description: 'Shoferi juaj privat në zemër të modës.',
       longDescription: 'Lëvizje në qytet, takime biznesi, darka gala, Fashion Week. Shërbimi ynë me shofer në Milano garanton diskrecion, përpikëri dhe komoditet për çdo rast.',
+      features: [
+        {
+          title: 'Biznes dhe takime',
+          text: 'Një shofer në dispozicion mes takimeve, për roadshow, vizita dhe udhëtime njëditore.',
+        },
+        {
+          title: 'Fashion Week dhe evente',
+          text: 'Mbërritje dhe nisje të përpikta për sfilata, showroom, darka gala dhe mbrëmje në qytet.',
+        },
+        {
+          title: 'Shërbim me orë',
+          text: 'Rezervo vetëm orët që të duhen, duke filluar nga 70\u00a0€/h me Klasën E.',
+        },
+        {
+          title: 'Diskrecion absolut',
+          text: 'Shoferë profesionistë dhe të rezervuar, të mësuar të punojnë me drejtues, mysafirë VIP dhe delegacione.',
+        },
+      ],
     },
     'autista-brianza': {
       title: 'Shofer në Brianza',
       description: 'Shoferi juaj privat midis Monzës dhe villave të Brianzës.',
       longDescription: 'Nga Monza tek Lecco, nga vilat historike të Brianzës deri tek destinacionet premium: shërbimi ynë me shofer garanton përpikëri, diskrecion dhe komoditet për çdo rast.',
+      features: [
+        {
+          title: 'Bizneset e zonës',
+          text: 'Udhëtime pune, pritje klientësh dhe shërbim me orë për kompanitë e Brianzës, me faturim të dedikuar.',
+        },
+        {
+          title: 'Gran Premio dhe Autodromi',
+          text: 'Transferime gjatë fundjavave të garave, me orare të koordinuara për të shmangur radhët rreth Autodromit të Monzës.',
+        },
+        {
+          title: 'Vila dhe ceremoni',
+          text: 'Dasma dhe pritje në vilat historike, nga Villa Reale e Monzës te rezidencat e Brianzës.',
+        },
+        {
+          title: 'Aeroportet dhe Milano',
+          text: 'Lidhje direkte me Malpensën, Linaten, Orio al Serion dhe Milanon nga të gjitha qytetet e Brianzës.',
+        },
+      ],
     },
     'tour-privati': {
       title: 'Tura Private në Itali',
       description: 'Liqeni i Komos, Toskanë, Amalfi — vetëm për ju.',
       longDescription: 'Itinerare të personalizuara në destinacionet më të bukura të Italisë. Liqeni i Komos, Langhe, Bregu i Amalfit, Cinque Terre. Çdo turë është e bërë me porosi, me shofer të dedikuar dhe vëmendje për detajet.',
+      features: [
+        {
+          title: 'Itinerare të personalizuara',
+          text: 'E ndërtojmë itinerarin bashkë me ty: ndalesat, oraret dhe ritmin i vendos ti.',
+        },
+        {
+          title: 'Liqeni i Komos e më tej',
+          text: 'Bellagio, Varenna dhe Tremezzo, por edhe Langhe, Cinque Terre dhe Bregdeti i Amalfit.',
+        },
+        {
+          title: 'Shofer i dedikuar',
+          text: 'I njëjti shofer nga fillimi deri në fund të ditës, që të pret në çdo ndalesë.',
+        },
+        {
+          title: 'Komoditet për familje dhe grupe',
+          text: 'Klasa V deri në 7 pasagjerë dhe ulëse për fëmijë me kërkesë.',
+        },
+      ],
     },
     'trasferimenti-internazionali': {
       title: 'Transferta Ndërkombëtare',
       description: 'Itali, Zvicër, Francë, Monako — pa kufij.',
       longDescription: 'Transferta nga dera në derë drejt destinacioneve kryesore evropiane: Gjenevë, Cyrih, Nicë, Monako, Paris. Shoferët tanë njohin rrugët më të mira dhe menaxhojnë të gjitha formalitetet kufitare.',
+      features: [
+        {
+          title: 'Derë më derë në Evropë',
+          text: 'Gjenevë, Cyrih, Nicë, Monako dhe Paris: nga adresa jote deri te destinacioni, pa ndërrime.',
+        },
+        {
+          title: 'Kufij pa shqetësime',
+          text: 'Shoferët tanë njohin rrugët më të mira dhe kujdesen për formalitetet në kufi.',
+        },
+        {
+          title: 'Zvicra dhe Engadina',
+          text: 'Lugano dhe St. Moritz janë ndër destinacionet më të kërkuara, në çdo stinë.',
+        },
+        {
+          title: 'Çmim i qartë',
+          text: 'Merr një ofertë të detajuar para nisjes: asnjë surprizë në mbërritje.',
+        },
+      ],
     },
     'minibus-gruppi': {
       title: 'Minibus dhe Grupe',
       description: 'Deri në 18 vende, për ngjarje dhe delegacione.',
       longDescription: 'Automjete me kapacitet të madh për konferenca, ngjarje korporative, dasma dhe tura grupesh. Koordinojmë disa flota për ngjarje të mëdha me logjistikë të dedikuar.',
+      features: [
+        {
+          title: 'Deri në 18 vende',
+          text: 'Autobus me 18 vende dhe Klasa V me 7: automjeti i duhur për çdo grup.',
+        },
+        {
+          title: 'Kongrese dhe evente korporative',
+          text: 'Transport për konferenca dhe evente, me orare të koordinuara për të gjithë të ftuarit.',
+        },
+        {
+          title: 'Dasma',
+          text: 'Transferimi i të ftuarve mes ceremonisë, pritjes dhe hotelit, pa asnjë shqetësim.',
+        },
+        {
+          title: 'Një pikë kontakti',
+          text: 'Koordinojmë disa automjete për eventet e mëdha, me logjistikë të dedikuar dhe një kontakt të vetëm.',
+        },
+      ],
     },
   },
   testimonials: {

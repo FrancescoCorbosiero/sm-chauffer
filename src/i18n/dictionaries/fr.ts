@@ -384,8 +384,35 @@ const fr: Dictionary = {
   },
   servicesPage: {
     label: 'Services',
-    title: 'Nos Services',
+    title: 'Services avec chauffeur,',
+    accent: 'pour chaque occasion.',
     description: 'Transferts aéroport, chauffeur privé, tours en Italie et en Europe. Chaque voyage pensé dans les moindres détails.',
+    jump: 'Aller au service',
+    discover: 'Découvrir le service',
+  },
+  serviceDetail: {
+    eyebrow: 'Service avec chauffeur',
+    book: 'Réserver ce service',
+    factsLabel: 'En bref',
+    hourlyLabel: 'Service à l’heure avec chauffeur dédié',
+    quoteLabel: 'Prix convenu avant le départ',
+    paxLabel: 'passagers par véhicule',
+    availabilityLabel: 'en service 365 jours par an',
+    featuresLabel: 'Le service',
+    featuresTitle: 'Ce que comprend',
+    featuresAccent: 'le service.',
+    asideTitle: 'Réservez en quelques minutes',
+    asideText: 'Indiquez le trajet, la date et l’heure : nous confirmons la disponibilité et le prix avant le départ.',
+    priceLabel: 'Tarif',
+    vehiclesTitle: 'Les véhicules',
+    vehiclesAccent: 'recommandés.',
+    vehiclesText: 'Choisissez selon le nombre de passagers et de bagages : vous pourrez toujours changer de véhicule lors de la réservation.',
+    zonesLabel: 'Trajets',
+    zonesTitle: 'Les destinations',
+    zonesAccent: 'les plus demandées.',
+    zonesText: 'Distances et temps indicatifs depuis Milan. Pour toute autre destination, demandez-nous un devis.',
+    otherTitle: 'Découvrez aussi',
+    otherAccent: 'nos autres services.',
   },
   aboutPage: {
     label: 'À Propos',
@@ -536,31 +563,139 @@ const fr: Dictionary = {
       title: 'Transfert Aéroport',
       description: 'Malpensa, Bergame, Linate — toujours à l\'heure.',
       longDescription: 'Nous suivons votre vol en temps réel. Votre chauffeur vous attendra à l\'arrivée avec un panneau nominatif, prêt à vous aider avec vos bagages. Disponible 24/7, 365 jours par an pour tous les aéroports de Lombardie. Transfert Milan–Malpensa à tarif fixe à partir de 150€.',
+      features: [
+        {
+          title: 'Suivi du vol',
+          text: 'Nous suivons votre vol en temps réel et adaptons l’heure de prise en charge : aucun supplément en cas de retard.',
+        },
+        {
+          title: 'Accueil personnalisé',
+          text: 'Votre chauffeur vous attend aux arrivées avec une pancarte à votre nom et vous aide avec vos bagages.',
+        },
+        {
+          title: 'Tarif fixe',
+          text: 'Milan–Malpensa à prix fixe dès 150\u00a0€, convenu avant le départ : pas de compteur.',
+        },
+        {
+          title: 'Trois aéroports, 24h/24',
+          text: 'Malpensa, Linate et Bergame Orio al Serio à toute heure du jour et de la nuit, vols matinaux compris.',
+        },
+      ],
     },
     'autista-milano': {
       title: 'Chauffeur à Milan',
       description: 'Votre chauffeur privé au cœur de la mode.',
       longDescription: 'Déplacements en ville, réunions d\'affaires, dîners de gala, Fashion Week. Notre service de chauffeur à Milan garantit discrétion, ponctualité et confort à chaque occasion.',
+      features: [
+        {
+          title: 'Affaires et réunions',
+          text: 'Un chauffeur à disposition entre deux rendez-vous, pour vos roadshows, visites et déplacements à la journée.',
+        },
+        {
+          title: 'Fashion Week et événements',
+          text: 'Arrivées et départs ponctuels pour les défilés, showrooms, dîners de gala et soirées en ville.',
+        },
+        {
+          title: 'Service à l’heure',
+          text: 'Réservez uniquement les heures dont vous avez besoin, à partir de 70\u00a0€/h en Classe E.',
+        },
+        {
+          title: 'Discrétion absolue',
+          text: 'Des chauffeurs professionnels et discrets, habitués aux dirigeants, aux invités VIP et aux délégations.',
+        },
+      ],
     },
     'autista-brianza': {
       title: 'Chauffeur en Brianza',
       description: 'Votre chauffeur privé entre Monza et les villas de la Brianza.',
       longDescription: 'De Monza à Lecco, des villas historiques de la Brianza aux destinations premium : notre service de chauffeur garantit ponctualité, discrétion et confort en toute occasion.',
+      features: [
+        {
+          title: 'Entreprises du territoire',
+          text: 'Déplacements professionnels, accueil de clients et service à l’heure pour les entreprises de la Brianza, avec facturation dédiée.',
+        },
+        {
+          title: 'Grand Prix et Autodromo',
+          text: 'Transferts lors des week-ends de course, avec des horaires coordonnés pour éviter les files autour de l’Autodromo de Monza.',
+        },
+        {
+          title: 'Villas et cérémonies',
+          text: 'Mariages et réceptions dans les villas historiques, de la Villa Reale de Monza aux demeures de la Brianza.',
+        },
+        {
+          title: 'Aéroports et Milan',
+          text: 'Liaisons directes avec Malpensa, Linate, Orio al Serio et Milan depuis toutes les communes de la Brianza.',
+        },
+      ],
     },
     'tour-privati': {
       title: 'Tours Privés en Italie',
       description: 'Lac de Côme, Toscane, Amalfi — rien que pour vous.',
       longDescription: 'Itinéraires personnalisés vers les plus belles destinations d\'Italie. Lac de Côme, Langhe, Côte Amalfitaine, Cinque Terre. Chaque tour est sur mesure, avec un chauffeur dédié et le souci du détail.',
+      features: [
+        {
+          title: 'Itinéraires sur mesure',
+          text: 'Nous construisons le parcours avec vous : étapes, horaires et rythme, c’est vous qui décidez.',
+        },
+        {
+          title: 'Le lac de Côme et au-delà',
+          text: 'Bellagio, Varenna et Tremezzo, mais aussi les Langhe, les Cinque Terre et la côte amalfitaine.',
+        },
+        {
+          title: 'Chauffeur dédié',
+          text: 'Le même chauffeur du début à la fin de la journée, qui vous attend à chaque étape.',
+        },
+        {
+          title: 'Confort pour familles et groupes',
+          text: 'Classe V jusqu’à 7 passagers et sièges enfants sur demande.',
+        },
+      ],
     },
     'trasferimenti-internazionali': {
       title: 'Transferts Internationaux',
       description: 'Italie, Suisse, France, Monaco — sans frontières.',
       longDescription: 'Transferts porte-à-porte vers les principales destinations européennes : Genève, Zurich, Nice, Monaco, Paris. Nos chauffeurs connaissent les meilleures routes et gèrent toutes les formalités frontalières.',
+      features: [
+        {
+          title: 'Porte à porte en Europe',
+          text: 'Genève, Zurich, Nice, Monaco et Paris : de votre adresse à votre destination, sans changement.',
+        },
+        {
+          title: 'Frontières sans souci',
+          text: 'Nos chauffeurs connaissent les meilleurs itinéraires et gèrent les formalités aux frontières.',
+        },
+        {
+          title: 'Suisse et Engadine',
+          text: 'Lugano et Saint-Moritz figurent parmi les destinations les plus demandées, en toute saison.',
+        },
+        {
+          title: 'Prix transparent',
+          text: 'Vous recevez un devis détaillé avant le départ : aucune surprise à l’arrivée.',
+        },
+      ],
     },
     'minibus-gruppi': {
       title: 'Minibus & Groupes',
       description: 'Jusqu\'à 18 places, pour événements et délégations.',
       longDescription: 'Véhicules de grande capacité pour conférences, événements d\'entreprise, mariages et tours de groupe. Nous coordonnons plusieurs flottes pour les grands événements avec une logistique dédiée.',
+      features: [
+        {
+          title: 'Jusqu’à 18 places',
+          text: 'Un bus de 18 places et la Classe V de 7 : le bon véhicule pour chaque groupe.',
+        },
+        {
+          title: 'Congrès et événements d’entreprise',
+          text: 'Navettes pour conférences et événements, avec des horaires coordonnés pour tous les invités.',
+        },
+        {
+          title: 'Mariages',
+          text: 'Transferts des invités entre la cérémonie, la réception et l’hôtel, en toute sérénité.',
+        },
+        {
+          title: 'Un interlocuteur unique',
+          text: 'Nous coordonnons plusieurs véhicules pour les grands événements, avec une logistique dédiée et un seul contact.',
+        },
+      ],
     },
   },
   testimonials: {

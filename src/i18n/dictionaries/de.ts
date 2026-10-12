@@ -384,8 +384,35 @@ const de: Dictionary = {
   },
   servicesPage: {
     label: 'Leistungen',
-    title: 'Unsere Leistungen',
+    title: 'Chauffeur-Services',
+    accent: 'für jeden Anlass.',
     description: 'Flughafentransfers, privater Chauffeur, Touren in Italien und Europa. Jede Fahrt bis ins Detail durchdacht.',
+    jump: 'Zum Service springen',
+    discover: 'Service entdecken',
+  },
+  serviceDetail: {
+    eyebrow: 'Chauffeur-Service',
+    book: 'Diesen Service buchen',
+    factsLabel: 'Auf einen Blick',
+    hourlyLabel: 'Stundenservice mit eigenem Chauffeur',
+    quoteLabel: 'Preis vor Abfahrt vereinbart',
+    paxLabel: 'Fahrgäste pro Fahrzeug',
+    availabilityLabel: 'an 365 Tagen im Jahr im Einsatz',
+    featuresLabel: 'Der Service',
+    featuresTitle: 'Was im Service',
+    featuresAccent: 'enthalten ist.',
+    asideTitle: 'In wenigen Minuten gebucht',
+    asideText: 'Nennen Sie Strecke, Datum und Uhrzeit: Wir bestätigen Verfügbarkeit und Preis vor der Abfahrt.',
+    priceLabel: 'Tarif',
+    vehiclesTitle: 'Die passenden',
+    vehiclesAccent: 'Fahrzeuge.',
+    vehiclesText: 'Wählen Sie nach Fahrgästen und Gepäck – das Fahrzeug können Sie bei der Buchung jederzeit ändern.',
+    zonesLabel: 'Strecken',
+    zonesTitle: 'Die gefragtesten',
+    zonesAccent: 'Ziele.',
+    zonesText: 'Richtwerte für Entfernung und Fahrzeit ab Mailand. Für jedes andere Ziel erstellen wir Ihnen gern ein Angebot.',
+    otherTitle: 'Entdecken Sie',
+    otherAccent: 'weitere Services.',
   },
   aboutPage: {
     label: 'Über Uns',
@@ -536,31 +563,139 @@ const de: Dictionary = {
       title: 'Flughafentransfer',
       description: 'Malpensa, Bergamo, Linate — immer pünktlich.',
       longDescription: 'Wir verfolgen Ihren Flug in Echtzeit. Ihr Chauffeur erwartet Sie bei der Ankunft mit Namensschild und hilft Ihnen mit dem Gepäck. Verfügbar 24/7, 365 Tage im Jahr für alle Flughäfen der Lombardei. Festpreis-Transfer Mailand–Malpensa ab 150€.',
+      features: [
+        {
+          title: 'Flugüberwachung',
+          text: 'Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit an – ohne Aufpreis bei Verspätungen.',
+        },
+        {
+          title: 'Empfang mit Namensschild',
+          text: 'Ihr Chauffeur erwartet Sie in der Ankunftshalle mit Namensschild und hilft mit dem Gepäck.',
+        },
+        {
+          title: 'Festpreis',
+          text: 'Mailand–Malpensa zum Festpreis ab 150\u00a0€, vor Abfahrt vereinbart: kein Taxameter.',
+        },
+        {
+          title: 'Drei Flughäfen, 24/7',
+          text: 'Malpensa, Linate und Bergamo Orio al Serio zu jeder Tages- und Nachtzeit, auch für Frühflüge.',
+        },
+      ],
     },
     'autista-milano': {
       title: 'Chauffeur in Mailand',
       description: 'Ihr privater Chauffeur im Herzen der Mode.',
       longDescription: 'Fahrten in der Stadt, Geschäftstermine, Gala-Dinner, Fashion Week. Unser Chauffeurservice in Mailand garantiert Diskretion, Pünktlichkeit und Komfort zu jedem Anlass.',
+      features: [
+        {
+          title: 'Business & Meetings',
+          text: 'Ein Chauffeur, der zwischen Ihren Terminen bereitsteht – für Roadshows, Kundenbesuche und Tagesreisen.',
+        },
+        {
+          title: 'Fashion Week & Events',
+          text: 'Pünktliche An- und Abfahrten zu Modenschauen, Showrooms, Galadinners und Abendterminen.',
+        },
+        {
+          title: 'Stundenweise Buchung',
+          text: 'Buchen Sie nur die Stunden, die Sie brauchen – ab 70\u00a0€/h in der E-Klasse.',
+        },
+        {
+          title: 'Absolute Diskretion',
+          text: 'Professionelle, zurückhaltende Chauffeure mit Erfahrung im Umgang mit Führungskräften, VIP-Gästen und Delegationen.',
+        },
+      ],
     },
     'autista-brianza': {
       title: 'Chauffeur in der Brianza',
       description: 'Ihr privater Chauffeur zwischen Monza und den Villen der Brianza.',
       longDescription: 'Von Monza bis Lecco, von den historischen Villen der Brianza zu Premium-Zielen: Unser Chauffeurservice garantiert Pünktlichkeit, Diskretion und Komfort zu jedem Anlass.',
+      features: [
+        {
+          title: 'Unternehmen der Region',
+          text: 'Geschäftsreisen, Kundenempfang und Stundenservice für Unternehmen der Brianza, mit eigener Rechnungsstellung.',
+        },
+        {
+          title: 'Grand Prix & Autodromo',
+          text: 'Transfers an Rennwochenenden mit abgestimmten Zeiten, um die Staus rund um das Autodromo von Monza zu vermeiden.',
+        },
+        {
+          title: 'Villen & Zeremonien',
+          text: 'Hochzeiten und Empfänge in historischen Villen – von der Villa Reale in Monza bis zu den Landsitzen der Brianza.',
+        },
+        {
+          title: 'Flughäfen & Mailand',
+          text: 'Direkte Verbindungen nach Malpensa, Linate, Orio al Serio und Mailand aus allen Orten der Brianza.',
+        },
+      ],
     },
     'tour-privati': {
       title: 'Privattouren Italien',
       description: 'Comer See, Toskana, Amalfi — nur für Sie.',
       longDescription: 'Maßgeschneiderte Routen zu den schönsten Reisezielen Italiens. Comer See, Langhe, Amalfiküste, Cinque Terre. Jede Tour individuell, mit persönlichem Chauffeur und Liebe zum Detail.',
+      features: [
+        {
+          title: 'Maßgeschneiderte Routen',
+          text: 'Wir planen die Route mit Ihnen: Stopps, Zeiten und Tempo bestimmen Sie.',
+        },
+        {
+          title: 'Comer See und mehr',
+          text: 'Bellagio, Varenna und Tremezzo, aber auch die Langhe, die Cinque Terre und die Amalfiküste.',
+        },
+        {
+          title: 'Ihr persönlicher Chauffeur',
+          text: 'Derselbe Chauffeur vom Anfang bis zum Ende des Tages, der an jedem Halt auf Sie wartet.',
+        },
+        {
+          title: 'Komfort für Familien & Gruppen',
+          text: 'V-Klasse für bis zu 7 Fahrgäste und Kindersitze auf Anfrage.',
+        },
+      ],
     },
     'trasferimenti-internazionali': {
       title: 'Internationale Transfers',
       description: 'Italien, Schweiz, Frankreich, Monaco — grenzenlos.',
       longDescription: 'Door-to-Door-Transfers zu den wichtigsten europäischen Zielen: Genf, Zürich, Nizza, Monaco, Paris. Unsere Chauffeure kennen die besten Routen und erledigen alle Grenzformalitäten.',
+      features: [
+        {
+          title: 'Von Tür zu Tür in Europa',
+          text: 'Genf, Zürich, Nizza, Monaco und Paris: von Ihrer Adresse bis zum Ziel, ohne Umsteigen.',
+        },
+        {
+          title: 'Grenzen ohne Sorgen',
+          text: 'Unsere Chauffeure kennen die besten Routen und kümmern sich um die Grenzformalitäten.',
+        },
+        {
+          title: 'Schweiz & Engadin',
+          text: 'Lugano und St. Moritz gehören zu den gefragtesten Zielen – zu jeder Jahreszeit.',
+        },
+        {
+          title: 'Klare Preise',
+          text: 'Sie erhalten vor der Abfahrt ein detailliertes Angebot: keine Überraschungen bei der Ankunft.',
+        },
+      ],
     },
     'minibus-gruppi': {
       title: 'Minibus & Gruppen',
       description: 'Bis zu 18 Plätze, für Events und Delegationen.',
       longDescription: 'Großraumfahrzeuge für Konferenzen, Firmenevents, Hochzeiten und Gruppentouren. Wir koordinieren mehrere Flotten für Großveranstaltungen mit dedizierter Logistik.',
+      features: [
+        {
+          title: 'Bis zu 18 Sitze',
+          text: 'Ein Bus mit 18 Sitzen und die V-Klasse mit 7: das passende Fahrzeug für jede Gruppe.',
+        },
+        {
+          title: 'Kongresse & Firmenevents',
+          text: 'Shuttles für Konferenzen und Events, mit abgestimmten Zeiten für alle Gäste.',
+        },
+        {
+          title: 'Hochzeiten',
+          text: 'Gästetransfers zwischen Trauung, Empfang und Hotel – ganz ohne Stress.',
+        },
+        {
+          title: 'Ein Ansprechpartner',
+          text: 'Wir koordinieren mehrere Fahrzeuge für große Events – mit eigener Logistik und einem einzigen Kontakt.',
+        },
+      ],
     },
   },
   testimonials: {

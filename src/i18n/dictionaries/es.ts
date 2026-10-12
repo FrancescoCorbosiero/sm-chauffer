@@ -384,8 +384,35 @@ const es: Dictionary = {
   },
   servicesPage: {
     label: 'Servicios',
-    title: 'Nuestros Servicios',
+    title: 'Servicios con conductor,',
+    accent: 'para cada ocasión.',
     description: 'Traslados al aeropuerto, chófer privado, tours por Italia y Europa. Cada viaje cuidado al detalle.',
+    jump: 'Ir al servicio',
+    discover: 'Descubre el servicio',
+  },
+  serviceDetail: {
+    eyebrow: 'Servicio con conductor',
+    book: 'Reservar este servicio',
+    factsLabel: 'En resumen',
+    hourlyLabel: 'Servicio por horas con conductor dedicado',
+    quoteLabel: 'Precio acordado antes de salir',
+    paxLabel: 'pasajeros por vehículo',
+    availabilityLabel: 'operativos 365 días al año',
+    featuresLabel: 'El servicio',
+    featuresTitle: 'Qué incluye',
+    featuresAccent: 'el servicio.',
+    asideTitle: 'Reserva en pocos minutos',
+    asideText: 'Indica el trayecto, la fecha y la hora: te confirmamos disponibilidad y precio antes de la salida.',
+    priceLabel: 'Tarifa',
+    vehiclesTitle: 'Los vehículos',
+    vehiclesAccent: 'recomendados.',
+    vehiclesText: 'Elige según pasajeros y equipaje: siempre podrás cambiar de vehículo al reservar.',
+    zonesLabel: 'Trayectos',
+    zonesTitle: 'Los destinos',
+    zonesAccent: 'más solicitados.',
+    zonesText: 'Distancias y tiempos orientativos desde Milán. Para cualquier otro destino, pídenos un presupuesto.',
+    otherTitle: 'Descubre también',
+    otherAccent: 'los demás servicios.',
   },
   aboutPage: {
     label: 'Quiénes Somos',
@@ -536,31 +563,139 @@ const es: Dictionary = {
       title: 'Traslado al Aeropuerto',
       description: 'Malpensa, Bérgamo, Linate — siempre puntuales.',
       longDescription: 'Monitorizamos tu vuelo en tiempo real. Tu chófer te esperará a la llegada con cartel nominativo, listo para ayudarte con el equipaje. Disponible 24/7, 365 días al año en todos los aeropuertos de Lombardía. Traslado Milán–Malpensa con tarifa fija desde 150€.',
+      features: [
+        {
+          title: 'Vuelo monitorizado',
+          text: 'Seguimos tu vuelo en tiempo real y ajustamos la hora de recogida: sin coste adicional por retrasos.',
+        },
+        {
+          title: 'Recepción con cartel',
+          text: 'El conductor te espera en llegadas con un cartel con tu nombre y te ayuda con el equipaje.',
+        },
+        {
+          title: 'Tarifa fija',
+          text: 'Milán–Malpensa a precio fijo desde 150\u00a0€, acordado antes de la salida: sin taxímetro.',
+        },
+        {
+          title: 'Tres aeropuertos, 24/7',
+          text: 'Malpensa, Linate y Bérgamo Orio al Serio a cualquier hora del día o de la noche, también para vuelos al amanecer.',
+        },
+      ],
     },
     'autista-milano': {
       title: 'Chófer en Milán',
       description: 'Tu chófer privado en el corazón de la moda.',
       longDescription: 'Desplazamientos en la ciudad, reuniones de negocios, cenas de gala, Fashion Week. Nuestro servicio de chófer en Milán garantiza discreción, puntualidad y confort en cada ocasión.',
+      features: [
+        {
+          title: 'Negocios y reuniones',
+          text: 'Un conductor a tu disposición entre una cita y otra, para roadshows, visitas y viajes de un día.',
+        },
+        {
+          title: 'Fashion Week y eventos',
+          text: 'Llegadas y salidas puntuales para desfiles, showrooms, cenas de gala y noches en la ciudad.',
+        },
+        {
+          title: 'Servicio por horas',
+          text: 'Reserva solo las horas que necesitas, desde 70\u00a0€/h en Clase E.',
+        },
+        {
+          title: 'Discreción absoluta',
+          text: 'Conductores profesionales y reservados, acostumbrados a trabajar con directivos, invitados VIP y delegaciones.',
+        },
+      ],
     },
     'autista-brianza': {
       title: 'Chófer en Brianza',
       description: 'Tu chófer privado entre Monza y las villas de Brianza.',
       longDescription: 'De Monza a Lecco, de las villas históricas de Brianza a destinos premium: nuestro servicio de chófer garantiza puntualidad, discreción y comodidad en cada ocasión.',
+      features: [
+        {
+          title: 'Empresas del distrito',
+          text: 'Viajes de trabajo, recepción de clientes y servicio por horas para las empresas de la Brianza, con facturación dedicada.',
+        },
+        {
+          title: 'Gran Premio y Autódromo',
+          text: 'Traslados en los fines de semana de carrera, con horarios coordinados para evitar las colas alrededor del Autódromo de Monza.',
+        },
+        {
+          title: 'Villas y ceremonias',
+          text: 'Bodas y recepciones en villas históricas, desde la Villa Reale de Monza hasta las residencias de la Brianza.',
+        },
+        {
+          title: 'Aeropuertos y Milán',
+          text: 'Conexiones directas con Malpensa, Linate, Orio al Serio y Milán desde todos los municipios de la Brianza.',
+        },
+      ],
     },
     'tour-privati': {
       title: 'Tours Privados por Italia',
       description: 'Lago de Como, Toscana, Amalfi — solo para ti.',
       longDescription: 'Itinerarios personalizados por los destinos más bellos de Italia. Lago de Como, Langhe, Costa Amalfitana, Cinque Terre. Cada tour a medida, con chófer dedicado y atención al detalle.',
+      features: [
+        {
+          title: 'Itinerarios a medida',
+          text: 'Diseñamos la ruta contigo: paradas, horarios y ritmo del viaje los decides tú.',
+        },
+        {
+          title: 'Lago de Como y más allá',
+          text: 'Bellagio, Varenna y Tremezzo, pero también las Langhe, Cinque Terre y la Costa Amalfitana.',
+        },
+        {
+          title: 'Conductor dedicado',
+          text: 'El mismo conductor de principio a fin de la jornada, que te espera en cada parada.',
+        },
+        {
+          title: 'Comodidad para familias y grupos',
+          text: 'Clase V hasta 7 pasajeros y sillas infantiles bajo petición.',
+        },
+      ],
     },
     'trasferimenti-internazionali': {
       title: 'Traslados Internacionales',
       description: 'Italia, Suiza, Francia, Mónaco — sin fronteras.',
       longDescription: 'Traslados puerta a puerta hacia los principales destinos europeos: Ginebra, Zúrich, Niza, Mónaco, París. Nuestros chóferes conocen las mejores rutas y gestionan todos los trámites fronterizos.',
+      features: [
+        {
+          title: 'Puerta a puerta en Europa',
+          text: 'Ginebra, Zúrich, Niza, Mónaco y París: desde tu dirección hasta el destino, sin transbordos.',
+        },
+        {
+          title: 'Fronteras sin preocupaciones',
+          text: 'Nuestros conductores conocen las mejores rutas y gestionan los trámites fronterizos.',
+        },
+        {
+          title: 'Suiza y la Engadina',
+          text: 'Lugano y St. Moritz están entre los destinos más solicitados, en cualquier temporada.',
+        },
+        {
+          title: 'Precio claro',
+          text: 'Recibes un presupuesto detallado antes de salir: sin sorpresas a la llegada.',
+        },
+      ],
     },
     'minibus-gruppi': {
       title: 'Minibús y Grupos',
       description: 'Hasta 18 plazas, para eventos y delegaciones.',
       longDescription: 'Vehículos de gran capacidad para conferencias, eventos corporativos, bodas y tours de grupo. Coordinamos varias flotas para grandes eventos con logística dedicada.',
+      features: [
+        {
+          title: 'Hasta 18 plazas',
+          text: 'Autobús de 18 plazas y Clase V de 7: el vehículo adecuado para cada grupo.',
+        },
+        {
+          title: 'Congresos y eventos de empresa',
+          text: 'Lanzaderas para conferencias y eventos, con horarios coordinados para todos los invitados.',
+        },
+        {
+          title: 'Bodas',
+          text: 'Traslados de los invitados entre ceremonia, banquete y hotel, sin preocupaciones.',
+        },
+        {
+          title: 'Un único interlocutor',
+          text: 'Coordinamos varios vehículos para grandes eventos, con logística dedicada y un solo contacto.',
+        },
+      ],
     },
   },
   testimonials: {
