@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ArrowLeft, ArrowRight, CalendarDays, Clock3, Mail, Timer, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CalendarDays, Clock3, Mail, RotateCcw, Timer, X } from 'lucide-react';
 import { Button, Preloader } from 'konsta/react';
 import WhatsAppIcon from '@/components/ui/WhatsAppIcon';
 import { vehicleName } from '@/lib/fleet';
@@ -145,12 +145,16 @@ export default function BookingFlow({
 
   const body = (
     <div ref={bodyRef} className={variant === 'sheet' ? 'px-4 pb-6 pt-1' : 'px-5 pb-6 pt-6 sm:px-7'}>
-      {/* Honeypot — bots fill it, humans never see it. */}
+      {/* Honeypot — bots fill it, humans never see it. Deliberately not named
+          "company"/"organization": browser autofill fills those next to the
+          contact fields, which would turn a real visitor into a "bot". */}
       <input
         type="text"
-        name="company"
+        name="hp_ref_code"
         tabIndex={-1}
         autoComplete="off"
+        data-1p-ignore
+        data-lpignore="true"
         aria-hidden="true"
         value={form.company}
         onChange={(e) => form.setCompany(e.target.value)}
@@ -249,13 +253,18 @@ export default function BookingFlow({
       <div className={footerClass}>
         <p className="mb-2.5 text-center text-[12px] text-muted">{t.quoteModal.title}</p>
         <div className="grid grid-cols-2 gap-2.5">
-          <Button large rounded onClick={form.sendWhatsApp} disabled={sending} className="!bg-[#1f9d55]">
+          <Button large rounded onClick={form.sendWhatsApp} disabled={sending} className="!bg-[#15803d]">
             <WhatsAppIcon size={18} />
             <span className="ml-2">WhatsApp</span>
           </Button>
           <Button large rounded onClick={() => void form.sendEmail()} disabled={sending}>
             {sending ? (
               <Preloader className="!h-5 !w-5 !text-white" />
+            ) : form.failure ? (
+              <>
+                <RotateCcw size={18} aria-hidden />
+                <span className="ml-2">{b.retry}</span>
+              </>
             ) : (
               <>
                 <Mail size={18} aria-hidden />

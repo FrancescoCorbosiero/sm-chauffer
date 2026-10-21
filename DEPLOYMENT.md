@@ -44,7 +44,7 @@ npm start          # serve the production build
 | Places the booking app recognises (names in 7 languages, hotels, stations) | `src/lib/places.ts` |
 | Interface copy, in 7 languages | `src/i18n/dictionaries/*.ts`, typed by `src/i18n/types.ts` (TypeScript flags a missing key) |
 | FAQ, blog, city and international landings, legal pages | `src/lib/faq.ts`, `src/lib/blog/`, `src/lib/locations.ts`, `src/lib/intlLandings.ts`, `src/lib/legal.ts` |
-| Remote photos (heroes, services, blog) | `src/lib/images.ts` — Unsplash for now; swap in your own photos when available |
+| Photos (heroes, fleet, services, blog) | `src/lib/images.ts`; every photo, where it appears and how to replace it: `public/README.md` |
 
 ### Booking app
 
@@ -219,17 +219,30 @@ own address, recapping what they sent — in the language they were browsing in.
 It is best-effort (a failure never fails the request) and only runs for the
 contact form, which is where the customer's email is collected. Because it
 sends to a visitor-supplied address, it needs SES **production access** to work
-for arbitrary recipients; consider adding rate-limiting / a CAPTCHA before
-heavy public exposure, as the honeypot is the only abuse guard today.
+for arbitrary recipients. Abuse guards on the endpoint: a hidden honeypot, a
+minimum fill time, a per-IP rate limit (6 requests / 10 min) and, when its keys
+are set, Cloudflare Turnstile.
 
 **SES setup:** verify `SES_FROM_EMAIL` (or its whole domain via DKIM) as an
 identity in the SES console, then **request production access** to leave the
 sandbox — in the sandbox SES only delivers to verified recipients. Once in
 production, `SES_TO_EMAIL` (and any Reply-To) can be any external address.
 
-**Graceful fallback:** if the SES vars are absent, `/api/quote` returns `503`
-and the app falls back to a `mailto:` to `SITE.email`. So the site works with
-zero email infrastructure, and the WhatsApp channel is always available.
+**When a send fails:** if the SES vars are absent, `/api/quote` returns `503`;
+other refusals are the rate limit (6 requests / 10 min per IP), a failed
+Turnstile check or an SES error. In every case the booking app stays on the
+review step and says the request did **not** go through: the Email button
+becomes "Riprova", and a notice offers the visitor's own mail app (a
+pre-filled `mailto:` to `SITE.email`, opened only if they tap it) and the
+phone number, next to WhatsApp. It never switches to the mail app by itself.
+The server logs the reason of each refusal; to see them:
+
+```bash
+docker logs chauffeur-sk-luxury-milano 2>&1 | grep "\[quote\]"
+curl -s https://transferluxurydriverncc.it/api/quote   # {"sesConfigured":…,"turnstileEnforced":…}
+```
+
+The WhatsApp channel is always available, even with zero email infrastructure.
 `SITE` (`src/lib/site.ts`) remains the single source of truth for the public
 address; for delivery to an off-domain inbox without SES you can instead add a
 webmail forwarding rule (`info@ → maksymnoleggio@gmail.com`, the `emailBackend`).
@@ -372,6 +385,6 @@ unverifiable review markup). To switch on real Google reviews later, set
 
 - **Different domain?** Change the two `caddy_0` / `caddy_1` host labels in
   `docker-compose.yml` (and `SITE.url` in `src/lib/site.ts`).
-- **Brand assets** (logo, favicon, social card) live in `public/` — see
-  `public/README.md`.
+- **Brand assets and photos** (logo, icons, local photos) live in `public/` —
+  see `public/README.md` for the full list and how to replace each one.
 - The image runs as a non-root user and has a built-in healthcheck.

@@ -172,7 +172,7 @@
 
   ::selection {
     background: var(--color-gold);
-    color: var(--color-ink);
+    color: var(--color-on-gold);
   }
 
   [hidden] {
@@ -308,7 +308,7 @@
 
   .btn-gold {
     background: var(--color-gold);
-    color: var(--color-ink);
+    color: var(--color-on-gold);
   }
 
   .btn-gold:hover {
@@ -478,7 +478,7 @@
   .chip-dark[data-active="true"] {
     background: var(--color-gold);
     border-color: var(--color-gold);
-    color: var(--color-ink);
+    color: var(--color-on-gold);
   }
 
   /* Soft ink panel used for heroes and dark bands. */
@@ -1319,14 +1319,26 @@
   }
 }
 
-/* Dark surfaces flip the monochrome accent to white. */
+/* Dark surfaces flip the monochrome accent to white — including elements
+   that only turn dark on hover/focus or when pressed, so their icons and
+   labels never end up ink on ink. */
 @layer base {
   .bg-ink,
   .bg-ink-2,
   .bg-ink-3,
   [class*="bg-ink/"],
   .ink-panel,
-  .on-ink {
+  .on-ink,
+  .btn-primary,
+  .btn-outline:hover,
+  .btn-outline:focus-visible,
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"],
+  .chip[data-active="true"],
+  [class~="hover:bg-ink"]:hover,
+  [class~="hover:bg-ink"]:focus-visible,
+  .group:hover [class~="group-hover:bg-ink"],
+  .group:focus-visible [class~="group-hover:bg-ink"] {
     --color-gold: #ffffff;
     --color-gold-light: #ffffff;
     --color-gold-deep: #ffffff;
@@ -1341,7 +1353,12 @@
   .bg-paper,
   .bg-ivory,
   .bg-ivory-2,
-  .card {
+  .card,
+  .btn-light,
+  .btn-outline-light:hover,
+  .btn-outline-light:focus-visible,
+  [class~="hover:bg-white"]:hover,
+  [class~="hover:bg-white"]:focus-visible {
     --color-gold: #0c0c0e;
     --color-gold-light: #0c0c0e;
     --color-gold-deep: #0c0c0e;

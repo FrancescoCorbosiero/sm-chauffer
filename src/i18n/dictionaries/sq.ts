@@ -890,6 +890,11 @@ const sq: Dictionary = {
     sentMailtoBody: 'Hapëm aplikacionin e postës me kërkesën tashmë të shkruar: shtypni Dërgo dhe ju përgjigjemi brenda pak minutash.',
     reopenWhatsApp: 'Rihap',
     newRequest: 'Kërkesë e re',
+    failedTitle: 'Dërgimi nuk u krye',
+    failedBody: 'Kërkesa jote nuk na arriti. Provo përsëri ose na e dërgo në WhatsApp ose me aplikacionin tënd të email-it: të dhënat janë plotësuar tashmë.',
+    failedRateLimited: 'Ke dërguar disa kërkesa brenda pak minutash. Provo përsëri pas pak ose na shkruaj në WhatsApp.',
+    retry: 'Provo përsëri',
+    openMailApp: 'Hap aplikacionin e email-it',
   },
   showroom: {
     prev: 'Automjeti i mëparshëm',

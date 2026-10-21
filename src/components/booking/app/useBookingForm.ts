@@ -9,7 +9,7 @@ import { matchPlace, routeBetween, type Place } from '@/lib/places';
 import { EMPTY_DRAFT, type BookingDraft, type ServiceType } from '@/lib/booking';
 import { formatDuration, pointName } from '@/lib/coverage';
 import { isoDate } from '@/lib/hooks';
-import { openWhatsApp, sendByEmail } from '@/lib/sendQuote';
+import { mailtoHref, openWhatsApp, sendByEmail } from '@/lib/sendQuote';
 import type { ContactPayload } from '@/lib/quoteMessage';
 import type { Vehicle } from '@/lib/types';
 import { clearDraft, startFrom, writeDraft, type Step } from './draft';
@@ -19,6 +19,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export type Errors = Partial<Record<keyof BookingDraft | 'capacity', string>>;
 export type Sent = 'email' | 'mailto' | 'whatsapp';
+/** An email the server couldn't send: its error code and the same request as a mailto: link. */
+export type SendFailure = { reason: string; mailto: string };
 export type BookingForm = ReturnType<typeof useBookingForm>['form'];
 
 const addMinutes = (time: string, minutes: number) => {
@@ -48,6 +50,10 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState<Sent | null>(null);
   const [sending, setSending] = useState(false);
+  const [failure, setFailure] = useState<SendFailure | null>(null);
+  // Bumped after a failed send: the review step remounts the Turnstile widget,
+  // since a token is single-use and a retry needs a fresh one.
+  const [attempt, setAttempt] = useState(0);
   const [company, setCompany] = useState(''); // honeypot
   const [today] = useState(() => (hydrated ? isoDate(new Date()) : undefined));
   const tokenRef = useRef('');
@@ -178,6 +184,7 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
   const goTo = (s: Step) => {
     moved.current = true;
     setErrors({});
+    setFailure(null);
     setStep(s);
   };
 
@@ -245,6 +252,7 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
     const payload = buildPayload();
     if (!payload) return;
     setSending(true);
+    setFailure(null);
     const result = await sendByEmail(payload, {
       locale,
       honeypot: company,
@@ -252,12 +260,23 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
     });
     tokenRef.current = ''; // single use
     setSending(false);
-    moved.current = true;
-    setSent(result === 'sent' ? 'email' : 'mailto');
-    if (result === 'sent') {
-      clearDraft();
-      toast.success(t.quoteModal.sent, { description: t.quoteModal.sentBody });
+    if (!result.ok) {
+      // Stay on the review: say what happened and offer the other channels.
+      setFailure({ reason: result.reason, mailto: mailtoHref(payload) });
+      setAttempt((n) => n + 1);
+      return;
     }
+    moved.current = true;
+    setSent('email');
+    clearDraft();
+    toast.success(t.quoteModal.sent, { description: t.quoteModal.sentBody });
+  };
+
+  /** The visitor chose their own mail app (the link itself opens it). */
+  const mailAppOpened = () => {
+    moved.current = true;
+    setFailure(null);
+    setSent('mailto');
   };
 
   /** A new request: the trip starts over, the contact details stay. */
@@ -266,6 +285,13 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
     setSent(null);
     goTo(0);
   };
+
+  // A failure notice scrolls into view next to the action bar and is announced.
+  useEffect(() => {
+    if (!failure) return;
+    const notice = bodyRef.current?.querySelector<HTMLElement>('[data-send-failure]');
+    notice?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, [failure]);
 
   const onTurnstile = useCallback((token: string) => {
     tokenRef.current = token;
@@ -287,6 +313,9 @@ export function useBookingForm(handoff: Partial<BookingDraft> | null, variant: '
     setErrors,
     sent,
     sending,
+    failure,
+    attempt,
+    mailAppOpened,
     company,
     setCompany,
     today,

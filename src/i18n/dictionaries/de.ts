@@ -890,6 +890,11 @@ const de: Dictionary = {
     sentMailtoBody: 'Wir haben Ihre Mail-App mit der fertigen Anfrage geöffnet: Tippen Sie auf Senden, wir antworten in wenigen Minuten.',
     reopenWhatsApp: 'Erneut öffnen',
     newRequest: 'Neue Anfrage',
+    failedTitle: 'Senden fehlgeschlagen',
+    failedBody: 'Ihre Anfrage ist nicht bei uns angekommen. Versuchen Sie es erneut oder senden Sie sie per WhatsApp oder mit Ihrer E-Mail-App – die Angaben sind bereits ausgefüllt.',
+    failedRateLimited: 'Sie haben in wenigen Minuten mehrere Anfragen gesendet. Bitte versuchen Sie es gleich noch einmal oder schreiben Sie uns per WhatsApp.',
+    retry: 'Erneut versuchen',
+    openMailApp: 'E-Mail-App öffnen',
   },
   showroom: {
     prev: 'Vorheriges Fahrzeug',

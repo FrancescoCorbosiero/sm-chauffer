@@ -1,42 +1,45 @@
 /**
- * Centralised image references. All photos are hosted on Unsplash CDN and
- * can be swapped by replacing the photo ID portion. The format is:
- *   https://images.unsplash.com/photo-<ID>?<query params>
+ * Every photo on the site, in one place. Two kinds of entries:
  *
- * To replace an image: open https://unsplash.com/it/s/foto/<keyword>,
- * pick a photo, click "Share → Image URL" and replace the ID below.
+ *  - Local files ('/fleet/…', '/services/…', '/blog/…') live in `public/`.
+ *    To change one, overwrite the file and keep its name.
+ *  - Unsplash photos, written as u('<photo id>', <width>). To use your own,
+ *    upload it under `public/` (e.g. public/heroes/home.jpg) and replace the
+ *    entry with its path: `hero: '/heroes/home.jpg',`.
+ *
+ * Sizes, crops and the pages each photo appears on: public/README.md.
  */
 
 const u = (id: string, w: number) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const IMAGES = {
-  // Main homepage hero — dark/cinematic luxury Mercedes S-Class at night
+  // Home page header (/).
   hero: u('1555215695-3004980ad54e', 1920),
 
-  // Page heroes (top of internal pages)
+  // Headers of the inner pages that have a photo. The others (fleet,
+  // services, pricing, areas, contact) open on the showroom or a plain dark
+  // header.
   pageHeroes: {
-    // Reuse the cinematic luxury Mercedes S-Class hero (same as the homepage)
-    // so the fleet page leads with a brand-appropriate luxury car.
-    fleet: u('1555215695-3004980ad54e', 1920),
-    services: u('1605559424843-9e4c228bf1c2', 1920),
     about: u('1494976388531-d1058494cdd8', 1920),
     blog: u('1583121274602-3e2820c69888', 1920),
-    contact: u('1606664515524-ed2f786a0bd6', 1920),
   },
 
-  // Fleet vehicle photos — served locally from public/fleet/. To change one,
-  // replace the file in place (same filename) and run `npm run fleet:prepare`
-  // so the showroom frames it. See public/fleet/README.md.
+  // Cut-out car photos on white: the showroom (home, /fleet), /fleet/<id>,
+  // the booking app, the comparison table and the price estimator. To change
+  // one, replace the file in place (same filename) and run
+  // `npm run fleet:prepare` so the showroom frames it. See public/fleet/README.md.
   fleet: {
-    sClass: '/fleet/mercedes-s-class.jpg',
+    sClass: '/fleet/mercedes-s-class.jpg', // also the /about story image
     eClass: '/fleet/mercedes-e-class.jpg',
     vClass: '/fleet/mercedes-v-class.jpg',
     rangeRover: '/fleet/range-rover.jpg',
     bus18: '/fleet/bus-18.jpg',
   },
 
-  // Service block photos
+  // Header of each /services/<id> page and its tile/thumbnail in the service
+  // lists. Some are reused by the SEO landing pages (src/lib/locations.ts,
+  // src/lib/intlLandings.ts) and the /areas tiles.
   services: {
     airportTransfer: u('1436491865332-7a61a109cc05', 1200),
     autistaMilano: '/services/duomo-milano.jpg',
@@ -46,10 +49,10 @@ export const IMAGES = {
     minibusGruppi: u('1606664890085-5ea3eed02e8b', 1200),
   },
 
-  // Blog post cover images
+  // Blog article covers (also their link-preview image).
   blog: {
-    malpensa: u('1436491865332-7a61a109cc05', 1200),
-    como: '/blog/lago-di-como.jpg',
+    malpensa: u('1436491865332-7a61a109cc05', 1200), // same photo as airportTransfer
+    como: '/blog/lago-di-como.jpg', // also /ncc/como, /areas and the Lake Como landings
     fashion: '/blog/milano-FW.jpg',
     moritz: u('1551524559-8af4e6624178', 1200),
   },
