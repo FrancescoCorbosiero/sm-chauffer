@@ -30,9 +30,9 @@ export default function HomeHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-50"
+          className="object-cover object-[50%_72%] opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/85 lg:to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/75 to-ink lg:bg-gradient-to-r lg:from-ink lg:via-ink/70 lg:to-ink/10" />
         <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_90%_0%,rgba(255,255,255,0.07),transparent_60%)]" />
       </div>
 

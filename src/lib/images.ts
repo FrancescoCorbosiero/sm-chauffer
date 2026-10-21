@@ -4,8 +4,8 @@
  *  - Local files ('/fleet/…', '/services/…', '/blog/…') live in `public/`.
  *    To change one, overwrite the file and keep its name.
  *  - Unsplash photos, written as u('<photo id>', <width>). To use your own,
- *    upload it under `public/` (e.g. public/heroes/home.jpg) and replace the
- *    entry with its path: `hero: '/heroes/home.jpg',`.
+ *    upload it under `public/` (e.g. public/heroes/about.jpg) and replace the
+ *    entry with its path: `about: '/heroes/about.jpg',`.
  *
  * Sizes, crops and the pages each photo appears on: public/README.md.
  */
@@ -15,7 +15,7 @@ const u = (id: string, w: number) =>
 
 export const IMAGES = {
   // Home page header (/).
-  hero: u('1555215695-3004980ad54e', 1920),
+  hero: '/heroes/home.jpg',
 
   // Headers of the inner pages that have a photo. The others (fleet,
   // services, pricing, areas, contact) open on the showroom or a plain dark
@@ -44,9 +44,11 @@ export const IMAGES = {
     airportTransfer: u('1436491865332-7a61a109cc05', 1200),
     autistaMilano: '/services/duomo-milano.jpg',
     autistaBrianza: '/services/duomo-monza.jpg',
-    tourPrivati: u('1572799454088-1f4ad8e3eaca', 1200),
+    // The Unsplash photo no longer loads: the Lake Como photo stands in.
+    tourPrivati: '/blog/lago-di-como.jpg',
     trasferimentiInternazionali: u('1500627964684-141351970a7f', 1200),
-    minibusGruppi: u('1606664890085-5ea3eed02e8b', 1200),
+    // The Unsplash photo no longer loads: temporary stand-in until a minibus photo.
+    minibusGruppi: '/services/duomo-milano.jpg',
   },
 
   // Blog article covers (also their link-preview image).
