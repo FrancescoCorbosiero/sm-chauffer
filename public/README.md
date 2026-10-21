@@ -24,6 +24,7 @@ carries copyright, so don't pull images off the open web.
 | `services/duomo-milano.jpg` | /services/autista-milano (header, tile, thumbnail), /ncc/milano, /areas, /en/chauffeur-service-milan, /de/chauffeur-service-mailand (now 750×600: too small for a full-width header) |
 | `services/duomo-monza.jpg` | /services/autista-brianza, /ncc/monza, /ncc/brianza, /areas |
 | `blog/lago-di-como.jpg` | Article /blog/milano-lago-como-autista, /ncc/como, /areas, /en/lake-como-private-driver, /de/chauffeur-comer-see |
+| `heroes/home.jpg` | Home page header |
 | `blog/milano-FW.jpg` | Article /blog/fashion-week-autista-privato (now 936×562: worth replacing) |
 
 **After replacing a fleet photo, run `npm run fleet:prepare`** and commit
@@ -48,23 +49,20 @@ blog and landing pages use their own photo as preview instead.
 
 ## 2. Unsplash photos (upload, then change one line)
 
-These still load from Unsplash. To use your own, upload the file to the
+These still load from Unsplash. (The private tours page now shows `blog/lago-di-como.jpg` and the minibus page a temporary `services/duomo-milano.jpg`: their Unsplash photos stopped loading. To give them their own photo, upload it and point `services.tourPrivati` / `services.minibusGruppi` at it.) To use your own, upload the file to the
 suggested path, then in `src/lib/images.ts` replace the entry with the path
 (without `public`), for example:
 
 ```ts
-hero: '/heroes/home.jpg',
+about: '/heroes/about.jpg',
 ```
 
 | Entry in `src/lib/images.ts` | Appears on | Suggested upload path |
 |------------------------------|------------|-----------------------|
-| `hero` | Home page header | `public/heroes/home.jpg` |
 | `pageHeroes.about` | /about header | `public/heroes/about.jpg` |
 | `pageHeroes.blog` | /blog header | `public/heroes/blog.jpg` |
 | `services.airportTransfer` | /services/airport-transfer (header, tile, thumbnail), /en/milan-airport-transfer, /de/flughafentransfer-mailand | `public/services/airport-transfer.jpg` |
-| `services.tourPrivati` | /services/tour-privati, /en/milan-to-lake-como-transfer, /en/lake-como-private-tour, /de/mailand-comer-see-transfer, /de/comer-see-privat-tour | `public/services/tour-privati.jpg` |
 | `services.trasferimentiInternazionali` | /services/trasferimenti-internazionali | `public/services/trasferimenti-internazionali.jpg` |
-| `services.minibusGruppi` | /services/minibus-gruppi | `public/services/minibus-gruppi.jpg` |
 | `blog.malpensa` | Article /blog/guida-transfer-lusso-malpensa (now the same photo as `airportTransfer`) | `public/blog/malpensa.jpg` |
 | `blog.moritz` | Article /blog/malpensa-sankt-moritz | `public/blog/sankt-moritz.jpg` |
 
