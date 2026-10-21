@@ -43,7 +43,7 @@ npm start          # serve the production build
 | Map destinations, distances and times (indicative estimates) | `src/lib/coverage.ts` (`coverageGeo.ts` is generated geometry — don't edit by hand) |
 | Interface copy, in 7 languages | `src/i18n/dictionaries/*.ts`, typed by `src/i18n/types.ts` (TypeScript flags a missing key) |
 | FAQ, blog, city and international landings, legal pages | `src/lib/faq.ts`, `src/lib/blog/`, `src/lib/locations.ts`, `src/lib/intlLandings.ts`, `src/lib/legal.ts` |
-| Remote photos (heroes, services, blog) | `src/lib/images.ts` — Unsplash for now; swap in your own photos when available |
+| Photos (heroes, fleet, services, blog) | `src/lib/images.ts`; every photo, where it appears and how to replace it: `public/README.md` |
 
 ### Booking flow
 
@@ -340,6 +340,6 @@ unverifiable review markup). To switch on real Google reviews later, set
 
 - **Different domain?** Change the two `caddy_0` / `caddy_1` host labels in
   `docker-compose.yml` (and `SITE.url` in `src/lib/site.ts`).
-- **Brand assets** (logo, favicon, social card) live in `public/` — see
-  `public/README.md`.
+- **Brand assets and photos** (logo, icons, local photos) live in `public/` —
+  see `public/README.md` for the full list and how to replace each one.
 - The image runs as a non-root user and has a built-in healthcheck.
