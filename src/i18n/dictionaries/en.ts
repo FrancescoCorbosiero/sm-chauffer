@@ -859,6 +859,11 @@ const en: Dictionary = {
     sending: 'Sending…',
     sent: 'Request sent',
     sentBody: 'We will get back to you shortly.',
+    failedTitle: 'We couldn’t send it',
+    failedBody: 'Your request didn’t reach us. Try again, or send it on WhatsApp or with your email app — the details are already filled in.',
+    failedRateLimited: 'You’ve sent several requests in a few minutes. Please try again shortly, or message us on WhatsApp.',
+    retry: 'Try again',
+    openMailApp: 'Open your email app',
   },
   formErrors: {
     invalidEmail: 'Please enter a valid email address.',

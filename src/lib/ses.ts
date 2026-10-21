@@ -10,8 +10,9 @@ import { buildQuoteMessage, type QuotePayload } from './quoteMessage';
  *   SES_FROM_EMAIL  — a verified SES sending identity (e.g. info@transferluxurydriverncc.it)
  *   SES_TO_EMAIL    — where bookings land (any address; e.g. the owner's inbox)
  *
- * If the vars are absent the sender reports `unconfigured` and the form falls
- * back to the WhatsApp / mailto handoff, so the site keeps working with no SES.
+ * If the vars are absent the sender reports `unconfigured`; the form then tells
+ * the visitor the email didn't go through and offers WhatsApp, their own mail
+ * app (pre-filled) and the phone number instead.
  */
 
 export type SesResult =

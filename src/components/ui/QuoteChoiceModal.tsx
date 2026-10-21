@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Check, Loader2, Mail, X } from 'lucide-react';
+import { AlertCircle, Check, Loader2, Mail, Phone, RotateCcw, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import {
   buildMailtoUrl,
@@ -12,6 +12,7 @@ import {
 import TurnstileWidget from '@/components/security/TurnstileWidget';
 import WhatsAppIcon from './WhatsAppIcon';
 import { hasTurnstile } from '@/lib/security';
+import { phoneLabel, telHref } from '@/lib/contact';
 
 interface Props {
   open: boolean;
@@ -23,12 +24,14 @@ interface Props {
   honeypot?: string;
 }
 
-type SendStatus = 'idle' | 'sending' | 'sent';
+type SendStatus = 'idle' | 'sending' | 'sent' | 'failed';
 
 export default function QuoteChoiceModal({ open, payload, onClose, onSent, honeypot = '' }: Props) {
   const { t, locale } = useLanguage();
   const dialogRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<SendStatus>('idle');
+  // Why the last automatic send failed (the API's `error` code), shown to the visitor.
+  const [failure, setFailure] = useState('');
   // Turnstile token, kept in a ref so the async send handler always reads the
   // latest value (React state wouldn't update inside its closure).
   const tokenRef = useRef('');
@@ -39,6 +42,7 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
   useEffect(() => {
     if (!open) return;
     setStatus('idle');
+    setFailure('');
     // Fresh widget each open → reset any stale token.
     tokenRef.current = '';
     const opener = document.activeElement as HTMLElement | null;
@@ -76,6 +80,12 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
     };
   }, [open, onClose]);
 
+  // The focused button disappears when the result view replaces the choices:
+  // move focus back onto the dialog so keyboard users stay inside it.
+  useEffect(() => {
+    if (status === 'sent' || status === 'failed') dialogRef.current?.focus();
+  }, [status]);
+
   if (!open || !payload) return null;
 
   const message = buildQuoteMessage(payload);
@@ -88,21 +98,27 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
 
   // Wait (briefly) for Turnstile to issue a token. The widget loads async, so a
   // fast click can land before the token exists — without this the POST would
-  // carry an empty token, fail server verification (403), and wrongly fall back
-  // to mailto. Polls the ref up to ~8s, then gives up (degrades to mailto).
+  // carry an empty token and fail server verification (403). Polls the ref up
+  // to ~8s, then gives up (the send then fails and the dialog says so).
+  // Tokens are single-use: take it out of the ref, so a retry waits for the
+  // fresh widget that mounts again instead of resending a spent token.
   const waitForTurnstileToken = async (): Promise<string> => {
-    if (!hasTurnstile || tokenRef.current) return tokenRef.current;
+    if (!hasTurnstile) return '';
     const deadline = Date.now() + 8000;
     while (!tokenRef.current && Date.now() < deadline) {
       await new Promise((r) => setTimeout(r, 100));
     }
-    return tokenRef.current;
+    const token = tokenRef.current;
+    tokenRef.current = '';
+    return token;
   };
 
-  // Try a real server-side send via SES. If the endpoint isn't configured
-  // (503) or anything fails, fall back to the visitor's mail client (mailto).
+  // Send server-side via SES. If that fails for any reason (not configured,
+  // rate limit, anti-spam check, network), say so and let the visitor pick
+  // another channel — never open their mail app without them asking.
   const handleEmail = async () => {
     setStatus('sending');
+    let reason = 'network';
     try {
       const turnstileToken = await waitForTurnstileToken();
       const res = await fetch('/api/quote', {
@@ -123,12 +139,14 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
         onSent?.();
         return;
       }
+      const body = (await res.json().catch(() => null)) as { error?: string } | null;
+      reason = body?.error ?? `http-${res.status}`;
     } catch {
-      // network error — fall through to mailto
+      // network error — reason stays 'network'
     }
-    setStatus('idle');
-    window.location.href = buildMailtoUrl(message);
-    onClose();
+    console.warn('[quote] email delivery failed:', reason);
+    setFailure(reason);
+    setStatus('failed');
   };
 
   return (
@@ -173,6 +191,43 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
               {m.close}
             </button>
           </div>
+        ) : status === 'failed' ? (
+          <div role="alert">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-ivory">
+              <AlertCircle size={24} className="text-ink" aria-hidden />
+            </div>
+            <h2 id="quote-modal-title" className="pr-10 text-3xl leading-tight text-ink">
+              {m.failedTitle}
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted">
+              {failure === 'rate-limited' ? m.failedRateLimited : m.failedBody}
+            </p>
+            <div className="mt-7 space-y-3">
+              {/* A retry can't beat the rate limit, so WhatsApp becomes the main action there. */}
+              {failure !== 'rate-limited' && (
+                <button type="button" onClick={handleEmail} className="btn btn-primary btn-lg btn-block">
+                  <RotateCcw size={18} aria-hidden />
+                  {m.retry}
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleWhatsApp}
+                className={`btn ${failure === 'rate-limited' ? 'btn-primary' : 'btn-outline'} btn-lg btn-block`}
+              >
+                <WhatsAppIcon size={19} />
+                {m.sendWhatsApp}
+              </button>
+              <a href={buildMailtoUrl(message)} onClick={onClose} className="btn btn-outline btn-lg btn-block">
+                <Mail size={18} aria-hidden />
+                {m.openMailApp}
+              </a>
+              <a href={telHref(1)} className="btn btn-ghost btn-block tabular">
+                <Phone size={16} aria-hidden />
+                {phoneLabel(1)}
+              </a>
+            </div>
+          </div>
         ) : (
           <>
             <h2 id="quote-modal-title" className="pr-10 text-3xl leading-tight text-ink">
@@ -187,7 +242,7 @@ export default function QuoteChoiceModal({ open, payload, onClose, onSent, honey
                 disabled={status === 'sending'}
                 className="btn btn-primary btn-lg btn-block"
               >
-                <WhatsAppIcon size={19} className="text-gold" />
+                <WhatsAppIcon size={19} />
                 {m.sendWhatsApp}
               </button>
               <button

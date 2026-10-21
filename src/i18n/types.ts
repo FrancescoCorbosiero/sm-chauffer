@@ -550,6 +550,11 @@ export interface Dictionary {
     sending: string;
     sent: string;
     sentBody: string;
+    failedTitle: string;
+    failedBody: string;
+    failedRateLimited: string;
+    retry: string;
+    openMailApp: string;
   };
   formErrors: {
     invalidEmail: string;

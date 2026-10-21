@@ -859,6 +859,11 @@ const it: Dictionary = {
     sending: 'Invio in corso…',
     sent: 'Richiesta inviata',
     sentBody: 'Ti risponderemo al più presto.',
+    failedTitle: 'Invio non riuscito',
+    failedBody: 'La tua richiesta non è arrivata ai nostri sistemi. Riprova, oppure inviacela su WhatsApp o con la tua app email: i dati sono già compilati.',
+    failedRateLimited: 'Hai inviato diverse richieste in pochi minuti. Riprova tra qualche minuto, oppure scrivici su WhatsApp.',
+    retry: 'Riprova',
+    openMailApp: 'Apri la tua app email',
   },
   formErrors: {
     invalidEmail: 'Inserisci un indirizzo email valido.',

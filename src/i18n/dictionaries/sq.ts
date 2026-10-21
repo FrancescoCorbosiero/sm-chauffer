@@ -859,6 +859,11 @@ const sq: Dictionary = {
     sending: 'Po dërgohet…',
     sent: 'Kërkesa u dërgua',
     sentBody: 'Do t’ju përgjigjemi së shpejti.',
+    failedTitle: 'Dërgimi nuk u krye',
+    failedBody: 'Kërkesa jote nuk na arriti. Provo përsëri ose na e dërgo në WhatsApp ose me aplikacionin tënd të email-it: të dhënat janë plotësuar tashmë.',
+    failedRateLimited: 'Ke dërguar disa kërkesa brenda pak minutash. Provo përsëri pas pak ose na shkruaj në WhatsApp.',
+    retry: 'Provo përsëri',
+    openMailApp: 'Hap aplikacionin e email-it',
   },
   formErrors: {
     invalidEmail: 'Ju lutemi vendosni një adresë emaili të vlefshme.',

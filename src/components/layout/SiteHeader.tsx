@@ -294,7 +294,7 @@ export default function SiteHeader() {
                                 onClick={closePanel}
                                 className="group flex items-start gap-3.5 rounded-xl p-3.5 transition-colors hover:bg-ivory"
                               >
-                                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ivory text-gold-deep transition-colors group-hover:bg-ink group-hover:text-gold">
+                                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ivory text-ink transition-colors group-hover:bg-ink group-hover:text-white">
                                   {Icon && <Icon size={18} aria-hidden />}
                                 </span>
                                 <span className="min-w-0">

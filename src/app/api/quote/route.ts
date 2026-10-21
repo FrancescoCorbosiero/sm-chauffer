@@ -11,6 +11,12 @@ import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/types';
 // POSTs are effectively instant, so anything faster is treated as a bot.
 const MIN_ELAPSED_MS = 2000;
 
+// One log line per refused request, with the reason only (no personal data),
+// so `docker logs` shows why a visitor got the fallback options.
+function refused(reason: string) {
+  console.warn(`[quote] refused: ${reason}`);
+}
+
 function pickLocale(value: unknown): Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
     ? (value as Locale)
@@ -22,9 +28,10 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 // Diagnostics: GET /api/quote reports the container's runtime config (no
-// secrets). If sesConfigured is false, the form can never send via SES and will
-// always fall back to mailto — fix the AWS_*/SES_* env. If turnstileEnforced is
-// true, every submit must carry a valid Turnstile token.
+// secrets). If sesConfigured is false, the form can never send via SES: every
+// email request ends on the "send failed" dialog — fix the AWS_*/SES_* env. If
+// turnstileEnforced is true, every submit must carry a valid Turnstile token.
+// Each refused request is logged as `[quote] refused: <reason>`.
 export async function GET() {
   return NextResponse.json({
     sesConfigured: isSesConfigured(),
@@ -37,12 +44,14 @@ export async function POST(req: Request) {
 
   // Blackhole: IPs that tripped the bot trap (/api/blackhole) are refused.
   if (isBanned(ip)) {
+    refused('banned (bot trap)');
     return NextResponse.json({ ok: false, error: 'forbidden' }, { status: 403 });
   }
 
   // Basic abuse guard: cap submissions per IP (the proxy sets X-Forwarded-For).
   const limit = rateLimit(`quote:${ip}`);
   if (!limit.ok) {
+    refused('rate-limited');
     return NextResponse.json(
       { ok: false, error: 'rate-limited' },
       { status: 429, headers: { 'Retry-After': String(limit.retryAfterSec) } },
@@ -53,6 +62,7 @@ export async function POST(req: Request) {
   try {
     data = await req.json();
   } catch {
+    refused('invalid-json');
     return NextResponse.json({ ok: false, error: 'invalid-json' }, { status: 400 });
   }
 
@@ -60,33 +70,39 @@ export async function POST(req: Request) {
 
   // Honeypot: bots fill hidden fields. Pretend success, send nothing.
   if (typeof d.company === 'string' && d.company.trim() !== '') {
+    refused('honeypot filled (silently dropped)');
     return NextResponse.json({ ok: true });
   }
 
   // Timing trap: a real visitor takes seconds to fill the form; an instant
   // submit is a bot. Pretend success so the bot can't probe the threshold.
   if (typeof d.elapsedMs === 'number' && d.elapsedMs < MIN_ELAPSED_MS) {
+    refused('submitted too fast (silently dropped)');
     return NextResponse.json({ ok: true });
   }
 
   // Cloudflare Turnstile (only enforced when TURNSTILE_SECRET_KEY is set).
   if (!(await verifyTurnstile(d.turnstileToken, ip))) {
+    refused('captcha-failed');
     return NextResponse.json({ ok: false, error: 'captcha-failed' }, { status: 403 });
   }
 
   const payload = validateQuotePayload(data);
   if (!payload) {
+    refused('invalid-payload');
     return NextResponse.json({ ok: false, error: 'invalid-payload' }, { status: 422 });
   }
 
   if (!isSesConfigured()) {
-    // Let the client fall back to the WhatsApp / mailto handoff.
+    // The client then offers WhatsApp / the visitor's mail app instead.
+    refused('unconfigured (SES env missing)');
     return NextResponse.json({ ok: false, error: 'unconfigured' }, { status: 503 });
   }
 
   const replyTo = payload.kind === 'contact' ? payload.email : undefined;
   const result = await sendQuoteEmail(payload, replyTo);
   if (!result.ok) {
+    refused(`ses send failed: ${result.reason}`);
     const status = result.reason === 'unconfigured' ? 503 : 502;
     return NextResponse.json({ ok: false, error: result.reason }, { status });
   }

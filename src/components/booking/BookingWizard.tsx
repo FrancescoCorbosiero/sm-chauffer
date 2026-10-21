@@ -728,12 +728,16 @@ function WizardInner({ search }: { search: string | null }) {
 
   return (
     <div ref={rootRef} className="scroll-mt-28 rounded-3xl border border-line bg-white p-5 shadow-md sm:p-8">
-      {/* Honeypot — bots fill it, humans never see it. */}
+      {/* Honeypot — bots fill it, humans never see it. Deliberately not named
+          "company"/"organization": browser autofill fills those, which would
+          flag a real visitor as a bot. */}
       <input
         type="text"
-        name="company"
+        name="hp_ref_code"
         tabIndex={-1}
         autoComplete="off"
+        data-1p-ignore
+        data-lpignore="true"
         aria-hidden="true"
         value={company}
         onChange={(e) => setCompany(e.target.value)}
