@@ -34,6 +34,9 @@ script writes (`silhouettes/` and `src/lib/fleetPhotos.ts`).
 - JPG (keep the `.jpg` name). For a PNG, upload it with the same base name and
   change the extension in `src/lib/images.ts`.
 
+Don't run `scripts/generate-fleet-placeholders.mjs`: it overwrites these
+photos with placeholder images.
+
 ## Licensing reminder
 
 Use photos you own or that are licensed for commercial use (e.g. your own

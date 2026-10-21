@@ -1,44 +1,90 @@
-# Brand assets — where the logo and images live
+# Images and brand assets
 
-Everything in this `public/` folder is served from the site root. A file at
+Everything in this `public/` folder is served from the site root: a file at
 `public/logo.png` is reachable at `https://transferluxurydriverncc.it/logo.png`.
+Next.js resizes and compresses photos on the fly, so upload them large (sizes
+below) and don't worry about weight beyond ~1 MB each. The Docker image bakes
+in `public/`, so new files go live with the next deploy.
 
-**This is where you load the logo.** The files below currently contain
-auto-generated *placeholders* (a gold "SK" monogram on the brand-ink
-background). Replace each file in place — keep the **same filename and
-dimensions** and everything else (the navbar, favicon, social previews and
-SEO/structured data) picks them up automatically. No code changes needed.
+Use photos you own or that are licensed for commercial use (your own shots, or
+stock under a permissive licence such as Unsplash). It's the photograph that
+carries copyright, so don't pull images off the open web.
 
-To regenerate the placeholders from scratch: `node scripts/generate-brand-placeholders.mjs`.
+## 1. Files you can overwrite (same name = no code change)
 
-## Asset checklist
+### Photos
 
-| File | Used for | Recommended format & size | Referenced in |
-|------|----------|---------------------------|----------------|
-| `logo.png` | The header/navbar logo | Transparent PNG (or SVG), square, ≥ 512×512. Must read on **both** the white navbar and the dark hero. | `src/components/layout/Navbar.tsx` |
-| `favicon.ico` | Browser tab icon | ICO, 32×32 (16/32/48 multi-size ideal) | `src/app/layout.tsx` → `metadata.icons.icon` |
-| `apple-touch-icon.png` | iOS home-screen icon | Opaque PNG, 180×180 (iOS adds its own rounded corners) | `src/app/layout.tsx` → `metadata.icons.apple` |
-| `og.png` | **Rich content** — link previews on WhatsApp, iMessage, Facebook, LinkedIn, X, etc. + the `logo`/`image` in JSON-LD structured data | PNG or JPG, exactly **1200×630** | `src/app/layout.tsx` (Open Graph + Twitter) and `src/components/seo/JsonLd.tsx` |
+| File | Appears on |
+|------|------------|
+| `fleet/mercedes-s-class.jpg` | Mercedes Classe S everywhere: the showroom (home, /fleet), /fleet/mercedes-s-class, vehicle cards on the service and vehicle pages, the booking app, the comparison table and the price estimator (/fleet, /pricing) + the /about story image |
+| `fleet/mercedes-e-class.jpg` | Mercedes Classe E, same places |
+| `fleet/mercedes-v-class.jpg` | Mercedes Classe V, same places |
+| `fleet/range-rover.jpg` | Range Rover, same places (now 577×433: worth replacing) |
+| `fleet/bus-18.jpg` | Bus 18 posti, same places (now 812×450: worth replacing) |
+| `services/duomo-milano.jpg` | /services/autista-milano (header, tile, thumbnail), /ncc/milano, /areas, /en/chauffeur-service-milan, /de/chauffeur-service-mailand (now 750×600: too small for a full-width header) |
+| `services/duomo-monza.jpg` | /services/autista-brianza, /ncc/monza, /ncc/brianza, /areas |
+| `blog/lago-di-como.jpg` | Article /blog/milano-lago-como-autista, /ncc/como, /areas, /en/lake-como-private-driver, /de/chauffeur-comer-see |
+| `blog/milano-FW.jpg` | Article /blog/fashion-week-autista-privato (now 936×562: worth replacing) |
 
-### About "rich content" / link previews
+**After replacing a fleet photo, run `npm run fleet:prepare`** and commit
+what it writes (`fleet/silhouettes/` and `src/lib/fleetPhotos.ts`): the
+showroom uses it to frame the car. What a fleet photo needs (studio cut-out,
+three-quarter front view facing left) is in [`fleet/README.md`](fleet/README.md).
 
-When the site URL is shared in a chat or posted on social media, the preview
-card (big image + title + description) is driven by the **Open Graph** tags in
-`src/app/layout.tsx`, which point at `og.png`. Search engines additionally read
-the **JSON-LD** in `src/components/seo/JsonLd.tsx`, where `logo` points at
-`logo.png` and `image` points at `og.png`. So:
+### Brand
 
-- **Logo in Google Knowledge Panel / structured data** → `logo.png`
-- **Social/chat share card image** → `og.png`
+| File | Used for | Format |
+|------|----------|--------|
+| `logo.png` | Emblem in the header, footer and mobile menu; /links; the customer confirmation email; Google structured data | Square PNG, ≥ 512×512, round emblem centred with some margin like the current one: the header zooms it 1.48× into a circle (`scale-[1.48]` in `src/components/layout/Logo.tsx`) |
+| `favicon.ico` | Browser tab | ICO, 32×32 (16/32/48 multi-size ideal) |
+| `apple-touch-icon.png` | iOS home screen + web app manifest | Opaque PNG, 180×180 |
+| `android-chrome-192x192.png`, `android-chrome-512x512.png` | Android home screen (web app manifest). The 512 one is also the "maskable" icon: keep the emblem inside the central 80% | PNG |
+| `og.png` | The `image` of the business in Google structured data (`src/components/seo/JsonLd.tsx`) | PNG or JPG, 1200×630 |
+| `favicon-16x16.png`, `favicon-32x32.png` | Not referenced by the site (spare copies) | — |
 
-### Notes
+**Link previews** (WhatsApp, iMessage, Facebook, LinkedIn, X) have no file to
+upload: the card is generated by `src/app/opengraph-image.tsx`. Service, fleet,
+blog and landing pages use their own photo as preview instead.
 
-- Prefer a **transparent** `logo.png` so it works over the light navbar and the
-  dark homepage hero.
-- If you switch `og.png` to a `.jpg`, update the three references listed in the
-  table (search the repo for `og.png`).
-- The favicon, apple icon and `og.png` can also be provided via Next.js file
-  conventions (`src/app/icon.png`, `src/app/apple-icon.png`,
-  `src/app/opengraph-image.png`). This project uses the explicit `public/`
-  approach so all brand assets sit together in one folder — pick one approach,
-  don't mix both for the same icon.
+## 2. Unsplash photos (upload, then change one line)
+
+These still load from Unsplash. To use your own, upload the file to the
+suggested path, then in `src/lib/images.ts` replace the entry with the path
+(without `public`), for example:
+
+```ts
+hero: '/heroes/home.jpg',
+```
+
+| Entry in `src/lib/images.ts` | Appears on | Suggested upload path |
+|------------------------------|------------|-----------------------|
+| `hero` | Home page header | `public/heroes/home.jpg` |
+| `pageHeroes.about` | /about header | `public/heroes/about.jpg` |
+| `pageHeroes.blog` | /blog header | `public/heroes/blog.jpg` |
+| `services.airportTransfer` | /services/airport-transfer (header, tile, thumbnail), /en/milan-airport-transfer, /de/flughafentransfer-mailand | `public/services/airport-transfer.jpg` |
+| `services.tourPrivati` | /services/tour-privati, /en/milan-to-lake-como-transfer, /en/lake-como-private-tour, /de/mailand-comer-see-transfer, /de/comer-see-privat-tour | `public/services/tour-privati.jpg` |
+| `services.trasferimentiInternazionali` | /services/trasferimenti-internazionali | `public/services/trasferimenti-internazionali.jpg` |
+| `services.minibusGruppi` | /services/minibus-gruppi | `public/services/minibus-gruppi.jpg` |
+| `blog.malpensa` | Article /blog/guida-transfer-lusso-malpensa (now the same photo as `airportTransfer`) | `public/blog/malpensa.jpg` |
+| `blog.moritz` | Article /blog/malpensa-sankt-moritz | `public/blog/sankt-moritz.jpg` |
+
+## How each kind of photo is shown
+
+- **Page headers** (home, /about, /blog, each /services/…, /ncc/…, /en/…,
+  /de/…): full width, dimmed, and darkened from the left where the text sits.
+  Landscape, **≥ 2400×1350**, subject in the centre-right.
+- **Service photos** are also 4:3 tiles on /services and small black-and-white
+  thumbnails in the service lists, so keep the subject away from the edges.
+- **/areas tiles** (Milano, Monza/Brianza, Como): portrait 3:4 crop from the
+  centre, black and white until hovered.
+- **Blog covers**: 16:9 on the article, 16:10 on the cards. **≥ 1600×900.**
+- **Fleet**: in the showroom the photo is blended onto a pool of light, where
+  its white background disappears; elsewhere it sits on white cards. So it
+  must be a studio cut-out on white. Details in [`fleet/README.md`](fleet/README.md).
+
+## Don't run the placeholder scripts
+
+`scripts/generate-brand-placeholders.mjs` and
+`scripts/generate-fleet-placeholders.mjs` were used before the real assets
+existed. They **overwrite** `logo.png`, the icons, `og.png` and the fleet photos
+with placeholders, so don't run them now.
