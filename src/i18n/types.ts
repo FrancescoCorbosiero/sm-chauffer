@@ -574,6 +574,12 @@ export interface Dictionary {
     sentMailtoBody: string;
     reopenWhatsApp: string;
     newRequest: string;
+    /** The server couldn't send the email: what happened and the other ways. */
+    failedTitle: string;
+    failedBody: string;
+    failedRateLimited: string;
+    retry: string;
+    openMailApp: string;
   };
   /** Fleet showroom (/fleet, home page). */
   showroom: {

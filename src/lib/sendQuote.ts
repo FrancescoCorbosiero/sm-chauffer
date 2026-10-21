@@ -5,10 +5,11 @@ import { hasTurnstile } from './security';
 import { buildMailtoUrl, buildQuoteMessage, buildWhatsAppUrl, type QuotePayload } from './quoteMessage';
 
 /**
- * The two ways a request reaches the operator, shared by the booking app.
- * WhatsApp opens a pre-filled chat; email posts to /api/quote (SES) and, if
- * the server cannot send (no SES config, network, captcha), falls back to
- * the visitor's own mail client with the same message.
+ * The ways a request reaches the operator, shared by the booking app.
+ * WhatsApp opens a pre-filled chat; email posts to /api/quote (SES). If the
+ * server cannot send (no SES config, rate limit, captcha, network), the app
+ * says so and offers the other channels: the visitor's own mail client opens
+ * only when they ask for it (mailtoHref).
  */
 
 export function openWhatsApp(payload: QuotePayload): void {
@@ -29,12 +30,19 @@ async function waitForToken(read: () => string): Promise<string> {
   return read();
 }
 
-export type EmailResult = 'sent' | 'mailto';
+/** The same message as a mailto: link, for the visitor's own mail app. */
+export function mailtoHref(payload: QuotePayload): string {
+  return buildMailtoUrl(buildQuoteMessage(payload));
+}
+
+/** `reason` is the API's error code (e.g. 'rate-limited'), or 'network'. */
+export type EmailResult = { ok: true } | { ok: false; reason: string };
 
 export async function sendByEmail(
   payload: QuotePayload,
   opts: { locale: Locale; honeypot: string; turnstileToken: () => string },
 ): Promise<EmailResult> {
+  let reason = 'network';
   try {
     const turnstileToken = await waitForToken(opts.turnstileToken);
     const res = await fetch('/api/quote', {
@@ -50,10 +58,12 @@ export async function sendByEmail(
         turnstileToken,
       }),
     });
-    if (res.ok) return 'sent';
+    if (res.ok) return { ok: true };
+    const body = (await res.json().catch(() => null)) as { error?: string } | null;
+    reason = body?.error ?? `http-${res.status}`;
   } catch {
-    // network error: fall back to the mail client
+    // network error: reason stays 'network'
   }
-  window.location.href = buildMailtoUrl(buildQuoteMessage(payload));
-  return 'mailto';
+  console.warn('[quote] email delivery failed:', reason);
+  return { ok: false, reason };
 }

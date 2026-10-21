@@ -46,7 +46,7 @@ export default function LiveStatus({
       <span className="live-dot" aria-hidden />
       <span>{label ?? t.status.available}</span>
       {showTime && (
-        <span className="tabular opacity-80" suppressHydrationWarning>
+        <span className="tabular" suppressHydrationWarning>
           · {t.status.city} {time ?? '--:--'}
         </span>
       )}

@@ -890,6 +890,11 @@ const it: Dictionary = {
     sentMailtoBody: 'Abbiamo aperto la tua app di posta con la richiesta già scritta: premi Invia e ti rispondiamo in pochi minuti.',
     reopenWhatsApp: 'Riapri',
     newRequest: 'Nuova richiesta',
+    failedTitle: 'Invio non riuscito',
+    failedBody: 'La tua richiesta non è arrivata ai nostri sistemi. Riprova, oppure inviacela su WhatsApp o con la tua app email: i dati sono già compilati.',
+    failedRateLimited: 'Hai inviato diverse richieste in pochi minuti. Riprova tra qualche minuto, oppure scrivici su WhatsApp.',
+    retry: 'Riprova',
+    openMailApp: 'Apri la tua app email',
   },
   showroom: {
     prev: 'Vettura precedente',

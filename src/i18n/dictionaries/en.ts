@@ -890,6 +890,11 @@ const en: Dictionary = {
     sentMailtoBody: 'We opened your mail app with your request already written: tap Send and we reply within minutes.',
     reopenWhatsApp: 'Reopen',
     newRequest: 'New request',
+    failedTitle: 'We couldn’t send it',
+    failedBody: 'Your request didn’t reach us. Try again, or send it on WhatsApp or with your email app — the details are already filled in.',
+    failedRateLimited: 'You’ve sent several requests in a few minutes. Please try again shortly, or message us on WhatsApp.',
+    retry: 'Try again',
+    openMailApp: 'Open your email app',
   },
   showroom: {
     prev: 'Previous vehicle',

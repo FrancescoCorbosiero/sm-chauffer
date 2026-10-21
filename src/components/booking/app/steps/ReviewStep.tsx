@@ -1,14 +1,16 @@
 'use client';
 
-import { Check, Pencil } from 'lucide-react';
+import { AlertCircle, Check, Mail, Pencil, Phone } from 'lucide-react';
 import TurnstileWidget from '@/components/security/TurnstileWidget';
+import { phoneLabel, telHref } from '@/lib/contact';
 import TripTicket from '../TripTicket';
 import type { BookingForm } from '../useBookingForm';
 
 /** Step 4: the boarding pass, the contact details, then WhatsApp or email (footer). */
 export default function ReviewStep({ form }: { form: BookingForm }) {
-  const { t, draft, est } = form;
+  const { t, draft, est, failure } = form;
   const w = t.wizard;
+  const b = t.booking;
 
   const row = (label: string, value: string) =>
     value ? (
@@ -55,7 +57,34 @@ export default function ReviewStep({ form }: { form: BookingForm }) {
         <Check size={15} aria-hidden className="mt-0.5 shrink-0 text-ink" />
         {w.reviewNote}
       </p>
-      <TurnstileWidget onVerify={form.onTurnstile} />
+      {failure && (
+        <div data-send-failure role="alert" className="scroll-mb-28 rounded-3xl bg-white p-4 ring-1 ring-ink/15">
+          <p className="flex items-center gap-2 text-[15px] font-semibold text-ink">
+            <AlertCircle size={17} aria-hidden className="shrink-0" />
+            {b.failedTitle}
+          </p>
+          <p className="mt-1.5 text-[14px] leading-relaxed text-muted">
+            {failure.reason === 'rate-limited' ? b.failedRateLimited : b.failedBody}
+          </p>
+          <div className="mt-3.5 flex flex-wrap gap-2">
+            {/* The link opens the mail app; the confirmation follows once it has. */}
+            <a
+              href={failure.mailto}
+              onClick={() => window.setTimeout(form.mailAppOpened, 0)}
+              className="btn btn-outline btn-sm"
+            >
+              <Mail size={15} aria-hidden />
+              {b.openMailApp}
+            </a>
+            <a href={telHref(1)} className="btn btn-outline btn-sm tabular">
+              <Phone size={15} aria-hidden />
+              {phoneLabel(1)}
+            </a>
+          </div>
+        </div>
+      )}
+      {/* Remounted after a failed send: a retry needs a fresh token. */}
+      <TurnstileWidget key={form.attempt} onVerify={form.onTurnstile} />
     </div>
   );
 }
